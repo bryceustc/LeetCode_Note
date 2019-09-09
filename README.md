@@ -1,7 +1,7 @@
 LeetCode
 ========
 
-### LeetCode Solution
+### LeetCode Solutions
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
