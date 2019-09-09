@@ -1,7 +1,7 @@
 LeetCode
 ========
 
-### LeetCode Algorithm
+### LeetCode Solution
 
 (Notes: "&hearts;" means you need to buy a book from Leetcode)
 
