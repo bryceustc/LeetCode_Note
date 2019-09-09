@@ -1,7 +1,7 @@
 LeetCode
 ========
 
-### LeetCode Solutions
+### LeetCode 题解（C++，Python实现）
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
