@@ -17,6 +17,7 @@ public:
                throw invalid_argument("the input has no solution");
                return result;
 }
+        
 };
 
 void  printVec (const vector<int> & vec) {
