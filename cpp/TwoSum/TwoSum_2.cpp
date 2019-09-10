@@ -18,7 +18,7 @@ public:
         for(int i = 0 ; i < nums.size() ; i++){
  
             int complement = target - nums[i];
-            if(record.find(complement) != record.end()){                  //find函数找到元素就不会返回record.end() 没找到就会返回，这里判断是如果找到了
+            if(record.find(complement) != record.end()){   //find函数找到元素就不会返回record.end() 没找到就会返回，这里判断是否找到了
                 result.push_back(record[complement]);
                 result.push_back(i);
 
