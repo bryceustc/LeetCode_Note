@@ -5,6 +5,6 @@ LeetCode
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
-|1|[Two Sum](https://leetcode.com/problems/two-sum/)| [C++](./cpp/TwoSum), [Python](./python/Two_Sum/Two_Sum.py)|Easy|
-|2|[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)| [C++](./cpp/Add_Two_Numbers/Add_Two_Numbers.cpp), [Python](./python/Add_Two_Numbers/Add_Two_Numbers.py)|Medium|
-|3|[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)| [C++](./cpp/Longest_Substring_Without_Repeating_Characters/Longest_Substring_Without_Repeating_Characters.cpp), [Python](./python/Longest_Substring_Without_Repeating_Characters/Longest_Substring_Without_Repeating_Characters.py)|Medium|
+|1|[Two Sum](https://leetcode-cn.com/problems/two-sum/)| [C++](./cpp/TwoSum), [Python](./python/Two_Sum/Two_Sum.py)|Easy|
+|2|[Add Two Numbers](https://leetcode-cn.com/problems/add-two-numbers/)| [C++](./cpp/Add_Two_Numbers/Add_Two_Numbers.cpp), [Python](./python/Add_Two_Numbers/Add_Two_Numbers.py)|Medium|
+|3|[Longest Substring Without Repeating Characters](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)| [C++](./cpp/Longest_Substring_Without_Repeating_Characters/Longest_Substring_Without_Repeating_Characters.cpp), [Python](./python/Longest_Substring_Without_Repeating_Characters/Longest_Substring_Without_Repeating_Characters.py)|Medium|
