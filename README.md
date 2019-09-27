@@ -1,6 +1,6 @@
 LeetCode
 ========
-
+自己刷LeetCode整理的一些笔记，每题都用了两种语言实现，C++和Python 
 ### LeetCode 题解（C++，Python实现）
 
 | # | Title | Solution | Difficulty |
