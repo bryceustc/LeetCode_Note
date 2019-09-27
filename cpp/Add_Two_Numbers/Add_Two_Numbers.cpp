@@ -27,7 +27,7 @@ public:
             val1 = (l1!=NULL)?l1->val:0;
             val2 = (l2!=NULL)?l2->val:0;
             sum_val = (val1 + val2 + carry) % 10;
-            carry = (val1 + val2 + carry)/10; //进位为0或1
+            carry = (val1 + val2 + carry)/10; //进位为0或大于1
             
             l3->next = new ListNode (sum_val);
             l3 = l3->next;
