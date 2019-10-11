@@ -1,7 +1,7 @@
 
 /// Source : https://leetcode.com/problems/add-two-numbers/description/
 /// Author : bryce
-/// Time   : 2019-09-09
+/// Time   : 2019-10-11
 
 #include <iostream>
 
@@ -36,9 +36,9 @@ public:
             if(l2!=NULL) l2=l2->next;
         }
         
-        if(carry == 1)
+        if(carry >= 1)
         {
-            l3->next = new ListNode(1);   //不要忽略最后一位的进位
+            l3->next = new ListNode(carry);   //不要忽略最后一位的进位
         }
         
         return sum->next;                  //返回除头节点以外数
