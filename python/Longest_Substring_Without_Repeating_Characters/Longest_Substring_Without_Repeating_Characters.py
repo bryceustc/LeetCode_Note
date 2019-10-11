@@ -10,12 +10,11 @@ class Solution(object):
         ls = len(s)
         max_len = 0
         l=0
-        for r in range(ls):
-            # Note that when charMap[ord(s[j])] >= i, it means that there are
-            # duplicate character in current i,j. So we need to update i.
-            
+        r=0
+        while(r < ls):
             if freq[ord(s[r])] ==0:
                 freq[ord(s[r])] += 1
+                r+=1
             else:
                 freq[ord(s[l])] -= 1
                 l +=1
