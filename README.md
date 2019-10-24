@@ -1,7 +1,7 @@
 LeetCode
 ========
 自己刷LeetCode整理的一些笔记，每道题都基本用了两种语言实现，C++和Python，有什么错误欢迎指出。
-### LeetCode 题解（C++，Python实现）
+### LeetCode 题解（C++，Python实现）（持续更新中...）
 
 | # | Title | Solution | Difficulty |
 |---| ----- | -------- | ---------- |
