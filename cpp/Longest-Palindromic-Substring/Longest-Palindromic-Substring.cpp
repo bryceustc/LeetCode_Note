@@ -1,3 +1,12 @@
+/// Source : https://leetcode-cn.com/problems/longest-palindromic-substring/
+/// Author : bryce
+/// Time   : 2019-10-26
+
+#include <iostream>
+#include <string>
+#include <cassert>
+
+using namespace std;
 class Solution {
 public:
     string longestPalindrome(string s) {
@@ -11,7 +20,7 @@ public:
         return s.substr(start, maxlen);
     }
     
-    void findPalindrome(string s, int left, int right, int& start, int& maxlen){//&通过引用控制实参
+    void findPalindrome(string s, int left, int right, int& start, int& maxlen){//用&是通过引用访问实参 控制实参的
         while(left >=0 && s[left] == s[right]){
             left--;
             right++;
@@ -22,3 +31,10 @@ public:
         }
     }
 };
+
+int main() {
+
+    cout << Solution().longestPalindrome( "babad" )<<endl; //3
+    cout << Solution().longestPalindrome( "cbbd" )<<endl;    //1
+    return 0;
+}
