@@ -5,13 +5,13 @@ public:
         int n = s.size(), maxlen = 0, start = 0;
         for (int i = 0; i < n - 1; i++ )
         {
-            findPalindrome(s, i, i, start, maxlen);
-            findPalindrome(s, i, i+1, start, maxlen);
+            findPalindrome(s, i, i, start, maxlen);//奇数情况
+            findPalindrome(s, i, i+1, start, maxlen);//偶数情况
         }
         return s.substr(start, maxlen);
     }
     
-    void findPalindrome(string s, int left, int right, int& start, int& maxlen){
+    void findPalindrome(string s, int left, int right, int& start, int& maxlen){//&通过引用控制实参
         while(left >=0 && s[left] == s[right]){
             left--;
             right++;
