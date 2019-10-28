@@ -1,4 +1,6 @@
-# Definition for singly-linked list.
+#! /usr/bin/env python
+#! -*- coding=utf-8 -*-
+# Author: Bryce
 class ListNode(object):
     def __init__(self, x):
         self.val = x
