@@ -11,3 +11,4 @@ LeetCode
 |4|[Median of Two Sorted Arrays](https://leetcode-cn.com/problems/median-of-two-sorted-arrays/)| [C++](./cpp/Median_Of_Two_Sorted_Arrays/Median_Of_Two_Sorted_Arrays.cpp), [Python](./python/Median_Of_Two_Sorted_Arrays/Median_Of_Two_Sorted_Arrays.py)|Hard|
 |5|[Longest-Palindromic-Substring](https://leetcode-cn.com/problems/longest-palindromic-substring/)| [C++](./cpp/Longest-Palindromic-Substring/Longest-Palindromic-Substring.cpp), [Python](./python/Longest-Palindromic-Substring/Longest-Palindromic-Substring.py)|Medium|
 |6|[Zigzag-Conversion](https://leetcode-cn.com/problems/zigzag-conversion/)| [C++](./cpp/Zigzag-Conversion/Zigzag-Conversion.cpp), [Python](./python/Zigzag-Conversion/Zigzag-Conversion.py)|Medium|
+|7|[Reverse-Integer](https://leetcode-cn.com/problems/reverse-integer/)| [C++](./cpp/Reverse-Integer/Reverse-Integer.cpp), [Python](./python/Reverse-Integer/Reverse-Integer.py)|Easy|
