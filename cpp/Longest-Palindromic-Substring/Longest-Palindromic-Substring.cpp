@@ -34,7 +34,7 @@ public:
 
 int main() {
 
-    cout << Solution().longestPalindrome( "babad" )<<endl; //3
-    cout << Solution().longestPalindrome( "cbbd" )<<endl;    //1
+    cout << Solution().longestPalindrome( "babad" )<<endl; 
+    cout << Solution().longestPalindrome( "cbbd" )<<endl; 
     return 0;
 }
