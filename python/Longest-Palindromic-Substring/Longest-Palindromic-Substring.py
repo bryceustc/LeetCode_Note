@@ -1,6 +1,48 @@
 #! /usr/bin/env python
 #! -*- coding=utf-8 -*-
 # Author: Bryce
+
+
+class Solution:
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        
+        l=list(s)
+        length = len(l)
+        if length == 0:
+            return ""
+        if length == 1:
+            return s
+        temp=[]
+        result = []
+        i = 0
+        ii = 0
+        j = 1
+        flag = True
+        while ii < length:
+            i = ii - 1
+            j = ii + 1
+            while j < length and l[ii] == l[j]:
+                j = j + 1
+                temp = l[ii:j]
+            while (i>=0 and j<=length-1 and l[i] == l[j]):
+                temp = l[i:j+1]
+                i = i - 1
+                j = j + 1
+            if len(temp) > len(result):
+                result = temp
+            ii = ii + 1            
+        if len(result) == 0:
+            return l[0]
+        return "".join(result)
+
+
+
+
+
 class Solution:
     def longestPalindrome(self, s):
         """
