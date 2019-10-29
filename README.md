@@ -12,3 +12,4 @@ LeetCode
 |5|[Longest-Palindromic-Substring](https://leetcode-cn.com/problems/longest-palindromic-substring/)| [C++](./cpp/Longest-Palindromic-Substring/Longest-Palindromic-Substring.cpp), [Python](./python/Longest-Palindromic-Substring/Longest-Palindromic-Substring.py)|Medium|
 |6|[Zigzag-Conversion](https://leetcode-cn.com/problems/zigzag-conversion/)| [C++](./cpp/Zigzag-Conversion/Zigzag-Conversion.cpp), [Python](./python/Zigzag-Conversion/Zigzag-Conversion.py)|Medium|
 |7|[Reverse-Integer](https://leetcode-cn.com/problems/reverse-integer/)| [C++](./cpp/Reverse-Integer/Reverse-Integer.cpp), [Python](./python/Reverse-Integer/Reverse-Integer.py)|Easy|
+|8|[String-To-Integer-Atoi](https://leetcode-cn.com/problems/string-to-integer-atoi/)| [C++](./cpp/String-To-Integer-Atoi/String-To-Integer-Atoi.cpp), [Python](./python/String-To-Integer-Atoi/String-To-Integer-Atoi.py)|Medium|
