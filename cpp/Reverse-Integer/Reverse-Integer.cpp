@@ -48,11 +48,9 @@ public:
         return res;
     }
 };
-复杂度分析
 
-时间复杂度：O(log(x))O(\log(x))O(log(x))，xxx 中大约有 log10(x)\log_{10}(x)log 
-10 (x) 位数字。
-空间复杂度：O(1)O(1)O(1)。
+时间复杂度：O(log(x))
+空间复杂度：O(1)
 
 
 int main() {
