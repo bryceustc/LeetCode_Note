@@ -35,21 +35,25 @@ public:
 };
 
 class Solution2 {
-    public int reverse(int x) {
-        long temp = 0;
-       
-        while(x != 0){
+public:
+    int reverse(int x) {
+        int res = 0;
+        while (x != 0) {
             int pop = x % 10;
-            temp = temp * 10 + pop;
-            
-            if(temp > Integer.MAX_VALUE || temp < Integer.MIN_VALUE){
-                return 0;
-            }
             x /= 10;
+            if (res > INT_MAX/10 || (rev == INT_MAX / 10 && pop > 7)) return 0; // 2^31-1 = 2147483647
+            if (res < INT_MIN/10 || (rev == INT_MIN / 10 && pop < -8)) return 0;//2^31 = 2147483648
+            res = res * 10 + pop;
         }
-        return (int)temp;
+        return res;
     }
-}
+};
+复杂度分析
+
+时间复杂度：O(log(x))O(\log(x))O(log(x))，xxx 中大约有 log10(x)\log_{10}(x)log 
+10 (x) 位数字。
+空间复杂度：O(1)O(1)O(1)。
+
 
 int main() {
 
