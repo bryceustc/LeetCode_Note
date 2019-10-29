@@ -1,6 +1,7 @@
 /// Source : https://leetcode-cn.com/problems/reverse-integer/
 /// Author : bryce
 /// Time   : 2019-10-29
+/*
 class Solution {
 public:
     int reverse(int x) {
@@ -31,6 +32,23 @@ public:
         return res;
         
         
+    }
+};
+*/
+class Solution {
+public:
+    int reverse(int x) {
+        long int res = 0;
+        long int pop = 0;
+        while(x!=0)
+        {
+            pop = x % 10;
+            x /=10;
+            res = res * 10 + pop;
+        }
+        if (res > (pow(2,31)-1) || res < (-pow(2,31))) 
+            res = 0;
+        return res;
     }
 };
 
