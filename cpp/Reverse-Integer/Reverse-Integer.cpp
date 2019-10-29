@@ -10,12 +10,14 @@ public:
         int temp = x;
         int count = 0;
         long int i = 0,j=0;
-        while(temp)
+        
+        while(temp) //获取位数
         {
             count++;
             temp /=10;
         }
-        while(x)
+        
+        while(x)//计算每一位数字
         {
             i = x / pow(10,count-1);
             x = x - i*pow(10,count-1);
@@ -31,6 +33,23 @@ public:
         
     }
 };
+
+class Solution2 {
+    public int reverse(int x) {
+        long temp = 0;
+       
+        while(x != 0){
+            int pop = x % 10;
+            temp = temp * 10 + pop;
+            
+            if(temp > Integer.MAX_VALUE || temp < Integer.MIN_VALUE){
+                return 0;
+            }
+            x /= 10;
+        }
+        return (int)temp;
+    }
+}
 
 int main() {
 
