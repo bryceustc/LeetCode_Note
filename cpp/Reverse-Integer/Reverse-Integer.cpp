@@ -9,7 +9,7 @@ public:
         int n = pow(2,31) - 1;
         int temp = x;
         int count = 0;
-        long int i = 0,j=0;
+        long int i = 0, j = 0;
         
         while(temp) //获取位数
         {
