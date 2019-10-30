@@ -3,6 +3,7 @@
 /// Time   : 2019-10-30
 #include <iostream>
 #include <string>
+using namespace std;
 
 class Solution {
 public:
