@@ -34,7 +34,7 @@ public:
         while (str[i]>='0' && str[i] <='9')
         {
             int r = str[i] - '0';
-            if ((res > INT_MAX /10 || (res == INT_MAX /10 && r > 7)))//比较最后一位 /是去掉最后一位，&是取最后一位
+            if ((res > INT_MAX /10 || (res == INT_MAX /10 && r > 7)))
             {
                 if (flag > 0)
                     return INT_MAX;
