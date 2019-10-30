@@ -41,7 +41,7 @@ public:
                 else
                     return INT_MIN;
             }
-            res = res*10 + r;
+            res = res * 10 + r;
             i++;
         }
         
