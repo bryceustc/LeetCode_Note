@@ -16,13 +16,10 @@ class Solution(object):
         
         if len(str) == 0:
             return 0
-        
         while (i < len(str) and (str[i]==' ' or str[i]=='/t')):
-            
             i+=1
         if (i > len(str)):
             return 0
-        
         if (i < len(str) and str[i]=='-'):
             flag = -1
             i+=1
@@ -30,7 +27,6 @@ class Solution(object):
             if(flag == -1):
                 return 0
             i+=1
-        
         while (i < len(str) and str[i] >= '0' and str[i] <= '9'):
             r = int (ord(str[i]) - ord('0'))
             if res > (pow(2,31) - 1)/10 or (res == (pow(2,31) - 1)/10 and r > 7 ):
