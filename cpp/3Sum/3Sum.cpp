@@ -1,6 +1,14 @@
 /// Source : https://leetcode-cn.com/problems/3sum/
 /// Author : bryce
 /// Time   : 2019-11-06
+/*
+一重循环k无重复枚举第一个数字，然后接下来采用两头向里寻找的方式无重复的构造剩下的两个数字，具体在循环中：
+
+初始化l为st+1，r为n-1。
+当l<r时，如果当前nums[l] + nums[r] == target，则增加答案并同时向后无重复移动l，向前无重复移动r；
+否则根据nums[l] + nums[r]与target的关系判断移动l还是移动r。
+*/
+
 
 #include <iostream>
 #include <string>
