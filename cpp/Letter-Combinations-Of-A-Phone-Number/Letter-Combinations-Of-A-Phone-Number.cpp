@@ -64,6 +64,31 @@ public:
   2:   a    b    c
       /|\  /|\  /|\
   3:  def  def  def
-所以就可以用DFS求解这题了。
+就可以用DFS求解这题了。
+首先建立一个字典，用来保存每个数字所代表的字符串，然后还需要一个变量level，记录当前生成的字符串的字符个数。在递归函数中首先判断level，如果跟digits
+中的数字的个数相等了，将当前的组合加入结果res中，然后返回。我们通过digits中的数字到dict中取出字符串，然后遍历这个取出的字符串，将每个字符都加到当前
+的组合后面，并调用递归函数即可。
 */
 
+// C++ Solution 3:
+class Solution {
+public:
+    vector<string> letterCombinations(string digits) {
+        vector<string> res;
+        if (digits.empty()) return res;
+        string dict[] = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        letterCombinationsDFS(digits, dict, 0, "", res);
+        return res;
+    }
+    void letterCombinationsDFS(string digits, string dict[], int level, string out, vector<string> &res) {
+        if (level == digits.size()) res.push_back(out);
+        else {
+            string str = dict[digits[level] - '2'];
+            for (int i = 0; i < str.size(); ++i) {
+                out.push_back(str[i]);
+                letterCombinationsDFS(digits, dict, level + 1, out, res);
+                out.pop_back();  // 删除 vector 最尾端的元素
+            }
+        }
+    }
+};
