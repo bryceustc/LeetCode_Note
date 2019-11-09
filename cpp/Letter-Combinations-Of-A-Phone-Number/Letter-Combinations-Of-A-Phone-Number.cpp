@@ -14,12 +14,13 @@ public:
     vector<string> letterCombinations(string digits) {
         vector<string> res;
         if (digits.empty()) return res;
-        string dict[] = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        unordered_map<char,string> dict{{'2',"abc"},{'3',"def"},{'4',"ghi"},{'5',"jkl"},
+                                      {'6',"mno"},{'7',"pqrs"},{'8',"tuv"},{'9',"wxyz"}};
         res.push_back("");
         for (int i = 0; i < digits.size(); i++)
         {
             int n = res.size();
-            string str = dict[digits[i] - '2'];
+            string str = dict[digits[i]];
             for (int j = 0; j < n;j++)
             {
                 string temp = res.front();    //vec.front() 返回第一个元素的值，与begin()函数有区别，begin()函数返回的是第一个元素的迭代器
