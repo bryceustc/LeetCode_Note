@@ -47,7 +47,7 @@ public:
             vector<string> temp;
             string str = mp[digits[i]];
             for(int j=0;j<str.size();j++){
-                for(string s:result) 
+                for(string s:result)          // C++11 里面的for的新写法，表示依次取出字符串数组result中的元素
                     temp.push_back(s+str[j]);
             }
             result = temp;
