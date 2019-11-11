@@ -17,26 +17,23 @@ public:
 
         int freq[256] = {0};
 
-        int l = 0, r = -1; // sliding window: s[l...r]
+        int l = 0, r = 0; // sliding window: s[l...r]
         int res = 0;
 
-        while(r + 1 < s.size()){
-            //cout << s[r+1] << endl;
-            //cout << freq[s[r+1]] << endl;
-            if( freq[s[r + 1]] == 0 )
+        while(r < s.size()){
+            if( freq[s[r]] == 0 )
             {
-               r++;
                freq[s[r]] ++;
+               r++;
              }
-            else    //freq[s[r+1]] == 1
+            else
             {
                freq[s[l]] --;
                l++;
             }
 
-            res = max(res, r - l + 1);
+            res = max(res, r - l);
         }
-
         return res;
     }
 };
