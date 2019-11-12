@@ -12,8 +12,12 @@
 
 
 时间复杂度：
-两个链表各遍历一次，所以时间复杂度为O(n)
+两个链表各遍历一次，所以时间复杂度为O(n+m)
+空间复杂度：
+O(1)。迭代过程中产生几个指针，所需空间为常数级别。
 */
+
+// C++ Solution 1: (线性合并)
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
@@ -22,7 +26,7 @@ public:
       ListNode* l3;
       while( l1!=NULL && l2!=NULL)
       {
-        if (l1->val <= l2->val)
+        if (l1->val < l2->val)
         {
           temp->next = l1;
           l1 = l1->next;
@@ -41,5 +45,36 @@ public:
       l3 = dummyHead->next;
       delete dummyHead;
       return l3;
+    }
+};
+/*
+递归思路：
+可以定义递归操作：
+    list[0] + merge(list[1:],list2)   (list[0] < list2[0])
+    list[2] + merge(list1,list2[1:])   otherwise
+    两个链表头部较小的一部分与剩下的merge操作合并。
+时间复杂度：O(m+n)
+空间复杂度：O(m+n)
+*/
+
+
+// C++ Solution 2: (递归)
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if (l1 == NULL)
+            return l2;
+        if (l2 == NULL)
+            return l1;
+        if (l1->val < l2->val)
+        {
+            l1->next = mergeTwoLists(l1->next,l2);
+            return l1;
+        }
+        else
+        {
+            l2->next = mergeTwoLists(l1,l2->next);
+            return l2;
+        }
     }
 };
