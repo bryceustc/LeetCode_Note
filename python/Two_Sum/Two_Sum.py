@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 #! -*- coding=utf-8 -*-
-# Date: 8/12/19
+# Date: 2019-10-12
 # Author: Bryce
 
 class Solution:
