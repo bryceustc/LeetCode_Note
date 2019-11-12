@@ -49,11 +49,11 @@ public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int n = nums.size();
         vector<int> res;
-        unordered_map<int,int> record;
+        unordered_map<int,int> record;   //unordered_map是存储<key, value>键值对的关联式容器，其允许通过keys快速的索引到与其对应的value
         for (int i = 0;i<n;i++)
         {
             int complement = target - nums[i];
-            if (record.find(complement) != record.end())
+            if (record.find(complement) != record.end())   //find函数找到元素就不会返回record.end() 没找到就会返回
             {
                 res.push_back(record[complement]);
                 res.push_back(i);
