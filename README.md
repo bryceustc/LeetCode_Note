@@ -26,3 +26,5 @@ LeetCode
 |19|[Remove-Nth-Node-From-End-Of-List](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)| [C++](./cpp/Remove-Nth-Node-From-End-Of-List/Remove-Nth-Node-From-End-Of-List.cpp), [Python](./python/Remove-Nth-Node-From-End-Of-List/Remove-Nth-Node-From-End-Of-List.py)|Medium|
 |20|[Valid-Parentheses](https://leetcode-cn.com/problems/valid-parentheses/)| [C++](./cpp/Valid-Parentheses/Valid-Parentheses.cpp), [Python](./python/Valid-Parentheses/Valid-Parentheses.py)|Easy|
 |21|[Merge-Two-Sorted-Lists](https://leetcode-cn.com/problems/Merge-Two-Sorted-Lists/)| [C++](./cpp/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.cpp), [Python](./python/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.py)|Easy|
+
+|22|[Generate-Parentheses](https://leetcode-cn.com/problems/generate-parentheses/)| [C++](./cpp/Generate-Parentheses/Generate-Parentheses.cpp), [Python](./python/Generate-Parentheses/Generate-Parentheses.py)|Medium|
