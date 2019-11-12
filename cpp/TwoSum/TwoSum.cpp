@@ -41,6 +41,9 @@ public:
 };
 
 // C++ Solution 2: (哈希表)
+/// Time Complexity: O(n)
+/// Space Complexity: O(n)
+
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
