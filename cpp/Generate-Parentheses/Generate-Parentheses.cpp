@@ -41,7 +41,7 @@ public:
       if (l==0 && r==0)      // 相当于节点为空，也就是深搜不能再深入了 
         res.push_back(out);
       if (l > 0) DFS(l-1,r,out+'(',res);  // 相当于左节点还存在
-      if (r > l) DFS(l,r-1,out+')',res);  // 相当于右节点还存在
+      if (r > 0 && r > l) DFS(l,r-1,out+')',res);  // 相当于右节点还存在
     }
     }
 };
