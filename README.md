@@ -27,3 +27,4 @@ LeetCode
 |20|[Valid-Parentheses](https://leetcode-cn.com/problems/valid-parentheses/)| [C++](./cpp/Valid-Parentheses/Valid-Parentheses.cpp), [Python](./python/Valid-Parentheses/Valid-Parentheses.py)|Easy|
 |21|[Merge-Two-Sorted-Lists](https://leetcode-cn.com/problems/Merge-Two-Sorted-Lists/)| [C++](./cpp/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.cpp), [Python](./python/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.py)|Easy|
 |22|[Generate-Parentheses](https://leetcode-cn.com/problems/generate-parentheses/)| [C++](./cpp/Generate-Parentheses/Generate-Parentheses.cpp), [Python](./python/Generate-Parentheses/Generate-Parentheses.py)|Medium|
+|23|[Merge-K-Sorted-Lists](https://leetcode-cn.com/problems/merge-k-sorted-lists/)| [C++](./cpp/Merge-K-Sorted-Lists/Merge-K-Sorted-Lists.cpp), [Python](./python/Merge-K-Sorted-Lists/Merge-K-Sorted-Lists.py)|Hard|
