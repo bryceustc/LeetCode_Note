@@ -75,10 +75,7 @@ public:
 // C++ Solution 2: (分治法)
 /*
 思路：
-k个链表先划分为合并两个 k/2 个链表的任务，再不停的往下划分，直到划分成只有一个或两个链表的任务，开始合并。
-举个例子来说比如合并6个链表，那么按照分治法，首先分别合并0和3，1和4，2和5。这样下一次只需合并3个链表，再合并1和3，最后和2合并就可以了。
-代码中的mid是通过 (k+1)/2 计算的，这里为啥要加1呢，这是为了当k为奇数的时候，k能始终从后半段开始，比如当 n=5 时，那么此时 k=3，则0和3合并，
-1和4合并，最中间的2空出来。当n是偶数的时候，加1也不会有影响，比如当 n=4 时，此时 k=2，那么0和2合并，1和3合并，完美解决问题
+将所有待合并的有序单向链表进行递归分治处理，即将当前链表的序列分成两部分，每部分递归进行合并，然后将当前左右两部分合并的结果再进行两两合并即可。
 
 
 
@@ -95,7 +92,7 @@ public:
             return lists[0];
         int mid = k/2;
         auto left = vector<ListNode*> (lists.begin(),lists.begin()+mid);
-        auto right = vector<ListNode*>(lists.begin()+mid,lists.end());
+        auto right = vector<ListNode*>(lists.begin()+mid,lists.end());  ///疑问 起始为什么不是mid+1
         ListNode* l1 = mergeKLists(left);
         ListNode* l2 = mergeKLists(right);
         res = merge2Lists(l1,l2);
