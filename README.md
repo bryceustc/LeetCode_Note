@@ -28,3 +28,4 @@ LeetCode
 |21|[Merge-Two-Sorted-Lists](https://leetcode-cn.com/problems/Merge-Two-Sorted-Lists/)| [C++](./cpp/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.cpp), [Python](./python/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.py)|Easy|
 |22|[Generate-Parentheses](https://leetcode-cn.com/problems/generate-parentheses/)| [C++](./cpp/Generate-Parentheses/Generate-Parentheses.cpp), [Python](./python/Generate-Parentheses/Generate-Parentheses.py)|Medium|
 |23|[Merge-K-Sorted-Lists](https://leetcode-cn.com/problems/merge-k-sorted-lists/)| [C++](./cpp/Merge-K-Sorted-Lists/Merge-K-Sorted-Lists.cpp), [Python](./python/Merge-K-Sorted-Lists/Merge-K-Sorted-Lists.py)|Hard|
+|24|[Swap-Nodes-In-Pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)| [C++](./cpp/Swap-Nodes-In-Pairs/Swap-Nodes-In-Pairs.cpp), [Python](./python/Swap-Nodes-In-Pairs/Swap-Nodes-In-Pairs.py)|Medium|
