@@ -5,12 +5,11 @@
 
 /*
 思路：
-将合并 k 个链表的问题转化成合并 2 个链表k-1 次。类似两个有序链表合并排序，
-1. 先判断是否为空，为空则返回空指针
-2. 判断lists长度，如果为1，则直接返回lists[0]
-3. 然后新建保护结点dummyHead,并令temp指针指向dummyHead
-4. 采取与两个有序链表l1,l2合并的方法，然后按循环两个依次合并，先指向lists[0]的l1与指向lists[1]的l2合并，将l1指向合并链表再,l2指向下一个lists
-5. 重复步骤4 直至跳出循环
+基本的链表操作题，可以用迭代和递归两种方法实现，迭代方法：
+1. 新建虚拟保护节点dummyHead，并且dummyHead的next指针指向head,并新建temp指针指向dummyHead
+2. 新建s1,s2,s三个指针，分别指向temp后三个指针，即分别指向next指针，next的next指针，next的next的next指针
+3. 根据画图链表，可以分析出要交换相邻两结点，则temp的next指针指向s2,而s2的next指针指向s1,s1的next指针指向s,
+4. 然后再将temp指向s2,进行循环，重复上述步骤，直至temp的next为空或temp的next的next为空
 时间复杂度：
 O(kn)
 空间复杂度：
@@ -22,15 +21,22 @@ O(1)
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        ListNode *dummy = new ListNode(-1), *pre = dummy;
-        dummy->next = head;
-        while (pre->next && pre->next->next) {
-            ListNode *t = pre->next->next;
-            pre->next->next = t->next;
-            t->next = pre->next;
-            pre->next = t;
-            pre = t->next;
-        }
-        return dummy->next;
+      ListNode* dummyHead = new ListNode(0);
+      ListNode* temp = dummyHead;
+      dummyHead->next = head;
+      ListNode* res;
+      while(temp->next != NULL && temp->next->next != NULL)
+      {
+        ListNode* s1 = temp->next;
+        ListNode* s2 = s1->next;
+        ListNode* s = s2->next;
+        temp->next = s2;
+        s2->next = s1;
+        s1->next = s;
+        temp = temp->next->next;//temp = s2;
+      }
+      res = dummyHead->next;
+      delete dummyHead;
+      return res;
     }
 };
