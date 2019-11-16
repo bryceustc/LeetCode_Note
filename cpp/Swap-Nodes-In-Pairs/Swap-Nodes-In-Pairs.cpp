@@ -40,3 +40,20 @@ public:
       return res;
     }
 };
+/*
+递归的写法就更简洁了，实际上利用了回溯的思想，递归遍历到链表末尾，然后先交换末尾两个，然后依次往前交换：
+终止条件：head 为空指针或者 next 为空指针，也就是当前无节点或者只有一个节点，无法进行交换
+*/
+
+// C++ Solution 2:
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+      if(head == NULL || head->next == NULL)
+        return head;
+      ListNode* res = head->next;
+      head->next = swapPairs(head->next->next);
+      res->next = head;
+      return res;
+    }
+};
