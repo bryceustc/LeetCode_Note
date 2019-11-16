@@ -93,7 +93,7 @@ public:
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode *dummy = new ListNode(-1), *pre = dummy, *cur = pre;
+        ListNode *dummy = new ListNode(0), *pre = dummy, *cur = pre;
         dummy->next = head;
         int num = 0;
         while (cur = cur->next) ++num;
