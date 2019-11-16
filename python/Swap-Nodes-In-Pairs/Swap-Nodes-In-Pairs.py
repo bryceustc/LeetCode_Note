@@ -34,3 +34,15 @@ class Solution(object):
         return res
       
 ################Python Solution 2: (递归)
+class Solution(object):
+    def swapPairs(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head is None or head.next is None:
+            return head
+        res = head.next
+        head.next = self.swapPairs(head.next.next)
+        res.next = head
+        return res
