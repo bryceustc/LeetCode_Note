@@ -32,3 +32,4 @@ LeetCode
 |25|[Reverse-Nodes-In-K-Group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)| [C++](./cpp/Reverse-Nodes-In-K-Group/Reverse-Nodes-In-K-Group.cpp), [Python](./python/Reverse-Nodes-In-K-Group/Reverse-Nodes-In-K-Group.py)|Hard|
 |26|[Remove-Duplicates-From-Sorted-Array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)| [C++](./cpp/Remove-Duplicates-From-Sorted-Array/Remove-Duplicates-From-Sorted-Array.cpp), [Python](./python/Remove-Duplicates-From-Sorted-Array/Remove-Duplicates-From-Sorted-Array.py)|Easy|
 |27|[Remove-Element](https://leetcode-cn.com/problems/remove-element/)| [C++](./cpp/Remove-Element/Remove-Element.cpp), [Python](./python/Remove-Element/Remove-Element.py)|Easy|
+|28|[Implement-Strstr](https://leetcode-cn.com/problems/implement-strstr/)| [C++](./cpp/Implement-Strstr/Implement-Strstr.cpp), [Python](./python/Implement-Strstr/Implement-Strstr.py)|Easy|
