@@ -3,15 +3,57 @@
 /// Time   : 2019-11-17
 
 /*
-思路：
-基本的链表操作题，可以用迭代和递归两种方法实现，迭代方法：
-1. 新建虚拟保护节点dummyHead，并且dummyHead的next指针指向head,并新建temp指针指向dummyHead
-2. 新建s1,s2,s三个指针，分别指向temp后三个指针，即分别指向next指针，next的next指针，next的next的next指针
-3. 根据画图链表，可以分析出要交换相邻两结点，则temp的next指针指向s2,而s2的next指针指向s1,s1的next指针指向s,
-4. 然后再将temp指向s2,进行循环，重复上述步骤，直至temp的next为空或temp的next的next为空
+思路(双指针移动)：
+1. 如果nums为空，直接返回0
+2. 初始化k = 0,从i=1开始遍历整个数组，如果nums[k]不等于nums[i]，说明没有遇到重复元素，就是新元素，令nums[++k] = nums[i]
+3. 返回res = k+1,
 时间复杂度：
-遍历一遍链表，时间复杂度为O(L)
+遍历一遍数组，时间复杂度为O(n)
+*/
+// C++ Solution 1:(for 循环)
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+      int res = 0;
+      int n = nums.size();
+      int k = 0;
+      if (nums.empty()) return res;
+      for (int i = 1; i<n;i++)
+      {
+        if (nums[k] != nums[i])
+          nums[++k] = nums[i];
+      }
+      res = k+1;
+      return res;
+    }
+};
+/*
+使用l,r左右两个指针来记录遍历的坐标
+1. 开始两个指针指向同一元素
+2. 如果左指针和右指针相等，向后移动右指针
+3. 如果不相等，则同时向后移动左右指针
+4. 当右指针走完整个数组后，左指针当前的坐标加1就是数组中不同数字的个数
 */
 
-
-// C++ Solution 1:
+// C++ Solution 2: (双指针)
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+      int l = 0, r = 0, res = 0;
+      if (nums.empty()) return res;
+      int n = nums.size();
+      while(l<=r)
+      {
+        if (nums[r] == nums[l]) 
+          r++;
+        else
+        {
+          l++;
+          nums[l] = nums[r];
+          r++;
+        }
+      }
+      res = l + 1;
+      return res;
+    }
+};
