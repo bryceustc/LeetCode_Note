@@ -61,4 +61,28 @@ public:
     }
 };
 
-//C++ Solution 3: (KMP算法)
+//C++ Solution 3: (KMP算法)[https://blog.csdn.net/v_july_v/article/details/7041827]
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+         int n = haystack.size(), m = needle.size();
+        if (m == 0)
+            return 0;
+        vector<int> next(m);
+        next[0] = -1;
+        int j = -1;
+        for (int i = 1; i < m; i++) {
+            while (j > -1 && needle[i] != needle[j + 1]) j = next[j];
+            if (needle[i] == needle[j + 1]) j++;
+            next[i] = j;
+        }
+        j = -1;
+        for (int i = 0; i < n; i++) {
+            while (j > -1 && haystack[i] != needle[j + 1]) j = next[j];
+            if (haystack[i] == needle[j + 1]) j++;
+            if (j == m - 1)
+                return i - m + 1;
+        }
+        return -1;
+    }
+};
