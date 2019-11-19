@@ -33,3 +33,4 @@ LeetCode
 |26|[Remove-Duplicates-From-Sorted-Array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)| [C++](./cpp/Remove-Duplicates-From-Sorted-Array/Remove-Duplicates-From-Sorted-Array.cpp), [Python](./python/Remove-Duplicates-From-Sorted-Array/Remove-Duplicates-From-Sorted-Array.py)|Easy|
 |27|[Remove-Element](https://leetcode-cn.com/problems/remove-element/)| [C++](./cpp/Remove-Element/Remove-Element.cpp), [Python](./python/Remove-Element/Remove-Element.py)|Easy|
 |28|[Implement-Strstr](https://leetcode-cn.com/problems/implement-strstr/)| [C++](./cpp/Implement-Strstr/Implement-Strstr.cpp), [Python](./python/Implement-Strstr/Implement-Strstr.py)|Easy|
+|29|[Divide-Two-Integers](https://leetcode-cn.com/problems/divide-two-integers/)| [C++](./cpp/Divide-Two-Integers/Divide-Two-Integers.cpp), [Python](./python/Divide-Two-Integers/Divide-Two-Integers.py)|Medium|
