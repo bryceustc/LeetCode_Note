@@ -35,3 +35,4 @@ LeetCode
 |28|[Implement-Strstr](https://leetcode-cn.com/problems/implement-strstr/)| [C++](./cpp/Implement-Strstr/Implement-Strstr.cpp), [Python](./python/Implement-Strstr/Implement-Strstr.py)|Easy|
 |29|[Divide-Two-Integers](https://leetcode-cn.com/problems/divide-two-integers/)| [C++](./cpp/Divide-Two-Integers/Divide-Two-Integers.cpp), [Python](./python/Divide-Two-Integers/Divide-Two-Integers.py)|Medium|
 |30|[Substring-With-Concatenation-Of-All-Words](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)| [C++](./cpp/Substring-With-Concatenation-Of-All-Words/Substring-With-Concatenation-Of-All-Words.cpp), [Python](./python/Substring-With-Concatenation-Of-All-Words/Substring-With-Concatenation-Of-All-Words.py)|Hard|
+|31|[Next-Permutation](https://leetcode-cn.com/problems/next-permutation/)| [C++](./cpp/Next-Permutation/Next-Permutation.cpp), [Python](./python/Next-Permutation/Next-Permutation.py)|Medium|
