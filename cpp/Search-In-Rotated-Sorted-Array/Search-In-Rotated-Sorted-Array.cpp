@@ -32,6 +32,7 @@ O(1)。
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
+      if (nums.empty()) return -1;
       int n = nums.size();
       int start = 0;
       int end = n-1;
@@ -65,3 +66,47 @@ public:
       return -1;
     }
 };
+
+/*
+也可以nums[mid]与nums[start]比较，若大于等于nums[start]左半段有序，否则右半段是有序的
+*/
+
+
+// C++ Solution 2: (二分查找,nums)
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+      if (nums.empty()) return -1;
+      int n = nums.size();
+      int start = 0;
+      int end = n-1;
+      while (end>=start)
+      {
+        int mid = start + (end-start)/2;
+        if (nums[mid] == target) return mid;
+        if (nums[mid]>=nums[start])
+        {
+          if (nums[start]<=target && nums[mid] > target)
+          {
+            end = mid - 1;
+          }
+          else
+          {
+            start = mid + 1;
+          }
+        }
+        else
+        {
+          if (nums[mid]<target && nums[end] >= target)
+          {
+            start = mid + 1;
+          }
+          else
+          {
+            end = mid - 1;
+          }
+        }
+      }
+      return -1;
+     }
+  };
