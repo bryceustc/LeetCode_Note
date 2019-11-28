@@ -41,4 +41,4 @@ LeetCode
 |34|[Find-First-And-Last-Position-Of-Element-In-Sorted-Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)| [C++](./cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Find-First-And-Last-Position-Of-Element-In-Sorted-Array.cpp), [Python](./python/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Find-First-And-Last-Position-Of-Element-In-Sorted-Array.py)|Medium|
 |35|[Search-Insert-Position](https://leetcode-cn.com/problems/search-insert-position/)| [C++](./cpp/Search-Insert-Position/Search-Insert-Position.cpp), [Python](./python/Search-Insert-Position/Search-Insert-Position.py)|Easy|
 |36|[Valid-Sudoku](https://leetcode-cn.com/problems/valid-sudoku/)| [C++](./cpp/Valid-Sudoku/Valid-Sudoku.cpp), [Python](./python/Valid-Sudoku/Valid-Sudoku.py)|Medium|
-|36|[Sudoku-Solver](https://leetcode-cn.com/problems/sudoku-solver/)| [C++](./cpp/Sudoku-Solver/Sudoku-Solver.cpp), [Python](./python/Sudoku-Solver/Sudoku-Solver.py)|Medium|
+|37|[Sudoku-Solver](https://leetcode-cn.com/problems/sudoku-solver/)| [C++](./cpp/Sudoku-Solver/Sudoku-Solver.cpp), [Python](./python/Sudoku-Solver/Sudoku-Solver.py)|Hard|
