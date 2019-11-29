@@ -35,7 +35,7 @@
 
 [Python](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.py)
 
-## C++:
+## [C++](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.cpp):
 ### 方法一：两次二分查找
 ```c++
 class Solution {
@@ -120,7 +120,7 @@ public:
 
 
 
-## Python
+## [Python](LeetCode_Note/python/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Find-First-And-Last-Position-Of-Element-In-Sorted-Array.py)
 ### 方法一：两次二分法
 ```python
 class Solution:
@@ -152,8 +152,26 @@ class Solution:
         return res
 ```
 
+## 方法二：线性扫描直接两次遍历，寻找左右边界（时间复杂度并不满足要求）
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        res= [-1,-1]
+        if n==0:
+            return res
+        for i in range(n):
+            if nums[i]== target:
+                res[0] = i
+                break
+        if res[0] == -1:
+            return res
+        for j in range (n-1,-1,-1):
+            if nums[j] == target:
+                res[1]=j
+                break
+        return res
+```
 
 # 参考：
- - [循环结构中break、continue、return和exit的区别](https://blog.csdn.net/hunanchenxingyu/article/details/8101795)
- 
- - [时间复杂度和空间复杂度](https://blog.csdn.net/zolalad/article/details/11848739)
+ - [二分查找算法](./BinarySearch.md)
