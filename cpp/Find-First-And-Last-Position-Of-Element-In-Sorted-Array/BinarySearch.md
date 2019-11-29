@@ -59,3 +59,7 @@ int binarySearch(vector<int>& nums, int target) {
     return -1;
 }
 ```
+**Q&A**
+1. 为什么 while 循环的条件中是 <=，而不是 < ？
+答：因为初始化 end 的赋值是 n-1，即最后一个元素的索引，而不是 n。
+这二者可能出现在不同功能的二分查找中，区别是：前者相当于两端都闭区间 [start, end]，后者相当于左闭右开区间 [start, end)，因为索引大小为 n 是越界的。
