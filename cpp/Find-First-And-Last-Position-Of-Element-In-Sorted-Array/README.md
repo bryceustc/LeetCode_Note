@@ -107,6 +107,36 @@ int main()
 
 ```
 
+## 方法二：线性扫描直接两次遍历，寻找左右边界
+```c++
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+      vector<int> res = {-1,-1};
+      int n = nums.size();
+      if (nums.empty()) return res; 
+      for(int i=0;i<n;i++)
+      {
+          if(nums[i]==target)
+          {
+              res[0] = i;
+              break;
+          }
+      }
+      if (res[0]==-1) return res;
+      for (int j=n-1;j>=0 ;j--)
+      {
+          if (nums[j]==target) 
+          {
+              res[1] =j;
+              break;
+          }
+      }
+      return res;
+    }
+};
+```
+
 # 参考：
  - [循环结构中break、continue、return和exit的区别](https://blog.csdn.net/hunanchenxingyu/article/details/8101795)
  
