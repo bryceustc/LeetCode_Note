@@ -34,7 +34,9 @@
 [C++](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.cpp)
 
 [Python](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.py)
-## 方法一：两次二分查找
+
+## C++:
+### 方法一：两次二分查找
 ```c++
 #include <iostream>
 #include <vector>
@@ -136,6 +138,41 @@ public:
     }
 };
 ```
+
+
+
+## Python
+### 方法一：两次二分法
+```python
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        res= [-1,-1]
+        if n==0:
+            return res
+        start = 0
+        end = n
+        while end > start:
+            mid=start + (end-start)//2
+            if nums[mid]<target:
+                start= mid +1
+            else:
+                end = mid
+        if start == n or nums[start]!=target:
+            return res
+        res[0]=start
+        start = 0
+        end = n
+        while end > start:
+            mid = start + (end-start)//2
+            if nums[mid]<=target:
+                start=mid+1
+            else:
+                end = mid
+        res[1] =end-1
+        return res
+```
+
 
 # 参考：
  - [循环结构中break、continue、return和exit的区别](https://blog.csdn.net/hunanchenxingyu/article/details/8101795)
