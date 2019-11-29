@@ -133,3 +133,5 @@ while(start < end) 终止的条件是 start == end，此时搜索区间 [start, 
 2.如何理解左侧边界？
 
 答：
+
+![left](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Images/left.png)
