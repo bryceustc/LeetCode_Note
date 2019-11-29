@@ -189,3 +189,25 @@ int binarySearch(vector<int>& nums, int target) {
     return end-1;  //注意
 }
 ```
+
+1. 为什么这个算法能够找到右侧边界？
+
+答：类似地，关键点还是这里：
+```c++
+    if (nums[mid]==target)
+        start = mid + 1;
+```
+当 nums[mid] == target 时，不要立即返回，而是增大「搜索区间」的下界 start，使得区间不断向右收缩，达到锁定右侧边界的目的。
+
+2.为什么最后返回 start - 1 而不像左侧边界的函数，返回 start？而且我觉得这里既然是搜索右侧边界，应该返回 end 才对。
+
+答：首先，while 循环的终止条件是 start == end，所以 start 和 end 是一样的，要体现右侧的特点，返回 end - 1 好了。
+
+至于为什么要减一，这是搜索右侧边界的一个特殊点，关键在这个条件判断：
+```c++
+    if(nums[mid]==target)
+        start = mid + 1;//等价于：mid = start - 1
+```
+![right](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Images/right.png)
+
+因为我们对 start 的更新必须是 start = mid + 1，就是说 while 循环结束时，nums[start] 一定不等于 target 了，而 nums[start-1] 可能是 target,也就是return end-1。
