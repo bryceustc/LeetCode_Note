@@ -43,84 +43,45 @@
 # 代码
 
 ## [C++](./Search-Insert-Position.cpp):
-### 方法一：两次二分查找
+### 方法一：一次二分查（理解左边界含义）
 ```c++
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-      vector<int> res = {-1,-1};
-      int n = nums.size();
-      if (nums.empty()) return res;
-      int start = 0;
-      int end = n;
-      while (end > start)   // 寻找左边界，搜索区间为左闭右开
-      {
-        int mid = start + (end - start)/2;
-        if (nums[mid]==target)
+    int searchInsert(vector<int>& nums, int target) {
+        if (nums.empty()) return 0;
+        int n = nums.size();
+        int start = 0;
+        int end = n;
+        while (end>start)
         {
-            end = mid;
+           int mid = start + (end-start)/2;
+           if (nums[mid]==target)
+              end = mid;
+           if (nums[mid]<target)
+              start = mid + 1;
+           if (nums[mid]>target)
+              end = mid;
         }
-        if (nums[mid]<target)
-        {
-            start = mid + 1;
-        }
-        if (nums[mid]>target)
-        {
-            end = mid;
-        }
-      }
-      if (start==n || nums[start]!=target) return res;
-      res[0] = start;
-      start = 0;
-      end = n;
-      while(end > start) //寻找右边界，搜索区间为左开右闭
-      {
-        int mid = start + (end - start)/2;
-        if (nums[mid]==target) 
-        {
-            start = mid + 1;
-        }
-        if (nums[mid] < target)
-        {
-            start = mid + 1;
-        }
-        if (nums[mid] > target)
-        {
-            end = mid;
-        }
-      }
-      res[1] = end - 1;
-      return res;
+        return start;
     }
 };
 ```
 
-## 方法二：线性扫描直接两次遍历，寻找左右边界（时间复杂度并不满足要求）
+## 方法二：直接遍历
 ```c++
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& nums, int target) {
-      vector<int> res = {-1,-1};
+    int searchInsert(vector<int>& nums, int target) {
+      if (nums.empty()) return 0; 
       int n = nums.size();
-      if (nums.empty()) return res; 
       for(int i=0;i<n;i++)
       {
-          if(nums[i]==target)
+          if(nums[i]>=target)
           {
-              res[0] = i;
-              break;
+              return i;
           }
       }
-      if (res[0]==-1) return res;
-      for (int j=n-1;j>=0 ;j--)
-      {
-          if (nums[j]==target) 
-          {
-              res[1] =j;
-              break;
-          }
-      }
-      return res;
+      return n;
     }
 };
 ```
@@ -128,57 +89,36 @@ public:
 
 
 ## [Python](LeetCode_Note/python/Search-Insert-Position/Search-Insert-Position.py)
-### 方法一：两次二分法
+### 方法一：一次二分法
 ```python
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
-        n = len(nums)
-        res= [-1,-1]
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        n=len(nums)
         if n==0:
-            return res
-        start = 0
-        end = n
-        while end > start:
-            mid=start + (end-start)//2
-            if nums[mid]<target:
-                start= mid +1
-            else:
-                end = mid
-        if start == n or nums[start]!=target:
-            return res
-        res[0]=start
+            return 0
         start = 0
         end = n
         while end > start:
             mid = start + (end-start)//2
-            if nums[mid]<=target:
+            if nums[mid]<target:
                 start=mid+1
             else:
                 end = mid
-        res[1] =end-1
-        return res
+        return start
 ```
 
-### 方法二：线性扫描直接两次遍历，寻找左右边界（时间复杂度并不满足要求）
+### 方法二：直接遍历
 ```python
 class Solution:
-    def searchRange(self, nums: List[int], target: int) -> List[int]:
-        n = len(nums)
-        res= [-1,-1]
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        n=len(nums)
         if n==0:
-            return res
+            return 0
         for i in range(n):
-            if nums[i]== target:
-                res[0] = i
-                break
-        if res[0] == -1:
-            return res
-        for j in range (n-1,-1,-1):
-            if nums[j] == target:
-                res[1]=j
-                break
-        return res
+            if nums[i]>=target:
+                return i
+        return n
 ```
 
 # 参考：
- - [二分查找算法](./BinarySearch.md)
+ - [二分查找算法]LeetCode_Note/cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/BinarySearch.md)
