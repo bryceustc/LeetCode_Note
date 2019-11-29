@@ -31,10 +31,6 @@
   O(1)
 # 代码
 
-[C++](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.cpp)
-
-[Python](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.py)
-
 ## [C++](./Find-First-And-Last-Position-Of-Element-In-Sorted-Array.cpp):
 ### 方法一：两次二分查找
 ```c++
