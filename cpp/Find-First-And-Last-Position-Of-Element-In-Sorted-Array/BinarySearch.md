@@ -135,3 +135,57 @@ while(start < end) 终止的条件是 start == end，此时搜索区间 [start, 
 答：
 
 ![left](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Images/left.png)
+
+对于这个数组，算法会返回 1。这个 1 的含义可以这样解读：nums 中小于 2的元素有 1 个。
+
+比如对于有序数组 nums = [2,3,5,7], target = 1，算法会返回 0，含义是：nums 中小于 1 的元素有 0 个。
+
+再比如说 nums 不变，target = 8，算法会返回 4，含义是：nums 中小于 8 的元素有 4 个。
+
+综上可以看出，函数的返回值（即 start 变量的值）取值区间是闭区间 [0, n]，如果start的值为n或者nums[start]!=target说明数组中没有目标值，返回-1
+
+3.为什么 start = mid + 1，end = mid ？和之前的算法不一样？
+
+答：这个很好解释，因为我们的「搜索区间」是 **[start, end) 左闭右开**，所以当 nums[mid] 被检测之后，下一步的搜索区间应该去掉 mid 分割成两个区间，即 [start, mid) 或 [mid + 1, end)。
+
+4.为什么该算法能够搜索左侧边界？
+
+答:关键在于对于 nums[mid] == target 这种情况的处理：
+```c++
+    if (nums[mid] == target)
+        end = mid;
+```
+可见，找到 target 时不要立即返回，而是缩小「搜索区间」的上界 end，在区间 [start, end) 中继续搜索，即不断向左收缩，达到锁定左侧边界的目的。
+
+5.为什么返回 start 而不是 end？
+
+答：都是一样的，因为 while 终止的条件是 start == end。
+
+## 第三类：寻找右侧边界的二分查找
+寻找右侧边界和寻找左侧边界的代码差不多，只有两处不同，已标注：
+```c++
+int binarySearch(vector<int>& nums, int target) {
+    if(nums.empty()) return -1;
+    int n = nums.size();
+    int start = 0;
+    int end = n;
+    while (end>start)  // 搜索区间左开右闭
+    {
+      int mid = start + (end-start)/2;
+      if (nums[mid]==target)
+      {
+        start = mid + 1;    // 注意
+      }
+      
+      else if (nums[mid]<target)
+      {
+        start = mid + 1;
+      }
+      else if (nums[mid]>target)
+      {
+        end = mid;
+      }
+    }
+    return end-1;  //注意
+}
+```
