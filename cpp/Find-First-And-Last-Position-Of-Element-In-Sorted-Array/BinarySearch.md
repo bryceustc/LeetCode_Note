@@ -125,6 +125,7 @@ int binarySearch(vector<int>& nums, int target) {
 }
 ```
 **QA**
+
 1.为什么 `while(start < end)` 而不是 `<=`?
 
 答：用相同的方法分析，因为 `end = n` 而不是 `n - 1` 。因此每次循环的「搜索区间」是 `[start, end)` 左闭右开。
@@ -189,6 +190,7 @@ int binarySearch(vector<int>& nums, int target) {
     return end-1;  //注意
 }
 ```
+**QA**
 
 1. 为什么这个算法能够找到右侧边界？
 
