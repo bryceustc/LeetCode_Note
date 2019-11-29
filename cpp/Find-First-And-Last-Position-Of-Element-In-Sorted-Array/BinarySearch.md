@@ -60,7 +60,7 @@ int binarySearch(vector<int>& nums, int target) {
     return -1;
 }
 ```
-**Q&A**
+**Q&A:**
 
 1.为什么`while`循环的条件中是 <=，而不是 < ？
 
@@ -124,7 +124,7 @@ int binarySearch(vector<int>& nums, int target) {
     return start;
 }
 ```
-**QA**
+**Q&A:**
 
 1.为什么 `while(start < end)` 而不是 `<=`?
 
@@ -190,7 +190,7 @@ int binarySearch(vector<int>& nums, int target) {
     return end-1;  //注意
 }
 ```
-**QA**
+**Q&A:**
 
 1. 为什么这个算法能够找到右侧边界？
 
