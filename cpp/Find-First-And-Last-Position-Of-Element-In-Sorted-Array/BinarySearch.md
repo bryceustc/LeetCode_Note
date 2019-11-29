@@ -95,3 +95,41 @@ while(start < end) 的终止条件是 start == end，写成区间的形式就是
 这样的需求很常见。你也许会说，找到一个 target，然后向左或向右线性搜索不行吗？可以，但是不好，因为这样难以保证二分查找对数级的复杂度了。
 
 我们后续的算法就来讨论这两种二分查找的算法。
+
+## 第二类：寻找左侧边界的二分搜索
+```c++
+int binarySearch(vector<int>& nums, int target) {
+    if(nums.empty()) return -1;
+    int n = nums.size();
+    int start = 0;
+    int end = n;
+    while (end>start)  // 搜索区间左闭右开
+    {
+      int mid = start + (end-start)/2;
+      if (nums[mid]==target)
+      {
+        end = mid;
+      }
+      
+      else if (nums[mid]<target)
+      {
+        start = mid + 1;
+      }
+      else if (nums[mid]>target)
+      {
+        end = mid;
+      }
+    }
+    if (nums[start]!=target || start == n) return -1;
+    return start;
+}
+```
+**QA**
+1.为什么 while(start < end) 而不是 <= ?
+
+答：用相同的方法分析，因为 end = n 而不是 n - 1 。因此每次循环的「搜索区间」是 [start, end) 左闭右开。
+while(start < end) 终止的条件是 start == end，此时搜索区间 [start, start)或者写成[end, end)为空，所以可以正确终止。
+
+2.如何理解左侧边界？
+
+答：
