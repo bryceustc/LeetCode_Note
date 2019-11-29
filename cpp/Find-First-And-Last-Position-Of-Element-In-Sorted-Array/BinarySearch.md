@@ -216,7 +216,7 @@ int binarySearch(vector<int>& nums, int target) {
 来梳理一下这些细节差异的因果逻辑：
 
 第一个，最基本的二分查找算法：
-```c++
+```python
 因为我们初始化 end = nums.size() - 1
 所以决定了我们的「搜索区间」是 [start, end]
 所以决定了 while (start <= end)
@@ -227,7 +227,7 @@ int binarySearch(vector<int>& nums, int target) {
 ```
 
 第二个，寻找左侧边界的二分查找：
-```c++
+```python
 因为我们初始化 end = nums.size()
 所以决定了我们的「搜索区间」是 [start, end)
 所以决定了 while (start < end)
@@ -239,7 +239,7 @@ int binarySearch(vector<int>& nums, int target) {
 ```
 
 第三个，寻找右侧边界的二分查找：
-```c++
+```python
 因为我们初始化 end = nums.size()
 所以决定了我们的「搜索区间」是 (start, end]
 所以决定了 while (start < end)
