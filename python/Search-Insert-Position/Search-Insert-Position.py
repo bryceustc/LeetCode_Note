@@ -1,4 +1,7 @@
-
+#! /usr/bin/env python
+#! -*- coding=utf-8 -*-
+# Date: 2019-11-26
+# Author: Bryce
 
 #########Python Solution 1:一次二分法
 class Solution:
