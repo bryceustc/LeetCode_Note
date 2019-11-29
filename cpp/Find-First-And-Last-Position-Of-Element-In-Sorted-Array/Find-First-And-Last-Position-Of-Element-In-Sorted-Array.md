@@ -64,7 +64,7 @@ public:
             end = mid;
         }
       }
-      if (nums[start]==n || nums[start]!=target) return res;
+      if (start==n || nums[start]!=target) return res;
       res[0] = start;
       start = 0;
       end = n;
@@ -92,10 +92,10 @@ public:
 
 int main()
 {
-    vector<int> nums = {2,3,1,0,2,5,3};
-    int n = nums.size();
+    vector<int> nums = {5,7,7,8,8,10};
+    int target = 8;
     vector<int> res;
-    Solution().Duplication1(nums,n,res);
+    res=Solution().searchRange(nums,target);
     int m = res.size();
     for (int i = 0; i < m; i++)
     {
