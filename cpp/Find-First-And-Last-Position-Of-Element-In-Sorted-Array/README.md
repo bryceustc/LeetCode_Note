@@ -38,10 +38,6 @@
 ## C++:
 ### 方法一：两次二分查找
 ```c++
-#include <iostream>
-#include <vector>
-using namespace std;
-
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
@@ -90,23 +86,6 @@ public:
       return res;
     }
 };
-
-
-int main()
-{
-    vector<int> nums = {5,7,7,8,8,10};
-    int target = 8;
-    vector<int> res;
-    res=Solution().searchRange(nums,target);
-    int m = res.size();
-    for (int i = 0; i < m; i++)
-    {
-        cout << res[i]<< endl;
-    }
-    system("pause");
-    return 0;
-}
-
 ```
 
 ## 方法二：线性扫描直接两次遍历，寻找左右边界
