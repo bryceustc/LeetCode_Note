@@ -148,7 +148,7 @@ class Solution:
         return res
 ```
 
-## 方法二：线性扫描直接两次遍历，寻找左右边界（时间复杂度并不满足要求）
+### 方法二：线性扫描直接两次遍历，寻找左右边界（时间复杂度并不满足要求）
 ```python
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
