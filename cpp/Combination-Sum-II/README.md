@@ -1,4 +1,4 @@
-# 题目描述: 组合总和
+# 题目描述: 组合总和II
 
 给定一个**无重复元素**的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target *的组合。
 
@@ -85,19 +85,23 @@ public:
 ### 方法一： DFS递归法
 ```python
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         res = []
         out = []
-        self.DFS(candidates, target, 0, out, res)
+        candidates = sorted(candidates)
+        self.DFS(candidates,target,0,out,res)
         return res
-    def DFS(self, candidates: List[int], target: int, start: int, out: List[int], res: List[List[int]]):
-        if target < 0: return
+    def DFS(self,candidates: List[int], target:int, start: int, out: List[int], res: List[List[int]]):
+        if target < 0:
+            return
         if target == 0:
             res.append(out[:])
             return
         n = len(candidates)
-        for i in range (start,n):
+        for i in range(start,n):
+            if candidates[i] == candidates[i-1] and i > start:
+                continue
             out.append(candidates[i])
-            self.DFS(candidates,target-candidates[i],i,out,res)
-            out.pop()  ## out.pop(-1) or del out[-1]
+            self.DFS(candidates,target-candidates[i],i+1,out,res)
+            del out[-1]
 ```
