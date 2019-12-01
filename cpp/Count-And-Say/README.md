@@ -71,7 +71,7 @@ public:
 
 
 
-## [Python:](LeetCode_Note/python/Count-And-Say/Count-And-Say.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Count-And-Say/Count-And-Say.py)
 ### 直接法：
 ```python
 class Solution:
