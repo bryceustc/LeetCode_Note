@@ -31,14 +31,10 @@
   
 # 解题思路:
   
-  1). 使用两次二分查找法，理解左侧边界的含义，数组升序排列，返回start就是小于target的数有多少个，也就是target该插入的位置
-  
-  2). 遍历一遍原数组，若当前数字大于或等于目标值，则返回当前坐标，如果遍历结束了，说明目标值比数组中任何一个数都要大，则返回数组长度n即可
+  这道计数和读法问题还是第一次遇到，看似挺复杂，其实仔细一看，算法很简单，就是对于前一个数，找出相同元素的个数，把个数和该元素存到新的 string 里。
 
 # 时间复杂度：
-  方法一:O(logn)
-  
-  方法二:O(n)
+  O(n^3)
   
 # 空间复杂度
   O(1)
@@ -46,45 +42,29 @@
 # 代码
 
 ## [C++](./Count-And-Say.cpp):
-### 方法一：一次二分查（理解左边界含义）
+### 直接法：
 ```c++
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target) {
-        if (nums.empty()) return 0;
-        int n = nums.size();
-        int start = 0;
-        int end = n;
-        while (end>start)
+    string countAndSay(int n) {
+        if (n==0) return "";
+        string res = "1";
+        while(--n)
         {
-           int mid = start + (end-start)/2;
-           if (nums[mid]==target)
-              end = mid;
-           if (nums[mid]<target)
-              start = mid + 1;
-           if (nums[mid]>target)
-              end = mid;
+           string temp = "";
+           for (int i=0;i<res.size();i++)
+           {
+              int cnt = 1;
+              while(res[i+1]==res[i] && i+1<res.size())
+              {
+                 cnt++;
+                 i++;
+              }
+              temp += to_string(cnt) + res[i];
+           }
+           res = temp;
         }
-        return start;
-    }
-};
-```
-
-## 方法二：直接遍历
-```c++
-class Solution {
-public:
-    int searchInsert(vector<int>& nums, int target) {
-      if (nums.empty()) return 0; 
-      int n = nums.size();
-      for(int i=0;i<n;i++)
-      {
-          if(nums[i]>=target)
-          {
-              return i;
-          }
-      }
-      return n;
+        return res;
     }
 };
 ```
@@ -92,7 +72,7 @@ public:
 
 
 ## [Python](LeetCode_Note/python/Count-And-Say/Count-And-Say.py)
-### 方法一：一次二分法
+### 直接法：
 ```python
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
@@ -109,19 +89,3 @@ class Solution:
                 end = mid
         return start
 ```
-
-### 方法二：直接遍历
-```python
-class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        n=len(nums)
-        if n==0:
-            return 0
-        for i in range(n):
-            if nums[i]>=target:
-                return i
-        return n
-```
-
-# 参考：
- - [二分查找算法](LeetCode_Note/cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/BinarySearch.md)
