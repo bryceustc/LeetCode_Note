@@ -3,6 +3,7 @@
 # Date: 2019-11-30
 # Author: Bryce
 
+from typing import List
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -20,3 +21,10 @@ class Solution:
             out.append(candidates[i])
             self.DFS(candidates,target-candidates[i],i,out,res)
             out.pop()  ## out.pop(-1) or del out[-1]
+            
+            
+            
+if __name__ == " __main__ ":
+    candidates = [ 2 , 3 , 6 , 7 ]
+    target = 7
+    print ( Solution().combinationSum (candidates, target) )
