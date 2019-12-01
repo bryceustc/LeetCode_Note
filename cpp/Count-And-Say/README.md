@@ -75,19 +75,20 @@ public:
 ### 直接法：
 ```python
 class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        n=len(nums)
-        if n==0:
-            return 0
-        start = 0
-        end = n
-        while end > start:
-            mid = start + (end-start)//2
-            if nums[mid]<target:
-                start=mid+1
-            else:
-                end = mid
-        return start
+    def countAndSay(self, n: int) -> str:
+        if n==0: return ""
+        res = '1'
+        for i in range(1,n):
+            temp, num, count = '', res[0], 1
+            for j in range(1,len(res)):
+                if res[j] == num:count += 1
+                else:
+                    temp += str(count) + num
+                    num = res[j]
+                    count = 1
+            temp += str(count) + num
+            res = temp
+        return res
 ```
 
 ### 利用python中的groupby
