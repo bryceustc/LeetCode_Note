@@ -51,7 +51,7 @@ candidates 中的数字可以无限制重复被选取。
 # 代码
 
 ## [C++](./Combination-Sum.cpp):
-### 方法一： DFS递归
+### 方法一： DFS递归法
 ```c++
 class Solution {
 public:
