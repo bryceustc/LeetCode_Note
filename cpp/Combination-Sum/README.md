@@ -105,12 +105,3 @@ class Solution:
             self.DFS(candidates,target-candidates[i],i,out,res)
             out.pop()  ## out.pop(-1) or del out[-1]
 ```
-
-### 利用python中的groupby
-```python
-from itertools import groupby
-class Solution:
-    def countAndSay(self, n: int, res='1') -> str:
-        return res if n == 1 else self.countAndSay(n-1, ''.join([str(len(list(gen)))+val for val, gen in groupby(res)])
-
-```
