@@ -90,7 +90,7 @@ public:
 
 
 
-## [Python](LeetCode_Note/python/Search-Insert-Position/Search-Insert-Position.py)
+## [Python](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-Insert-Position/Search-Insert-Position.py)
 ### 方法一：一次二分法
 ```python
 class Solution:
