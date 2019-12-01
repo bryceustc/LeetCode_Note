@@ -44,3 +44,4 @@ LeetCode
 |37|[Sudoku-Solver](https://leetcode-cn.com/problems/sudoku-solver/)| [C++](./cpp/Sudoku-Solver/README.md), [Python](./python/Sudoku-Solver/Sudoku-Solver.py)|Hard|
 |38|[Count-And-Say](https://leetcode-cn.com/problems/count-and-say/)| [C++](./cpp/Count-And-Say/README.md), [Python](./python/Count-And-Say/Count-And-Say.py)|Easy|
 |39|[Combination-Sum](https://leetcode-cn.com/problems/combination-sum/)| [C++](./cpp/Combination-Sum/README.md), [Python](./python/Combination-Sum/Combination-Sum.py)|Medium|
+|40|[Combination-Sum-II](https://leetcode-cn.com/problems/combination-sum-ii/)| [C++](./cpp/Combination-Sum-II/README.md), [Python](./python/Combination-Sum-II/Combination-Sum-II.py)|Medium|
