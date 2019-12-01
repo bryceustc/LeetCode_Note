@@ -42,5 +42,5 @@ LeetCode
 |35|[Search-Insert-Position](https://leetcode-cn.com/problems/search-insert-position/)| [C++](./cpp/Search-Insert-Position/README.md), [Python](./python/Search-Insert-Position/Search-Insert-Position.py)|Easy|
 |36|[Valid-Sudoku](https://leetcode-cn.com/problems/valid-sudoku/)| [C++](./cpp/Valid-Sudoku/README.md), [Python](./python/Valid-Sudoku/Valid-Sudoku.py)|Medium|
 |37|[Sudoku-Solver](https://leetcode-cn.com/problems/sudoku-solver/)| [C++](./cpp/Sudoku-Solver/README.md), [Python](./python/Sudoku-Solver/Sudoku-Solver.py)|Hard|
-|38|[Count-And-Say](https://leetcode-cn.com/problems/count-and-say/)| [C++](./cpp/Sudoku-SolverCount-And-Say/README.md), [Python](./python/Count-And-Say/Count-And-Say.py)|Easy|
+|38|[Count-And-Say](https://leetcode-cn.com/problems/count-and-say/)| [C++](./cpp/Count-And-Say/README.md), [Python](./python/Count-And-Say/Count-And-Say.py)|Easy|
 |39|[Combination-Sum](https://leetcode-cn.com/problems/combination-sum/)| [C++](./cpp/Combination-Sum/README.md), [Python](./python/Combination-Sum/Combination-Sum.py)|Medium|
