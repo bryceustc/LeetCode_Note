@@ -40,7 +40,7 @@
 # 代码
 
 ## [C++](./First-Missing-Positive.cpp):
-### 方法一： DFS递归法
+### 方法一： HashSet法
 ```c++
 class Solution {
 public:
@@ -86,7 +86,7 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/First-Missing-Positive/First-Missing-Positive.py)
-### 方法一： DFS递归法
+### 方法一： HashSet法
 ```python
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
