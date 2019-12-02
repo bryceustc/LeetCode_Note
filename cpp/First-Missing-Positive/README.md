@@ -85,7 +85,34 @@ public:
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/First-Missing-Positive/First-Missing-Positive.py)
 ### 方法一： DFS递归法
 ```python
+class Solution:
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        n = len(nums)
+        for i in range(n):
+            while nums[i]<=n and nums[i]>0 and nums[i]!=nums[nums[i]-1]:
+                temp = nums[i]
+                nums[i] = nums[temp-1]
+                nums[temp-1] = temp
+        for i in range(n):
+            if nums[i]!=i+1:
+                return i+1
+        return n+1
+```
 
+### 方法二：交换位置法
+```python
+class Solution:
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        n = len(nums)
+        for i in range(n):
+            while nums[i]<=n and nums[i]>0 and nums[i]!=nums[nums[i]-1]:
+                temp = nums[i]
+                nums[i] = nums[temp-1]
+                nums[temp-1] = temp
+        for i in range(n):
+            if nums[i]!=i+1:
+                return i+1
+        return n+1
 ```
 # 参考
   - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
