@@ -34,6 +34,9 @@ candidates 中的每个数字在每个组合中只能使用一次。。
 # 解题思路:
   
   这道题跟之前那道 Combination Sum 本质没有区别，只需要改动一点点即可，之前那道题给定数组中的数字可以重复使用，而这道题不能重复使用，只需要在之前的基础上修改两个地方即可，首先在递归的 ``for`` 循环里加上``if (i > start && num[i] == num[i - 1]) continue;`` 这样可以防止 ``res`` 中出现重复项，然后就在递归调用DFS里面的参数换成 ``i+1``，这样就不会重复使用数组中的数字了
+  
+  ![DFS](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Combination-Sum-II/Images/DFS2.png)
+  
 
 # 时间复杂度：
   O(n2<sup>n</sup>)
