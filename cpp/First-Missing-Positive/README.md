@@ -32,7 +32,7 @@
   O(n)
   
 # 空间复杂度
-  O(n)
+  O(1)
   
 # 代码
 
@@ -41,33 +41,17 @@
 ```c++
 class Solution {
 public:
-    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
-        vector<vector<int>> res;
-        vector<int> out;
-        sort(candidates.begin(),candidates.end());  // 排序
-        if (candidates.empty())
-            return res;
-        DFS(candidates, target, 0, out, res);
+    int firstMissingPositive(vector<int>& nums) {
+        unordered_set<int> record (nums.begin(),nums.end());
+        int res = 1;
+        int n = nums.size();
+        for (int i = 0;i<n;i++)
+        {
+            if (record.find(res)==record.end()) return res;  // c++ 哈希表中find 找到返回迭代器,与count用法类似，count统计次数，找到返回1，
+            // if(record.count(res)==0) return res;
+            res++;
+        }
         return res;
-    }
-    
-    void DFS(vector<int>& candidates, int target, int start, vector<int>& out, vector<vector<int>>& res)
-    {
-        if (target < 0) return;
-        if (target == 0)
-        {
-            res.push_back(out);
-            return;
-        }
-        int n = candidates.size();
-        for (int i = start; i<n; i++)
-        {
-            if (i-1>=start && candidates[i-1]==candidates[i])  // 先判断是否大于start，即是否越界，这两个顺序不能交换，交换就溢出
-                continue;
-            out.push_back(candidates[i]);
-            DFS(candidates, target - candidates[i], i+1, out, res);
-            out.pop_back();
-        }
     }
 };
 ```
@@ -77,26 +61,7 @@ public:
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/First-Missing-Positive/First-Missing-Positive.py)
 ### 方法一： DFS递归法
 ```python
-class Solution:
-    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
-        out = []
-        candidates = sorted(candidates)
-        self.DFS(candidates,target,0,out,res)
-        return res
-    def DFS(self,candidates: List[int], target:int, start: int, out: List[int], res: List[List[int]]):
-        if target < 0:
-            return
-        if target == 0:
-            res.append(out[:])
-            return
-        n = len(candidates)
-        for i in range(start,n):
-            if candidates[i] == candidates[i-1] and i > start:
-                continue
-            out.append(candidates[i])
-            self.DFS(candidates,target-candidates[i],i+1,out,res)
-            del out[-1]
+
 ```
 # 参考
   - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
