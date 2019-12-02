@@ -46,3 +46,5 @@ LeetCode
 |39|[Combination-Sum](https://leetcode-cn.com/problems/combination-sum/)| [C++](./cpp/Combination-Sum/README.md), [Python](./python/Combination-Sum/Combination-Sum.py)|Medium|
 |40|[Combination-Sum-II](https://leetcode-cn.com/problems/combination-sum-ii/)| [C++](./cpp/Combination-Sum-II/README.md), [Python](./python/Combination-Sum-II/Combination-Sum-II.py)|Medium|
 |41|[First-Missing-Positive](https://leetcode-cn.com/problems/first-missing-positive/)| [C++](./cpp/First-Missing-Positive/README.md), [Python](./python/First-Missing-Positive/First-Missing-Positive.py)|Hard|
+|42|[Trapping-Rain-Water](https://leetcode-cn.com/problems/trapping-rain-water/)| [C++](./cpp/Trapping-Rain-Water/README.md), [Python](./python/Trapping-Rain-Water/Trapping-Rain-Water.py)|Hard|
+|287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
