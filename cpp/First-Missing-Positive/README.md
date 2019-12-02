@@ -87,16 +87,17 @@ public:
 ```python
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
-        n = len(nums)
-        for i in range(n):
-            while nums[i]<=n and nums[i]>0 and nums[i]!=nums[nums[i]-1]:
-                temp = nums[i]
-                nums[i] = nums[temp-1]
-                nums[temp-1] = temp
-        for i in range(n):
-            if nums[i]!=i+1:
-                return i+1
-        return n+1
+        n =len(nums)
+        res = 1
+        record = {}
+        for index, num in enumerate (nums):
+            record[num] = index
+        for i in range (n):
+            if res not in record:
+                return res
+            else:
+                res+=1
+        return res
 ```
 
 ### 方法二：交换位置法
