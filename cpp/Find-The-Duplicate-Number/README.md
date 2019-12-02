@@ -42,7 +42,7 @@
   
 # 代码
 
-## [C++](./Trapping-Rain-Water.cpp):
+## [C++](./Find-The-Duplicate-Number.cpp):
 ### 方法一： 排序之后直接查找法（时间复杂度为O(nlogn)，不满足不修改原数组题目要求）
 ```c++
 class Solution {
@@ -116,7 +116,7 @@ public:
 ```
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Trapping-Rain-Water/Trapping-Rain-Water.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)
 ### 方法一： 排序之后直接查找法
 ```python
 class Solution:
