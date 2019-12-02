@@ -13,16 +13,29 @@
 输入: [3,1,3,4,2]
 输出: 3
 ```
+
+**说明：**
+
+1. **不能**更改原数组（假设数组是只读的）。
+2. 只能使用额外的 O(1) 的空间。
+3. 时间复杂度小于 O(n<sup>2) 。
+4. 数组中只有一个重复的数字，但它可能不止重复出现一次。
   
 # 解题思路:
 
-  这道题让我们找缺失的首个正数，由于限定了 O(n) 的时间，所以一般的排序方法都不能用，不考虑空间复杂度的话，这个思路很简单，利用哈希表求解，把所有的数都存入 HashSet 中，然后循环从1开始递增找数字，哪个数字找不到就返回哪个数字，如果一直找到了最大的数字（这里是 nums 数组的长度），则加1后返回结果 res。
+  1). 把输入的数组进行排序，排序后再判断有无重复数字，时间复杂度为O(nlogn)，不满足不修改原数组题目要求
+
+  2). 使用哈希表来解决，时间复杂度为O(n)，但空间复杂度也为O(n),空间复杂度不满足题目要求
+
+  3). 交换位置重排法，把每个数字放回对应位置的方法。如果出现一个数字无法放回（所在位置已经是对应数字了），那么说明该数字重复，时间复杂度为O(n)，空间复杂度为O(1)
+
+  4). 使用二分的思想来做，二分基数组，但这种方法不能找出所有重复的数字，时间复杂度为O(nlogn)，空间复杂度为O(1)，相当于用时间换取空间
   
-  但是利用哈希表的解法不是 O(1) 的空间复杂度，所以需要另想一种解法，既然不能建立新的数组，那么只能覆盖原有数组，思路是把1放在数组第一个位置 ``nums[0]``，2放在第二个位置 ``nums[1]``，即需要把 ``nums[i]`` 放在 ``nums[nums[i] - 1]``上，遍历整个数组，如果 ``nums[i] != i + 1``, 而 ``nums[i]`` 为整数且不大于n，另外 ``nums[i]`` 不等于 ``nums[nums[i] - 1]`` 的话，将两者位置调换，如果不满足上述条件直接跳过，最后再遍历一遍数组，如果对应位置上的数不正确则返回正确的数，这个思路与剑指Offer中的第三题**数组中重复的数字**方法类似
+  此题与剑指Offer中的第三题**数组中重复的数字**方法类似
   
 
 # 时间复杂度：
-  O(n)
+  小于O(n<sup>2)
   
 # 空间复杂度
   O(1)
@@ -30,84 +43,126 @@
 # 代码
 
 ## [C++](./Trapping-Rain-Water.cpp):
-### 方法一： HashSet法
+### 方法一： 排序之后直接查找法（时间复杂度为O(nlogn)，不满足不修改原数组题目要求）
 ```c++
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& nums) {
-        unordered_set<int> record (nums.begin(),nums.end());
-        int res = 1;
+    int findDuplicate(vector<int>& nums) {
         int n = nums.size();
-        for (int i = 0;i<n;i++)
+        int res = 0;
+        sort(nums.begin(),nums.end());
+        for (int i=1;i<n;i++)
         {
-            if (record.find(res)==record.end()) return res;  // c++ 哈希表中find 找到返回迭代器,与count用法类似，count统计次数，找到返回1，
-            // if(record.count(res)==0) return res;
-            res++;
+            if (nums[i]==nums[i-1])
+                res =nums[i];
+                break;
         }
         return res;
     }
 };
 ```
-### 方法二： 交换位置法（与剑指Offer中的数组中重复的数字方法类似）
+### 方法二： 哈希表法（时间复杂度为O(n)，但空间复杂度也为O(n),空间复杂度不满足题目要求）
 ```c++
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& nums) {
-        int n = nums.size();
-        for (int i=0;i<n;i++)
+    int findDuplicate(vector<int>& nums) {
+        int res = 0;
+        unordered<int,int> record;
+        for (auto  num : nums)
         {
-            while(nums[i]<=n && nums[i]>0 && nums[i]!=nums[nums[i]-1])
+            record[num]++;
+            if (record[num]>1)
+                res = num;
+                break;
+        }
+        return res;
+    }
+};
+```
+
+### 方法三： 二分法查找（时间复杂度为O(nlogn)，空间复杂度为O(1)）
+```c++
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int res = 0;
+        int n = nums.size()-1;
+        int start = 1;
+        int end = n;
+        while(end>start)
+        {
+            int mid = start + (end-start)/2;
+            int k =0;
+            for(int i=0;i<n+1;i++)
             {
-                int temp = nums[i];
-                nums[i] = nums[temp - 1];
-                nums[temp - 1] = temp;
-                // swap(nums[i],nums[nums[i]-1]);
+                if (nums[i]>=start && nums[i]<=mid)
+                {
+                    k++;
+                }
+                // for (auto num : nums)
+                // {
+                //    if (num>=start && num<=mid)
+                //          k++;
+                // }
             }
+              if (k>mid-start+1)
+                  end = mid;
+              else
+                  start = mid +1;
         }
-        for (int i=0;i<n;i++)
-        {
-            if (nums[i]!=i+1)
-              return i+1;
-        }
-        return n+1;
+        return start;
     }
 };
 ```
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Trapping-Rain-Water/Trapping-Rain-Water.py)
-### 方法一： HashSet法
+### 方法一： 排序之后直接查找法
 ```python
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        n =len(nums)
-        res = 1
-        record = {}
-        for index, num in enumerate (nums):
-            record[num] = index
-        for i in range (n):
-            if res not in record:
-                return res
-            else:
-                res+=1
-        return res
+    def findDuplicate(self, nums: List[int]) -> int:
+        n = len(nums)
+        res = 0
+        nums = sorted(nums)
+        for i in range (1,n):
+            if nums[i]==nums[i-1]:
+                res = nums[i]
+                break
+        return res        
 ```
 
-### 方法二：交换位置法
+### 方法二：哈希表法
 ```python
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        n = len(nums)
-        for i in range(n):
-            while nums[i]<=n and nums[i]>0 and nums[i]!=nums[nums[i]-1]:
-                temp = nums[i]
-                nums[i] = nums[temp-1]
-                nums[temp-1] = temp
-        for i in range(n):
-            if nums[i]!=i+1:
-                return i+1
-        return n+1
+    def findDuplicate(self, nums: List[int]) -> int:
+        dic = {}
+        res = 0
+        for index, num in enumerate(nums):
+            if num in dic:
+                res = num
+            else:
+                dic[num] = index
+        return res
 ```
+### 方法三：二分法
+```python
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+         n = len(nums)-1
+         start = 1
+         end = n
+         while end>start:
+            mid = start + (end-start)//2
+            k = 0
+            for num in nums:
+                if num>=start and num<=mid:
+                    k+=1
+            if k > mid-start+1:
+                end = mid
+            else:
+                start = mid + 1
+         return start                
+```
+
 # 参考
-  - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
   - [数组中重复的数字](https://github.com/bryceustc/CodingInterviews/blob/master/DuplicationInArray/README.md)
