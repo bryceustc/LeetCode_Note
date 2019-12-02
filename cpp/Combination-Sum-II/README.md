@@ -38,9 +38,6 @@ candidates 中的每个数字在每个组合中只能使用一次。。
 # 时间复杂度：
   O(n2<sup>n</sup>)
   
-# 空间复杂度
-  O(n)
-  
 # 代码
 
 ## [C++](./Combination-Sum-II.cpp):
