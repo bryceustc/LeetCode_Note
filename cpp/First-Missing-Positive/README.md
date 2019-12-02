@@ -55,7 +55,31 @@ public:
     }
 };
 ```
-
+### 方法二： 交换位置法（与剑指Offer中的数组中重复的数字方法类似）
+```c++
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        int n = nums.size();
+        for (int i=0;i<n;i++)
+        {
+            while(nums[i]<=n && nums[i]>0 && nums[i]!=nums[nums[i]-1])
+            {
+                int temp = nums[i];
+                nums[i] = nums[temp - 1];
+                nums[temp - 1] = temp;
+                // swap(nums[i],nums[nums[i]-1]);
+            }
+        }
+        for (int i=0;i<n;i++)
+        {
+            if (nums[i]!=i+1)
+              return i+1;
+        }
+        return n+1;
+    }
+};
+```
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/First-Missing-Positive/First-Missing-Positive.py)
@@ -65,3 +89,4 @@ public:
 ```
 # 参考
   - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
+  - [数组中重复的数字](https://github.com/bryceustc/CodingInterviews/blob/master/DuplicationInArray/README.md)
