@@ -44,7 +44,7 @@ candidates 中的每个数字在每个组合中只能使用一次。。
 # 代码
 
 ## [C++](./Combination-Sum-II.cpp):
-### 方法一： DFS递归法
+### DFS递归法
 ```c++
 class Solution {
 public:
@@ -82,7 +82,7 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Combination-Sum-II/Combination-Sum-II.py)
-### 方法一： DFS递归法
+### DFS递归法
 ```python
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
