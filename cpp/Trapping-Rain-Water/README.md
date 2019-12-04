@@ -110,24 +110,58 @@ public:
 ```c++
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& nums) {
-        int n = nums.size();
-        for (int i=0;i<n;i++)
+    int trap(vector<int>& height) {
+        int res = 0;
+        if (height.empty()) return res;
+        int n = height.size();
+        vector<int> max_left(n,0);
+        vector<int> max_right(n,0);
+        for (int i = 1;i<n-1;i++)
         {
-            while(nums[i]<=n && nums[i]>0 && nums[i]!=nums[nums[i]-1])
-            {
-                int temp = nums[i];
-                nums[i] = nums[temp - 1];
-                nums[temp - 1] = temp;
-                // swap(nums[i],nums[nums[i]-1]);
-            }
+            max_left[i] = max(max_left[i-1],height[i-1]);
         }
-        for (int i=0;i<n;i++)
+        for (int i = n-2;i>=0;i--)
         {
-            if (nums[i]!=i+1)
-              return i+1;
+            max_right[i] = max(max_right[i+1],height[i+1]);
         }
-        return n+1;
+        
+        for (int i=1;i<n-1;i++)
+        {
+            int min_height = min(max_left[i],max_right[i]);
+            if (min_height > height[i])
+                res += min_height-height[i];
+        }
+        return res;
+    }
+};
+```
+
+### 方法四： 双指针
+```c++
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int res = 0;
+        if (height.empty()) return res;
+        int n = height.size();
+        vector<int> max_left(n,0);
+        vector<int> max_right(n,0);
+        for (int i = 1;i<n-1;i++)
+        {
+            max_left[i] = max(max_left[i-1],height[i-1]);
+        }
+        for (int i = n-2;i>=0;i--)
+        {
+            max_right[i] = max(max_right[i+1],height[i+1]);
+        }
+        
+        for (int i=1;i<n-1;i++)
+        {
+            int min_height = min(max_left[i],max_right[i]);
+            if (min_height > height[i])
+                res += min_height-height[i];
+        }
+        return res;
     }
 };
 ```
