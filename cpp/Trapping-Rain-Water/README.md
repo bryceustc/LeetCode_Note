@@ -19,10 +19,12 @@
 
 # 时间复杂度：
   暴力遍历法：O(n<sup>2</sup>)
+  动态规划：O(n)
   
   
 # 空间复杂度
-  O(1)
+ 暴力遍历法：O(1)
+ 动态规划：O(n)
   
 # 代码
 
@@ -74,7 +76,7 @@ public:
             int max_left = 0;
             int max_right = 0;
             
-            寻找左边最高
+            // 寻找左边最高
             for (int j = i-1;j>=0;j--)
             {
                 if (height[j]>max_left)
@@ -104,7 +106,7 @@ public:
 ```
 
 
-### 方法二： 交换位置法（与剑指Offer中的数组中重复的数字方法类似）
+### 方法三： 动态规划
 ```c++
 class Solution {
 public:
