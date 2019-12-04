@@ -32,15 +32,28 @@
 ```c++
 class Solution {
 public:
-    int firstMissingPositive(vector<int>& nums) {
-        unordered_set<int> record (nums.begin(),nums.end());
-        int res = 1;
-        int n = nums.size();
-        for (int i = 0;i<n;i++)
+    int trap(vector<int>& height) {
+        int res = 0;
+        int n = height.size();
+        if (n==0) return 0;
+        long int max_value = *max_element(height.begin(),height.end());//找到vector数组中的最大值
+        for (long int i =1;i<=max_value;i++)
         {
-            if (record.find(res)==record.end()) return res;  // c++ 哈希表中find 找到返回迭代器,与count用法类似，count统计次数，找到返回1，
-            // if(record.count(res)==0) return res;
-            res++;
+            bool flag = false;  //标记是否开始更新 temp
+            int temp = 0;
+            for (int j=0;j<n;j++)
+            {
+                if (flag && height[j] < i)
+                {
+                    temp++;
+                }
+                if (height[j]>=i)
+                {
+                    res += temp;
+                    temp = 0;
+                    flag = true;
+                }
+            }
         }
         return res;
     }
