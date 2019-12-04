@@ -142,32 +142,27 @@ class Solution {
 public:
     int trap(vector<int>& height) {
         int res = 0;
-        if (height.empty()) return res;
         int n = height.size();
-        int left = 0;
-        int right = n-1; 
-        int max_left = 0;
-        int max_right =0;    
-        while (left<right)
+        int left = 1,right=n-2;
+        int max_left=0,max_right=0;
+        while (left <= right)
         {
-            // 从左到右更新
-            if (height[left] <height[right])
-            {
-                max_left = max(max_left,height[left]);
-                int min_height = max_left;
-                if (min_height > height[left])
-                    res += min_height-height[left];
-                left++;
-            }
-            // 从右到左更新
-            else
-            {
-                max_right = max(max_right,height[right]);
-                int min_height = max_right;
-                if (min_height > height[right])
-                    res += min_height-height[right];
-                right--;
-            }
+          if (height[left-1] < height[right+1])
+          {
+              max_left = max(max_left,height[left-1]);
+              int min_height = max_left;
+              if (min_height > height[left])
+                  res += min_height - height[left];
+              left++;
+          }
+          else
+          {
+              max_right = max(max_right,height[right+1]);
+              int min_height = max_right;
+              if (min_height > height[right])
+                  res += min_height - height[right];
+              right--;
+          }
         }
         return res;
     }
