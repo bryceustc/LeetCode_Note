@@ -144,22 +144,30 @@ public:
         int res = 0;
         if (height.empty()) return res;
         int n = height.size();
-        vector<int> max_left(n,0);
-        vector<int> max_right(n,0);
-        for (int i = 1;i<n-1;i++)
+        int left = 0;
+        int right = n-1; 
+        int max_left = 0;
+        int max_right =0;    
+        while (left<right)
         {
-            max_left[i] = max(max_left[i-1],height[i-1]);
-        }
-        for (int i = n-2;i>=0;i--)
-        {
-            max_right[i] = max(max_right[i+1],height[i+1]);
-        }
-        
-        for (int i=1;i<n-1;i++)
-        {
-            int min_height = min(max_left[i],max_right[i]);
-            if (min_height > height[i])
-                res += min_height-height[i];
+            // 从左到右更新
+            if (height[left] <height[right])
+            {
+                max_left = max(max_left,height[left]);
+                int min_height = max_left;
+                if (min_height > height[left])
+                    res += min_height-height[left];
+                left++;
+            }
+            // 从右到左更新
+            else
+            {
+                max_right = max(max_right,height[right]);
+                int min_height = max_right;
+                if (min_height > height[right])
+                    res += min_height-height[right];
+                right--;
+            }
         }
         return res;
     }
