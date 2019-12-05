@@ -57,20 +57,28 @@ public:
 ### 双指针
 ```python
 class Solution:
-    def multiply(self, num1: str, num2: str) -> str:
-        n1,n2 = len(num1),len(num2)
-        res = [0 for i in range(n1+n2)]
-        for i in range(n2-1,-1,-1):
-            for j in range(n1-1,-1,-1):
-                x,y = ord(num1[j])-ord('0'),ord(num2[i])-ord('0')
-                temp = x*y + res[i+j+1]
-                res[i+j+1] = temp % 10
-                res[i+j] += temp // 10
-        for i in range(0,n1+n2):
-            if res[i] != 0:
-                res = ''.join(str(x) for x in res[i:])
-                return res
-        return "0"
+    def addStrings(self, num1: str, num2: str) -> str:
+        res =""
+        n1 = len(num1)
+        n2 = len(num2)
+        i = n1-1
+        j = n2-1
+        carry = 0
+        while i >=0 or j >=0:
+            if i < 0:
+                temp = ord(num2[j]) - ord('0') + carry
+            if j < 0:
+                temp = ord(num1[i]) - ord('0') + carry
+            if i>=0 and j>=0:
+                temp = (ord(num1[i]) -ord('0')) + (ord(num2[j]) - ord('0')) + carry
+            carry = temp // 10
+            temp = temp%10
+            res += str(temp)
+            i=i-1
+            j=j-1
+        if carry>0:
+            res+=str(carry)
+        return res[::-1]
 ```
 # 参考
   - [字符串相乘](https://github.com/bryceustc/LeetCode_Note/edit/master/cpp/Multiply-Strings/README.md)
