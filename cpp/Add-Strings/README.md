@@ -1,26 +1,16 @@
 # 题目描述: 字符串相加
 
-给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
+给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的和，它们的和也表示为字符串形式。
 
-**示例 1:**
-```
-输入: num1 = "2", num2 = "3"
-输出: "6"
-```
+**注意：**
 
-**示例 2:**
-```
-输入: num1 = "123", num2 = "456"
-输出: "56088"
-```
+  1. num1 和num2 的长度都小于 5100.
+  2. num1 和num2 都只包含数字 0-9.
+  3. num1 和num2 都不包含任何前导零。
+  4. **你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式。**
   
 # 解题思路:
-  该算法是通过两数相乘时，乘数某位与被乘数某位相乘，与产生结果的位置的规律来完成。具体规律如下：
   
-  - 乘数 ``num1`` 位数为 M，被乘数 ``num2`` 位数为 N， ``num1 x num2`` 结果 ``res`` 最大总位数为 M+N
-  - ``num1[i] x num2[j]`` 的结果为 ``tmp``(位数为两位，"0x","xy"的形式)，其第一位位于 ``res[i+j]``，第二位位于 ``res[i+j+1]``。
-  
-  ![multiply](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Multiply-Strings/Image/multiply.png)
 
 # 时间复杂度：
   时间复杂度：O(MN)。M,N 分别为 num1 和 num2 的长度。
@@ -30,74 +20,41 @@
   
 # 代码
 
-## [C++](./Multiply-Strings.cpp):
+## [C++](./Add-Strings.cpp):
 
-###
+### 双指针
 ```c++
 class Solution {
 public:
-    string multiply(string num1, string num2) {
-        int n1=num1.size();
-        int n2=num2.size();
-        string res(n1+n2,'0');
-        for(int i=n2-1;i>=0;i--)
-        {
-            for(int j=n1-1;j>=0;j--)
-            {
-                int temp=(res[i+j+1]-'0')+(num1[j]-'0')*(num2[i]-'0');
-                res[i+j+1]=temp%10+'0';//当前位
-                res[i+j]+=temp/10; //前一位加上进位，res[i+j]已经初始化为'0'，加上int类型自动转化为char，所以此处不加'0'
-            }
-        }
-        
-        //去除首位'0'
-        for(int i=0;i<n1+n2;i++){
-            if(res[i]!='0')
-                return res.substr(i);
-        }
-        return "0";
-    }
-};
-```
-
-### 以下是当时错误解法： 普通竖式法，未通过OJ，本质还是int乘法，
-```c++
-class Solution {
-public:
-    string multiply(string num1, string num2) {
-        string res;
-        if (num1 == "0"||num2 =="0") return "0";
-        int n1 = num1.size();
-        int n2 = num2.size();
+    string addStrings(string num1, string num2) {
+        int i = num1.size()-1;
+        int j = num2.size()-1;
         int carry = 0;
-        int sum = 0;
-        int sum_value = 0;
-        for (int j = n2-1;j>=0;j--)
+        string res;
+        while (i>=0 || j>=0)
         {
             int temp = 0;
-            for (int i = n1-1;i>=0;i--)
-            {
-                temp = (num2[j]-'0')*(num1[i]-'0')+carry;
-                carry = temp / 10;
-                sum += temp%10*(pow(10,n1-1-i));
-                if (i==0 && carry!=0)
-                {
-                    sum += carry*(pow(10,n1));
-                    carry = 0;
-                }
-            }
-            sum_value += sum*(pow(10,n2-1-j));
-            sum = 0;
+            if (i<0)
+                temp = num2[j]-'0'+carry;
+            if (j<0)
+                temp = num1[i]-'0'+carry;
+            else
+                temp = num1[i] - '0' + num2[j] -'0' + carry;
+            carry = temp / 10;
+            res.insert(res.begin(),temp%10+'0');
+            i--;
+            j--;
         }
-        res = to_string(sum_value);
+        if (carry>0)
+            res.insert(res.begin(),carry+'0');
         return res;
     }
+};}
 };
 ```
 
-
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Multiply-Strings/Multiply-Strings.py)
-### 优化竖式
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Add-Strings/Add-Strings.py)
+### 双指针
 ```python
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
