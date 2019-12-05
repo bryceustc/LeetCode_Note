@@ -1,108 +1,96 @@
-# 题目描述: 接雨水
+# 题目描述: 字符串相乘(可实现大数相乘，超过int和long的限制)
 
-给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
 
-![rainwater](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Trapping-Rain-Water/Image/rainwatertrap.png)
-
-上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 
-
-**示例 :**
+**示例 1:**
 ```
-输入: [0,1,0,2,1,0,1,3,2,1,2,1]
-输出: 6
+输入: num1 = "2", num2 = "3"
+输出: "6"
+```
+
+**示例 2:**
+```
+输入: num1 = "123", num2 = "456"
+输出: "56088"
 ```
   
 # 解题思路:
-
+  该算法是通过两数相乘时，乘数某位与被乘数某位相乘，与产生结果的位置的规律来完成。具体规律如下：
   
+  - 乘数 ``num1`` 位数为 M，被乘数 ``num2`` 位数为 N， ``num1 x num2`` 结果 ``res`` 最大总位数为 M+N
+  - ``num1[i] x num2[j]`` 的结果为 ``tmp``(位数为两位，"0x","xy"的形式)，其第一位位于 ``res[i+j]``，第二位位于 ``res[i+j+1]``。
   
+  ![multiply]()
 
 # 时间复杂度：
-  暴力遍历法：O(n<sup>2</sup>)
-  
-  动态规划：O(n)
-  
+  时间复杂度：O(MN)。M,N 分别为 num1 和 num2 的长度。
   
 # 空间复杂度
- 暴力遍历法：O(1)
- 
- 动态规划：O(n)
+  O(M+N)。用于存储计算结果。
   
 # 代码
 
 ## [C++](./Trapping-Rain-Water.cpp):
-### 方法一： 暴力遍历法：按行求
+### 错误： 普通竖式法，未通过OJ，本质还是int乘法，
 ```c++
 class Solution {
 public:
-    int trap(vector<int>& height) {
-        int res = 0;
-        if (height.empty()) return res;
-        int n = height.size();
-        int max_value = *max_element(height.begin(),height.end());    //找到vector数组中的最大值
-        for (int i=1;i<=max_value;i++)
+    string multiply(string num1, string num2) {
+        string res;
+        if (num1 == "0"||num2 =="0") return "0";
+        int n1 = num1.size();
+        int n2 = num2.size();
+        int carry = 0;
+        int sum = 0;
+        int sum_value = 0;
+        for (int j = n2-1;j>=0;j--)
         {
-            bool flag = false;     //标记是否开始更新 temp
             int temp = 0;
-            for (int j=0;j<n;j++)
+            for (int i = n1-1;i>=0;i--)
             {
-                if (flag && height[j] < i)   
+                temp = (num2[j]-'0')*(num1[i]-'0')+carry;
+                carry = temp / 10;
+                sum += temp%10*(pow(10,n1-1-i));
+                if (i==0 && carry!=0)
                 {
-                    temp++;
-                }
-                if (height[j] >= i)
-                {
-                    res += temp;
-                    temp = 0;
-                    flag = true;
+                    sum += carry*(pow(10,n1));
+                    carry = 0;
                 }
             }
+            sum_value += sum*(pow(10,n2-1-j));
+            sum = 0;
         }
+        res = to_string(sum_value);
         return res;
     }
 };
 ```
 
 
-### 方法二： 暴力遍历法：按列求
+### 方法一：优化竖式，
 ```c++
 class Solution {
 public:
-    int trap(vector<int>& height) {
-        int res = 0;
-        if (height.empty()) return res;
-        int n = height.size();
-        //因为两端不可能积雨水，下标从1到n-2
-        for (int i =1; i<n-1; i++)
+    string multiply(string num1, string num2) {
+        int n1=num1.size();
+        int n2=num2.size();
+        string res(n1+n2,'0');
+        for(int i=n2-1;i>=0;i--)
         {
-            int max_left = 0;
-            int max_right = 0;
-            
-            // 寻找左边最高
-            for (int j = i-1;j>=0;j--)
+            for(int j=n1-1;j>=0;j--)
             {
-                if (height[j]>max_left)
-                {
-                    max_left = height[j];
-                }
-            }
-            
-            // 寻找右边最高
-            for (int k =i+1;k<n;k++)
-            {
-                if (height[k] > max_right)
-                {
-                    max_right = height[k];
-                }
-            }
-            
-            int min_height = min(max_left,max_right);
-            if ( min_height > height[i])
-            {
-                res += min_height - height[i];
+                int temp=(res[i+j+1]-'0')+(num1[j]-'0')*(num2[i]-'0');
+                res[i+j+1]=temp%10+'0';//当前位
+                res[i+j]+=temp/10; //前一位加上进位，res[i+j]已经初始化为'0'，加上int类型自动转化为char，所以此处不加'0'
             }
         }
-        return res;
+        
+        //去除首位'0'
+        for(int i=0;i<n1+n2;i++){
+            if(res[i]!='0')
+                return res.substr(i);
+        }
+        return "0";
     }
 };
 ```
