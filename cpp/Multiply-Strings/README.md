@@ -1,4 +1,4 @@
-# 题目描述: 字符串相乘(可实现大数相乘，超过int和long的限制)
+# 题目描述: 字符串相乘(可实现大数相乘，不受int和long的限制)
 
 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
 
@@ -97,22 +97,24 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Multiply-Strings/Multiply-Strings.py)
-### 方法一： HashSet法
+### 优化竖式
 ```python
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        n =len(nums)
-        res = 1
-        record = {}
-        for index, num in enumerate (nums):
-            record[num] = index
-        for i in range (n):
-            if res not in record:
+    def multiply(self, num1: str, num2: str) -> str:
+        n1,n2 = len(num1),len(num2)
+        res = [0 for i in range(n1+n2)]
+        for i in range(n2-1,-1,-1):
+            for j in range(n1-1,-1,-1):
+                x,y = ord(num1[j])-ord('0'),ord(num2[i])-ord('0')
+                temp = x*y + res[i+j+1]
+                res[i+j+1] = temp % 10
+                res[i+j] += temp // 10
+        for i in range(0,n1+n2):
+            if res[i] != 0:
+                res = ''.join(str(x) for x in res[i:])
                 return res
-            else:
-                res+=1
-        return res
+        return "0"
 ```
 # 参考
   - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
-  - [数组中重复的数字](https://github.com/bryceustc/CodingInterviews/blob/master/DuplicationInArray/README.md)
+  - [字符串相加](https://github.com/bryceustc/CodingInterviews/blob/master/DuplicationInArray/README.md)
