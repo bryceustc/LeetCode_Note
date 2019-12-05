@@ -257,7 +257,7 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Trapping-Rain-Water/Trapping-Rain-Water.py)
-### 方法一： HashSet法
+### 方法一： 暴力求解法
 ```python
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
