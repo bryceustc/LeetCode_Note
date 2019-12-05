@@ -116,5 +116,4 @@ class Solution:
         return "0"
 ```
 # 参考
-  - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
   - [字符串相加](https://github.com/bryceustc/CodingInterviews/blob/master/DuplicationInArray/README.md)
