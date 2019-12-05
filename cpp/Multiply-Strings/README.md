@@ -20,7 +20,7 @@
   - 乘数 ``num1`` 位数为 M，被乘数 ``num2`` 位数为 N， ``num1 x num2`` 结果 ``res`` 最大总位数为 M+N
   - ``num1[i] x num2[j]`` 的结果为 ``tmp``(位数为两位，"0x","xy"的形式)，其第一位位于 ``res[i+j]``，第二位位于 ``res[i+j+1]``。
   
-  ![multiply]()
+  ![multiply](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Multiply-Strings/Image/multiply.png)
 
 # 时间复杂度：
   时间复杂度：O(MN)。M,N 分别为 num1 和 num2 的长度。
