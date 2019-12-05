@@ -81,3 +81,4 @@ class Solution:
 ```
 # 参考
   - [字符串相乘](https://github.com/bryceustc/LeetCode_Note/edit/master/cpp/Multiply-Strings/README.md)
+  - [Python字符串反转](https://www.runoob.com/python3/python-string-reverse.html)
