@@ -60,7 +60,7 @@ public:
 };
 ```
 
-### 错误： 普通竖式法，未通过OJ，本质还是int乘法，
+### 以下是当时错误解法： 普通竖式法，未通过OJ，本质还是int乘法，
 ```c++
 class Solution {
 public:
