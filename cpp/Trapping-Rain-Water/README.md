@@ -257,37 +257,77 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Trapping-Rain-Water/Trapping-Rain-Water.py)
-### 方法一： 暴力求解法
+### 方法一： 暴力求解法（未通过OJ,按列来求解,时间复杂度n<sup>2</sup>）
 ```python
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        n =len(nums)
-        res = 1
-        record = {}
-        for index, num in enumerate (nums):
-            record[num] = index
-        for i in range (n):
-            if res not in record:
-                return res
-            else:
-                res+=1
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        res = 0
+        if n==0:
+          return res
+        for i in range (1,n-1):
+            max_left = 0
+            max_right = 0
+            for j in range (i-1,-1,-1):
+                if height[j] > max_left:
+                    max_left = height[j]
+            for k in range (i+1,n,1):
+                if height[k] > max_right:
+                    max_right = height[k]
+            min_height = min(max_left,max_right)
+            if min_height > height[i]:
+                res += min_height - height[i]
         return res
 ```
 
-### 方法二：交换位置法
+### 方法二：动态规划
 ```python
 class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        n = len(nums)
-        for i in range(n):
-            while nums[i]<=n and nums[i]>0 and nums[i]!=nums[nums[i]-1]:
-                temp = nums[i]
-                nums[i] = nums[temp-1]
-                nums[temp-1] = temp
-        for i in range(n):
-            if nums[i]!=i+1:
-                return i+1
-        return n+1
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        if n==0:
+          return 0
+        res = 0
+        max_left = [0 for x in range(n)]
+        max_right = [0 for y in range(n)]
+        for i in range(1,n):
+            max_left[i] = max(max_left[i-1],height[i-1])
+        for j in range(n-2,-1,-1):
+            max_right[j] = max(max_right[j+1],height[j+1])
+        for i in range(1,n-1):
+            min_height= min(max_left[i],max_right[i])
+            if min_height > height[i]:
+                res += min_height - height[i]
+        return res
 ```
+
+### 方法三：双指针
+```python
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        n = len(height)
+        if n==0:
+          return 0
+        res = 0
+        max_left = 0
+        max_right = 0
+        left = 1
+        right = n-2
+        while right >= left:
+            if height[left-1] < height[right+1]:
+                max_left = max(max_left,height[left-1])
+                min_height = max_left
+                if min_height > height[left]:
+                    res += min_height - height[left]    
+                left += 1
+            else:
+                max_right = max(max_right,height[right+1])
+                min_height = max_right
+                if min_height > height[right]:
+                    res += min_height - height[right] 
+                right -= 1
+        return res
+```
+
 # 参考
   - [接雨水思路分析](https://leetcode-cn.com/problems/trapping-rain-water/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/)
