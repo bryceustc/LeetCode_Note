@@ -30,7 +30,36 @@
   
 # 代码
 
-## [C++](./Trapping-Rain-Water.cpp):
+## [C++](./Multiply-Strings.cpp):
+
+###
+```c++
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        int n1=num1.size();
+        int n2=num2.size();
+        string res(n1+n2,'0');
+        for(int i=n2-1;i>=0;i--)
+        {
+            for(int j=n1-1;j>=0;j--)
+            {
+                int temp=(res[i+j+1]-'0')+(num1[j]-'0')*(num2[i]-'0');
+                res[i+j+1]=temp%10+'0';//当前位
+                res[i+j]+=temp/10; //前一位加上进位，res[i+j]已经初始化为'0'，加上int类型自动转化为char，所以此处不加'0'
+            }
+        }
+        
+        //去除首位'0'
+        for(int i=0;i<n1+n2;i++){
+            if(res[i]!='0')
+                return res.substr(i);
+        }
+        return "0";
+    }
+};
+```
+
 ### 错误： 普通竖式法，未通过OJ，本质还是int乘法，
 ```c++
 class Solution {
@@ -67,100 +96,7 @@ public:
 ```
 
 
-### 方法一：优化竖式，
-```c++
-class Solution {
-public:
-    string multiply(string num1, string num2) {
-        int n1=num1.size();
-        int n2=num2.size();
-        string res(n1+n2,'0');
-        for(int i=n2-1;i>=0;i--)
-        {
-            for(int j=n1-1;j>=0;j--)
-            {
-                int temp=(res[i+j+1]-'0')+(num1[j]-'0')*(num2[i]-'0');
-                res[i+j+1]=temp%10+'0';//当前位
-                res[i+j]+=temp/10; //前一位加上进位，res[i+j]已经初始化为'0'，加上int类型自动转化为char，所以此处不加'0'
-            }
-        }
-        
-        //去除首位'0'
-        for(int i=0;i<n1+n2;i++){
-            if(res[i]!='0')
-                return res.substr(i);
-        }
-        return "0";
-    }
-};
-```
-
-
-### 方法三： 动态规划
-```c++
-class Solution {
-public:
-    int trap(vector<int>& height) {
-        int res = 0;
-        if (height.empty()) return res;
-        int n = height.size();
-        vector<int> max_left(n,0);
-        vector<int> max_right(n,0);
-        for (int i = 1;i<n-1;i++)
-        {
-            max_left[i] = max(max_left[i-1],height[i-1]);
-        }
-        for (int i = n-2;i>=0;i--)
-        {
-            max_right[i] = max(max_right[i+1],height[i+1]);
-        }
-        
-        for (int i=1;i<n-1;i++)
-        {
-            int min_height = min(max_left[i],max_right[i]);
-            if (min_height > height[i])
-                res += min_height-height[i];
-        }
-        return res;
-    }
-};
-```
-
-### 方法四： 双指针
-```c++
-class Solution {
-public:
-    int trap(vector<int>& height) {
-        int res = 0;
-        int n = height.size();
-        int left = 1,right=n-2;
-        int max_left=0,max_right=0;
-        while (left <= right)
-        {
-          if (height[left-1] < height[right+1])
-          {
-              max_left = max(max_left,height[left-1]);
-              int min_height = max_left;
-              if (min_height > height[left])
-                  res += min_height - height[left];
-              left++;
-          }
-          else
-          {
-              max_right = max(max_right,height[right+1]);
-              int min_height = max_right;
-              if (min_height > height[right])
-                  res += min_height - height[right];
-              right--;
-          }
-        }
-        return res;
-    }
-};
-```
-
-
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Trapping-Rain-Water/Trapping-Rain-Water.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Multiply-Strings/Multiply-Strings.py)
 ### 方法一： HashSet法
 ```python
 class Solution:
@@ -176,22 +112,6 @@ class Solution:
             else:
                 res+=1
         return res
-```
-
-### 方法二：交换位置法
-```python
-class Solution:
-    def firstMissingPositive(self, nums: List[int]) -> int:
-        n = len(nums)
-        for i in range(n):
-            while nums[i]<=n and nums[i]>0 and nums[i]!=nums[nums[i]-1]:
-                temp = nums[i]
-                nums[i] = nums[temp-1]
-                nums[temp-1] = temp
-        for i in range(n):
-            if nums[i]!=i+1:
-                return i+1
-        return n+1
 ```
 # 参考
   - [C++中map，hash_map,unordered_map,unordered_set区别与联系](https://blog.csdn.net/u013195320/article/details/23046305)
