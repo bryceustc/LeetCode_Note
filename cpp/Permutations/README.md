@@ -67,20 +67,27 @@ public:
 ### 方法一： DFS递归法
 ```python
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        res = []
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        res=[]
+        if n == 0:
+            return res
         out = []
-        self.DFS(candidates, target, 0, out, res)
+        visited = [0 for i in range(n)]
+        self.DFS(nums,0,visited,out,res)
         return res
-    def DFS(self, candidates: List[int], target: int, start: int, out: List[int], res: List[List[int]]):
-        if target < 0: return
-        if target == 0:
+    def DFS(self, nums: List[int], level : int, visited: List[int], out: List[int], res: List[List[int]]):
+        n = len(nums)
+        if level == n:
             res.append(out[:])
             return
-        n = len(candidates)
-        for i in range (start,n):
-            out.append(candidates[i])
-            self.DFS(candidates,target-candidates[i],i,out,res)
-            out.pop()  ## out.pop(-1) or del out[-1]
+        for i in range (0,n):
+            if visited[i] == 1:
+                continue
+            visited[i] = 1
+            out.append(nums[i])
+            self.DFS(nums, level+1, visited, out, res)
+            out.pop()  ## del out[-1] out.pop(-1)
+            visited[i] = 0
 ```
 
