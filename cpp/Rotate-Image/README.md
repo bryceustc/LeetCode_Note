@@ -48,7 +48,7 @@
   观察矩阵，先转置后，在按中心竖线旋转，也就是翻转每一行，即可
 
 # 时间复杂度：
-  O(n<sup>2<\sup>)
+  O(n<sup>2)
   
 # 空间复杂度
   O(1)
@@ -95,18 +95,26 @@ public:
 ### 转置旋转
 ```python
 class Solution:
-    def multiply(self, num1: str, num2: str) -> str:
-        n1,n2 = len(num1),len(num2)
-        res = [0 for i in range(n1+n2)]
-        for i in range(n2-1,-1,-1):
-            for j in range(n1-1,-1,-1):
-                x,y = ord(num1[j])-ord('0'),ord(num2[i])-ord('0')
-                temp = x*y + res[i+j+1]
-                res[i+j+1] = temp % 10
-                res[i+j] += temp // 10
-        for i in range(0,n1+n2):
-            if res[i] != 0:
-                res = ''.join(str(x) for x in res[i:])
-                return res
-        return "0"
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        n = len(matrix)
+
+        # 转置
+        for i in range(n):
+            for j in range(i,n):
+                temp = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = temp
+        #旋转
+        for i in range(n):
+            j = 0
+            k = n-1
+            while j<k:
+                temp = matrix[i][j]
+                matrix[i][j] = matrix[i][k]
+                matrix[i][k] = temp
+                j+=1
+                k-=1
 ```
