@@ -51,5 +51,6 @@ LeetCode
 |44|[Wildcard-Matching](https://leetcode-cn.com/problems/wildcard-matching/)| [C++](./cpp/Wildcard-Matching/README.md), [Python](./python/Wildcard-Matching/Wildcard-Matching.py)|Hard|
 |46|[Permutations](https://leetcode-cn.com/problems/permutations/)| [C++](./cpp/Permutations/README.md), [Python](./python/Permutations/Permutations.py)|Medium|
 |47|[Permutations-II](https://leetcode-cn.com/problems/permutations-ii/)| [C++](./cpp/Permutations-II/README.md), [Python](./python/Permutations-II/Permutations-II.py)|Medium|
+|48|[Rotate-Image](https://leetcode-cn.com/problems/rotate-image/)| [C++](./cpp/Rotate-Image/README.md), [Python](./python/Rotate-Image/Rotate-Image.py)|Medium|
 |287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
