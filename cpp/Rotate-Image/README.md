@@ -57,7 +57,7 @@
 
 ## [C++](./Rotate-Image.cpp):
 
-###转置旋转
+### 转置旋转
 ```c++
 class Solution {
 public:
