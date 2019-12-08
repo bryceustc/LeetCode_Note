@@ -29,7 +29,7 @@
 
   
 # 解题思路:
-  方法一：建立哈希表，可以发现如果把错位词的字符顺序重新排列，那么会得到相同的结果，所以重新排序是判断是否互为错位词的方法，由于错位词重新排序后都会得到相同的字符串，以此作为 key，将所有错位词都保存到字符串数组中，建立 key 和当前的不同的错位词集合个数之间的映射，这里之所以没有建立 key 和其隶属的错位词集合之间的映射，是用了一个小 trick，从而避免了最后再将 HashMap 中的集合拷贝到结果 res 中。当检测到当前的单词不在 HashMap 中，此时知道这个单词将属于一个新的错位词集合，所以将其映射为当前的错位词集合的个数，然后在 res 中新增一个空集合，这样就可以通过其映射值，直接找到新的错位词集合的位置，从而将新的单词存入结果 res 中
+  方法一：直接根据定义暴力求解
 
 # 时间复杂度：
   O(NLlogL)
@@ -41,25 +41,43 @@
 
 ## [C++](./PowX-N.cpp):
 
-### 方法一： 哈希表
+### 方法一： 暴力求解法
 ```c++
 class Solution {
 public:
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        vector<vector<string>> res;
-        if (strs.empty()) return res;
-        unordered_map<string,int> record;
-        for (auto & str : strs)
+    double myPow(double x, int n) {
+        double res=x;
+        if (x==0) return 0;
+        if (x==1) return 1;
+        if (x==-1 && n%2==0) return 1;
+        if (x==-1 && n%2!=0) return -1;
+        if (n==-2147483648 && x>1) 
         {
-            string temp = str;
-            sort(temp.begin(),temp.end());
-            if (record.find(temp) == record.end())
-            {
-                record[temp] = res.size();
-                res.push_back({});
-            }
-            res[record[temp]].push_back(str);
+            res = 0.0;
+            return res;
         }
+        if (n==2147483647 && x<-1) 
+        {
+            res = 0.0;
+            return res;
+        }
+        if (n>0)
+        {
+            for (int i=1;i<n;i++)
+            {
+                res=res*x;
+            }
+        }
+        if (n<0)
+        {
+            for (int i=-1;i>n;i--)
+            {
+                res=res*x;
+            }
+            res = 1/res;
+        }
+        if (n==0)
+            res = 1;
         return res;
     }
 };
@@ -94,42 +112,31 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 ```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/PowX-N/PowX-N.py)
-### 方法一： 哈希表
+### 方法一： 暴力求解法
 ```python
 class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = []
-        n = len(strs)
+    def myPow(self, x: float, n: int) -> float:
+        res = x
+        if x==0:
+            return 0
+        if x==1:
+            return 1
+        if x==-1 and n%2 == 0:
+            return 1
+        if x==-1 and n%2 != 0:
+            return -1
+        if n==2147483647 and x<1:
+            return 0
+        if n==-2147483648 and x>1:
+            return 0
+        if n>0:
+            for i in range(1,n):
+                res *= x
+        if n<0:
+            for i in range(-1,n,-1):
+                res *=x
+            res = 1/res
         if n==0:
-            return res
-        dic = {}
-        for s in strs:
-            t = s
-            t = "".join(sorted(t))
-            if t not in dic:
-                dic[t] = len(res)
-                res.append([])
-            res[dic[t]].append(s)
-        return res
-```
-
-### 方法二 : 哈希表
-```python
-class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = []
-        dic = {}
-        m ={}
-        n = len(strs)
-        if n==0: 
-            return res
-        for s in strs:
-            t = s
-            t = "".join(sorted(t))
-            if t not in dic:
-                dic[t] = [s]
-            else:
-                dic[t].append(s)
-        res = list(dic.values())
-        return res
+            res = 1
+        return res;
 ```
