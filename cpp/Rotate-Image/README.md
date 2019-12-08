@@ -63,7 +63,7 @@
 
 ## [C++](./Rotate-Image.cpp):
 
-### 转置旋转
+### 方法一： 转置旋转
 ```c++
 class Solution {
 public:
@@ -96,9 +96,56 @@ public:
 };
 ```
 
+### 方法二：寻找坐标规律变换
+```c++
+class Solution {
+public:
+    void rotate(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        for (int i=0;i<n/2;i++)
+        {
+            for (int j=i;j<n-1-i;j++)
+            {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[n-1-j][i];
+                matrix[n-1-j][i] = matrix[n-1-i][n-1-j];
+                matrix[n-1-i][n-1-j] = matrix[j][n-1-i];
+                matrix[j][n-1-i] = temp;
+            }
+        }
+    }
+};
+```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Rotate-Image/Rotate-Image.py)
-### 转置旋转
+### 方法一： 转置旋转
+```python
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        n = len(matrix)
+
+        # 转置
+        for i in range(n):
+            for j in range(i,n):
+                temp = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = temp
+        #旋转
+        for i in range(n):
+            j = 0
+            k = n-1
+            while j<k:
+                temp = matrix[i][j]
+                matrix[i][j] = matrix[i][k]
+                matrix[i][k] = temp
+                j+=1
+                k-=1
+```
+
+### 方法二：寻找坐标规律变换
 ```python
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
