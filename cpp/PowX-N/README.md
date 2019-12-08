@@ -25,7 +25,7 @@
 **说明：**
 
   - -100.0 < x < 100.0
-  - n 是 32 位有符号整数，其数值范围是 [−2<\sup>31, 2<\sup>31 − 1] 。
+  - n 是 32 位有符号整数，其数值范围是 ``[−2</sup>31, 2</sup>31 − 1]`` 。
 
   
 # 解题思路:
@@ -39,7 +39,7 @@
   
 # 代码
 
-## [C++](./Group-Anagrams.cpp):
+## [C++](./PowX-N.cpp):
 
 ### 方法一： 哈希表
 ```c++
@@ -93,7 +93,7 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Group-Anagrams/Group-Anagrams.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/PowX-N/PowX-N.py)
 ### 方法一： 哈希表
 ```python
 class Solution:
