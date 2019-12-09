@@ -140,7 +140,7 @@ class Solution:
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         res = 1.0
-        i = abs(n)
+        i = abs(n)    ### 注意Python负数取余与C++负数取余不一样
         while i!=0:
             if i%2!=0:
                 res*=x
