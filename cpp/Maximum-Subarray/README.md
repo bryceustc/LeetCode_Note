@@ -169,14 +169,12 @@ class Solution:
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         res = nums[0]
-        s = 0
         n = len(nums)
-        for i in range(n):
-            if s>0:
-                s+=nums[i]
-            else:
-                s = nums[i]
-            res = max(res,s)
+        dp = [0 for _ in range(n)]
+        dp[0] = nums[0]
+        for i in range(1,n):
+            dp[i] = max(dp[i-1]+nums[i],nums[i])
+            res = max(res,dp[i])            
         return res
 ```
 
