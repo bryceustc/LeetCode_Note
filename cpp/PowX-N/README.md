@@ -142,7 +142,7 @@ class Solution:
         res = 1.0
         i = abs(n)
         while i!=0:
-            if 1%2!=0:
+            if i%2!=0:
                 res*=x
             x*=x
             i=i//2
