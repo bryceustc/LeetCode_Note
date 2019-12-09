@@ -18,7 +18,7 @@
 # 解题思路:
   尝试一：暴力求解
   
-  方法二：使用折半计算，每次把n缩小一半，这样n最终会缩小到0，任何数的0次方都为1，这时候我们再往回乘，如果此时n是偶数，直接把上次递归得到的值算个平方返回即可，如果是奇数，则还需要乘上个x的值。还有一点需要引起我们的注意的是n有可能为负数，对于n是负数的情况，我们可以先用其绝对值计算出一个结果再取其倒数即可。我们让i初始化为n，然后看i是否是2的倍数，是的话x乘以自己，否则res乘以x，i每次循环缩小一半，直到为0停止循环。最后看n的正负，如果为负，返回其倒数
+  方法二：动态规划，``dp[i]``表示``nums``中以``nums[i]``结尾的最大子序和
 # 时间复杂度：
   方法一：O(n<sup>2</sup>)
   
@@ -43,6 +43,7 @@ public:
     int maxSubArray(vector<int> &nums){
         //类似寻找最大最小值的题目，初始值一定要定义成理论上的最小最大值
         int res = INT_MIN;
+        // int res = nums[0];
         int n = nums.size();
         for (int i=0;i<n;i++)
         {
@@ -58,26 +59,78 @@ public:
 };
 ```
 
-### 方法二：折半计算
+### 方法二：动态规划
+
+
+#### 空间复杂度O(n)
 ```c++
 class Solution {
 public:
-    double myPow(double x, int n) {
-        double res=1.0;
-        for(int i=n;i!=0;i/=2)
+    int maxSubArray(vector<int>& nums){
+        int res = nums[0];
+        int n = nums.size();
+        vector<int> dp(n);
+        dp[0] = nums[0];
+        for (int i=1;i<n;i++)
         {
-            if (i%2 != 0)
-            {
-                res*=x;
-            }
-            x*=x;
+            dp[i] = max(dp[i-1]+nums[i],nums[i]);
+            res = max(res,dp[i]);
         }
-        if (n<0)
-          res = 1/res;
         return res;
     }
 };
 ```
+
+
+#### 空间复杂度O(1)
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums){
+        int res = nums[0];
+        int n = nums.size();
+        int sum = 0;
+        for (int i=0;i<n;i++)
+        {
+            if (sum>0)
+            {
+                sum+=nums[i];
+            }
+            else
+            {
+                sum = nums[i];
+            }
+            res = max(res,sum);
+        }
+        return res;
+    }
+};
+```
+
+
+### 方法三： 分治法
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int> &nums){
+        //类似寻找最大最小值的题目，初始值一定要定义成理论上的最小最大值
+        int res = INT_MIN;
+        // int res = nums[0];
+        int n = nums.size();
+        for (int i=0;i<n;i++)
+        {
+            int sum = 0;
+            for (int j=i;j<n;j++)
+            {
+                sum+=nums[j];
+                res = max(res,sum);
+            }
+        }
+        return res;
+    }
+};
+```
+
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Maximum-Subarray/Maximum-Subarray.py)
 ### 方法一： 暴力求解法
@@ -109,7 +162,24 @@ class Solution:
         return res;
 ```
 
-### 方法二： 折半计算
+### 方法二： 动态规划
+```python
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        res = 1.0
+        i = abs(n)    ### 注意Python负数取余与C++负数取余不一样
+        while i!=0:
+            if i%2!=0:
+                res*=x
+            x*=x
+            i=i//2
+        if n<0:
+            res = 1/res
+        return res
+```
+
+
+### 方法三： 分治法
 ```python
 class Solution:
     def myPow(self, x: float, n: int) -> float:
