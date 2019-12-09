@@ -148,18 +148,35 @@ class Solution:
 ```
 
 ### 方法二： 动态规划
+#### 空间复杂度O(1)
 ```python
 class Solution:
-    def myPow(self, x: float, n: int) -> float:
-        res = 1.0
-        i = abs(n)    ### 注意Python负数取余与C++负数取余不一样
-        while i!=0:
-            if i%2!=0:
-                res*=x
-            x*=x
-            i=i//2
-        if n<0:
-            res = 1/res
+    def maxSubArray(self, nums: List[int]) -> int:
+        res = nums[0]
+        s = 0
+        n = len(nums)
+        for i in range(n):
+            if s>0:
+                s+=nums[i]
+            else:
+                s = nums[i]
+            res = max(res,s)
+        return res
+```
+
+#### 空间复杂度O(n)
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        res = nums[0]
+        s = 0
+        n = len(nums)
+        for i in range(n):
+            if s>0:
+                s+=nums[i]
+            else:
+                s = nums[i]
+            res = max(res,s)
         return res
 ```
 
