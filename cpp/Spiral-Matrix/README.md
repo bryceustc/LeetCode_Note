@@ -27,21 +27,19 @@
 
   
 # 解题思路:
-  尝试一：暴力求解
+  1. 首先设定上下左右边界
+
+  2. 其次向右移动到最右，此时第一行因为已经使用过了，可以将其从图中删去，体现在代码中就是重新定义上边界
   
-  方法二：动态规划，``dp[i]``表示``nums``中以``nums[i]``结尾的最大子序和
+  3. 判断若重新定义后，上下边界交错，表明螺旋矩阵遍历结束，跳出循环，返回答案
+  
+  4. 若上下边界不交错，则遍历还未结束，接着向下向左向上移动，操作过程与第一，二步同理
+  
+  5. 不断循环以上步骤，直到某两条边界交错，跳出循环，返回答案
 # 时间复杂度：
-  方法一：O(n<sup>2</sup>)
-  
-  方法二：O(n)
-  
-  方法三：O(nlogn)
+  O(n) 其中 n 是输入矩阵所有元素的个数。因为我们将矩阵中的每个元素都添加进答案里。
 # 空间复杂度
-  方法一: O(1)
-  
-  方法二：O(n)
-  
-  方法三：O(1)
+  O(n) 需要矩阵 ``res`` 存储信息。
   
 # 代码
 
@@ -56,127 +54,26 @@ public:
         if (matrix.empty()) return res;
         int m = matrix.size();
         int n = matrix[0].size();
-        int u = 0;//赋值上下左右边界
+        int u = 0;
         int d = m-1;
         int l = 0;
         int r = n-1;
         while(true)
         {
-            for (int i=l;i<=r;i++) res.push_back(matrix[u][i]);//向右移动直到最右
-            if (++u > d) break;//重新定义上边界
-            for (int i=u;i<=d;i++) res.push_back(matrix[i][r]);//向下
-            if (--r < l) break;//重新定义右边界
-            for (int i=r;i>=l;i--) res.push_back(matrix[d][i]);//向左
-            if (--d < u) break;//重新定义下边界
-            for (int i=d;i>=u;i--) res.push_back(matrix[i][l]);//向上
-            if (++l > r) break;//重新定义左边界 
+          for (int i=l;i<=r;i++) res.push_back(matrix[u][i]);//向右移动至最右
+          if (++u > d) break;//重新定义上边界
+          for (int i=u;i<=d;i++) res.push_back(matrix[i][r]);//向下
+          if (--r < l) break;//重新定义右边界
+          for (int i=r;i>=l;i--) res.push_back(matrix[d][i]);//向左
+          if (--d < u) break;//重新定义下边界
+          for (int i=d;i>=u;i--) res.push_back(matrix[i][l]);//向上
+          if (++l > r) break;//重新定义左边界
         }
         return res;
     }
 };
 ```
 
-### 方法二：动态规划
-
-
-#### 空间复杂度O(n)
-```c++
-class Solution {
-public:
-    int maxSubArray(vector<int>& nums){
-        int res = nums[0];
-        int n = nums.size();
-        vector<int> dp(n);
-        dp[0] = nums[0];
-        for (int i=1;i<n;i++)
-        {
-            dp[i] = max(dp[i-1]+nums[i],nums[i]);
-            res = max(res,dp[i]);
-        }
-        return res;
-    }
-};
-```
-
-
-#### 空间复杂度O(1)
-```c++
-class Solution {
-public:
-    int maxSubArray(vector<int>& nums){
-        int res = nums[0];
-        int n = nums.size();
-        int sum = 0;
-        for (int i=0;i<n;i++)
-        {
-            if (sum>0)
-            {
-                sum+=nums[i];
-            }
-            else
-            {
-                sum = nums[i];
-            }
-            res = max(res,sum);
-        }
-        return res;
-    }
-};
-```
-
-
-### 方法三： 分治法
-```c++
-class Solution
-{
-public:
-    int maxSubArray(vector<int> &nums)
-    {
-        //类似寻找最大最小值的题目，初始值一定要定义成理论上的最小最大值
-        int res = nums[0];
-        int n = nums.size();
-        res = maxSubArrayHelper(nums, 0, n - 1);
-        return res;
-    }
-
-    int maxSubArrayHelper(vector<int> &nums, int left, int right)
-    {
-        if (left == right)
-        {
-            return nums[left];
-        }
-        int mid = (left + right) / 2;
-        int leftSum = maxSubArrayHelper(nums, left, mid);
-        //注意这里应是mid + 1，否则left + 1 = right时，会无线循环
-        int rightSum = maxSubArrayHelper(nums, mid + 1, right);
-        int midSum = findMaxCrossingSubarray(nums, left, mid, right);
-        int res = max(leftSum, rightSum);
-        res = max(res, midSum);
-        return res;
-    }
-
-    int findMaxCrossingSubarray(vector<int> &nums, int left, int mid, int right)
-    {
-        int leftSum = INT_MIN;
-        int sum = 0;
-        for (int i = mid; i >= left; i--)
-        {
-            sum += nums[i];
-            leftSum = max(leftSum, sum);
-        }
-
-        int rightSum = INT_MIN;
-        sum = 0;
-        //注意这里i = mid + 1，避免重复用到nums[i]
-        for (int i = mid + 1; i <= right; i++)
-        {
-            sum += nums[i];
-            rightSum = max(rightSum, sum);
-        }
-        return (leftSum + rightSum);
-    }
-};
-```
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Spiral-Matrix/Spiral-Matrix.py)
