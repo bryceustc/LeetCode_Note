@@ -47,23 +47,29 @@
 
 ## [C++](./Spiral-Matrix.cpp):
 
-### 方法一： 暴力求解法
+### 方法一： 按层模拟
 ```c++
 class Solution {
 public:
-    int maxSubArray(vector<int> &nums){
-        //类似寻找最大最小值的题目，初始值一定要定义成理论上的最小最大值
-        int res = INT_MIN;
-        // int res = nums[0];
-        int n = nums.size();
-        for (int i=0;i<n;i++)
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> res;
+        if (matrix.empty()) return res;
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int u = 0;//赋值上下左右边界
+        int d = m-1;
+        int l = 0;
+        int r = n-1;
+        while(true)
         {
-            int sum = 0;
-            for (int j=i;j<n;j++)
-            {
-                sum+=nums[j];
-                res = max(res,sum);
-            }
+            for (int i=l;i<=r;i++) res.push_back(matrix[u][i]);//向右移动直到最右
+            if (++u > d) break;//重新定义上边界
+            for (int i=u;i<=d;i++) res.push_back(matrix[i][r]);//向下
+            if (--r < l) break;//重新定义右边界
+            for (int i=r;i>=l;i--) res.push_back(matrix[d][i]);//向左
+            if (--d < u) break;//重新定义下边界
+            for (int i=d;i>=u;i--) res.push_back(matrix[i][l]);//向上
+            if (++l > r) break;//重新定义左边界 
         }
         return res;
     }
