@@ -1,6 +1,6 @@
 LeetCode
 ========
-自己刷LeetCode整理的一些题解笔记，每道题都基本用了两种语言实现，C++和Python，有什么错误欢迎指出。
+自己刷LeetCode整理的一些题解笔记，每道题都基本用了两种语言实现，C++和Python，有什么错误欢迎指出，目标所有Easy和Medium题以及部分Hard题。
 ### LeetCode 题解（C++，Python实现）（持续更新中...）
 
 | # | Title | Solution | Difficulty 
