@@ -33,9 +33,10 @@
   
   5. 不断循环以上步骤，直到某两条边界交错，跳出循环，返回答案
 # 时间复杂度：
-  O(n) 其中 n 是输入矩阵所有元素的个数。因为我们将矩阵中的每个元素都添加进答案里。
+  O(n) 
 # 空间复杂度
-  O(n) 需要矩阵 ``res`` 存储信息。
+  动态规划：O(n) 需要一维数组 ``dp`` 存储信息。
+  贪心算法：O(1)
   
 # 代码
 
@@ -80,7 +81,7 @@ bool canJump(vector<int>& nums)
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Jump-Game/Jump-Game.py)
-### 按层模拟
+###  方法一：动态规划
 ```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
@@ -112,4 +113,37 @@ class Solution:
             if l>r:break
         return res
 ```
+### 方法二 ： 贪心算法
+```python
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        res = []
+        m = len(matrix)
+        if m==0:
+            return res
+        n = len(matrix[0])
+        u = 0
+        d = m-1
+        l = 0
+        r = n-1
+        while(True):
+            for i in range(l,r+1):
+                res.append(matrix[u][i])
+            u+=1
+            if u>d: break
+            for i in range(u,d+1):
+                res.append(matrix[i][r])
+            r-=1
+            if r<l:break
+            for i in range(r,l-1,-1):
+                res.append(matrix[d][i])
+            d-=1
+            if d<u:break
+            for i in range(d,u-1,-1):
+                res.append(matrix[i][l])
+            l+=1
+            if l>r:break
+        return res
+```
+
 
