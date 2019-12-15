@@ -1,3 +1,4 @@
+// C++ Solution 1: 动态规划
 class Solution {
 public:
 bool canJump(vector<int>& nums) 
@@ -11,5 +12,22 @@ bool canJump(vector<int>& nums)
         if (dp[i]<0) return 0;
     }
     return 1;
+}
+};
+
+
+// C++ Solution 2: 贪心算法
+class Solution {
+public:
+bool canJump(vector<int>& nums) 
+{
+        int reach=0;
+        int n=nums.size();
+        for (int i=0;i<n;i++)
+        {
+              if (i>reach || reach==n-1) break;
+              reach = max(reach,i+nums[i]);
+        }
+        return reach>=n-1;
 }
 };
