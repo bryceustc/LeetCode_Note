@@ -45,7 +45,7 @@
 
 ## [C++](./Spiral-Matrix.cpp):
 
-### 方法一： 按层模拟
+### 按层模拟
 ```c++
 class Solution {
 public:
@@ -77,79 +77,35 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Spiral-Matrix/Spiral-Matrix.py)
-### 方法一： 暴力求解法(未通过OJ，超时)
+### 按层模拟
 ```python
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        res = nums[0]
-        n = len(nums)
-        for i in range(n):
-            s = 0
-            for j in range(i,n):
-                s += nums[j]
-                res = max(res,s)
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        res = []
+        m = len(matrix)
+        if m==0:
+            return res
+        n = len(matrix[0])
+        u = 0
+        d = m-1
+        l = 0
+        r = n-1
+        while(True):
+            for i in range(l,r+1):
+                res.append(matrix[u][i])
+            u+=1
+            if u>d: break
+            for i in range(u,d+1):
+                res.append(matrix[i][r])
+            r-=1
+            if r<l:break
+            for i in range(r,l-1,-1):
+                res.append(matrix[d][i])
+            d-=1
+            if d<u:break
+            for i in range(d,u-1,-1):
+                res.append(matrix[i][l])
+            l+=1
+            if l>r:break
         return res
 ```
-
-### 方法二： 动态规划
-#### 空间复杂度O(1)
-```python
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        res = nums[0]
-        s = 0
-        n = len(nums)
-        for i in range(n):
-            if s>0:
-                s+=nums[i]
-            else:
-                s = nums[i]
-            res = max(res,s)
-        return res
-```
-
-#### 空间复杂度O(n)
-```python
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        res = nums[0]
-        n = len(nums)
-        dp = [0 for _ in range(n)]
-        dp[0] = nums[0]
-        for i in range(1,n):
-            dp[i] = max(dp[i-1]+nums[i],nums[i])
-            res = max(res,dp[i])            
-        return res
-```
-
-
-### 方法三： 分治法
-```python
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        n = len(nums)
-        #递归终止条件
-        if n == 1:
-            return nums[0]
-        else:
-            #递归计算左半边最大子序和
-            max_left = self.maxSubArray(nums[0:len(nums) // 2])
-            #递归计算右半边最大子序和
-            max_right = self.maxSubArray(nums[len(nums) // 2:len(nums)])
-        
-        #计算中间的最大子序和，从右到左计算左边的最大子序和，从左到右计算右边的最大子序和，再相加
-        max_l = nums[len(nums) // 2 - 1]
-        tmp = 0
-        for i in range(len(nums) // 2 - 1, -1, -1):
-            tmp += nums[i]
-            max_l = max(tmp, max_l)
-        max_r = nums[len(nums) // 2]
-        tmp = 0
-        for i in range(len(nums) // 2, len(nums)):
-            tmp += nums[i]
-            max_r = max(tmp, max_r)
-        #返回三个中的最大值
-        return max(max_right,max_left,max_l+max_r)
-```
-
-
