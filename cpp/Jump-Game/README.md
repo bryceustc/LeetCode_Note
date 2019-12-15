@@ -41,7 +41,7 @@
 
 ## [C++](./Jump-Game.cpp):
 
-### 按层模拟
+###  方法一： 动态规划
 ```c++
 class Solution {
 public:
@@ -60,6 +60,23 @@ bool canJump(vector<int>& nums)
 };
 ```
 
+###  方法二： 贪心算法
+```c++
+class Solution {
+public:
+bool canJump(vector<int>& nums) 
+{
+        int reach=0;
+        int n=nums.size();
+        for (int i=0;i<n;i++)
+        {
+              if (i>reach || reach==n-1) break;
+              reach = max(reach,i+nums[i]);
+        }
+        return reach>=n-1;
+}
+};
+```
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Jump-Game/Jump-Game.py)
