@@ -14,3 +14,14 @@ class Solution:
       
       
 ### Python Solution 2:贪心算法
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        n = len(nums)
+        reach = 0
+        if n==0: 
+            return False
+        for i in range (n):
+            if  i> reach or reach==n-1:
+                break
+            reach = max(reach,i+nums[i])
+        return reach>=n-1
