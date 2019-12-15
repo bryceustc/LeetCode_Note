@@ -57,5 +57,6 @@ LeetCode
 |53|[Maximum-Subarray](https://leetcode-cn.com/problems/maximum-subarray/)| [C++](./cpp/Maximum-Subarray/README.md), [Python](./python/Maximum-Subarray/Maximum-Subarray.py)|Easy|
 |54|[Spiral-Matrix](https://leetcode-cn.com/problems/spiral-matrix/)| [C++](./cpp/Spiral-Matrix/README.md), [Python](./python/Spiral-Matrix/Spiral-Matrix.py)|Medium|
 |55|[Jump-Game](https://leetcode-cn.com/problems/jump-game/)| [C++](./cpp/Jump-Game/README.md), [Python](./python/Jump-Game/Jump-Game.py)|Medium|
+|56|[Merge-Intervals](https://leetcode-cn.com/problems/merge-intervals/)| [C++](./cpp/Merge-Intervals/README.md), [Python](./python/Merge-Intervals/Merge-Intervals.py)|Medium|
 |287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
