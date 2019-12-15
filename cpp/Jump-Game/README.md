@@ -1,28 +1,24 @@
-# 题目描述:  螺旋矩阵
+# 题目描述:  跳跃游戏
 
-给定一个包含 m x n 个元素的矩阵（m 行, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。
+给定一个非负整数数组，你最初位于数组的第一个位置。
+
+数组中的每个元素代表你在该位置可以跳跃的最大长度。
+
+判断你是否能够到达最后一个位置。
 
 
 **示例 1:**
 ```
-输入:
-[
- [ 1, 2, 3 ],
- [ 4, 5, 6 ],
- [ 7, 8, 9 ]
-]
-输出: [1,2,3,6,9,8,7,4,5]
+输入: [2,3,1,1,4]
+输出: true
+解释: 我们可以先跳 1 步，从位置 0 到达 位置 1, 然后再从位置 1 跳 3 步到达最后一个位置。
 ```
 
 **示例 2:**
 ```
-输入:
-[
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9,10,11,12]
-]
-输出: [1,2,3,4,8,12,11,10,9,5,6,7]
+输入: [3,2,1,0,4]
+输出: false
+解释: 无论怎样，你总会到达索引为 3 的位置。但该位置的最大跳跃长度是 0 ， 所以你永远不可能到达最后一个位置。
 ```
 
   
@@ -49,28 +45,18 @@
 ```c++
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int> res;
-        if (matrix.empty()) return res;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int u = 0;
-        int d = m-1;
-        int l = 0;
-        int r = n-1;
-        while(true)
-        {
-          for (int i=l;i<=r;i++) res.push_back(matrix[u][i]);//向右移动至最右
-          if (++u > d) break;//重新定义上边界
-          for (int i=u;i<=d;i++) res.push_back(matrix[i][r]);//向下
-          if (--r < l) break;//重新定义右边界
-          for (int i=r;i>=l;i--) res.push_back(matrix[d][i]);//向左
-          if (--d < u) break;//重新定义下边界
-          for (int i=d;i>=u;i--) res.push_back(matrix[i][l]);//向上
-          if (++l > r) break;//重新定义左边界
-        }
-        return res;
+bool canJump(vector<int>& nums) 
+{
+    int n=nums.size();
+    if (nums.empty())  return 0;
+    vector<int> dp(n,0);
+    for (int i=1;i<n;i++)
+    {
+        dp[i]=max(dp[i-1],nums[i-1])-1;
+        if (dp[i]<0) return 0;
     }
+    return 1;
+}
 };
 ```
 
