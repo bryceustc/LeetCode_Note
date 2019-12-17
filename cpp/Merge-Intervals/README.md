@@ -18,12 +18,21 @@
 
   
 # 解题思路:
+方法一：这次题目要求我们合并区间，首先要做的就是给区间集排序，由于我们要排序的是个结构体，所以我们要定义自己的 comparator，才能用 sort 来排序，我们以 start 的值从小到大来排序，排完序我们就可以开始合并了，首先把第一个区间存入结果中，然后从第二个开始遍历区间集，如果结果中最后一个区间和遍历的当前区间无重叠，直接将当前区间存入结果中，如果有重叠，将结果中最后一个区间的 end 值更新为结果中最后一个区间的 end 和当前 end 值之中的较大值，然后继续遍历区间集，以此类推可以得到最终结果
 
+方法二：双指针，将起始位置和结束位置分别存到了两个不同的数组 starts 和 ends 中，然后分别进行排序，之后用两个指针i和j，初始化时分别指向 starts 和 ends 数组的首位置，然后如果i指向 starts 数组中的最后一个位置，或者当 starts 数组上 i+1 位置上的数字大于 ends 数组的i位置上的数时，此时说明区间已经不连续了，我们来看题目中的例子，排序后的 starts 和 ends 为：
+
+starts:    1    2    8    15
+
+ends:     3    6    10    18
+
+红色为i的位置，蓝色为j的位置，那么此时 starts[i+1] 为8，ends[i] 为6，8大于6，所以此时不连续了，将区间 [starts[j], ends[i]]，即 [1, 6] 加入结果 res 中，然后j赋值为 i+1 继续循环直至结束。
+
+ 
 # 时间复杂度：
   O(n) 
 # 空间复杂度
-  动态规划：O(n) 需要一维数组 ``dp`` 存储信息。
-  贪心算法：O(1)
+  O(n)
   
 # 代码
 
@@ -33,18 +42,24 @@
 ```c++
 class Solution {
 public:
-bool canJump(vector<int>& nums) 
-{
-    int n=nums.size();
-    if (nums.empty())  return 0;
-    vector<int> dp(n,0);
-    for (int i=1;i<n;i++)
-    {
-        dp[i]=max(dp[i-1],nums[i-1])-1;
-        if (dp[i]<0) return 0;
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if (intervals.empty()) return {};
+        int n=intervals.size();
+        sort(intervals.begin(),intervals.end());
+        vector<vector<int>> res={intervals[0]};
+        for (int i=1;i<n;i++)
+        {
+            if (res.back()[1]<intervals[i][0])
+            {
+                res.push_back(intervals[i]);
+            }
+            else
+            {
+                res.back()[1]=max(res.back()[1],intervals[i][1]);
+            }
+        }
+        return res;
     }
-    return 1;
-}
 };
 ```
 
@@ -52,17 +67,28 @@ bool canJump(vector<int>& nums)
 ```c++
 class Solution {
 public:
-bool canJump(vector<int>& nums) 
-{
-        int reach=0;
-        int n=nums.size();
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        if (intervals.empty()) return {};
+        int n = intervals.size();
+        vector<vector<int>> res;
+        vector<int> starts,ends;
         for (int i=0;i<n;i++)
         {
-              if (i>reach || reach==n-1) break;
-              reach = max(reach,i+nums[i]);
+            starts.push_back(intervals[i][0]);
+            ends.push_back(intervals[i][1]);
         }
-        return reach>=n-1;
-}
+        sort(starts.begin(),starts.end());
+        sort(ends.begin(),ends.end());
+        for (int i=0,j=0;i<n;i++)
+        {
+            if (i==n-1||starts[i+1]>ends[i])
+            {
+                res.push_back({starts[j],ends[i]});
+                j=i+1;
+            }
+        }
+        return res;
+    }
 };
 ```
 
