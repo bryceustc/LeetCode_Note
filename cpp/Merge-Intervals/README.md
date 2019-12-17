@@ -36,7 +36,7 @@ ends:     3    6    10    18
   
 # 代码
 
-## [C++](./Jump-Game.cpp):
+## [C++](./Merge-Intervals.cpp):
 
 ###  方法一： 动态规划
 ```c++
@@ -93,7 +93,7 @@ public:
 ```
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Jump-Game/Jump-Game.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Merge-Intervals/Merge-Intervals.py)
 ###  方法一：动态规划
 ```python
 class Solution:
@@ -124,4 +124,5 @@ class Solution:
 ```
 
 
-
+# 参考
+  - [C++ sort 排序（降序、升序）使用总结](C++ sort 排序（降序、升序）使用总结)
