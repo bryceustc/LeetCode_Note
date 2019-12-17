@@ -113,16 +113,26 @@ class Solution:
 ### 方法二 ： 双指针
 ```python
 class Solution:
-    def canJump(self, nums: List[int]) -> bool:
-        n = len(nums)
-        reach = 0
-        if n==0: 
-            return False
-        for i in range (n):
-            if  i> reach or reach==n-1:
-                break
-            reach = max(reach,i+nums[i])
-        return reach>=n-1
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        n=len(intervals)
+        if n==0:
+            return []
+        res =[]
+        starts=[]
+        ends=[]
+        for i in range(n):
+            starts.append(intervals[i][0])
+            ends.append(intervals[i][1])
+        starts = sorted(starts)
+        ends = sorted(ends)
+        i=0
+        j=0
+        while i<n:
+            if i==n-1 or starts[i+1]>ends[i]:
+                res.append([starts[j],ends[i]])
+                j=i+1
+            i+=1
+        return res
 ```
 
 
