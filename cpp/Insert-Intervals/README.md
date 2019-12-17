@@ -98,23 +98,24 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Merge-Intervals/Merge-Intervals.py)
-###  方法一：直接法
+###  方法一：插入区间后排序直接法
 ```python
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        intervals.append(newInterval)
         n=len(intervals)
         if n==0:
             return []
-        intervals = sorted(intervals,key=lambda x:x[0])
+        intervals=sorted(intervals,key=lambda x:x[0])
         res = [intervals[0]]
         for i in range(1,n):
-            if res[-1][1]<intervals[i][0]:
+            if res[-1][1] < intervals[i][0]:
                 res.append(intervals[i])
             else:
-                res[-1][1]=max(res[-1][1],intervals[i][1])
+                res[-1][1] = max(res[-1][1],intervals[i][1])
         return res
 ```
-### 方法二 ： 双指针
+### 方法二 ： 插入区间+双指针
 ```python
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
