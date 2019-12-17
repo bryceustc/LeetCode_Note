@@ -38,7 +38,7 @@ ends:     <font color=Blue>3</font>    6    10    18
 
 ## [C++](./Merge-Intervals.cpp):
 
-###  方法一： 动态规划
+###  方法一： 直接法
 ```c++
 class Solution {
 public:
@@ -63,7 +63,7 @@ public:
 };
 ```
 
-###  方法二： 贪心算法
+###  方法二： 双指针
 ```c++
 class Solution {
 public:
@@ -94,21 +94,23 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Merge-Intervals/Merge-Intervals.py)
-###  方法一：动态规划
+###  方法一：直接法
 ```python
 class Solution:
-    def canJump(self, nums: List[int]) -> bool:
-        n = len(nums)
-        if n==0: 
-            return False
-        dp=[0 for _ in range(n)]
-        for i in range (1,n):
-            dp[i] = max(dp[i-1],nums[i-1])-1
-            if dp[i]<0:
-                return False
-        return True
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        n=len(intervals)
+        if n==0:
+            return []
+        intervals = sorted(intervals,key=lambda x:x[0])
+        res = [intervals[0]]
+        for i in range(1,n):
+            if res[-1][1]<intervals[i][0]:
+                res.append(intervals[i])
+            else:
+                res[-1][1]=max(res[-1][1],intervals[i][1])
+        return res
 ```
-### 方法二 ： 贪心算法
+### 方法二 ： 双指针
 ```python
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
