@@ -37,7 +37,7 @@ ends:     <font color=Blue>3</font>    6    10    18
   
 # 代码
 
-## [C++](./Merge-Intervals.cpp):
+## [C++](./Insert-Intervals.cpp):
 
 ###  方法一： 插入新区间直接法
 ```c++
@@ -129,7 +129,7 @@ public:
 
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Merge-Intervals/Merge-Intervals.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Insert-Intervals/Insert-Intervals.py)
 ###  方法一：插入区间后排序直接法
 ```python
 class Solution:
