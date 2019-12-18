@@ -42,7 +42,7 @@ public:
         }
         for (int i=m;i>=0;i--)
         {
-            if (s[m]=='  ') break;
+            if (s[i]=='  ') break;
             res+=1;
         }
         return res;
