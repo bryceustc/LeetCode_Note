@@ -96,6 +96,38 @@ public:
 };
 ```
 
+### 方法三:直接法：区间不重叠+区间重叠/合并+剩余部分
+```c++
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        if (intervals.empty() && newInterval.empty()) return {};
+        vector<vector<int>> res;
+        int n=intervals.size();
+        int cur =0;
+        while(cur<n && intervals[cur][1]<newInterval[0])
+        {
+            res.push_back(intervals[cur]);
+            cur++;
+        }
+        while(cur<n && intervals[cur][0]<=newInterval[1])
+        {
+            newInterval[0]=min(intervals[cur][0],newInterval[0]);
+            newInterval[1]=max(intervals[cur][1],newInterval[1]);
+            cur++;
+        }
+        res.push_back(newInterval);
+        while(cur<n)
+        {
+            res.push_back(intervals[cur]);
+            cur++;
+        }
+        return res;
+    }
+};
+```
+
+
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Merge-Intervals/Merge-Intervals.py)
 ###  方法一：插入区间后排序直接法
