@@ -79,3 +79,4 @@ Python 3 首先用strip去掉字符串结尾的空格，之后用split对其切�
   -  [c++ trim()函数用法](https://www.cnblogs.com/carekee/articles/2094731.html)
   - [Python split()用法](https://www.runoob.com/python3/python3-string-split.html)
   - [Python strip()用法](https://www.runoob.com/python3/python3-string-strip.html)
+   strip() 该方法只能删除开头或是结尾的字符，不能删除中间部分的字符
