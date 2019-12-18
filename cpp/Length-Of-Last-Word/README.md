@@ -84,17 +84,18 @@ public:
 ###  方法一：直接法
 ```python
 class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        n=len(intervals)
+    def lengthOfLastWord(self, s: str) -> int:
+        res =0
+        n=len(s)
         if n==0:
-            return []
-        intervals = sorted(intervals,key=lambda x:x[0])
-        res = [intervals[0]]
-        for i in range(1,n):
-            if res[-1][1]<intervals[i][0]:
-                res.append(intervals[i])
-            else:
-                res[-1][1]=max(res[-1][1],intervals[i][1])
+            return res
+        m = n-1
+        while m>=0 and s[m]==' ':
+            m-=1
+        for i in range (m,-1,-1):
+            if s[i]==' ':
+                break
+            res+=1
         return res
 ```
 ### 方法二 ： 双指针
