@@ -16,7 +16,7 @@
 # 解题思路:
 方法一：直接法，找到s最后一个非``' '``字符，然后以此坐标为边界，进行倒序搜索，找到第一个``' '``的字符，就返回``res``,否则``res+=1``
 
-方法二：
+方法二：Python 3 首先用strip去掉字符串结尾的空格，之后用split对其切片并取最后一个元素，读取该元素长度即可
  
 # 时间复杂度：
   O(n) 
@@ -50,35 +50,6 @@ public:
 };
 ```
 
-###  方法二： 双指针
-```c++
-class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        if (intervals.empty()) return {};
-        int n = intervals.size();
-        vector<vector<int>> res;
-        vector<int> starts,ends;
-        for (int i=0;i<n;i++)
-        {
-            starts.push_back(intervals[i][0]);
-            ends.push_back(intervals[i][1]);
-        }
-        sort(starts.begin(),starts.end());
-        sort(ends.begin(),ends.end());
-        for (int i=0,j=0;i<n;i++)
-        {
-            if (i==n-1||starts[i+1]>ends[i])
-            {
-                res.push_back({starts[j],ends[i]});
-                j=i+1;
-            }
-        }
-        return res;
-    }
-};
-```
-
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Length-Of-Last-Word/Length-Of-Last-Word.py)
 ###  方法一：直接法
@@ -98,29 +69,9 @@ class Solution:
             res+=1
         return res
 ```
-### 方法二 ： 双指针
+### 方法二 ： split()用法
 ```python
-class Solution:
-    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        n=len(intervals)
-        if n==0:
-            return []
-        res =[]
-        starts=[]
-        ends=[]
-        for i in range(n):
-            starts.append(intervals[i][0])
-            ends.append(intervals[i][1])
-        starts = sorted(starts)
-        ends = sorted(ends)
-        i=0
-        j=0
-        while i<n:
-            if i==n-1 or starts[i+1]>ends[i]:
-                res.append([starts[j],ends[i]])
-                j=i+1
-            i+=1
-        return res
+Python 3 首先用strip去掉字符串结尾的空格，之后用split对其切片并取最后一个元素，读取该元素长度即可
 ```
 
 # 参考
