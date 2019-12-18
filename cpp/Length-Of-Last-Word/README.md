@@ -56,22 +56,28 @@ public:
 ```python
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        res =0
-        n=len(s)
+        res = 0
+        n = len(s)
         if n==0:
             return res
-        m = n-1
+        m = n - 1
         while m>=0 and s[m]==' ':
-            m-=1
+            m -=1
         for i in range (m,-1,-1):
             if s[i]==' ':
                 break
-            res+=1
+            res +=1
         return res
 ```
-### 方法二 ： split()用法
+### 方法二 ： strip()+split()用法
 ```python
-Python 3 首先用strip去掉字符串结尾的空格，之后用split对其切片并取最后一个元素，读取该元素长度即可
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        res = 0
+        s = s.strip(' ')
+        s = s.split(' ')
+        res = len(s[-1])
+        return res
 ```
 
 # 参考
