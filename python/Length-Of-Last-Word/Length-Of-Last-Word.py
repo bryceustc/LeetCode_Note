@@ -15,3 +15,10 @@ class Solution:
         return res
 
  ### Python Solution 2:
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        res = 0
+        s = s.strip(' ')
+        s = s.split(' ')
+        res = len(s[-1])
+        return res
