@@ -127,3 +127,4 @@ class Solution:
 
   -  [c++ trim()函数用法](https://www.cnblogs.com/carekee/articles/2094731.html)
   - [Python split()用法](https://www.runoob.com/python3/python3-string-split.html)
+  - [Python strip()用法](https://www.runoob.com/python3/python3-string-strip.html)
