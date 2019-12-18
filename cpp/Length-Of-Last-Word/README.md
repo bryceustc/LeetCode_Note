@@ -125,4 +125,4 @@ class Solution:
 
 # 参考
 
-  -  [c++ trim()函数用法]（https://www.cnblogs.com/carekee/articles/2094731.html）
+  -  [c++ trim()函数用法](https://www.cnblogs.com/carekee/articles/2094731.html)
