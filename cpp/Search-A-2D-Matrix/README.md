@@ -31,18 +31,20 @@ target = 13
 
   
 # 解题思路:
+此题与剑指offer第四题相似
+
 方法一：直接暴力遍历二维数组所有元素，时间复杂度为O(m\*n)
 
 方法二：对每一行使用一次二分查找，时间复杂度为O(m\*logn)
 
-方法三：根据简单的例子寻找规律，从右上角开始寻找，时间复杂度为O()
+方法三：根据简单的例子寻找规律，从右上角开始寻找，时间复杂度为O(m+n)
  
 # 时间复杂度：
   方法一： O(m\*n)
   
   方法二： O(m\*logn)
   
-  方法三： O() 
+  方法三： O(m+n) 
 # 空间复杂度
   O(1)
   
@@ -98,8 +100,32 @@ public:
     }
 };
 ```
+###  方法三： 二分查找法(将二维数组展成一维数组，因为条件2 ，矩阵数组有序)
+```c++
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+            if (matrix.empty()) return false;
+            int m = matrix.size();
+            int n = matrix[0].size();
+            int start = 0;
+            int end = m*n-1;
+            while(end>=start)
+            {
+                int mid = start+(end-start)/2;
+                if (matrix[mid/n][mid%n]==target)
+                    return true;
+                else if (matrix[mid/n][mid%n]<target)
+                    start=mid+1;
+                else if (matrix[mid/n][mid%n]>target)
+                    end=mid-1;
+            }
+            return false;        
+    }
+};
+```
 
-###  方法三： 从右上角开始查找
+###  方法四： 从右上角开始查找
 ```c++
 class Solution {
 public:
@@ -122,7 +148,7 @@ public:
 };
 ```
 
-###  方法四： 从左下角开始查找
+###  方法五： 从左下角开始查找
 ```c++
 class Solution {
 public:
@@ -149,32 +175,61 @@ public:
 ###  方法一：暴力遍历法
 ```python
 class Solution:
-    def lengthOfLastWord(self, s: str) -> int:
-        res = 0
-        n = len(s)
-        if n==0:
-            return res
-        m = n - 1
-        while m>=0 and s[m]==' ':
-            m -=1
-        for i in range (m,-1,-1):
-            if s[i]==' ':
-                break
-            res +=1
-        return res
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m=len(matrix)
+        if m==0:
+            return False
+        n=len(matrix[0])
+        for i in range(m):
+            for j in range(n):
+               if matrix[i][j]==target:
+                   return True
+        return False
 ```
-### 方法二 ：一次二分查找
+### 方法二 ：遍历+一次二分查找
 ```python
 class Solution:
-    def lengthOfLastWord(self, s: str) -> int:
-        res = 0
-        s = s.strip(' ')
-        s = s.split(' ')
-        res = len(s[-1])
-        return res
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m=len(matrix)
+        if m==0:
+            return False
+        n=len(matrix[0])
+        for i in range(m):
+            start = 0
+            end = n-1
+            while end>=start:
+                mid = start + (end-start)//2
+                if matrix[i][mid] == target:
+                    return True
+                if matrix[i][mid]<target:
+                    start=mid+1
+                if matrix[i][mid]>target:
+                    end=mid-1
+        return False
 ```
 
-### 方法三 ：右上角查找
+### 方法三 ：一次二分查找
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m=len(matrix)
+        if m==0:
+            return False
+        n=len(matrix[0])
+        start = 0
+        end = m*n-1
+        while end>=start:
+            mid = start + (end-start)//2
+            if matrix[mid//n][mid%n] == target:
+                return True
+            if matrix[mid//n][mid%n]<target:
+                start=mid+1
+            if matrix[mid//n][mid%n]>target:
+                end=mid-1
+        return False
+```
+
+### 方法四 ：右上角查找
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -194,7 +249,7 @@ class Solution:
         return False
 ```
 
-### 方法四 ：右上角查找
+### 方法五 ：左下角查找
 ```python
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
@@ -204,7 +259,7 @@ class Solution:
         n=len(matrix[0])
         i=m-1
         j=0
-        while i>=0 and j<m:
+        while i>=0 and j<n:
             if matrix[i][j]==target:
                 return True
             elif matrix[i][j]>target:
@@ -216,5 +271,5 @@ class Solution:
 
 # 参考
 
-  -  [c++ trim()函数用法](https://www.cnblogs.com/carekee/articles/2094731.html)
+  -  [二维数组中的查找](https://github.com/bryceustc/CodingInterviews/blob/master/FindInPartiallySortedMatrix/README.md)
 
