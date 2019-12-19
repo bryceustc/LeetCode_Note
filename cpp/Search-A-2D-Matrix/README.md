@@ -146,7 +146,7 @@ public:
 ```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)
-###  方法一：直接法
+###  方法一：暴力遍历法
 ```python
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
@@ -163,7 +163,7 @@ class Solution:
             res +=1
         return res
 ```
-### 方法二 ： strip()+split()用法
+### 方法二 ：一次二分查找
 ```python
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
@@ -172,6 +172,46 @@ class Solution:
         s = s.split(' ')
         res = len(s[-1])
         return res
+```
+
+### 方法三 ：右上角查找
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m=len(matrix)
+        if m==0:
+            return False
+        n=len(matrix[0])
+        i=0
+        j=n-1
+        while i<m and j>=0:
+            if matrix[i][j]==target:
+                return True
+            elif matrix[i][j]>target:
+                j-=1
+            else:
+                i+=1
+        return False
+```
+
+### 方法四 ：右上角查找
+```python
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m=len(matrix)
+        if m==0:
+            return False
+        n=len(matrix[0])
+        i=m-1
+        j=0
+        while i>=0 and j<m:
+            if matrix[i][j]==target:
+                return True
+            elif matrix[i][j]>target:
+                i-=1
+            else:
+                j+=1
+        return False
 ```
 
 # 参考
