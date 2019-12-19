@@ -37,7 +37,7 @@ ends:     <font color=Blue>3</font>    6    10    18
   
 # 代码
 
-## [C++](./Insert-Intervals.cpp):
+## [C++](./Merge-Intervals.cpp):
 
 ###  方法一： 插入新区间直接法
 ```c++
@@ -96,15 +96,15 @@ public:
 };
 ```
 
-### 方法三:直接法：区间不重叠+区间重叠/合并+剩余部分
+###  方法三： 直接法：新区间不重叠+重叠插入合并+其余
 ```c++
 class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
-        if (intervals.empty() && newInterval.empty()) return {};
+        if (intervals.empty()&&newInterval.empty()) return {};
         vector<vector<int>> res;
-        int n=intervals.size();
-        int cur =0;
+        int n = intervals.size();
+        int cur=0;
         while(cur<n && intervals[cur][1]<newInterval[0])
         {
             res.push_back(intervals[cur]);
@@ -112,8 +112,8 @@ public:
         }
         while(cur<n && intervals[cur][0]<=newInterval[1])
         {
-            newInterval[0]=min(intervals[cur][0],newInterval[0]);
-            newInterval[1]=max(intervals[cur][1],newInterval[1]);
+            newInterval[0]=min(newInterval[0],intervals[cur][0]);
+            newInterval[1]=max(newInterval[1],intervals[cur][1]);
             cur++;
         }
         res.push_back(newInterval);
@@ -129,7 +129,7 @@ public:
 
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Insert-Intervals/Insert-Intervals.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Merge-Intervals/Merge-Intervals.py)
 ###  方法一：插入区间后排序直接法
 ```python
 class Solution:
