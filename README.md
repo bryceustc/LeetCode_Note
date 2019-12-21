@@ -64,5 +64,6 @@ LeetCode
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
 |153|[Find-Minimum-In-Rotated-Sorted-Array](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)| [C++](./cpp/Find-Minimum-In-Rotated-Sorted-Array/README.md), [Python](./python/Find-Minimum-In-Rotated-Sorted-Array/Find-Minimum-In-Rotated-Sorted-Array.py)|Medium|
 |240|[Search-A-2D-Matrix-II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)| [C++](./cpp/Search-A-2D-Matrix-II/README.md), [Python](./python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)|Medium|
+|283|[Move-Zeroes](https://leetcode-cn.com/problems/move-zeroes/| [C++](./cpp/Move-Zeroes/README.md), [Python](./python/Move-Zeroes/Move-Zeroes.py)|Easy|
 |287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
