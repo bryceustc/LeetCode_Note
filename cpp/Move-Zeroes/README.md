@@ -31,103 +31,85 @@
   
   方法三： O(n<sup>2) 
 # 空间复杂度
-  O(n)
+  方法一：O(n)
+  
+  方法二：O(1)
+  
+  方法三：O(1)
   
 # 代码
 
 ## [C++](./Move-Zeroes.cpp):
 
-###  方法一： 直接暴力遍历法
+###  方法一： 构建辅助数组：
 ```c++
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-            if (matrix.empty()) return false;
-            int m = matrix.size();
-            int n = matrix[0].size();
-            for (int i=0;i<m;i++)
+    void moveZeroes(vector<int>& nums) {
+        if(nums.empty()) return;
+        vector<int> res;
+        int n = nums.size();
+        for (int i =0;i<n;i++)
+        {
+            if (nums[i]!=0)
+              res.push_back(nums[i]);
+        }
+        for (int i =0;i<n;i++)
+        {
+            if (nums[i]==0)
+              res.push_back(nums[i]);
+        }
+    }
+};
+```
+
+###  方法二： 插入排序
+```c++
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        if(nums.empty()) return;
+        int n = nums.size();
+        for (int i =0;i<n;i++)
+        {
+            if (nums[i]==0)
             {
-                for (int j=0;j<n;j++)
+                for (int j=i+1;j<n;j++)
                 {
-                    if (matrix[i][j]==target)
-                        return true;
+                    if (nums[j]!=0)
+                    {
+                        int temp = nums[j];
+                        for (int k=j;k>i;k--)
+                        {
+                            nums[k]=nums[k-1];
+                        }
+                        nums[i] = temp;
+                        break;
+                    }
                 }
             }
-            return false;        
+        }    
     }
 };
 ```
 
-###  方法二： 遍历+一次二分查找法
+###  方法三： 冒泡排序
 ```c++
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-            if (matrix.empty()) return false;
-            int m = matrix.size();
-            int n = matrix[0].size();
-            for (int i=0;i<m;i++)
+    void moveZeroes(vector<int>& nums) {
+        if(nums.empty()) return;
+        int n = nums.size();
+        for (int i =0;i<n;i++)
+        {
+            for (int j=n-1;j>i;j--)
             {
-                int start = 0;
-                int end = n-1;
-                while(end>=start)
+                if (nums[j]!=0 && nums[j-1]==0)
                 {
-                    int mid = start+(end-start)/2;
-                    if (matrix[i][mid]==target)
-                        return true;
-                    else if (matrix[i][mid]<target)
-                        start=mid+1;
-                    else if (matrix[i][mid]>target)
-                        end=mid-1;
+                    swap(nums[j],nums[j-1]);
                 }
             }
-            return false;        
-    }
-};
-```
-
-###  方法三： 从右上角开始查找
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty()) return false;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i=0,j=n-1;
-        while(i<m && j>=0)
-        {
-            if (matrix[i][j]==target)
-                return true;
-            if (matrix[i][j]>target)
-                j--;  //左移
-            else
-                i++; // 下移
-        }
-        return false;
-    }
-};
-```
-
-###  方法四： 从左下角开始查找
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty()) return false;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i=m-1,j=0;
-        while(i>=0&& j<n)
-        {
-            if (matrix[i][j]==target)
-                return true;
-            if (matrix[i][j]>target)
-                i--;  //上移
-            else
-                j++; // 右移
-        }
-        return false;
+        }    
     }
 };
 ```
