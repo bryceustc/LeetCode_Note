@@ -20,7 +20,7 @@
 
 方法一：构建辅助数组，遍历，两次原数组，一次添加非零元素，一次添加0元素，时间复杂度为O(n)
 
-方法二：利用插入排序的思想，外层循环遍历数组，找``0``元素所在的位置；内层循环找当前``0``元素所在位置之后的第一个非零元素。当当前位置的值为``0``时执行内层循环，假设当前位置``i``的值``num[i]=0``，内层循环的``j = i++``，即从当前0元素所在的下一个位置开始查找非零元素；当nums[j] != 0时，``nums[i] = nums[j]``，``nums[j]=0``，即交换``nums[i]``、``nums[j]``的值，并退出内层循环，执行外层循环。 时间复杂度(n<sup>2)
+方法二：利用插入排序的思想，外层循环遍历数组，找``0``元素所在的位置；内层循环找当前``0``元素所在位置之后的第一个非零元素。当当前位置的值为``0``时执行内层循环，假设当前位置``i``的值``num[i]=0``，内层循环的``j = i++``，即从当前0元素所在的下一个位置开始查找非零元素；当``nums[j] != 0``时，``nums[i] = nums[j]``，``nums[j]=0``，即交换``nums[i]``、``nums[j]``的值，并退出内层循环，执行外层循环。 时间复杂度(n<sup>2)
 
 方法三：利用冒泡排序的思想，两层循环，内层从最后开始交换，时间复杂度为O(n<sup>2)
  
@@ -115,19 +115,24 @@ public:
 ```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Move-Zeroes/Move-Zeroes.py)
-###  方法一：暴力遍历法
+###  方法一：构造辅助数组法（未通过OJ )
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        for i in range(m):
-            for j in range(n):
-               if matrix[i][j]==target:
-                   return True
-        return False
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        res = []
+        n = len(nums)
+        if n==0:
+            return
+        for i in range(n):
+            if nums[i]!=0:
+                res.append(nums[i])
+        for i in range(n):
+            if nums[i]==0:
+                res.append(nums[i])
+        nums=res
 ```
 ### 方法二 ：插入排序
 ```python
@@ -150,7 +155,7 @@ class Solution:
                         break
 ```
 
-### 方法三 ：冒泡排序
+### 方法三 ：冒泡排序(未通过OJ，超出时间限制)
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
@@ -161,8 +166,7 @@ class Solution:
         if n==0:
             return
         for i in range(0,n):
-
-                for j in range(n-1,-1,-1):
+                for j in range(n-1,i,-1):
                     if nums[j]!=0 and nums[j-1]==0:
                         temp = nums[j]
                         nums[j] = nums[j-1]
@@ -172,7 +176,6 @@ class Solution:
 # 参考
 
   -  [二维数组中的查找](https://github.com/bryceustc/CodingInterviews/blob/master/FindInPartiallySortedMatrix/README.md)
-  -  [搜索二维矩阵](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Search-A-2D-Matrix/README.md)
 
 
 
