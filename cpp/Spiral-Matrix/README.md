@@ -27,6 +27,8 @@
 
   
 # 解题思路:
+  此题与剑指Offer第29题打印矩阵类似。
+  
   1. 首先设定上下左右边界
 
   2. 其次向右移动到最右，此时第一行因为已经使用过了，可以将其从图中删去，体现在代码中就是重新定义上边界
@@ -109,3 +111,5 @@ class Solution:
             if l>r:break
         return res
 ```
+## 参考
+   - [剑指offer29顺时针打印矩阵](https://github.com/bryceustc/CodingInterviews/blob/master/PrintMatrix/README.md) 
