@@ -35,7 +35,7 @@
 # 空间复杂度
 方法一：O(1)
 
-方法二：O(logk)
+方法二：O(k)
 
 方法三：O(1)
 # 代码
@@ -148,53 +148,44 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Kth-Largest-Element-In-An-Array/Kth-Largest-Element-In-An-Array.py)
-###  方法一：暴力法
+###  方法一：sort 直接法
 ```python
 class Solution:
-    def majorityElement(self, nums):
-        # write code here
+    def findKthLargest(self, nums: List[int], k: int) -> int:
         res = 0
         n = len(nums)
-        half = n//2
-        if n==0:
+        if n==0 or k>n:
             return res
-        for i in range(n):
-            cnt = 0
-            for num in nums:
-                if nums[i] == num:
-                    cnt+=1
-            if cnt > half:
-                res = nums[i]
+        nums = sorted(nums)
+        res = nums[n-k]
         return res
 ```
-### 方法二 ： 摩尔投票法
+### 方法二 ： 在 Python 的 heapq 库中有一个 nlargest 方法，具有同样的时间复杂度，能将代码简化到只有一行。
 ```python
 class Solution:
-    def majorityElement(self, nums):
-        # write code here
-        res = nums[0]
-        cnt = 0
-        n = len(nums)
-        half = n//2
-        if n==0:
-            return 0
-        for i in range(1,n):
-            if cnt == 0:
-                res = nums[i]
-            if res == nums[i]:
-                cnt+=1
-            else:
-                cnt-=1
-        m = 0
-        for num in nums:
-            if (res == num):
-                m+=1
-        if m<=half:
-            res = 0
-        return res
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        return heapq.nlargest(k, nums)[-1]
 ```
 
-### 方法三 ： 排序法
+```python
+class Solution:
+    def findKthLargest(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        return heapq.nlargest(k, nums)[-1]
+```
+
+
+
+### 方法三 ： Partition 函数实现
 ```python
 class Solution:
     def majorityElement(self, nums):
