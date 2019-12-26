@@ -227,6 +227,23 @@ class Solution:
             nums[k]=0
 ```
 
+### 方法六：双指针扫描，最优化
+```c++
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+        if (nums.empty()) return;
+        for (int i=0,j=0;j<n;j++)
+        {
+            if (nums[j]!=0)
+                swap(nums[i++],nums[j]);
+        }
+    }
+};
+```
+
+
 # 参考
 
   -  [调整数组顺序使奇数位于偶数前面](https://github.com/bryceustc/CodingInterviews/blob/master/ReorderArray/README.md)
