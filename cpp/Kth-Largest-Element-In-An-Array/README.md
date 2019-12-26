@@ -122,7 +122,7 @@ public:
             }
             nums[end] = nums[start];
         }
-        nums[start] = pivot;
+        nums[start] = pivot;   // 基准值归位
         return start;
     }
     
@@ -172,19 +172,6 @@ class Solution:
         return heapq.nlargest(k, nums)[-1]
 ```
 
-```python
-class Solution:
-    def findKthLargest(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        return heapq.nlargest(k, nums)[-1]
-```
-
-
-
 ### 方法三 ： Partition 函数实现
 ```python
 class Solution:
@@ -205,20 +192,33 @@ class Solution:
                 index = self.partition(nums,start,end)
         res = nums[n-k]
         return res
-    
+
     def partition (self,nums: List[int],start:int,end:int) -> int:
         index = random.randint(start, end)
         pivot = nums[index]
-        nums[start],nums[index] = nums[index],nums[start]
-        while start<end:
-            while start<end and nums[end]>=pivot:
-                end-=1
-            nums[start] = nums[end]
-            while start<end and nums[start]<pivot:
-                start+=1
-            nums[end] = nums[start]
-        nums[start] = pivot
-        return start
+        nums[index],nums[start] = nums[start],nums[index]    ##基准值放在数组开始
+        pos = start
+        for i in range (start+1,end+1):
+            if nums[i]<pivot:
+                pos+=1
+                if i!=pos:
+                    nums[pos],nums[i] = nums[i],nums[pos]
+        nums[pos],nums[start] = nums[start],nums[pos]
+        return pos
+    
+    # def partition (self,nums: List[int],start:int,end:int) -> int:
+    #     index = random.randint(start, end)
+    #     pivot = nums[index]
+    #     nums[start],nums[index] = nums[index],nums[start]
+    #     while start<end:
+    #         while start<end and nums[end]>=pivot:
+    #             end-=1
+    #         nums[start] = nums[end]
+    #         while start<end and nums[start]<pivot:
+    #             start+=1
+    #         nums[end] = nums[start]
+    #     nums[start] = pivot
+    #     return start
 ```
 
 
