@@ -175,7 +175,7 @@ class Solution:
 
 # 参考
 
-  -  [调整数组顺序使奇数位于偶数前面](https://github.com/bryceustc/CodingInterviews/edit/master/ReorderArray/README.md)
+  -  [调整数组顺序使奇数位于偶数前面](https://github.com/bryceustc/CodingInterviews/blob/master/ReorderArray/README.md)
 
 
 
