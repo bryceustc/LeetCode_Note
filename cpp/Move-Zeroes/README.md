@@ -137,6 +137,22 @@ public:
     }
 };
 ```
+### 方法五：双指针扫描，最优化
+```c++
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+        if (nums.empty()) return;
+        for (int i=0,j=0;j<n;j++)
+        {
+            if (nums[j]!=0)
+                swap(nums[i++],nums[j]);
+        }
+    }
+};
+```
+
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Move-Zeroes/Move-Zeroes.py)
 ###  方法一：构造辅助数组法（未通过OJ )
@@ -228,19 +244,20 @@ class Solution:
 ```
 
 ### 方法六：双指针扫描，最优化
-```c++
-class Solution {
-public:
-    void moveZeroes(vector<int>& nums) {
-        int n = nums.size();
-        if (nums.empty()) return;
-        for (int i=0,j=0;j<n;j++)
-        {
-            if (nums[j]!=0)
-                swap(nums[i++],nums[j]);
-        }
-    }
-};
+```python
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        if n==0:
+            return
+        i=0
+        for j in range(0,n):
+            if nums[j]!=0:
+                nums[i],nums[j]=nums[j],nums[i]
+                i+=1
 ```
 
 
