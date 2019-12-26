@@ -173,6 +173,19 @@ class Solution:
                         nums[j-1] = temp
 ```
 
+### 方法四：
+```python
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        for i in range(nums.count(0)):
+            nums.remove(0)
+            nums.append(0)
+```
+
+
 # 参考
 
   -  [调整数组顺序使奇数位于偶数前面](https://github.com/bryceustc/CodingInterviews/blob/master/ReorderArray/README.md)
