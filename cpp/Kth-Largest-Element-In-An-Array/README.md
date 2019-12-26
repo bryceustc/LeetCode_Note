@@ -188,13 +188,37 @@ class Solution:
 ### 方法三 ： Partition 函数实现
 ```python
 class Solution:
-    def majorityElement(self, nums):
-        # write code here
+    def findKthLargest(self, nums: List[int], k: int) -> int:
         res = 0
         n = len(nums)
-        nums=sorted(nums)
-        res = nums[n//2]
+        if n==0 or k>n:
+            return 0
+        start = 0
+        end = n-1
+        index = self.partition(nums,start,end)
+        while index != n-k:
+            if index > n-k:
+                end = index - 1
+                index = self.partition(nums,start,end)
+            else:
+                start = index + 1
+                index = self.partition(nums,start,end)
+        res = nums[n-k]
         return res
+    
+    def partition (self,nums: List[int],start:int,end:int) -> int:
+        index = random.randint(start, end)
+        pivot = nums[index]
+        nums[start],nums[index] = nums[index],nums[start]
+        while start<end:
+            while start<end and nums[end]>=pivot:
+                end-=1
+            nums[start] = nums[end]
+            while start<end and nums[start]<pivot:
+                start+=1
+            nums[end] = nums[start]
+        nums[start] = pivot
+        return start
 ```
 
 
