@@ -114,6 +114,30 @@ public:
 };
 ```
 
+### 方法四：快指针扫描，满指针赋值记录，最后补0 (局部最优化)
+```c++
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+        if (nums.empty()) return;
+        int j = 0;
+        for (int i=0;i<n;i++)
+        {
+            if (nums[i]!=0)
+            {
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+        for (int k=j;k<n;k++)
+        {
+            nums[k]=0;
+        }
+    }
+};
+```
+
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Move-Zeroes/Move-Zeroes.py)
 ###  方法一：构造辅助数组法（未通过OJ )
 ```python
