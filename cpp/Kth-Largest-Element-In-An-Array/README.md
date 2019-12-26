@@ -108,7 +108,9 @@ public:
         return res;        
     }
     int Partition(vector<int> &nums,int start,int end){
-        int pivot = nums[start];
+        int index = start + rand()%(end-start+1);
+        int pivot = nums[index];
+        swap(nums[index],nums[start]);
         while (start < end)
         {
             while(start < end && nums[end]>=pivot)
@@ -127,7 +129,9 @@ public:
     }
     
     int Partition (vector<int> &nums,int start,int end){
-        int pivot = nums[start];
+        int index = start + rand()%(end-start+1);
+        int pivot = nums[index];
+        swap(nums[index],nums[start]);
         int pos = start;
         for (int i=start+1;i<=end;i++)
         {
