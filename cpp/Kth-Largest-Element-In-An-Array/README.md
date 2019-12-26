@@ -91,6 +91,20 @@ public:
         int start = 0;
         int end = n -1;
         int index = Partition(nums,start,end);
+        while(index!=n-k)
+        {
+            if (index>n-k)
+            {
+                end = index - 1;
+                Partition(nums,start,end);
+            }
+            else
+            {
+                start = index+1;
+                Partition(nums,start,end);
+            }
+        }
+        res = nums[n-k];
         return res;        
     }
     int Partition(vector<int> &nums,int start,int end){
@@ -126,23 +140,6 @@ public:
         }
         swap(nums[pos],nums[start]);
         return pos;
-    }
-};
-```
-
-
-###  方法四：排序后返回 
-```c++
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        int res = 0;
-        if (nums.empty()) return res;
-        int n = nums.size();
-        int half = n/2;
-        sort(nums.begin(),nums.end());
-        res = nums[half];
-        return res;      
     }
 };
 ```
