@@ -82,31 +82,51 @@ public:
 
 ###  方法三： 利用Partition 函数
 ```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int res = 0;
+        int n = nums.size();
+        if (nums.empty() || k>n) return res;
+        int start = 0;
+        int end = n -1;
+        int index = Partition(nums,start,end);
+        return res;        
+    }
+    int Partition(vector<int> &nums,int start,int end){
+        int pivot = nums[start];
+        while (start < end)
         {
-            int res = 0 ;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            for (int i=0;i<n;i++)
+            while(start < end && nums[end]>=pivot)
             {
-                int count = 0;
-                for (auto num : nums)
+                end--;
+            }
+            nums[start] = nums[end];
+            while(start < end && nums[start]<pivot)
+            {
+                start++;
+            }
+        }
+        return start;
+    }
+    
+    int Partition (vector<int> &nums,int start,int end){
+        int pivot = nums[start];
+        int pos = start;
+        fot (int i=start+1;i<=end;i++)
+        {
+            if (nums[i]<pivot)
+            {
+                pos++;
+                if (i!=pos)
                 {
-                    if (nums[i] == num)
-                    {
-                        count+=1;
-                        if (count > half)
-                        {
-                            res = num;
-                        }
-                    }
+                    swap(nums[pos],nums[i]);
                 }
             }
-            return res;          
         }
+        swap(nums[pos],nums[start]);
+        return pos;
+    }
 };
 ```
 
