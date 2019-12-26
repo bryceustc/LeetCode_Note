@@ -127,7 +127,7 @@ public:
     int Partition (vector<int> &nums,int start,int end){
         int pivot = nums[start];
         int pos = start;
-        fot (int i=start+1;i<=end;i++)
+        for (int i=start+1;i<=end;i++)
         {
             if (nums[i]<pivot)
             {
