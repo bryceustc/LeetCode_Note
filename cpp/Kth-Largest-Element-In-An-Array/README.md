@@ -42,59 +42,45 @@
 
 ## [C++](./Kth-Largest-Element-In-An-Array.cpp):
 
-###  方法一： 暴力法
+###  方法一： sort直接法
 ```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
-        {
-            int res = 0 ;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            for (int i=0;i<n;i++)
-            {
-                int count = 0;
-                for (auto num : nums)
-                {
-                    if (nums[i] == num)
-                    {
-                        count+=1;
-                        if (count > half)
-                        {
-                            res = num;
-                        }
-                    }
-                }
-            }
-            return res;          
-        }
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int res = 0;
+        int n = nums.size();
+        if (nums.empty() || k>n) return res;
+        sort(nums.begin(),nums.end());
+        res = nums[n-k];
+        return res;        
+    }
 };
 ```
 
-###  方法二： 哈希表
+###  方法二： 小顶堆
 ```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int res = 0;
+        int n = nums.size();
+        if (nums.empty() || k>n) return res;
+        priority_queue<int, vector<int>,greater<int>> q;
+        for (auto num:nums)
         {
-            int res =0;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            unordered_map<int,int> record;
-            for (auto num:nums)
+            q.push(num);
+            if (q.size()>k)
             {
-                record[num]++;
-                if(record[num]>half)
-                {
-                    res = num;
-                }
-            }     
-      
+                q.pop();
+            }
+        }
+        res = q.top();
+        return res;        
+    }
+};
 ```
 
-###  方法三： 摩尔投票
+###  方法三： 利用Partition 函数
 ```c++
 class Solution{
     public:
@@ -204,7 +190,13 @@ class Solution:
 
 
 # 参考
-  - [剑指offer第39题-数组中出现次数超过一半的数字](https://github.com/bryceustc/CodingInterviews/blob/master/MoreThanHalfNumber/README.md)
-
+  - [剑指offer第40题-最小的k个数](https://github.com/bryceustc/CodingInterviews/blob/master/KLeastNumbers/README.md)
+  - [C/C++ | STL | 大顶堆 | 小顶堆 | std::priority_queue](https://blog.csdn.net/stone_fall/article/details/89010656) 
+  - [【c++】STL里的priority_queue用法总结](https://blog.csdn.net/xiaoquantouer/article/details/52015928) 
+  - [set/multiset用法详解](https://blog.csdn.net/longshengguoji/article/details/8546286) 
+  - [std::set与std::multiset使用总结](https://blog.csdn.net/CV_Jason/article/details/83048406) 
+  - [C++ multiset通过greater、less指定排序方式，实现最大堆、最小堆功能](https://www.cnblogs.com/ficow/p/10045777.html) 
+  - [七种排序算法的C++与Python实现]()
+  - [Partition函数的理解](https://github.com/bryceustc/CodingInterviews/blob/master/KLeastNumbers/Partition%E5%87%BD%E6%95%B0.md)
 
 
