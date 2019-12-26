@@ -96,12 +96,12 @@ public:
             if (index>n-k)
             {
                 end = index - 1;
-                Partition(nums,start,end);
+                index = Partition(nums,start,end);
             }
             else
             {
                 start = index+1;
-                Partition(nums,start,end);
+                index = Partition(nums,start,end);
             }
         }
         res = nums[n-k];
@@ -120,6 +120,7 @@ public:
             {
                 start++;
             }
+            nums[end] = nums[start];
         }
         return start;
     }
