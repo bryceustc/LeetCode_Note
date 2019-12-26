@@ -173,7 +173,7 @@ class Solution:
                         nums[j-1] = temp
 ```
 
-### 方法四：
+### 方法四：python 自带函数
 ```python
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
@@ -184,7 +184,24 @@ class Solution:
             nums.remove(0)
             nums.append(0)
 ```
-
+### 方法五：快指针扫描，满指针赋值记录，最后补0 (局部最优化)
+```python
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n = len(nums)
+        if n==0:
+            return
+        j = 0
+        for i in range(n):
+            if nums[i]!=0:
+                nums[j]=nums[i]
+                j+=1
+        for k in range(j,n):
+            nums[k]=0
+```
 
 # 参考
 
