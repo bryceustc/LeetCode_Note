@@ -122,6 +122,7 @@ public:
             }
             nums[end] = nums[start];
         }
+        nums[start] = pivot;
         return start;
     }
     
