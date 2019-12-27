@@ -191,3 +191,4 @@ class Solution:
   -  [螺旋矩阵](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Spiral-Matrix/README.md)
   -  [c++多维数组初始化](https://blog.csdn.net/ldkcumt/article/details/51396980)
   -  [python初始化二维数组](https://www.cnblogs.com/yeni/p/11590108.html)
+  -  [c++ vector删除元素的两种常用方式](https://blog.csdn.net/Li_haiyu/article/details/98958257)
