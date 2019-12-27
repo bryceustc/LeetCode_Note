@@ -15,9 +15,7 @@
 
   
 # 解题思路:
-方法一：直接法，找到s最后一个非``' '``字符，然后以此坐标为边界，进行倒序搜索，找到第一个``' '``的字符，就返回``res``,否则``res+=1``
-
-方法二：Python 3 首先用strip去掉字符串结尾的空格，之后用split对其切片并取最后一个元素，读取该元素长度即可
+类似螺旋矩阵I的解法，初始化二维数组，初始化一个一维数组为1 到 n<sup>2</sup>，类似螺旋矩阵I,找出四个边界，循环，赋值，每赋一次值一维数组就弹出这个该元素。
  
 # 时间复杂度：
   O(n) 
@@ -32,19 +30,44 @@
 ```c++
 class Solution {
 public:
-    int lengthOfLastWord(string s) {
-        int res  = 0;
-         if (s.empty()) return res;
-        int n = s.size();
-        int m=n-1;
-        while(m>=0 && s[m]=='  ')
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>> res (n,vector<int>(n,0));
+        vector<int> out;
+        int m = pow(n,2);
+        int u = 0;
+        int d = n-1;
+        int l = 0;
+        int r = n-1;
+        for (int i=m;i>0;i--)
         {
-            m--;
+            out.push_back(i);
         }
-        for (int i=m;i>=0;i--)
+        while(true)
         {
-            if (s[i]=='  ') break;
-            res+=1;
+            for(int i=l;i<=r;i++)
+            {
+                res[u][i]=out.back();
+                out.pop_back();
+            }
+            if (++u>d) break;
+            for (int i=u;i<=d;i++)
+            {
+                res[i][r] = out.back();
+                out.pop_back();
+            }
+            if (--r<l) break;
+            for (int i=r;i>=l;i--) 
+            {
+                res[d][i] = out.back();
+                out.pop_back();    
+            }
+            if (--d<u) break;
+            for (int i=d;i>=u;i--) 
+            {
+                res[i][l] = out.back();
+                out.pop_back();
+            }
+            if (++l>r) break;
         }
         return res;
     }
