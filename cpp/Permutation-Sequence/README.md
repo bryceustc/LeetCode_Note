@@ -1,75 +1,101 @@
 # 题目描述:  螺旋矩阵 II
 
-给定一个正整数 `n`，生成一个包含 1 到 n<sup>2</sup>所有元素，且元素按顺时针顺序螺旋排列的正方形矩阵。
+给出集合 ``[1,2,3,…,n]``，其所有元素共有 n! 种排列。
 
-**示例 :**
+按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
+
+ 1. "123"
+ 
+ 2. "132"
+
+ 3. "213"
+
+ 4. "231"
+ 
+ 5. "312"
+ 
+ 6. "321"
+ 
+给定 n 和 k，返回第 k 个排列。
+
+**说明：**
+
+ - 给定 n 的范围是 [1, 9]。
+ - 给定 k 的范围是[1,  n!]。
+
+
+**示例 1:**
 ```
-输入: 3
-输出:
-[
- [ 1, 2, 3 ],
- [ 8, 9, 4 ],
- [ 7, 6, 5 ]
-]
+输入: n = 3, k = 3
+输出: "213"
+```
+
+**示例 2:**
+```
+输入: n = 4, k = 9
+输出: "2314"
 ```
 
   
 # 解题思路:
-类似螺旋矩阵I的解法，初始化二维数组，初始化一个一维数组为1 到 n<sup>2</sup>，类似螺旋矩阵I,找出四个边界，循环，赋值，每赋一次值一维数组就弹出这个该元素。
+思路一：此题与[第46题全排列](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations/README.md)类似，可以使用递归回溯（深度优先遍历）找出所有的全排列，然后找第k个排列，并转换为字符串，i+'0'。
+
+思路二：回溯+剪枝
  
 # 时间复杂度：
-  O(n<sup>2</sup>)  遍历矩阵所有元素
+  思路一：搜索树中最后一层共 n!个叶节点，在叶节点处记录方案的计算量是 O(n)，所以叶节点处的计算量是 O(n×n!)。
+搜索树一共有 n!+n!/2!+n!/3!+…=n!(1+1/2!+1/3!+…)≤n!(1+1/2+1/4+1/8+…)=2n!个内部节点，在每个内部节点内均会for循环 n次，因此内部节点的计算量也是 O(n×n!)。 所以总时间复杂度是 O(n×n!)。
+
+  思路二：
 # 空间复杂度
-  O(n<sup>2</sup>)  需要一个n\*n矩阵存储元素
+  思路一：O(n!) 由于必须要保存n! 个解。
+  
+  思路二：
   
 # 代码
 
 ## [C++](./Permutation-Sequence.cpp):
 
-###  方法一： 模拟法
+###  方法一： 回溯全排列法（未通过OJ）
 ```c++
 class Solution {
 public:
-    vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> res (n,vector<int>(n,0));  // 初始化为n*n的矩阵
+    string getPermutation(int n, int k) {
+        string res;
+        vector<int> nums;
+        vector<vector<int>> ans;
         vector<int> out;
-        int m = pow(n,2);
-        int u = 0;
-        int d = n-1;
-        int l = 0;
-        int r = n-1;
-        for (int i=m;i>0;i--)
+        if (n<=0 || n>9 || k<=0) return res;
+        for (int i=1;i<=n;i++)
         {
-            out.push_back(i);
+            nums.push_back(i);
         }
-        while(true)  // 注意换成while(nums<=m)会节省时间
+        vector<int> visited(n+1,0);
+        DFS(n,0,visited,ans,out);
+        for (int i=0;i<ans[k-1].size();i++)
         {
-            for(int i=l;i<=r;i++)
-            {
-                res[u][i]=out.back();
-                out.pop_back();
-            }
-            if (++u>d) break;
-            for (int i=u;i<=d;i++)
-            {
-                res[i][r] = out.back();
-                out.pop_back();
-            }
-            if (--r<l) break;
-            for (int i=r;i>=l;i--) 
-            {
-                res[d][i] = out.back();
-                out.pop_back();    
-            }
-            if (--d<u) break;
-            for (int i=d;i>=u;i--) 
-            {
-                res[i][l] = out.back();
-                out.pop_back();
-            }
-            if (++l>r) break;
+            res+='0'+ans[k-1][i];
         }
         return res;
+    }
+
+    void DFS(int n,int level,vector<int> &visited, vector<vector<int>> &ans,vector<int> &out)
+    {
+        if (level==n)
+        {
+            ans.push_back(out);
+            return;
+        }
+        for (int i=1;i<=n;i++)
+        {
+            if (visited[i]==1)
+                continue;
+            visited[i]=1;
+            out.push_back(i);
+            DFS(n,level+1,visited,ans,out);
+            out.pop_back();
+            visited[i]=0;
+        }
     }
 };
 ```
