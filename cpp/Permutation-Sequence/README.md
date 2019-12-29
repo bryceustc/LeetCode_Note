@@ -1,4 +1,4 @@
-# 题目描述:  螺旋矩阵 II
+# 题目描述:  第k个排列
 
 给出集合 ``[1,2,3,…,n]``，其所有元素共有 n! 种排列。
 
@@ -100,42 +100,67 @@ public:
 };
 ```
 
-###  模拟法改进版
+###  方法一改进版：回溯+剪枝+减去前k-1个枝（比较笨）
 ```c++
 class Solution {
 public:
-    vector<vector<int>> generateMatrix(int n) {
-        vector<vector<int>> res (n,vector<int>(n,0));
-        int m = pow(n,2);
-        int u = 0;
-        int d = n-1;
-        int l = 0;
-        int r = n-1;
-        int num = 1;
-        while(num<=m)
+    string getPermutation(int n, int k) {
+        string res;
+        if (n<=0 || n>9 || k<=0) return res;
+        vector<int> visited(n,0);
+        vector<vector<int>> ans;
+        vector<int> out;
+        vector<int> nums; 
+        for (int i=1;i<=n;i++)
         {
-            for(int i=l;i<=r;i++)
-            {
-                res[u][i]=num++;
-            }
-            ++u;
-            for (int i=u;i<=d;i++)
-            {
-                res[i][r] = num++;
-            }
-            --r;
-            for (int i=r;i>=l;i--) 
-            {
-                res[d][i] = num++;
-            }
-            --d;
-            for (int i=d;i>=u;i--) 
-            {
-                res[i][l] = num++;
-            }
-            ++l;
+            nums.push_back(i);
+        }
+        DFS(nums,0,visited,out,ans,k);
+       
+        for(int i=0;i<ans[0].size();i++)
+        {
+            res+='0'+ans[0][i];
         }
         return res;
+    }
+
+    int factorial(int num)   // 阶乘
+    {
+        int res = 1;
+        while(num>0)
+        {
+            res*=num;
+            num--;
+        }
+        return res;
+    }
+
+    void DFS(vector<int> nums, int level, vector<int> &visited, vector<int> &out, vector<vector<int>> & ans,int k)
+    {
+        int n =nums.size();
+        if (level==n)
+        {
+            ans.push_back(out);
+            return;
+        }
+        int ps = factorial(n-1-level);  // 求出这一个分支将要产生的叶子结点数 n-1-level的阶乘
+        for (int i=0;i<n;i++)
+        {
+            if (visited[i]==1)
+            {
+                continue;
+            }
+            if (ps >0 && ps<k)   // 如果k>这一分支要产生的叶子结点数，就进行剪枝
+            {
+                k-=ps;
+                continue;
+            }
+            visited[i]=1;
+            out.push_back(nums[i]);
+            DFS(nums,level+1,visited,out,ans,k);
+            out.pop_back();
+            visited[i]=0;
+        }
     }
 };
 ```
@@ -144,7 +169,7 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Permutation-Sequence/Permutation-Sequence.py)
-###  方法一：模拟法
+###  方法一：回溯全排列
 ```python
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
@@ -179,7 +204,7 @@ class Solution:
         return res
 ```
 
-###  方法一：模拟法改进版
+###  方法一：改进版——回溯+剪枝
 ```python
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
@@ -214,7 +239,7 @@ class Solution:
 
 # 参考
 
-  -  [螺旋矩阵](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Spiral-Matrix/README.md)
-  -  [c++多维数组初始化](https://blog.csdn.net/ldkcumt/article/details/51396980)
-  -  [python初始化二维数组](https://www.cnblogs.com/yeni/p/11590108.html)
+  -  [46题全排列](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations/README.md)
+  -  [47题全排列II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations-II/README.md)
+  -  [回溯+剪枝](https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/)
 
