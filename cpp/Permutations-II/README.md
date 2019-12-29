@@ -25,7 +25,7 @@
 
 2、在进入一个新的分支之前，看一看这个数是不是和之前的数一样，如果这个数和之前的数一样，并且之前的数还未使用过，那接下来如果走这个分支，就会使用到之前那个和当前一样的数，就会发生重复，此时分支和之前的分支一模一样。
 
-![DFS]()
+![DFS](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations-II/Image/DFS.png.png)
 
 
 # 时间复杂度：
