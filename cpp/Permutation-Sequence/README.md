@@ -40,17 +40,19 @@
 # 解题思路:
 思路一：此题与[第46题全排列](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations/README.md)类似，可以使用递归回溯（深度优先遍历）找出所有的全排列，然后找第k个排列，并转换为字符串，i+'0'。
 
-思路二：回溯+剪枝
+思路二：（回溯）+剪枝，因为是一次递归直接到叶子，所以不需要还原状态，也就是说不需要回溯重置状态，一次递归到底就能找到 第 k 个排列
  
 # 时间复杂度：
   思路一：搜索树中最后一层共 n!个叶节点，在叶节点处记录方案的计算量是 O(n)，所以叶节点处的计算量是 O(n×n!)。
 搜索树一共有 n!+n!/2!+n!/3!+…=n!(1+1/2!+1/3!+…)≤n!(1+1/2+1/4+1/8+…)=2n!个内部节点，在每个内部节点内均会for循环 n次，因此内部节点的计算量也是 O(n×n!)。 所以总时间复杂度是 O(n×n!)。
 
+  思路二：O(n<sup>2<\sup>)
+
   思路二：
 # 空间复杂度
   思路一：O(n!) 由于必须要保存n! 个解。
   
-  思路二：
+  思路二：O(n)
   
 # 代码
 
@@ -275,70 +277,35 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Permutation-Sequence/Permutation-Sequence.py)
-###  方法一：回溯全排列
+###  方法一：（回溯）+剪枝
 ```python
 class Solution:
-    def generateMatrix(self, n: int) -> List[List[int]]:
-        res = [[0]* n for _ in range(n)]    ##python初始化二维数组
-        out = [i for i in range(n*n,0,-1)]
-        u = 0
-        d = n-1
-        l = 0
-        r = n-1
-        while True:  ## 可以改为while num<=pow(n,2): 更节省时间
-            for i in range(l,r+1,1):
-                res[u][i] = out[-1]
-                #del out[-1]
-                out.pop()
-            u+=1
-            if u>d:break
-            for i in range(u,d+1,1):
-                res[i][r] = out[-1]
-                del out[-1]
-            r-=1
-            if r<l:break
-            for i in range(r,l-1,-1):
-                res[d][i] = out[-1]
-                del out[-1]
-            d-=1
-            if d<u:break
-            for i in range(d,u-1,-1):
-                res[i][l]=out[-1]
-                del out[-1]
-            l+=1
-            if l>r:break
+    def getPermutation(self, n: int, k: int) -> str:
+        res = []   ## list的形式
+        if n==0 :
+            return ""  ##[]和""一样都表示为空
+        visited = [0 for _ in range(n+1)]
+        self.DFS(visited,0,res,n,k)
+        res = ''.join(res)
         return res
-```
-
-###  方法一：改进版——回溯+剪枝
-```python
-class Solution:
-    def generateMatrix(self, n: int) -> List[List[int]]:
-        res = [[0]* n for _ in range(n)]    ##python初始化二维数组
-        # res = [[0 for _ in range(n)] for _ in range(n)]
-        u = 0
-        d = n-1
-        l = 0
-        r = n-1
-        m = pow(n,2)
-        num = 1
-        while num<=m:
-            for i in range(l,r+1,1):
-                res[u][i] = num
-                num+=1
-            u+=1
-            for i in range(u,d+1,1):
-                res[i][r] = num
-                num+=1
-            r-=1
-            for i in range(r,l-1,-1):
-                res[d][i] = num
-                num+=1
-            d-=1
-            for i in range(d,u-1,-1):
-                res[i][l]=num
-                num+=1
-            l+=1
+    def DFS(self,visited,level,res,n,k):
+        if level==n:
+            return
+        remain_fac = self.factorial(n-1-level)
+        for i in range(1,n+1):
+            if visited[i]==1:
+                continue
+            if remain_fac > 0 and remain_fac < k:
+                k-=remain_fac
+                continue
+            res+=(str(i))   // 字符串的拼接
+            visited[i]=1
+            self.DFS(visited,level+1,res,n,k)
+    def factorial(self,num):   // 阶乘
+        res = 1
+        while num>0:
+            res*=num
+            num-=1
         return res
 ```
 
@@ -348,4 +315,6 @@ class Solution:
   -  [46题全排列](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations/README.md)
   -  [47题全排列II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations-II/README.md)
   -  [回溯+剪枝](https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/)
+  -  [Python合并list为字符串的方法](https://blog.csdn.net/Zx_whu/article/details/61926655)
+  -  [Python字符串拼接总结](https://segmentfault.com/a/1190000015475309)
 
