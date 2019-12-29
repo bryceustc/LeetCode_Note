@@ -123,7 +123,7 @@ public:
         }
         return res;
     }
-
+    // 求 n 的阶乘 或者直接使用数组：factorial = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880}
     int factorial(int num)   // 阶乘
     {
         int res = 1;
@@ -164,8 +164,114 @@ public:
     }
 };
 ```
+###  方法一改进版：(回溯)+剪枝+减去前k-1个枝（因为是一次递归直接到叶子，所以不需要还原状态）
+```c++
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        string res;
+        vector<int> visited(n,0);
+        vector<int> out;
+        vector<int> nums; 
+        for (int i=1;i<=n;i++)
+        {
+            nums.push_back(i);
+        }
+        DFS(nums,0,visited,out,k);
+        for (int i=0;i<n;i++)
+        {
+           res+=out[i]+'0';
+        }
+         return res;
+        return res;
+    }
 
+    int factorial(int num)   // 阶乘
+    {
+        int res = 1;
+        while(num>0)
+        {
+            res*=num;
+            num--;
+        }
+        return res;
+    }
 
+    void DFS(vector<int> nums, int level, vector<int> &visited, vector<int> &out,int k)
+    {
+        int n =nums.size();
+        if (level==n)
+        {
+            return;
+        }
+        int ps = factorial(n-1-level);  // 求出这一个分支将要产生的叶子结点数 n-1-level的阶乘
+        for (int i=0;i<n;i++)
+        {
+            if (visited[i]==1)
+            {
+                continue;
+            }
+            if (ps >0 && ps<k)   // 如果k>这一分支要产生的叶子结点数，就进行剪枝
+            {
+                k-=ps;
+                continue;
+            }
+            visited[i]=1;
+            out.push_back(nums[i]);
+            DFS(nums,level+1,visited,out,k);// 因为是一次递归直接到叶子，所以不需要还原状态
+            //out.pop_back();
+            //visited[i]=0;
+        }
+    }
+};
+```
+###  方法一完善版：(回溯)+剪枝+减去前k-1个枝（因为是一次递归直接到叶子，所以不需要还原状态）
+```c++
+class Solution {
+public:
+    // 方法1：使用回溯法的思路思考，则每当选择一个数加入排列时，可以计算出剩下的数还有多少种排列的可能，
+    // 即可以计算出当前被选择的数的排列总数，设用 remain_fac 表示， remain_fac = 剩下的待选择的数的阶乘。
+    // 然后将 remain_fac 与 k 进行大小比较，若小于 k ，则说明所要求的第 k 个排列不在以 当前选定的数 为开头的所有排列中，直接跳过
+    // 一次递归到底就能找到 第 k 个排列
+    string getPermutation(int n, int k) {
+        vector<bool> visited(n + 1, false);          // 用于标记每个数是否用过
+        string res;                            // 用于返回的结果排列序列
+        DFS(visited, 0,res, n, k);
+        return res;
+    }
+    // 递归实现
+    void DFS(vector<bool> &visited,int level, string &res, int n, int k){
+        if(level == n) // 结束条件，当前排列已经结束
+        {   
+            return;
+        }
+        int remain_fac = factorial(n - level - 1);  // 剩下的数的全排列的个数
+        for(int i = 1; i <= n; i++){                  // 遍历 [1, n]
+            if(visited[i])// 跳过已使用的数
+            {                            
+                continue;
+            }
+            if(remain_fac > 0 && remain_fac < k){     // 剩下的数的全排列个数小于当前 k ，说明第 k 个排列肯定不在当前的递归子树中，直接跳过该递归
+                k -= remain_fac;                      // 剪枝
+                continue;
+            }
+            res += '0' + i;
+            visited[i] = true;
+            DFS(visited,level+1, res, n, k);
+                                                      // 因为是一次递归直接到叶子，所以不需要还原状态
+        }
+    }
+    // 求 n 的阶乘 或者直接使用数组：factorial = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880}
+    int factorial(int n){
+        int res = 1;
+        while(n > 0){
+            res *= n;
+            n--;
+        }
+        return res;
+    }
+};
+```
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Permutation-Sequence/Permutation-Sequence.py)
