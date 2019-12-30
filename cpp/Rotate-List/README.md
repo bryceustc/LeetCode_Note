@@ -1,39 +1,25 @@
-# 题目描述:  第k个排列
+# 题目描述:  旋转链表
 
-给出集合 ``[1,2,3,…,n]``，其所有元素共有 n! 种排列。
-
-按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
-
- 1. "123"
- 
- 2. "132"
-
- 3. "213"
-
- 4. "231"
- 
- 5. "312"
- 
- 6. "321"
- 
-给定 n 和 k，返回第 k 个排列。
-
-**说明：**
-
- - 给定 n 的范围是 [1, 9]。
- - 给定 k 的范围是[1,  n!]。
-
+给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
 
 **示例 1:**
 ```
-输入: n = 3, k = 3
-输出: "213"
+输入: 1->2->3->4->5->NULL, k = 2
+输出: 4->5->1->2->3->NULL
+解释:
+向右旋转 1 步: 5->1->2->3->4->NULL
+向右旋转 2 步: 4->5->1->2->3->NULL
 ```
 
 **示例 2:**
 ```
-输入: n = 4, k = 9
-输出: "2314"
+输入: 0->1->2->NULL, k = 4
+输出: 2->0->1->NULL
+解释:
+向右旋转 1 步: 2->0->1->NULL
+向右旋转 2 步: 1->2->0->NULL
+向右旋转 3 步: 0->1->2->NULL
+向右旋转 4 步: 2->0->1->NULL
 ```
 
   
@@ -60,7 +46,7 @@
   
 # 代码
 
-## [C++](./Permutation-Sequence.cpp):
+## [C++](./Rotate-List.cpp):
 
 ###  方法一： 回溯全排列法（未通过OJ）
 ```c++
@@ -310,7 +296,7 @@ public:
 
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Permutation-Sequence/Permutation-Sequence.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Rotate-List/Rotate-List.py)
 ###  方法一：（回溯）+剪枝
 ```python
 class Solution:
