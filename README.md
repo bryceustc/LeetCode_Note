@@ -70,4 +70,5 @@ LeetCode
 |240|[Search-A-2D-Matrix-II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)| [C++](./cpp/Search-A-2D-Matrix-II/README.md), [Python](./python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)|Medium|
 |283|[Move-Zeroes](https://leetcode-cn.com/problems/move-zeroes/)| [C++](./cpp/Move-Zeroes/README.md), [Python](./python/Move-Zeroes/Move-Zeroes.py)|Easy|
 |287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
+|295|[Find-Median-From-Data-Stream](https://leetcode-cn.com/problems/find-median-from-data-stream/)| [C++](./cpp/Find-Median-From-Data-Stream/README.md), [Python](./python/Find-Median-From-Data-Stream/Find-Median-From-Data-Stream.py)|Hard|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
