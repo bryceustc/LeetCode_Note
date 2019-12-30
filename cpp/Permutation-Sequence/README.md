@@ -297,7 +297,7 @@ public:
             int i = (k-1)/factor[n-1];          // -1是保证位数准确             
             res+=nums[i];
             nums.erase(nums.begin()+i);
-            k-=i*factor[n-1];   // 注意取余的,用减法不用%取余符号
+            k-=i*factor[n-1];   // 注意取余的,用减法不用%取余符号，用k %=factor[n-1];会取到负数
             n--;
         }
 		return res;
@@ -339,6 +339,63 @@ class Solution:
             num-=1
         return res
 ```
+ 
+### 方法一：res=''初始化的问题,res得声明为全局变量  
+```python
+class Solution:
+    def getPermutation(self, n: int, k: int) -> str:
+        res = ''
+
+        def factorial(num):
+            res = 1
+            while num > 0:
+                res *= num
+                num -= 1
+            return res
+
+        def DFS(visited, level, n, k, res):
+            if level == n:
+                return res
+            ps = factorial(n - 1 - level)
+            for i in range(1, n + 1):
+                if visited[i] == 1:
+                    continue
+                if 0 < ps < k:
+                    k -= ps
+                    continue
+                res += str(i)  ## 递归到底时已经是第 k 个排列，res 也是字符串的形式
+                visited[i] = 1
+                return DFS(visited, level + 1, n, k, res)
+
+        if n == 0:
+            return ""
+        visited = [0 for _ in range(n + 1)]
+        res = DFS(visited, 0, n, k, res)
+        return res
+```
+
+
+###  方法二：康托展开(数学方法)
+```python
+class Solution:
+    def getPermutation(self, n: int, k: int) -> str:
+        nums = [*map(str, range(1, 10))]  ## 参数前加一个星号，表明将所有的值放在同一个元组中，该参数的返回值是一个元组。
+                                          ## 参数前加两个星号，表明将所有的值放在同一个字典中，该参数的返回值是一个字典。
+        # print(nums)
+        # ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+        factorial=[1]
+        for i in range(1,n+1):
+            factorial.append(factorial[-1]*i)
+        res=""
+        while n>0:
+            i = (k-1)//factorial[n-1]
+            res+=nums[i]
+            nums.pop(i)
+            k-=i*factorial[n-1]
+            n-=1
+        return res
+```
+
 
 
 # 参考
@@ -350,4 +407,5 @@ class Solution:
   -  [Python字符串拼接总结](https://segmentfault.com/a/1190000015475309)
   -  [Python中的NULL和None](https://blog.csdn.net/songyunli1111/article/details/75145533)但python是把0，空字符串‘ ’，空列表[]和None都看作False，把其他数值和非空字符串都看作True
   -  [康托展开](https://baike.baidu.com/item/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80) 
-
+  -  [Python3：可变对象和不可变对象](https://blog.csdn.net/Artprog/article/details/88732987) 
+  -  [Python map() 函数](https://www.runoob.com/python/python-func-map.html) 
