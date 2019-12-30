@@ -62,6 +62,7 @@ LeetCode
 |58|[Length-Of-Last-Word](https://leetcode-cn.com/problems/length-of-last-word/)| [C++](./cpp/Length-Of-Last-Word/README.md), [Python](./python/Length-Of-Last-Word/Length-Of-Last-Word.py)|Easy|
 |59|[Spiral-Matrix-II](https://leetcode-cn.com/problems/spiral-matrix-ii/)| [C++](./cpp/Spiral-Matrix-II/README.md), [Python](./python/Spiral-Matrix-II/Spiral-Matrix-II.py)|Medium|
 |60|[Permutation-Sequence](https://leetcode-cn.com/problems/permutation-sequence/)| [C++](./cpp/Permutation-Sequence/README.md), [Python](./python/Permutation-Sequence/Permutation-Sequence.py)|Medium|
+|61|[Rotate-List](https://leetcode-cn.com/problems/rotate-list/)| [C++](./cpp/Rotate-List/README.md), [Python](./python/Rotate-List/Rotate-List.py)|Medium|
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
 |153|[Find-Minimum-In-Rotated-Sorted-Array](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)| [C++](./cpp/Find-Minimum-In-Rotated-Sorted-Array/README.md), [Python](./python/Find-Minimum-In-Rotated-Sorted-Array/Find-Minimum-In-Rotated-Sorted-Array.py)|Medium|
 |169|[Majority-Element](https://leetcode-cn.com/problems/majority-element/)| [C++](./cpp/Majority-Element/README.md), [Python](./python/Majority-Element/Majority-Element.py)|Easy|
