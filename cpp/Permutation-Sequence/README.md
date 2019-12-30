@@ -275,6 +275,37 @@ public:
 };
 ```
 
+### 方法二：康托展开（数学方法）
+```c++
+class Solution {
+public:
+	string getPermutation(int n, int k) {
+		string nums = "123456789";
+		const vector<int> factor={1,1,2,6,24,120,720,5040,40320,362880};
+        // 阶乘实现
+        // vector<int> factor(1,1);
+        // for (int i=1;i<=n;i++)
+        // {
+        //     factor.push_back(factor.back()*i);
+        // }
+		string res;
+        while(n>0)
+        {
+            // 用3/2!=1余1,说明比首位小的数有1个，所以首位为2
+            // 用1/1!=1余0，说明比第二位小的数有1个，所以第二位为1
+            // 最后一位自然就是剩下3，所以n=3,k=3的排列组合是213
+            int i = (k-1)/factor[n-1];          // -1是保证位数准确             
+            res+=nums[i];
+            nums.erase(nums.begin()+i);
+            k-=i*factor[n-1];   // 注意取余的
+            n--;
+        }
+		return res;
+	}
+};
+```
+
+
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Permutation-Sequence/Permutation-Sequence.py)
 ###  方法一：（回溯）+剪枝
@@ -318,4 +349,5 @@ class Solution:
   -  [Python合并list为字符串的方法](https://blog.csdn.net/Zx_whu/article/details/61926655)
   -  [Python字符串拼接总结](https://segmentfault.com/a/1190000015475309)
   -  [Python中的NULL和None](https://blog.csdn.net/songyunli1111/article/details/75145533)但python是把0，空字符串‘ ’，空列表[]和None都看作False，把其他数值和非空字符串都看作True
+  -  [康托展开](https://baike.baidu.com/item/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80) 
 
