@@ -317,4 +317,5 @@ class Solution:
   -  [回溯+剪枝](https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/)
   -  [Python合并list为字符串的方法](https://blog.csdn.net/Zx_whu/article/details/61926655)
   -  [Python字符串拼接总结](https://segmentfault.com/a/1190000015475309)
+  -  [Python中的NULL和None](https://blog.csdn.net/songyunli1111/article/details/75145533)但python是把0，空字符串‘ ’，空列表[]和None都看作False，把其他数值和非空字符串都看作True
 
