@@ -297,7 +297,7 @@ public:
             int i = (k-1)/factor[n-1];          // -1是保证位数准确             
             res+=nums[i];
             nums.erase(nums.begin()+i);
-            k-=i*factor[n-1];   // 注意取余的
+            k-=i*factor[n-1];   // 注意取余的,用减法不用%取余符号
             n--;
         }
 		return res;
