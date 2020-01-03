@@ -179,44 +179,75 @@ private:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Find-Median-From-Data-Stream/Find-Median-From-Data-Stream.py)
-###  方法一：构造辅助数组法（未通过OJ )
+###  方法一：直接排序法（未通过OJ，时间超时 )
 ```python
-class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
+class MedianFinder:
+
+    def __init__(self):
         """
-        Do not return anything, modify nums in-place instead.
+        initialize your data structure here.
         """
-        res = []
-        n = len(nums)
-        if n==0:
-            return
-        for i in range(n):
-            if nums[i]!=0:
-                res.append(nums[i])
-        for i in range(n):
-            if nums[i]==0:
-                res.append(nums[i])
-        nums=res
+        self.store=[] 
+
+    def addNum(self, num: int) -> None:
+        self.store.append(num)
+
+    def findMedian(self) -> float:
+        store=sorted(self.store)
+        n = len(self.store)
+        if n%2==0:
+            return (self.store[n//2]+self.store[n//2-1])/2.0
+        else:
+            return self.store[n//2]
+        
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
 ```
-### 方法二 ：插入排序
+### 方法二 ：插入排序(未通过OJ，时间超时)
 ```python
+class MedianFinder:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.store=[] 
+    
+    def insertSort(self,arr):
+        for i in range(1,len(arr)):
+            j = i-1
+            key = arr[i]
+            while j >= 0:
+                if arr[j] > key:
+                    arr[j+1] = arr[j]
+                    arr[j] = key
+                j -= 1
+        return arr
+    
+    def addNum(self, num: int) -> None:
+        self.store.append(num)
+        self.store = self.insertSort(self.store)
+
+    def findMedian(self) -> float:
+        n = len(self.store)
+        if n%2==0:
+            return (self.store[n//2]+self.store[n//2-1])/2.0
+        else:
+            return self.store[n//2]
+        
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n = len(nums)
-        if n==0:
-            return
-        for i in range(0,n):
-            if nums[i]==0:
-                for j in range(i+1,n):
-                    if nums[j]!=0:
-                        temp = nums[j]
-                        for k in range (j,i,-1):
-                            nums[k] = nums[k-1]
-                        nums[i] = temp
-                        break
+
 ```
 
 ### 方法三 ：利用python自带的heapq库实现大小堆求解
