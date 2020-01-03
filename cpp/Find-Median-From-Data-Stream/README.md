@@ -28,7 +28,7 @@ findMedian() -> 2
 
   
 # 解题思路:
-此题与LeetCode第295题相同
+此题与剑指Offer第41题相同
 
 方法一：每插入一次就直接排序，然后根据存储数据的长度为奇数还偶数返回中位数，时间复杂度为O(nlogn)+O(1)
 
@@ -219,75 +219,49 @@ class Solution:
                         break
 ```
 
-### 方法三 ：冒泡排序(未通过OJ，超出时间限制)
+### 方法三 ：利用python自带的heapq库实现大小堆求解
 ```python
-class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
+class MedianFinder:
+
+    def __init__(self):
         """
-        Do not return anything, modify nums in-place instead.
+        initialize your data structure here.
         """
-        n = len(nums)
-        if n==0:
-            return
-        for i in range(0,n):
-                for j in range(n-1,i,-1):
-                    if nums[j]!=0 and nums[j-1]==0:
-                        temp = nums[j]
-                        nums[j] = nums[j-1]
-                        nums[j-1] = temp
+        self.count = 0
+        self.max_heap = []
+        self.min_heap = []
+
+    def addNum(self, num: int) -> None:
+        # 因为 Python 中的堆默认是小顶堆，所以要传入一个相反数，
+        # 才能模拟出大顶堆的效果
+        if self.count % 2 == 0:
+            heapq.heappush(self.max_heap, -num)
+            max_heap_top = heapq.heappop(self.max_heap)
+            heapq.heappush(self.min_heap,-max_heap_top)
+        else:
+            heapq.heappush(self.min_heap, num)
+            min_heap_top = heapq.heappop(self.min_heap)
+            heapq.heappush(self.max_heap,-min_heap_top)
+        self.count+=1
+    def findMedian(self) -> float:
+        if self.count % 2 == 0:
+            return (self.min_heap[0] - self.max_heap[0])/2.0
+        else:
+            return self.min_heap[0]      
+
+
+# Your MedianFinder object will be instantiated and called as such:
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()
 ```
 
-### 方法四：python 自带函数
-```python
-class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        for i in range(nums.count(0)):
-            nums.remove(0)
-            nums.append(0)
-```
-### 方法五：快指针扫描，满指针赋值记录，最后补0 (局部最优化)
-```python
-class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        n = len(nums)
-        if n==0:
-            return
-        j = 0
-        for i in range(n):
-            if nums[i]!=0:
-                nums[j]=nums[i]
-                j+=1
-        for k in range(j,n):
-            nums[k]=0
-```
-
-### 方法六：双指针扫描，最优化
-```python
-class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        n = len(nums)
-        if n==0:
-            return
-        i=0
-        for j in range(0,n):
-            if nums[j]!=0:
-                nums[i],nums[j]=nums[j],nums[i]
-                i+=1
-```
 
 
 # 参考
 
-  -  [调整数组顺序使奇数位于偶数前面](https://github.com/bryceustc/CodingInterviews/blob/master/ReorderArray/README.md)
+  -  [剑指Offer_41题_数据流的中位数](https://github.com/bryceustc/CodingInterviews/blob/master/StreamMedian/README.md)
+  -  [python数据结构堆（heapq）库使用](https://blog.csdn.net/brucewong0516/article/details/79042839)
 
 
 
