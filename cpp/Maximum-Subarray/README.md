@@ -286,4 +286,9 @@ class Solution:
             rightBoaderSum = max(rightBoaderSum,cur_sum)
         return leftBoaderSum + rightBoaderSum
 ```
-
+# 参考：
+   - [剑指offer-42连续子数组的最大和](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Maximum-Subarray/README.md)
+   - [五大常用算法之一：分治算法](https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741370.html) 
+   - [五大常用算法之二：动态规划算法](https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741374.html) 
+   - [五大常用算法之三：贪心算法](https://www.cnblogs.com/steven_oyj/archive/2010/05/22/1741375.html)
+   - [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-cshi-xian-si-chong-jie-fa-bao-li-f/)
