@@ -31,106 +31,40 @@
 
 ## [C++](./Largest-Number.cpp):
 
-###  方法一： 暴力法
+###  自定义Sort比较法
 ```c++
 class Solution{
     public:
-        int majorityElement(vector<int>&nums)
+        string largestNumber(vector<int>& nums)
         {
-            int res = 0 ;
-            if (nums.empty()) return res;
+            string res;
             int n = nums.size();
-            int half = n/2;
+            sort(nums.begin(),nums.end(),compare);  // compare 自定义比较规则，不设置默认是从小到大
             for (int i=0;i<n;i++)
             {
-                int count = 0;
-                for (auto num : nums)
-                {
-                    if (nums[i] == num)
-                    {
-                        count+=1;
-                        if (count > half)
-                        {
-                            res = num;
-                        }
-                    }
-                }
+                res += to_string(nums[i]);
             }
-            return res;          
+            if (res[0] == '0') 
+                return "0";
+            else
+                return res;          
+        }
+        // 需要加static
+        // 原因：
+        // 简单来讲，就是函数参数不匹配的问题。因为我们普通的成员函数都有一个隐含的this指针。
+        // bool cmp( Solution* this, const Interval &a,const Interval &b );
+        // 实际上cmp函数有三个参数，而我们调用sort()排序函数的时候只需要用到两个参数进行比较，所以就出现了形参与实参不匹配的情况
+        //（函数有三个形参，但是只输入了两个实参）。
+        static bool compare(int a, int b)
+        {
+            string sa = to_string(a);
+            string sb = to_string(b);
+            return (sa + sb) > (sb + sa);
+            // 两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇’\0’为止。
+            // 当两个数的位数一样，则直接可以应用字符串的比较。如 "1346" > "1111" == true
         }
 };
 ```
-
-###  方法二： 哈希表
-```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
-        {
-            int res =0;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            unordered_map<int,int> record;
-            for (auto num:nums)
-            {
-                record[num]++;
-                if(record[num]>half)
-                {
-                    res = num;
-                }
-            }
-            return res;
-      
-```
-
-###  方法三： 摩尔投票
-```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
-        {
-            int res = 0 ;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            for (int i=0;i<n;i++)
-            {
-                int count = 0;
-                for (auto num : nums)
-                {
-                    if (nums[i] == num)
-                    {
-                        count+=1;
-                        if (count > half)
-                        {
-                            res = num;
-                        }
-                    }
-                }
-            }
-            return res;          
-        }
-};
-```
-
-
-###  方法四：排序后返回 
-```c++
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-        int res = 0;
-        if (nums.empty()) return res;
-        int n = nums.size();
-        int half = n/2;
-        sort(nums.begin(),nums.end());
-        res = nums[half];
-        return res;      
-    }
-};
-```
-
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Largest-Number/Largest-Number.py)
 ###  方法一：暴力法
@@ -195,6 +129,9 @@ class Solution:
 
 # 参考
   - [剑指offer第39题-数组中出现次数超过一半的数字](https://github.com/bryceustc/CodingInterviews/blob/master/MoreThanHalfNumber/README.md)
+  - [C++中 string对象的大小比较](https://blog.csdn.net/jason_cuijiahui/article/details/79038468)
+  - [C++ algorithm sort自定义排序](https://blog.csdn.net/v_xchen_v/article/details/76615270)
+  - [关于类中重载sort函数的报错问题（解决error: invalid use of non-static member function 'bool Solution::cmp(int, int)'）](https://blog.csdn.net/qq_41562704/article/details/95908736)
 
 
 
