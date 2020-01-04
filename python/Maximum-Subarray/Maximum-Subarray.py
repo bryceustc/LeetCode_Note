@@ -64,3 +64,19 @@ class Solution:
             max_r = max(tmp, max_r)
         #返回三个中的最大值
         return max(max_right,max_left,max_l+max_r)
+    
+    
+### Solution 4:
+class Solution:
+    def maxSubArray(self, nums):
+        # write code here
+        res = nums[0]
+        n = len(nums)
+        sum_num = 0
+        for num in nums:
+            if sum_num>0:
+                sum_num+=num
+            else:
+                sum_num = num
+            res = max(res,sum_num)            
+        return res
