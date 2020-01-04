@@ -16,21 +16,29 @@
 
   
 # 解题思路:
-  尝试一：暴力求解
+  方法一：暴力求解，枚举每一个子序列的大小，记录下最大的和返回。
   
-  方法二：动态规划，``dp[i]``表示``nums``中以``nums[i]``结尾的最大子序和
+  方法二：动态规划，在整个数组或在固定大小的滑动窗口中找到总和或最大值或最小值的问题可以通过动态规划（dp）在线性时间内解决。构建一个动态数组vector<int> dp(n),dp[i]表示nums中以nums[i]结尾的最大子序和，dp[i] = max(dp[i-1]+nums[i],nums[i]),dp[i]要么是当前数字，要么是与前面的最大子序和的和。时间复杂度:O(n),空间复杂度O(n)(空间复杂度可优化为O(1))
+  
+  方法三：贪心算法，从左向右迭代，一个个数字加过去，如果sum<0,重新开始寻找子序列。时间复杂度O(n),空间复杂度O(1).
+  
+  方法四：分治算法，将一个问题拆分成多个相似的小问题，并对其分别求解，如果拆出的问题依然复杂，就通过递归调用再次将子问题拆分，直到拆出的方法可以以简单方式求得解，最后合并多个小问题的解，就是原问题的结果。
 # 时间复杂度：
   方法一：O(n<sup>2</sup>)
   
   方法二：O(n)
   
-  方法三：O(nlogn)
+  方法三：O(n)
+  
+  方法四：O(nlogn)
 # 空间复杂度
   方法一: O(1)
   
-  方法二：O(n)
+  方法二：O(n)/O(1)
   
   方法三：O(1)
+  
+  方法四：O(logn) 递归时栈使用的空间
   
 # 代码
 
@@ -107,48 +115,68 @@ public:
 };
 ```
 
-
-### 方法三： 分治法
+### 方法三： 贪心算法
 ```c++
-class Solution
-{
+class Solution {
 public:
-    int maxSubArray(vector<int> &nums)
-    {
-        //类似寻找最大最小值的题目，初始值一定要定义成理论上的最小最大值
+    int maxSubArray(vector<int> nums) {
         int res = nums[0];
         int n = nums.size();
-        res = maxSubArrayHelper(nums, 0, n - 1);
+        int sum = 0;
+        for (int i=0;i<n;i++)
+        {
+            if (sum > 0)
+                sum+=nums[i];
+            else
+                sum = nums[i];
+            res = max(res,sum);
+        }
         return res;
     }
+};
+```
 
+
+
+
+### 方法四： 分治法
+```c++
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) 
+    {
+        int res = nums[0];
+        int n = nums.size();
+        res = maxSubArrayHelper(nums,0,n-1);
+        return res;
+    }
+    
     int maxSubArrayHelper(vector<int> &nums, int left, int right)
     {
         if (left == right)
         {
             return nums[left];
         }
-        int mid = (left + right) / 2;
-        int leftSum = maxSubArrayHelper(nums, left, mid);
-        //注意这里应是mid + 1，否则left + 1 = right时，会无线循环
-        int rightSum = maxSubArrayHelper(nums, mid + 1, right);
-        int midSum = findMaxCrossingSubarray(nums, left, mid, right);
-        int res = max(leftSum, rightSum);
-        res = max(res, midSum);
+        int mid = (left + right)/2;
+        int leftSum = maxSubArrayHelper(nums,left,mid);
+        //注意这里应是mid + 1，否则left + 1 = right时，会无限循环
+        int rightSum = maxSubArrayHelper(nums,mid+1,right);
+        int midSum = findMaxCrossingSubarray(nums,left,mid,right);
+        int res = max(leftSum,rightSum);
+        res = max(res,midSum);
         return res;
     }
 
     int findMaxCrossingSubarray(vector<int> &nums, int left, int mid, int right)
     {
-        int leftSum = INT_MIN;
+        int leftSum = nums[mid];
         int sum = 0;
         for (int i = mid; i >= left; i--)
         {
             sum += nums[i];
             leftSum = max(leftSum, sum);
         }
-
-        int rightSum = INT_MIN;
+        int rightSum = nums[mid+1];
         sum = 0;
         //注意这里i = mid + 1，避免重复用到nums[i]
         for (int i = mid + 1; i <= right; i++)
@@ -209,32 +237,53 @@ class Solution:
 ```
 
 
-### 方法三： 分治法
+### 方法三：贪心算法
+```python
+class Solution:
+    def maxSubArray(self, nums):
+        # write code here
+        res = nums[0]
+        n = len(nums)
+        sum_num = 0
+        for num in nums:
+            if sum_num>0:
+                sum_num+=num
+            else:
+                sum_num = num
+            res = max(res,sum_num)            
+        return res
+```
+
+
+
+### 方法四： 分治法
 ```python
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
+        res = nums[0]
         n = len(nums)
-        #递归终止条件
-        if n == 1:
-            return nums[0]
-        else:
-            #递归计算左半边最大子序和
-            max_left = self.maxSubArray(nums[0:len(nums) // 2])
-            #递归计算右半边最大子序和
-            max_right = self.maxSubArray(nums[len(nums) // 2:len(nums)])
-        
-        #计算中间的最大子序和，从右到左计算左边的最大子序和，从左到右计算右边的最大子序和，再相加
-        max_l = nums[len(nums) // 2 - 1]
-        tmp = 0
-        for i in range(len(nums) // 2 - 1, -1, -1):
-            tmp += nums[i]
-            max_l = max(tmp, max_l)
-        max_r = nums[len(nums) // 2]
-        tmp = 0
-        for i in range(len(nums) // 2, len(nums)):
-            tmp += nums[i]
-            max_r = max(tmp, max_r)
-        #返回三个中的最大值
-        return max(max_right,max_left,max_l+max_r)
+        res = self.maxSubArrayHelper(nums,0,n-1)       
+        return res
+    def maxSubArrayHelper(self,nums,left,right):
+        if left==right:
+            return nums[left]
+        mid = (left+right)//2
+        leftSum = self.maxSubArrayHelper(nums,left,mid)
+        rightSum = self.maxSubArrayHelper(nums,mid+1,right)
+        midSum = self.maxCrossingSubArray(nums,left,mid,right)
+        res = max(leftSum,midSum,rightSum)
+        return res
+    def maxCrossingSubArray(self,nums,left,mid,right):
+        leftBoaderSum = nums[mid]
+        cur_sum = 0
+        for i in range(mid,left-1,-1):
+            cur_sum+=nums[i]
+            leftBoaderSum = max(leftBoaderSum,cur_sum)
+        rightBoaderSum = nums[mid+1]
+        cur_sum = 0
+        for i in range(mid+1,right+1):
+            cur_sum+=nums[i]
+            rightBoaderSum = max(rightBoaderSum,cur_sum)
+        return leftBoaderSum + rightBoaderSum
 ```
 
