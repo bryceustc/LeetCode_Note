@@ -41,7 +41,7 @@ public:
             else
                 temp = num1[i] - '0' + num2[j] -'0' + carry;
             carry = temp / 10;
-            res.insert(res.begin(),temp%10+'0');
+            res.insert(res.begin(),temp%10+'0');  //在res最开始的地方插入字符
             i--;
             j--;
         }
