@@ -159,7 +159,8 @@ class Solution:
   - [关于类中重载sort函数的报错问题（解决error: invalid use of non-static member function 'bool Solution::cmp(int, int)'）](https://blog.csdn.net/qq_41562704/article/details/95908736)
   - [python3与python2的不同定义排序](https://leetcode-cn.com/problems/largest-number/solution/python3yu-python2de-bu-tong-ding-yi-pai-xu-by-jixi/)
   - [Python3: 找回sort()中消失的cmp参数](https://www.polarxiong.com/archives/Python3-%E6%89%BE%E5%9B%9Esort-%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84cmp%E5%8F%82%E6%95%B0.html)
-  - [Python map函数用法](https://www.runoob.com/python/python-func-map.html)
+  - [Python map()函数用法](https://www.runoob.com/python/python-func-map.html)
+  - [Python sorted()函数用法](https://www.runoob.com/python/python-func-sorted.html) 
 
 
 
