@@ -82,3 +82,4 @@ class Solution:
 # 参考
   - [字符串相乘](https://github.com/bryceustc/LeetCode_Note/edit/master/cpp/Multiply-Strings/README.md)
   - [Python字符串反转](https://www.runoob.com/python3/python-string-reverse.html)
+  - [string 的一些用法——插入（insert）、删除(erase)、替换(replace)和查找(find)](https://blog.csdn.net/dengheCSDN/article/details/77404317) 
