@@ -33,116 +33,38 @@
 # 解题思路:
 此题与剑指offer第四十五题类似
 
-方法一：直接暴力遍历二维数组所有元素，时间复杂度为O(m\*n)
-
-方法二：对每一行使用一次二分查找，时间复杂度为O(m\*logn)
-
-方法三：根据简单的例子寻找规律，从右上角开始寻找，时间复杂度为O(m+n)
+想要判断一个数的因子是否为2,3,5只需要判断对这个几个数进行取模看是否能够整除然后再除以这几个数，直到最后为1即是丑数，不是1则不为丑数。然后从1开始按照顺序判断每一个数是不是丑数。
  
 # 时间复杂度：
-  方法一： O(m\*n)
+  无法准确分析时间复杂度:至少O(n3)
   
-  方法二： O(m\*logn)
-  
-  方法三： O(m+n) 
 # 空间复杂度
   O(1)
   
 # 代码
 
-## [C++](./Search-A-2D-Matrix-II.cpp):
+## [C++](./Ugly-Number.cpp):
 
-###  方法一： 直接暴力遍历法
+###  模拟法
 ```c++
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-            if (matrix.empty()) return false;
-            int m = matrix.size();
-            int n = matrix[0].size();
-            for (int i=0;i<m;i++)
-            {
-                for (int j=0;j<n;j++)
-                {
-                    if (matrix[i][j]==target)
-                        return true;
-                }
-            }
-            return false;        
-    }
-};
-```
-
-###  方法二： 遍历+一次二分查找法
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-            if (matrix.empty()) return false;
-            int m = matrix.size();
-            int n = matrix[0].size();
-            for (int i=0;i<m;i++)
-            {
-                int start = 0;
-                int end = n-1;
-                while(end>=start)
-                {
-                    int mid = start+(end-start)/2;
-                    if (matrix[i][mid]==target)
-                        return true;
-                    else if (matrix[i][mid]<target)
-                        start=mid+1;
-                    else if (matrix[i][mid]>target)
-                        end=mid-1;
-                }
-            }
-            return false;        
-    }
-};
-```
-
-###  方法三： 从右上角开始查找
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty()) return false;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i=0,j=n-1;
-        while(i<m && j>=0)
+    bool isUgly(int num) {
+        if (num<1)
+            return false;
+        while(num%5==0)
         {
-            if (matrix[i][j]==target)
-                return true;
-            if (matrix[i][j]>target)
-                j--;  //左移
-            else
-                i++; // 下移
+            num/=5;
         }
-        return false;
-    }
-};
-```
-
-###  方法四： 从左下角开始查找
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty()) return false;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i=m-1,j=0;
-        while(i>=0&& j<n)
+        while(num%3==0)
         {
-            if (matrix[i][j]==target)
-                return true;
-            if (matrix[i][j]>target)
-                i--;  //上移
-            else
-                j++; // 右移
+            num/=3;
         }
-        return false;
+        while(num%2==0)
+        {
+            num/=2;
+        }
+        return num==1;
     }
 };
 ```
