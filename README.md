@@ -69,6 +69,8 @@ LeetCode
 |179|[Largest-Number](https://leetcode-cn.com/problems/largest-number/)| [C++](./cpp/Largest-Number/README.md), [Python](./python/Largest-Number/Largest-Number.py)|Medium|
 |215|[Kth-Largest-Element-In-An-Array](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)| [C++](./cpp/Kth-Largest-Element-In-An-Array/README.md), [Python](./python/Kth-Largest-Element-In-An-Array/Kth-Largest-Element-In-An-Array.py)|Medium|
 |240|[Search-A-2D-Matrix-II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)| [C++](./cpp/Search-A-2D-Matrix-II/README.md), [Python](./python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)|Medium|
+|263|[Ugly-Number](https://leetcode-cn.com/problems/ugly-number/)| [C++](./cpp/Ugly-Number/README.md), [Python](./python/Ugly-Number/Ugly-Number.py)|Easy|
+|264|[Ugly-Number-II](https://leetcode-cn.com/problems/ugly-number/)| [C++](./cpp/Ugly-Number-II/README.md), [Python](./python/Ugly-Number-II/Ugly-Number-II.py)|Easy|
 |283|[Move-Zeroes](https://leetcode-cn.com/problems/move-zeroes/)| [C++](./cpp/Move-Zeroes/README.md), [Python](./python/Move-Zeroes/Move-Zeroes.py)|Easy|
 |287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
 |295|[Find-Median-From-Data-Stream](https://leetcode-cn.com/problems/find-median-from-data-stream/)| [C++](./cpp/Find-Median-From-Data-Stream/README.md), [Python](./python/Find-Median-From-Data-Stream/Find-Median-From-Data-Stream.py)|Hard|
