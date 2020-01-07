@@ -33,7 +33,9 @@
 # 解题思路:
 此题与剑指offer第四十五题类似
 
-想要判断一个数的因子是否为2,3,5只需要判断对这个几个数进行取模看是否能够整除然后再除以这几个数，直到最后为1即是丑数，不是1则不为丑数。然后从1开始按照顺序判断每一个数是不是丑数。
+方法一：想要判断一个数的因子是否为2,3,5只需要判断对这个几个数进行取模看是否能够整除然后再除以这几个数，直到最后为1即是丑数，不是1则不为丑数。然后从1开始按照顺序判断每一个数是不是丑数。**（时间复杂度很高未通过OJ）**
+
+方法二：
  
 # 时间复杂度：
   无法准确分析时间复杂度:至少O(n3)
@@ -45,7 +47,7 @@
 
 ## [C++](./Ugly-Number.cpp):
 
-###  模拟法
+###  方法一：直接法
 ```c++
 class Solution {
 public:
@@ -69,8 +71,79 @@ public:
 };
 ```
 
+### 方法二：动态规划
+```c++
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        int res =0;
+        if (n<7)
+            return n;
+        vector<int> dp(n,0);
+        dp[0] = 1;
+        int l_2 = 0;
+        int l_3 = 0;
+        int l_5 = 0;
+        for (int i=1;i<n;i++)
+        {
+            dp[i] = My_min(dp[l_2]*2,dp[l_3]*3,dp[l_5]*5);
+            if (dp[l_2]*2<=dp[i])
+                l_2++;
+            if (dp[l_3]*3<=dp[i])
+                l_3++;
+            if (dp[l_5]*5<=dp[i])
+                l_5++;
+        }
+        return dp[n-1];
+    }
+
+    int My_min(int a, int b, int c)
+    {
+        int res = min(a,b);
+        res = min(res,c);
+        return res;
+    }
+};
+```
+
+### 方法三：最小堆
+```c++
+class Solution {
+public:
+    int nthUglyNumber(int n) {
+        int res =0;
+        if (n<7)
+            return n;
+        vector<int> dp(n,0);
+        dp[0] = 1;
+        int l_2 = 0;
+        int l_3 = 0;
+        int l_5 = 0;
+        for (int i=1;i<n;i++)
+        {
+            dp[i] = My_min(dp[l_2]*2,dp[l_3]*3,dp[l_5]*5);
+            if (dp[l_2]*2<=dp[i])
+                l_2++;
+            if (dp[l_3]*3<=dp[i])
+                l_3++;
+            if (dp[l_5]*5<=dp[i])
+                l_5++;
+        }
+        return dp[n-1];
+    }
+
+    int My_min(int a, int b, int c)
+    {
+        int res = min(a,b);
+        res = min(res,c);
+        return res;
+    }
+};
+```
+
+
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)
-###  模拟法
+###  方法一： 直接法
 ```python
 class Solution:
     def isUgly(self, num: int) -> bool:
@@ -87,7 +160,7 @@ class Solution:
 
 # 参考
 
-  -  [丑数II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Ugly-Number-II/README.md)
+  -  [丑数](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Ugly-Number/README.md)
   -  [剑指Offer_49题丑数](https://github.com/bryceustc/CodingInterviews/blob/master/UglyNumber/README.md)
 
 
