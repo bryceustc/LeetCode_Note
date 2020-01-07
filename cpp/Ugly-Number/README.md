@@ -87,8 +87,8 @@ class Solution:
 
 # 参考
 
-  -  [丑数II](https://github.com/bryceustc/CodingInterviews/blob/master/FindInPartiallySortedMatrix/README.md)
-  -  [剑指Offer_49题丑数](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Search-A-2D-Matrix/README.md)
+  -  [丑数II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Ugly-Number-II/README.md)
+  -  [剑指Offer_49题丑数](https://github.com/bryceustc/CodingInterviews/blob/master/UglyNumber/README.md)
 
 
 
