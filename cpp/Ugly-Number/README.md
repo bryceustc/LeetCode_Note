@@ -70,86 +70,25 @@ public:
 ```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)
-###  方法一：暴力遍历法
+###  模拟法
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
+    def isUgly(self, num: int) -> bool:
+        if num <1:
             return False
-        n=len(matrix[0])
-        for i in range(m):
-            for j in range(n):
-               if matrix[i][j]==target:
-                   return True
-        return False
-```
-### 方法二 ：遍历+一次二分查找
-```python
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        for i in range(m):
-            start = 0
-            end = n-1
-            while end>=start:
-                mid = start + (end-start)//2
-                if matrix[i][mid] == target:
-                    return True
-                if matrix[i][mid]<target:
-                    start=mid+1
-                if matrix[i][mid]>target:
-                    end=mid-1
-        return False
-```
-
-### 方法三 ：右上角查找
-```python
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        i=0
-        j=n-1
-        while i<m and j>=0:
-            if matrix[i][j]==target:
-                return True
-            elif matrix[i][j]>target:
-                j-=1
-            else:
-                i+=1
-        return False
-```
-
-### 方法四 ：左下角查找
-```python
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        i=m-1
-        j=0
-        while i>=0 and j<n:
-            if matrix[i][j]==target:
-                return True
-            elif matrix[i][j]>target:
-                i-=1
-            else:
-                j+=1
-        return False
+        while num%5 == 0:
+            num//=5
+        while num%3 == 0:
+            num//=3
+        while num%2 == 0:
+            num//=2
+        return num==1
 ```
 
 # 参考
 
-  -  [二维数组中的查找](https://github.com/bryceustc/CodingInterviews/blob/master/FindInPartiallySortedMatrix/README.md)
-  -  [搜索二维矩阵](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Search-A-2D-Matrix/README.md)
+  -  [丑数II](https://github.com/bryceustc/CodingInterviews/blob/master/FindInPartiallySortedMatrix/README.md)
+  -  [剑指Offer_49题丑数](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Search-A-2D-Matrix/README.md)
 
 
 
