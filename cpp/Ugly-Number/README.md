@@ -69,7 +69,7 @@ public:
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Ugly-Number/Ugly-Number.py)
 ###  模拟法
 ```python
 class Solution:
