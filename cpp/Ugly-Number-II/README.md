@@ -153,7 +153,7 @@ public:
 
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)
-###  方法一： 直接法
+###  方法一： 直接法（未通过OJ，超时）
 ```python
 class Solution:
     def isUgly(self, num: int) -> bool:
@@ -166,6 +166,55 @@ class Solution:
         while num%2 == 0:
             num//=2
         return num==1
+    def nthUglyNumber(self, n: int) -> int:
+        i = 0
+        num = 0
+        while i<n:
+            num+=1
+            if self.isUgly(num):
+                i+=1
+        return num
+```
+###  方法二： 动态规划
+```python
+class Solution:
+    def nthUglyNumber(self, n):
+        # write code here
+        if n<=0:
+            return 0
+        dp = [0 for _ in range(n)]
+        dp[0] = 1
+        l_2 = 0
+        l_3 = 0
+        l_5 = 0
+        for i in range(1,n):
+            dp[i] = min(dp[l_2]*2,dp[l_3]*3,dp[l_5]*5)
+            if dp[l_2]*2<=dp[i]:
+                l_2+=1
+            if dp[l_3]*3<=dp[i]:
+                l_3+=1
+            if dp[l_5]*5<=dp[i]:
+                l_5+=1
+        return dp[n-1]
+```
+
+###  方法三： 小顶堆
+```python
+class Solution:
+    def nthUglyNumber(self, n: int) -> int:
+        res = 0
+        if n <= 0:
+            return 0
+        min_heap = []
+        heapq.heappush(min_heap,1)
+        for i in range(0,n):
+            res = heapq.heappop(min_heap)
+            while min_heap and res == min_heap[0]:
+                res = heapq.heappop(min_heap)
+            heapq.heappush(min_heap, res*2)
+            heapq.heappush(min_heap, res*3)
+            heapq.heappush(min_heap, res*5)
+        return res
 ```
 
 # 参考
