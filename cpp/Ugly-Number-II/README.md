@@ -152,7 +152,7 @@ public:
 ```
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Ugly-Number-II/Ugly-Number-II.py)
 ###  方法一： 直接法（未通过OJ，超时）
 ```python
 class Solution:
