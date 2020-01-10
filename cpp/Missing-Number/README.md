@@ -1,30 +1,26 @@
 # 题目描述:  只出现一次的数字
 
-给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
 
 **说明** 
 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
 
 **示例 1:**
-现有矩阵 matrix 如下：
 ```
-输入: [2,2,1]
-输出: 1
+输入: [3,0,1]
+输出: 2
 ```
 **示例 2:**
-现有矩阵 matrix 如下：
 ```
-输入: [4,1,2,1,2]
-输出: 4
+输入: [9,6,4,2,3,5,7,0,1]
+输出: 8
 ```
   
 # 解题思路:
 
 方法一：利用哈希表来做，``unordered_map<int,int> map``,``map[nums[i]]==1``。
 
-方法二：对每一行使用一次二分查找，时间复杂度为O(m\*logn)
-
-方法三：根据简单的例子寻找规律，从右上角开始寻找，时间复杂度为O(m+n)
+方法二：数学方法
  
 # 时间复杂度：
   方法一： O(n)
@@ -43,19 +39,19 @@
 ```c++
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
+    int missingNumber(vector<int>& nums) {
         int res =0;
+        int n = nums.size();
         unordered_map<int,int> map;
-        int n=nums.size();
         for (int i=0;i<n;i++)
         {
             map[nums[i]]++;
         }
-        for (int i=0;i<n;i++)
+        for (int i=0;i<=n;i++)
         {
-            if (map[nums[i]]==1)
+            if (map[i] == 0)
             {
-                res = nums[i];
+                res = i;
                 break;
             }
         }
@@ -63,44 +59,48 @@ public:
     }
 };
 ```
-### 方法一：哈希表(unordered_set) 基于哈希表 ，set基于红黑二叉树
+###  方法二： 数学方法(0-n相加再减去nums数组所有元素之和)
 ```c++
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int res=0;
-        unordered_set<int> st;
-        for (int num : nums) 
+    int missingNumber(vector<int>& nums) {
+        int res =0;
+        int n = nums.size();
+        int sum_num = 0;
+        int Sum = 0;
+        for (int i=0;i<n;i++)
         {
-            if (st.find(num)!=st.end()) // if (st.count(num))
-                st.erase(num);
-            else 
-                st.insert(num);
+            sum_num+=nums[i];
         }
-        res = *st.begin();
+        for (int i=0;i<=n;i++)
+        {
+            Sum += i;
+        }
+        res = Sum - sum_num;
         return res;
     }
 };
 ```
 
-
-
-###  方法二： 数学方法(异或)(二进制)
+### 方法二： 数学方法(异或)(重要)
 ```c++
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int res =  0;
-        for (auto num:nums)
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int res = n;
+        for (int i = 0; i < n; i++)
         {
-            res = res ^ num;
+            res ^= nums[i];
+            res ^= i;
+            // 异或满足交换律，i和nums[i]是肯定有重复的，剩下的只有一个那就是nums中缺失的
         }
         return res;
     }
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Single-Number/Single-Number.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Missing-Number/Missing-Number.py)
 ###  方法一：哈希表
 ```python
 class Solution:
