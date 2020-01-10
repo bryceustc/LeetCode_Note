@@ -27,7 +27,7 @@
 方法三：根据简单的例子寻找规律，从右上角开始寻找，时间复杂度为O(m+n)
  
 # 时间复杂度：
-  方法一： On)
+  方法一： O(n)
   
   方法二： O(m\*logn)
   
@@ -35,11 +35,13 @@
 # 空间复杂度
   方法一：O(n)
   
+  方法二：O()
+  
 # 代码
 
 ## [C++](./Single-Number.cpp):
 
-###  方法一： 哈希表(unordered_map)
+###  方法一： 哈希表(unordered_map)  基于哈希表 ，map基于红黑二叉树
 ```c++
 class Solution {
 public:
@@ -63,7 +65,7 @@ public:
     }
 };
 ```
-### 方法一：哈希表(unordered_set)
+### 方法一：哈希表(unordered_set) 基于哈希表 ，set基于红黑二叉树
 ```c++
 class Solution {
 public:
@@ -85,161 +87,60 @@ public:
 
 
 
-###  方法二： 遍历+一次二分查找法
+###  方法二： 数学方法(异或)(二进制)
 ```c++
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-            if (matrix.empty()) return false;
-            int m = matrix.size();
-            int n = matrix[0].size();
-            for (int i=0;i<m;i++)
-            {
-                int start = 0;
-                int end = n-1;
-                while(end>=start)
-                {
-                    int mid = start+(end-start)/2;
-                    if (matrix[i][mid]==target)
-                        return true;
-                    else if (matrix[i][mid]<target)
-                        start=mid+1;
-                    else if (matrix[i][mid]>target)
-                        end=mid-1;
-                }
-            }
-            return false;        
-    }
-};
-```
-
-###  方法三： 从右上角开始查找
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty()) return false;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i=0,j=n-1;
-        while(i<m && j>=0)
+    int singleNumber(vector<int>& nums) {
+        int res =  0;
+        for (auto num:nums)
         {
-            if (matrix[i][j]==target)
-                return true;
-            if (matrix[i][j]>target)
-                j--;  //左移
-            else
-                i++; // 下移
+            res = res ^ num;
         }
-        return false;
+        return res;
     }
 };
 ```
 
-###  方法四： 从左下角开始查找
-```c++
-class Solution {
-public:
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        if (matrix.empty()) return false;
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int i=m-1,j=0;
-        while(i>=0&& j<n)
-        {
-            if (matrix[i][j]==target)
-                return true;
-            if (matrix[i][j]>target)
-                i--;  //上移
-            else
-                j++; // 右移
-        }
-        return false;
-    }
-};
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Single-Number/Single-Number.py)
+###  方法一：哈希表
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        hash_table = {}
+        for num in nums:
+            try:
+                hash_table.pop(num)
+            except:
+                hash_table[num] = 1
+        res = hash_table.popitem()[0]  ## Python 字典 popitem() 方法随机返回并删除字典中的最后一对键和值。如果字典已经为空，却调用了此方法，就报出KeyError异常。
+        return res
+```
+### 方法二 ：数学方法(其他语言会溢出)
+```python
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res = 0
+        res = 2*sum(set(nums)) - sum(nums)  ## set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
+        return res
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)
-###  方法一：暴力遍历法
+### 方法二 ：数学方法(异或)
 ```python
 class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        for i in range(m):
-            for j in range(n):
-               if matrix[i][j]==target:
-                   return True
-        return False
-```
-### 方法二 ：遍历+一次二分查找
-```python
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        for i in range(m):
-            start = 0
-            end = n-1
-            while end>=start:
-                mid = start + (end-start)//2
-                if matrix[i][mid] == target:
-                    return True
-                if matrix[i][mid]<target:
-                    start=mid+1
-                if matrix[i][mid]>target:
-                    end=mid-1
-        return False
-```
-
-### 方法三 ：右上角查找
-```python
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        i=0
-        j=n-1
-        while i<m and j>=0:
-            if matrix[i][j]==target:
-                return True
-            elif matrix[i][j]>target:
-                j-=1
-            else:
-                i+=1
-        return False
-```
-
-### 方法四 ：左下角查找
-```python
-class Solution:
-    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        m=len(matrix)
-        if m==0:
-            return False
-        n=len(matrix[0])
-        i=m-1
-        j=0
-        while i>=0 and j<n:
-            if matrix[i][j]==target:
-                return True
-            elif matrix[i][j]>target:
-                i-=1
-            else:
-                j+=1
-        return False
+    def singleNumber(self, nums: List[int]) -> int:
+        res = 0
+        for num in nums:
+            res = res ^ num
+        return res
 ```
 
 # 参考
 
-  -  [二维数组中的查找](https://github.com/bryceustc/CodingInterviews/blob/master/FindInPartiallySortedMatrix/README.md)
-  -  [搜索二维矩阵](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Search-A-2D-Matrix/README.md)
+  -  [C++中map和unordered_map的用法](https://blog.csdn.net/jingyi130705008/article/details/82633778)
+  -  [C++中unordered_set用法](https://blog.csdn.net/xiaoqiaxiaoqi/article/details/80531742)
+  -  [Python set() 函数](https://www.runoob.com/python/python-func-set.html)
+  -  [剑指offer_53题——0~n-1中缺失的数字](https://github.com/bryceustc/CodingInterviews/blob/master/MissingNumber/README.md)
 
 
 
