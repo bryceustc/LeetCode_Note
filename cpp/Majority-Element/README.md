@@ -97,31 +97,31 @@ class Solution{
 
 ###  方法三： 摩尔投票
 ```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
-        {
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
             int res = 0 ;
             if (nums.empty()) return res;
             int n = nums.size();
             int half = n/2;
-            for (int i=0;i<n;i++)
+            int cnt = 0;
+            for (auto num:nums)
             {
-                int count = 0;
-                for (auto num : nums)
+                if (cnt==0)
                 {
-                    if (nums[i] == num)
-                    {
-                        count+=1;
-                        if (count > half)
-                        {
-                            res = num;
-                        }
-                    }
+                    res = num; 
+                }
+                if (res == num)
+                {
+                    cnt+=1;
+                }
+                else
+                {
+                    cnt-=1;
                 }
             }
-            return res;          
-        }
+            return res; 
+    }
 };
 ```
 
