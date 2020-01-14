@@ -1,30 +1,29 @@
-# 题目描述:  多数元素
+# 题目描述:  两数之和 II - 输入有序数组
 
-给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ``⌊ n/2 ⌋ ``的元素。
+给定一个已按照升序排列 的有序数组，找到两个数使得它们相加之和等于目标数。
+
+函数应该返回这两个下标值 index1 和 index2，其中 index1 必须小于 index2。
+
+**说明：**
+  - 返回的下标值（index1 和 index2）不是从零开始的。
+  - 你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。
+    
 
 **示例 1:**
 ```
-输入: [3,2,3]
-输出: 3
+输入: numbers = [2, 7, 11, 15], target = 9
+输出: [1,2]
+解释: 2 与 7 之和等于目标数 9 。因此 index1 = 1, index2 = 2 。
 ```
-
-**示例 2:**
-```
-输入: [2,2,1,1,1,2,2]
-输出: 2
-```
-
   
 # 解题思路:
-此题与剑指offer第39题类似，但比39题简单
+此题与剑指offer第57题题目一类似
 
 方法一：暴力遍历
 
 方法二：哈希表
 
-方法三：摩尔投票
-
-方法四：排序后，返回数组中间的数
+方法三：双指针
 
  
 # 时间复杂度：
@@ -33,176 +32,163 @@
   方法二：O(n)
   
   方法三：O(n)
-  
-  方法四：O(nlogn)
 # 空间复杂度
-  O(n)
+  方法一：O(1)
+  
+  方法二：O(n)
+  
+  方法三：O(1)
   
 # 代码
 
-## [C++](./Majority-Element.cpp):
+## [C++](./Two-Sum-II-Input-Array-Is-Sorted.cpp):
 
 ###  方法一： 暴力法
 ```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector <int> res (2,0);
+        if (numbers.empty())
+            return res;
+        int n = numbers.size();
+        for (int i=0;i<n;i++)
         {
-            int res = 0 ;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            for (int i=0;i<n;i++)
+            for (int j = i+1; j<n;j++)
             {
-                int count = 0;
-                for (auto num : nums)
+                if (numbers[i]+numbers[j]==target)
                 {
-                    if (nums[i] == num)
-                    {
-                        count+=1;
-                        if (count > half)
-                        {
-                            res = num;
-                        }
-                    }
+                    res[0] = numbers[i];
+                    res[1] = numbers[j];
+                    break;
                 }
             }
-            return res;          
         }
+        return res;
+    }
 };
 ```
 
 ###  方法二： 哈希表
 ```c++
-class Solution{
-    public:
-        int majorityElement(vector<int>&nums)
-        {
-            int res =0;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            unordered_map<int,int> record;
-            for (auto num:nums)
-            {
-                record[num]++;
-                if(record[num]>half)
-                {
-                    res = num;
-                }
-            }
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        vector <int> res (2,0);
+        if (numbers.empty())
             return res;
-      
-```
-
-###  方法三： 摩尔投票
-```c++
-class Solution {
-public:
-    int majorityElement(vector<int>& nums) {
-            int res = 0 ;
-            if (nums.empty()) return res;
-            int n = nums.size();
-            int half = n/2;
-            int cnt = 0;
-            for (auto num:nums)
+        int n = numbers.size();
+        unordered_map<int,int> record;
+        for (int i=0;i<n;i++)
+        {
+            int complement = target -numbers[i];
+            if (record.find(complement)!=record.end())
             {
-                if (cnt==0)
-                {
-                    res = num; 
-                }
-                if (res == num)
-                {
-                    cnt+=1;
-                }
-                else
-                {
-                    cnt-=1;
-                }
+                res[0] = complement;
+                res[1] = nums[i];
+                break;
             }
-            return res; 
+            record[numbers[i]] = i;
+        }
+        return res;
     }
 };
 ```
 
-
-###  方法四：排序后返回 
+###  方法三：双指针
 ```c++
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        int res = 0;
-        if (nums.empty()) return res;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector <int> res (2,0);
+        if (nums.empty())
+            return res;
         int n = nums.size();
-        int half = n/2;
-        sort(nums.begin(),nums.end());
-        res = nums[half];
-        return res;      
+        int left = 0;
+        int right = n-1;
+        while (right>left)
+        {
+            if (nums[left]+nums[right]==target)
+            {
+                res[0] = nums[left];
+                res[1] = nums[right];
+                break;
+            }
+            if (nums[left]+nums[right]>target)
+            {
+                right--;
+            }
+            if (nums[left]+nums[right]<target)
+            {
+                left++;
+            }
+        }
+        return res;
     }
 };
 ```
 
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Majority-Element/Majority-Element.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Two-Sum-II-Input-Array-Is-Sorted/Two-Sum-II-Input-Array-Is-Sorted.py)
 ###  方法一：暴力法
 ```python
 class Solution:
-    def majorityElement(self, nums):
+    def  twoSum(self, nums, target):
         # write code here
-        res = 0
+        res = []
         n = len(nums)
-        half = n//2
         if n==0:
             return res
         for i in range(n):
-            cnt = 0
-            for num in nums:
-                if nums[i] == num:
-                    cnt+=1
-            if cnt > half:
-                res = nums[i]
+            for j in range(i+1,n):
+                if nums[i]+nums[j]==target:
+                    res.append(nums[i])
+                    res.append(nums[j])
+                    return res
         return res
 ```
-### 方法二 ： 摩尔投票法
+### 方法二 ：哈希表
 ```python
 class Solution:
-    def majorityElement(self, nums):
+    def twoSum(self, nums, target):
         # write code here
-        res = nums[0]
-        cnt = 0
+        res = []
+        record = {}
         n = len(nums)
-        half = n//2
         if n==0:
-            return 0
-        for i in range(1,n):
-            if cnt == 0:
-                res = nums[i]
-            if res == nums[i]:
-                cnt+=1
-            else:
-                cnt-=1
-        m = 0
-        for num in nums:
-            if (res == num):
-                m+=1
-        if m<=half:
-            res = 0
+            return res
+        for index,num in enumerate (nums):
+            complement = target - num
+            if complement in record:
+                res.append(complement)
+                res.append(num)
+                return res
+            record[num] = index
         return res
 ```
 
-### 方法三 ： 排序法
+### 方法三 ： 双指针
 ```python
 class Solution:
-    def majorityElement(self, nums):
+    def twoSum(self, nums, target):
         # write code here
-        res = 0
+        res = []
         n = len(nums)
-        nums=sorted(nums)
-        res = nums[n//2]
+        left = 0
+        right = n-1
+        while right>left:
+            if nums[left]+nums[right]==target:
+                res.append(nums[left])
+                res.append(nums[right])
+                return res
+            if nums[left]+nums[right]>target:
+                right-=1
+            else:
+                left+=1
         return res
 ```
 
 
 
 # 参考
-  - [剑指offer第57题-和为s的两个数字](https://github.com/bryceustc/CodingInterviews/blob/master/MoreThanHalfNumber/README.md)
+  - [剑指offer第57题-和为s的两个数字](https://github.com/bryceustc/CodingInterviews/blob/master/TwoNumbersWithSum/README.md)
