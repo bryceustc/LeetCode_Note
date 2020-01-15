@@ -1,192 +1,136 @@
-# 题目描述:  缺失数字
+# 题目描述:  一手顺子
 
-给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
+爱丽丝有一手（hand）由整数数组给定的牌。 
 
-**说明** 
-你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+现在她想把牌重新排列成组，使得每个组的大小都是 W，且由 W 张连续的牌组成。
+
+如果她可以完成分组就返回 true，否则返回 false。
 
 **示例 1:**
 ```
-输入: [3,0,1]
-输出: 2
+输入：hand = [1,2,3,6,2,3,4,7,8], W = 3
+输出：true
+解释：爱丽丝的手牌可以被重新排列为 [1,2,3]，[2,3,4]，[6,7,8]。
 ```
 **示例 2:**
 ```
-输入: [9,6,4,2,3,5,7,0,1]
-输出: 8
+输入：hand = [1,2,3,4,5], W = 4
+输出：false
+解释：爱丽丝的手牌无法被重新排列成几个大小为 4 的组。
 ```
-  
+
+**提示** 
+  1. 1 <= hand.length <= 10000
+  2. 0 <= hand[i] <= 10^9
+  3. 1 <= W <= hand.length
+
 # 解题思路:
+贪婪算法
 
-方法一：利用哈希表来做，``unordered_map<int,int> map``,``map[nums[i]]==1``。
+我们用贪婪算法就可以了，首先从1开始，那么一定得有2和3，才能起连，若少了任何一个，都可以直接返回false，好那么取出这三张后，手里还有：
 
-方法二：数学方法，相减，0-n相加再减去nums数组所有元素之和。异或：``res = nums.size()``，res与nums中的元素异或，在与i异或，如果nums[i]和i都存在，则异或为0，缺失的数字就与i相对应，异或满足交换律。
+2 3 4 6 7 8
 
-方法三：排序法，将数组按顺序排序，数组元素与与相对应下标是否相等，若不相等则返回相应的下标，即为缺失数字。
+那么从当前手里的最小的牌2开始起连，那么手里必须要有3和4，若少了任何一个，都可以直接返回 false，好那么取出这三张后，手里还有：
+
+6 7 8
+
+从当前手里的最小的牌6开始起连，那么手里必须要有7和8，若少了任何一个，都可以直接返回 false，好那么取出这三张后，手里没牌了，我们成功的连完了所有的牌。分析这个过程，不难发现，由于牌可以重复，所以要统计每张牌出现的次数，同时还要给牌按大小排序，用 TreeMap 来建立牌的大小和其出现次数之间的映射就最好不过了，利用了其可以按 key 值排序的特点。首先遍历手中牌，建立映射。然后开始 while 循环，条件是 TreeMap 不为空，然后去除最小的那张牌，然后遍历能组成顺子的W张牌，若没有直接返回 true，有的话，则映射值自减1，若映射值为0了，则从 TreeMap 中移除该映射对儿即可，while 循环退出后返回 true
 # 时间复杂度：
-  方法一： O(n)
-  
-  方法二： O(n) 
-  
-  方法三： O(nlogn)
+  O(n)
 # 空间复杂度
-  方法一：O(n)
-  
-  方法二：O(1)
-  
-  方法三：空间复杂度取决于使用的排序算法，根据排序算法是否进行原地排序（即不使用额外的数组进行临时存储），空间复杂度为 O(1) 或 O(n)。
+  O(n)
   
 # 代码
 
 ## [C++](./Hand-Of-Straights.cpp):
 
-###  方法一： 哈希表(unordered_map)  基于哈希表 ，map基于红黑二叉树
+###  unordered_map基于哈希表 ，map基于红黑二叉树
 ```c++
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        int res =0;
-        int n = nums.size();
-        unordered_map<int,int> map;
-        for (int i=0;i<n;i++)
+    bool isNStraightHand(vector<int>& hand, int W) {
+        int n = hand.size();
+        if (n%W!=0 || W<1 || W>n || hand.empty())
+            return false;
+        map<int, int> m;   // 有序哈希表
+        for (auto card : hand)  
+            m[card]++;
+        while (!m.empty()) 
         {
-            map[nums[i]]++;
-        }
-        for (int i=0;i<=n;i++)
-        {
-            if (map[i] == 0)
+            int start = m.begin()->first;// map 返回开始的关键值，也就是card的值
+            for (int i = 0; i < W;i++) 
             {
-                res = i;
-                break;
+                if (m.find(start + i)==m.end())  // 寻找start开始后的w个序列
+                    return false;
+                m[start+i]--;
+                if (m[start + i] == 0) // 每找到一个满足的数字就删除
+                    m.erase(start + i);
             }
         }
-        return res;
+        return true;
     }
 };
 ```
-###  方法二： 数学方法(0-n相加再减去nums数组所有元素之和)
-```c++
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        int res =0;
-        int n = nums.size();
-        int sum_num = 0;
-        int Sum = 0;
-        for (int i=0;i<n;i++)
-        {
-            sum_num+=nums[i];
-        }
-        for (int i=0;i<=n;i++)
-        {
-            Sum += i;
-        }
-        res = Sum - sum_num;
-        return res;
-    }
-};
-```
-
-### 方法二： 数学方法(异或)(重要)
-```c++
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        int n = nums.size();
-        int res = n;
-        for (int i = 0; i < n; i++)
-        {
-            res ^= nums[i];
-            res ^= i;
-            // 异或满足交换律，i和nums[i]是肯定有重复的，剩下的只有一个那就是nums中缺失的
-        }
-        return res;
-    }
-};
-```
-
-### 方法三： 排序
-```c++
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        int n = nums.size();
-        int res = 0;
-        if (nums[n-1]!=n)
-        {
-            return n;
-        }
-        for (int i=0;i<n;i++)
-        {
-            if (nums[i]!=i)
-            {
-                res = i;
-                break;
-            }
-        }
-        return res;
-    }
-};
-```
-
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Hand-Of-Straights/Hand-Of-Straights.py)
-###  方法一：哈希表
+###  哈希表 collections
 ```python
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        res = 0
-        n = len(nums)
-        nums_set = set(nums)
-        for num in range(n+1):
-            if num not in nums_set:
-                return num
-        return res
+    def isNStraightHand(self, hand: List[int], W: int) -> bool:
+        n = len(hand)
+        if n%W!=0 or W<1 or W>n or n==0:
+            return False
+        count = collections.Counter(hand)
+        ## print(count)
+        ## Counter({2: 2, 3: 2, 1: 1, 6: 1, 4: 1, 7: 1, 8: 1})
+        
+        ## collections是Python内建的一个集合模块，提供了许多有用的集合类。
+        ## Counter是一个简单的计数器，例如，统计字符出现的个数
+        ## OrderedDict使用dict时，Key是无序的。在对dict做迭代时，我们无法确定Key的顺序。
+        ## 如果要保持Key的顺序，可以用OrderedDict：
+        
+        while count:
+            m = min(count)
+            ## print (m)
+            ## 1 2 6
+            for k in range(m, m+W):
+                v = count[k]
+                if v == 0: 
+                    return False
+                if v == 1:
+                    del count[k]
+                else:
+                    count[k] = v - 1
+        return True
 ```
-### 方法二 ：数学方法
+## 哈希表
 ```python
 class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        res = 0;
-        n = len(nums)
-        x = range(n+1)
-        x = list(x)           ### Python3 需要用list转换成数组
-        res = sum(x)-sum(nums)
-        return res
+    def isNStraightHand(self, hand: List[int], W: int) -> bool:
+        n = len(hand)
+        if n%W!=0 or W<1 or W>n or n==0:
+            return False
+        d ={}
+        for card in hand:
+            d[card] = d.get(card,0) + 1  ## Python 字典 get() 函数返回指定键的值，如果值不在字典中返回默认值。
+        nums = sorted(d.keys())
+        for num in nums:
+            if d[num] > 0:
+                need = d[num]
+                for i in range(W):
+                    if d.get(num+i,0) >= need:
+                        d[num+i] -= need
+                    else:
+                        return False
+        return True
 ```
-
-### 方法二 ：数学方法(异或)
-```python
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        n = len(nums)
-        res = n
-        for i in range(n):
-            res = res ^ nums[i]
-            res = res ^ i
-        return res
-```
-
-### 方法三：排序法
-```python3
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        nums = sorted(nums)
-        n = len(nums)
-        if nums[-1] != n:
-            return n
-        for i in range(0,n):
-            if i!=nums[i]:
-                return i
-```
-
-
 
 # 参考
 
-  -  [C++中map和unordered_map的用法](https://blog.csdn.net/jingyi130705008/article/details/82633778)
-  -  [C++中unordered_set用法](https://blog.csdn.net/xiaoqiaxiaoqi/article/details/80531742)
-  -  [Python set() 函数](https://www.runoob.com/python/python-func-set.html)
-  -  [剑指offer_53题——0~n-1中缺失的数字](https://github.com/bryceustc/CodingInterviews/blob/master/MissingNumber/README.md)
-
+  -  [C++中的STL中map用法详解](https://www.cnblogs.com/fnlingnzb-learner/p/5833051.html)、
+  -  [C++ iterator->second意思](https://blog.csdn.net/aqzwss/article/details/42397843)
+  -  [Python3 字典 get() 方法](https://www.runoob.com/python3/python3-att-dictionary-get.html)
+  -  [Python从单元素字典中获取key和value](https://blog.csdn.net/qianghaohao/article/details/78994040)
+  -  [Python 字典(Dictionary)](https://www.runoob.com/python/python-dictionary.html)
+  -  [Python collections使用](https://www.liaoxuefeng.com/wiki/897692888725344/973805065315456)
