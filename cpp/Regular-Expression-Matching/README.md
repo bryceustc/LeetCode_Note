@@ -97,29 +97,32 @@ p = "mis*is*p*."
 
 ## [C++](./Regular-Expression-Matching.cpp):
 
-###  方法一： 构建辅助数组：
+###  方法一： 回溯法
 ```c++
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) {
-        if(nums.empty()) return;
-        vector<int> res;
-        int n = nums.size();
-        for (int i =0;i<n;i++)
+    bool isMatch(string s, string p) {
+        if (p.empty()) 
+            return s.empty();
+        if (p[1]!='*')
         {
-            if (nums[i]!=0)
-              res.push_back(nums[i]);
+            if (s[0]==p[0] || p[0]=='.' && !s.empty())
+                return isMatch(s.substr(1),p.substr(1));
+            else
+                return false;
         }
-        for (int i =0;i<n;i++)
+        else
         {
-            if (nums[i]==0)
-              res.push_back(nums[i]);
+            if (s[0]==p[0] || p[0]=='.' && !s.empty())
+                return (isMatch(s,p.substr(2)) || isMatch(s.substr(1),p));
+            else
+                return isMatch(s, p.substr(2));
         }
     }
 };
 ```
 
-###  方法二： 插入排序
+###  方法二： 动态规划
 ```c++
 class Solution {
 public:
@@ -153,21 +156,20 @@ public:
 ###  方法一：回溯法
 ```python
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        res = []
-        n = len(nums)
-        if n==0:
-            return
-        for i in range(n):
-            if nums[i]!=0:
-                res.append(nums[i])
-        for i in range(n):
-            if nums[i]==0:
-                res.append(nums[i])
-        nums=res
+    def isMatch(self, s: str, p: str) -> bool:
+        if len(s)==0 and len(p)==0:
+            return True
+        if len(s)!=0 and len(p)==0:
+            return False
+        if  len(p)>1 and p[1]=='*':
+            if len(s)>0 and (s[0] == p[0] or p[0]=='.'):
+                return self.isMatch(s,p[2:]) or self.isMatch(s[1:],p)
+            else:
+                return self.isMatch(s,p[2:])
+        if len(s)>0 and (s[0] == p[0] or p[0]=='.'):
+            return self.isMatch(s[1:],p[1:])
+        else:
+            return False
 ```
 ### 方法二 ：插入排序
 ```python
