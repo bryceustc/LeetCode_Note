@@ -80,6 +80,15 @@ p = "mis*is*p*."
 2、也可以保持模式串不变，这样相当于用字符'\*'继续匹配字符串，也就是模式串中的字符'\*'匹配字符串中的字符多个的情况。
 
 方法二：动态规划
+1、 设状态 f(i,j)表示字符串 s 的前 i 个字符和字符串 p 的前 j 个字符能否匹配。这里假设 s 和 p 的下标均从 1 开始。初始时，f(0,0)=truef(0,0)=true。
+
+2、 平凡转移 f(i,j)=f(i,j) or f(i−1,j−1)，当 i>0 且 s(i) == p(j) || p(j) == '.'。
+
+3、 当 p(j) == '\*' 时，若 j>=2，f(i,j)可以从 f(i,j−2)转移，表示丢弃这一次的 '\*' 和它之前的那个字符；若 i>0且 s(i) == p(j - 1)，表示这个字符可以利用这个 '\*'，则可以从f(i−1,j) 转移，表示利用 '\*'。
+
+4、 初始状态 f(0,0)=true；循环枚举 i 从 0 到 n；j 从 1 到 m。因为 f(0,j)有可能是有意义的，需要被转移更新。
+
+5、 最终答案为 f(n,m)。
 # 时间复杂度：
   方法一： O(n)
   
@@ -123,28 +132,24 @@ public:
 ```c++
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) {
-        if(nums.empty()) return;
-        int n = nums.size();
-        for (int i =0;i<n;i++)
-        {
-            if (nums[i]==0)
-            {
-                for (int j=i+1;j<n;j++)
-                {
-                    if (nums[j]!=0)
-                    {
-                        int temp = nums[j];
-                        for (int k=j;k>i;k--)
-                        {
-                            nums[k]=nums[k-1];
-                        }
-                        nums[i] = temp;
-                        break;
-                    }
+    bool isMatch(string s, string p) {
+        int n = s.size(), m = p.size();
+        vector<vector<bool>> dp(n+1, vector<bool>(m+1, false));
+        dp[0][0] = true;
+        s = " " + s;
+        p = " " + p;
+        for (int i = 0; i <= n; i++)
+            for (int j = 1; j <= m; j++) {
+                if (i > 0 && (s[i] == p[j] || p[j] == '.'))
+                    dp[i][j] = dp[i][j] | dp[i - 1][j - 1]; // 表示按位或
+                if (p[j] == '*') {
+                    if (j >= 2)
+                        dp[i][j] = dp[i][j] | dp[i][j - 2];
+                    if (i > 0 && (s[i] == p[j - 1] || p[j - 1] == '.'))
+                        dp[i][j] = dp[i][j] | dp[i - 1][j];
                 }
             }
-        }    
+        return dp[n][m];
     }
 };
 ```
