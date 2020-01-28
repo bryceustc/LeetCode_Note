@@ -206,8 +206,7 @@ class Solution:
                         dp[i][j] = dp[i][j] or dp[i][j-2]
                     if i > 0 and (s[i]==p[j-1] or p[j-1]=='.'):
                         dp[i][j] = dp[i][j] or dp[i-1][j]
-        return dp[n][m]= temp
-                        break
+        return dp[n][m]
 ```
 
 # 参考
