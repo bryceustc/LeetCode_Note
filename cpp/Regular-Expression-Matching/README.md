@@ -192,7 +192,8 @@ class Solution:
         n = len(s)
         m = len(p)
         import numpy
-        dp = numpy.zeros((n+1,m+1))
+        dp = numpy.zeros((n+1,m+1)) 
+        ### python 二维数组初始化  dp[[0 for _ in range(m+2)] for _ in range(n+2)]
         s = ' ' + s
         p = ' ' + p
         dp[0][0] = 1
@@ -212,6 +213,7 @@ class Solution:
 # 参考
 
   -  [剑指offer_19题_正则表达式匹配](https://github.com/bryceustc/CodingInterviews/blob/master/RegularExpressionsMatching/README.md)
+  -  [Python 二维数组初始化](https://www.codenong.com/6667201/)
 
 
 
