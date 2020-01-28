@@ -185,24 +185,27 @@ class Solution:
         else:
             return False
 ```
-### 方法二 ：插入排序
+### 方法二 ：动态规划
 ```python
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        n = len(nums)
-        if n==0:
-            return
-        for i in range(0,n):
-            if nums[i]==0:
-                for j in range(i+1,n):
-                    if nums[j]!=0:
-                        temp = nums[j]
-                        for k in range (j,i,-1):
-                            nums[k] = nums[k-1]
-                        nums[i] = temp
+    def isMatch(self, s: str, p: str) -> bool:
+        n = len(s)
+        m = len(p)
+        import numpy
+        dp = numpy.zeros((n+1,m+1))
+        s = ' ' + s
+        p = ' ' + p
+        dp[0][0] = 1
+        for i in range(n+1):
+            for j in range(1,m+1):
+                if i > 0 and (s[i]==p[j] or p[j]=='.'):
+                    dp[i][j] = dp[i][j] or dp[i-1][j-1]
+                if p[j]=='*':
+                    if j>=2:
+                        dp[i][j] = dp[i][j] or dp[i][j-2]
+                    if i > 0 and (s[i]==p[j-1] or p[j-1]=='.'):
+                        dp[i][j] = dp[i][j] or dp[i-1][j]
+        return dp[n][m]= temp
                         break
 ```
 
