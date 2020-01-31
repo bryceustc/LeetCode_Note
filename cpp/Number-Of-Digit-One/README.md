@@ -34,7 +34,7 @@
 
 ## [C++](./Number-Of-Digit-One.cpp):
 
-###  方法一： 直接暴力遍历法（未通过OJ）
+###  方法一： 直接暴力遍历法（超时未通过OJ）
 ```c++
 class Solution {
 public:
@@ -81,7 +81,7 @@ public:
 };
 ```
 
-###  方法三： 转成字符串，可以表示更大的数字
+###  方法三： 转成字符串，可以表示更大的数字（超时未通过OJ）
 ```c++
 class Solution {
 public:
@@ -126,7 +126,7 @@ class Solution:
             i*=10
         return res
 ```
-### 方法三：转成字符串
+### 方法三：转成字符串（超时未通过OJ）
 ```python
 # -*- coding:utf-8 -*-
 class Solution:
