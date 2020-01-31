@@ -113,7 +113,7 @@ class Solution:
             n//=10
         return num
 ```
-### 方法二 ：遍历+一次二分查找
+### 方法二 ：数学规律
 ```python
 class Solution:
     def countDigitOne(self, n: int) -> int:
@@ -126,6 +126,20 @@ class Solution:
             i*=10
         return res
 ```
+### 方法三：转成字符串
+```python
+# -*- coding:utf-8 -*-
+class Solution:
+    def countDigitOne(self, n: int) -> int:
+        # write code here
+        res = 0
+        for i in range(1,n+1):
+            s = str(i)
+            res+=s.count('1')
+        return res
+```
 # 参考
 
   -  [剑指Offer-43题-1~n整数中1出现的次数](https://github.com/bryceustc/CodingInterviews/blob/master/NumberOf1/README.md)
+  -  [c++ count函数用法](https://blog.csdn.net/qq_36122764/article/details/82429976)
+  -  [Python count()方法](https://www.runoob.com/python/att-string-count.html)
