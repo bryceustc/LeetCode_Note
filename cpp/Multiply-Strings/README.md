@@ -116,4 +116,4 @@ class Solution:
         return "0"
 ```
 # 参考
-  - [字符串相加](https://github.com/bryceustc/CodingInterviews/blob/master/DuplicationInArray/README.md)
+  - [字符串相加](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Add-Strings/README.md)
