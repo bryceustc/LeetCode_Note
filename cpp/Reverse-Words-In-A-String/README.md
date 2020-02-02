@@ -25,13 +25,20 @@
   - 如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。
   
 # 解题思路:
+此题与剑指Offer第五十题类似，但比那个要难一点，因为题目要求删除多余空格，比那一题多一个要求。
+思路应该比较清晰：
+1) 翻转整个句子
+2) 翻转句中单词
+3) 删除多余的空格
 
-方法一：利用哈希表来做，``unordered_map<int,int> map``,``map[nums[i]]==1``。
+方法一：先去除首尾的空格，可利用trim函数。但是trim函数一直使用不成功。所以我用了比较笨的方法，先将原字符串开头空格去掉，利用s.substr(x),然后将整个字符串翻转，在删除开头的空格（也就是原尾部空格字符），然后再利用s.substr(y),将首尾的空格去除干净。然后再新建一个空字符串，用start和end记录单词的起始和截止位置，碰到连续空格跳过，传递给res，返回结果。
 
-方法二：数学方法
+方法二：同方法一，思路更加清晰
+
+方法三：字符流，用stringstream来做
  
 # 时间复杂度：
-  方法一： O(n)
+  方法一： 不好分析时间复杂度，应该远大于O(n)
   
   方法二： O(n) 
 # 空间复杂度
@@ -43,45 +50,129 @@
 
 ## [C++](./Reverse-Words-In-A-String.cpp):
 
-###  方法一： 哈希表(unordered_map)  基于哈希表 ，map基于红黑二叉树
+###  方法一： 直接法，方法比较啰嗦冗余。
 ```c++
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int res =0;
-        unordered_map<int,int> map;
-        int n=nums.size();
-        for (int i=0;i<n;i++)
+    void  Reverse(string &s,int start,int end)
+    {
+        while(start < end)
         {
-            map[nums[i]]++;
+            swap(s[start],s[end]);
+            start++;
+            end--;
         }
-        for (int i=0;i<n;i++)
+    }
+    string reverseWords(string s) 
+    {
+        string res;
+        int n = s.size();
+        int start=0,end=0;
+        int x=0,y=0;
+        while(x<n)
         {
-            if (map[nums[i]]==1)
+            if (s[x]!=' ')
             {
-                res = nums[i];
                 break;
+            }
+            x++;
+        }
+        s = s.substr(x);
+        end = s.size()-1;
+        // 整个句子翻转
+        Reverse(s,0,end);
+        while(y<s.size())
+        {
+            if (s[y]!=' ')
+            {
+                break;
+            }
+            y++;
+        }
+        s=s.substr(y);
+        int m = s.size();
+        int i=0;
+        while (i<m)
+        {
+            while(i<m && s[i]== ' ')
+            {
+                i++;
+            }
+            start = end = i;
+            while(i<m && s[i]!=' ')
+            {
+                i++;
+                end++;
+            }
+            Reverse(s,start,end-1);
+            for (int j=start;j<=end;j++)
+            {
+                res+=s[j];
             }
         }
         return res;
     }
 };
 ```
-### 方法一：哈希表(unordered_set) 基于哈希表 ，set基于红黑二叉树
+### 方法一：将首尾空格去除写在一个里边了，稍微精简了一点点，注意string中substr的用法，s.substr(2,4)  取s字符第2个位置往后边4位。
 ```c++
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int res=0;
-        unordered_set<int> st;
-        for (int num : nums) 
+    void  Reverse(string &s,int start,int end)
+    {
+        while(start < end)
         {
-            if (st.find(num)!=st.end()) // if (st.count(num))
-                st.erase(num);
-            else 
-                st.insert(num);
+            swap(s[start],s[end]);
+            start++;
+            end--;
         }
-        res = *st.begin();
+    }
+    string reverseWords(string s) 
+    {
+        string res;
+        int n = s.size();
+        int start=0,end=0;
+        int x=0,y=n-1;
+        int count = 0;
+        while(x<n && y>=0)
+        {
+            if (s[x]==' ')
+            {
+                x++;
+            }
+            if (s[y]==' ')
+            {
+                y--;
+                count++;
+            }
+            if (s[x]!=' ' && s[y]!=' ')
+            {
+                break;
+            }
+        }
+        s = s.substr(x,n-count);
+        int m = s.size();
+        // 整个句子翻转
+        Reverse(s,0,m-1);
+        int i=0;
+        while (i<m)
+        {
+            while(i<m && s[i]== ' ')
+            {
+                i++;
+            }
+            start = end = i;
+            while(i<m && s[i]!=' ')
+            {
+                i++;
+                end++;
+            }
+            Reverse(s,start,end-1);
+            for (int j=start;j<=end;j++)
+            {
+                res+=s[j];
+            }
+        }
         return res;
     }
 };
@@ -89,60 +180,131 @@ public:
 
 
 
-###  方法二： 数学方法(异或)(二进制)
+###  方法二： 三个函数，1) 翻转整个句子 ；2) 翻转句中单词；3) 删除多余的空格，思路比较清晰
 ```c++
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int res =  0;
-        for (auto num:nums)
+    void Reverse(string &s,int start,int end)
+    {
+        while(start<end)
         {
-            res = res ^ num;
+            swap(s[start++],s[end--]);
         }
-        return res;
+    }
+    
+    string cleanSpaces(string &s)
+    {
+        int n = s.size();
+        int i=0,j=0;
+        while(j<n)
+        {
+            while(j<n && s[j] == ' ') j++; // 跳过空格
+            while(j<n && s[j] != ' ')s[i++] = s[j++]; // 保留单词（非空格部分）
+            while(j<n && s[j] == ' ') j++; // 跳过空格（主要是防止结尾有空格，然后再添加空格越界）
+            if (j<n) s[i++] = ' '; // 补充空格
+        }
+        return s.substr(0,i);
+    }
+    
+    string reverseWords(string s) 
+    {
+        int n = s.size();
+        //翻转整个语句
+        Reverse(s,0,n-1);
+        // 翻转句中单词
+        int start = 0, end = 0;
+        int i=0;
+        while(i<n)
+        {
+            while(i<n && s[i]==' ') i++;
+            start = end = i;
+            while(i<n && s[i]!=' ')
+            {
+                i++;
+                end++;
+            }
+            Reverse(s,start,end-1);
+        }
+        //清除多余空格
+        s = cleanSpaces(s);
+        return s;
+    }
+};
+```
+### 方法三：字符流
+```c++
+class Solution {
+public:
+    string reverseWords(string s) {
+        stringstream ss;
+        string ans="",temp;
+        ss<<s;
+        while(ss>>temp){
+            ans=" "+temp+ans;
+        }
+        if(ans!="")
+            ans.erase(ans.begin());
+        return ans; 
     }
 };
 ```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Reverse-Words-In-A-String/Reverse-Words-In-A-String.py)
-###  方法一：哈希表
+###  方法一：
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        hash_table = {}
-        for num in nums:
-            try:
-                hash_table.pop(num)
-            except:
-                hash_table[num] = 1
-        res = hash_table.popitem()[0]  ## Python 字典 popitem() 方法随机返回并删除字典中的最后一对键和值。如果字典已经为空，却调用了此方法，就报出KeyError异常。
-        return res
+    def reverseWords(self, s: str) -> str:
+        s = list(s)
+        n = len(s)
+        self.Reverse(s,0,n-1)
+        i =0
+        while i<n:
+            while i<n and s[i]==' ':
+                i+=1
+            start = end = i
+            while i<n and s[i]!= ' ':
+                i+=1
+                end+=1
+            self.Reverse(s,start,end-1)
+        s = self.cleanSpaces(s)
+        return s
+    def Reverse(self,s,start,end):
+        while start<end:
+            s[start],s[end] = s[end],s[start]
+            start+=1
+            end-=1
+    def cleanSpaces(self,s):
+        n = len(s)
+        i=0
+        j=0
+        while j<n:
+            while j<n and s[j]==' ':
+                j+=1
+            while j<n and s[j]!=' ':
+                s[i]=s[j]
+                i+=1
+                j+=1
+            while j<n and s[j]==' ':
+                j+=1
+            if j<n:
+                s[i] = ' '
+                i+=1
+        return "".join(s[:i])
 ```
-### 方法二 ：数学方法(其他语言会溢出)
+### 方法二 ：利用split和reverse
 ```python
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        res = 0
-        res = 2*sum(set(nums)) - sum(nums)  ## set() 函数创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。
-        return res
+    def reverseWords(self, s: str) -> str:
+        return " ".join(s.split()[::-1])
+        ## 字符串翻转的三种方法：1) [::-1]切片 2) 递归 3) 借用列表，使用reverse()方法 l=list(s) l.reverse() print("".join(l))
 ```
-
-### 方法二 ：数学方法(异或)
-```python
-class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        res = 0
-        for num in nums:
-            res = res ^ num
-        return res
-```
-
 # 参考
 
-  -  [C++中map和unordered_map的用法](https://blog.csdn.net/jingyi130705008/article/details/82633778)
-  -  [C++中unordered_set用法](https://blog.csdn.net/xiaoqiaxiaoqi/article/details/80531742)
-  -  [Python set() 函数](https://www.runoob.com/python/python-func-set.html)
-  -  [剑指offer_53题——0~n-1中缺失的数字](https://github.com/bryceustc/CodingInterviews/blob/master/MissingNumber/README.md)
+  -  [C++ 学习笔记之——字符串和字符串流](https://segmentfault.com/a/1190000017271382)
+  -  [C++ string 类中substr的使用方法](https://blog.csdn.net/yyhaohaoxuexi/article/details/51416874)
+  -  [Python split()方法](https://www.runoob.com/python/att-string-split.html)
+  -  [Python字符串反转的3种方法](https://www.jianshu.com/p/c61279736a03)
+  -  [剑指offer_50题——翻转单词顺序](https://github.com/bryceustc/CodingInterviews/blob/master/ReverseWordsInSentence/README.md)
 
 
 
