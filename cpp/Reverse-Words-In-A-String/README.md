@@ -38,9 +38,7 @@
 方法三：字符流，用stringstream来做
  
 # 时间复杂度：
-  方法一： 不好分析时间复杂度，应该远大于O(n)
-  
-  方法二： O(n) 
+  不好分析时间复杂度，应该源大于O(n)接近n！
 # 空间复杂度
   方法一：O(n)
   
@@ -296,6 +294,7 @@ class Solution:
 class Solution:
     def reverseWords(self, s: str) -> str:
         return " ".join(s.split()[::-1])
+        ## Python split() 通过指定分隔符对字符串进行切片,分隔符，默认为所有的空字符，包括空格、换行(\n)、制表符(\t)等。
         ## 字符串翻转的三种方法：1) [::-1]切片 2) 递归 3) 借用列表，使用reverse()方法 l=list(s) l.reverse() print("".join(l))
 ```
 # 参考
