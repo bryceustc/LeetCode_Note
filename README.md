@@ -81,4 +81,5 @@ LeetCode
 |295|[Find-Median-From-Data-Stream](https://leetcode-cn.com/problems/find-median-from-data-stream/)| [C++](./cpp/Find-Median-From-Data-Stream/README.md), [Python](./python/Find-Median-From-Data-Stream/Find-Median-From-Data-Stream.py)|Hard|
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
+|796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
