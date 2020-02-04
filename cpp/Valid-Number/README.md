@@ -101,39 +101,38 @@ public:
 ###  方法一：
 ```python
 class Solution:
-    def myAtoi(self, str: str) -> int:
-        res = 0;
-        r = 0
-        i = 0;
-        flag = 1;
-        
-        if len(str) == 0:
-            return 0
-        
-        while (i < len(str) and (str[i]==' ' or str[i]=='/t')):
-            
-            i+=1
-        if (i > len(str)):
-            return 0
-        
-        if (i < len(str) and str[i]=='-'):
-            flag = -1
-            i+=1
-        if (i < len(str) and str[i]=='+'):
-            if(flag == -1):
-                return 0
-            i+=1
-        
-        while (i < len(str) and str[i] >= '0' and str[i] <= '9'):
-            r = int (ord(str[i]) - ord('0'))
-            res = res * 10 + r
-            i+=1
-        res *=flag
-        if res > (pow(2,31) - 1):
-            res = pow(2,31) - 1
-        if res < -(pow(2,31)):
-            res = -pow(2,31)
-        return res
+    def isNumber(self, s: str) -> bool:
+        n = len(s)
+        if n==0:
+            return False
+        num = False
+        numAfterE = False
+        decimal = False
+        sign = False
+        hasE = False
+        for i in range(n):
+            if s[i]==' ':
+                if (i<n-1 and s[i+1]!=' ' and (num or decimal or sign or hasE)):
+                    return False
+            elif s[i]=='+' or s[i]=='-':
+                if i>0 and s[i-1]!='e' and s[i-1]!=' ':
+                    return False
+                sign = True
+            elif s[i]>='0' and s[i]<='9':
+                num =True
+                numAfterE=True
+            elif s[i]=='.':
+                if hasE or decimal:
+                    return False
+                decimal = True
+            elif s[i]=='e':
+                if hasE or (num is False):
+                    return False
+                hasE = True
+                numAfterE=False
+            else:
+                return False
+        return num and numAfterE
 ```
 # 参考
 
