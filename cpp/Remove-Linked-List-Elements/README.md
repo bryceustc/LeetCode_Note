@@ -24,6 +24,7 @@
 可以通过哨兵节点去解决它，哨兵节点广泛应用于树和链表中，如伪头、伪尾、标记等，它们是纯功能的，通常不保存任何数据，其主要目的是使链表标准化，如使链表永不为空、永不无头、简化插入和删除。
   ![3](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Remove-Linked-List-Elements/Images/3.jpg)
 在这里哨兵节点将被用于伪头。
+
 **算法：**
 
   - 初始化哨兵节点为 ListNode(-1) 且设置 p.next = head。
