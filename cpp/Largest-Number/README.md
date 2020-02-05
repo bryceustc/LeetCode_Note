@@ -153,7 +153,7 @@ class Solution:
 
 
 # 参考
-  - [剑指offer第45题-把数组排成最小的数](https://github.com/bryceustc/CodingInterviews/blob/master/MoreThanHalfNumber/README.md)
+  - [剑指offer第45题-把数组排成最小的数](https://github.com/bryceustc/CodingInterviews/blob/master/SortArrayForMinNumber/README.md)
   - [C++中 string对象的大小比较](https://blog.csdn.net/jason_cuijiahui/article/details/79038468)
   - [C++ algorithm sort自定义排序](https://blog.csdn.net/v_xchen_v/article/details/76615270)
   - [关于类中重载sort函数的报错问题（解决error: invalid use of non-static member function 'bool Solution::cmp(int, int)'）](https://blog.csdn.net/qq_41562704/article/details/95908736)
