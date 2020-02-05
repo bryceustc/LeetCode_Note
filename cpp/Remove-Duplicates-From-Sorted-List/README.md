@@ -48,7 +48,7 @@
 
 ## [C++](./Remove-Duplicates-From-Sorted-List.cpp):
 
-###  哨兵节点
+###  方法一：
 ```c++
 /**
  * Definition for singly-linked list.
@@ -82,7 +82,7 @@ public:
 };
 ```
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Remove-Duplicates-From-Sorted-List/Remove-Duplicates-From-Sorted-List.py)
-###  哨兵节点
+###  方法一：
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -91,18 +91,17 @@ public:
 #         self.next = None
 
 class Solution:
-    def removeElements(self, head: ListNode, val: int) -> ListNode:
-        p = ListNode(-1)
-        p.next = head
-        prev = p
-        cur = head
-        while cur:
-            if cur.val == val:
-                prev.next = cur.next
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        if head==None or head.next == None:
+            return head
+        p = head
+        while p:
+            temp = p.next
+            if temp and p.val==temp.val:
+                p.next = temp.next
             else:
-                prev = cur
-            cur = cur.next
-        return p.next
+                p = p.next
+        return head
 ```
 # 参考
   - [剑指offer第18题-删除链表中的节点](https://github.com/bryceustc/CodingInterviews/blob/master/PrintListInReversedOrder/README.md)
