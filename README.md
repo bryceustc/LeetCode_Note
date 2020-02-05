@@ -73,7 +73,7 @@ LeetCode
 |169|[Majority-Element](https://leetcode-cn.com/problems/majority-element/)| [C++](./cpp/Majority-Element/README.md), [Python](./python/Majority-Element/Majority-Element.py)|Easy|
 |179|[Largest-Number](https://leetcode-cn.com/problems/largest-number/)| [C++](./cpp/Largest-Number/README.md), [Python](./python/Largest-Number/Largest-Number.py)|Medium|
 |203|[Remove-Linked-List-Elements](https://leetcode-cn.com/problems/remove-linked-list-elements/)| [C++](./cpp/Remove-Linked-List-Elements/README.md), [Python](./python/Remove-Linked-List-Elements/Remove-Linked-List-Elements.py)|Easy|
-|206|[Reverse-Linked-List](https://leetcode-cn.com/problems/reverse-linked-list/)| [C++](./cpp/Reverse-Linked-List/README.md), [Python](./python/Reverse-Linked-List/Reverse-Linked-List.py)|Easy|
+|83|[Remove-Duplicates-From-Sorted-List](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List/Remove-Duplicates-From-Sorted-List.py)|Easy|
 |215|[Kth-Largest-Element-In-An-Array](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)| [C++](./cpp/Kth-Largest-Element-In-An-Array/README.md), [Python](./python/Kth-Largest-Element-In-An-Array/Kth-Largest-Element-In-An-Array.py)|Medium|
 |233|[Number-Of-Digit-One](https://leetcode-cn.com/problems/number-of-digit-one/)| [C++](./cpp/Number-Of-Digit-One/README.md), [Python](./python/Number-Of-Digit-One/Number-Of-Digit-One.py)|Hard|
 |240|[Search-A-2D-Matrix-II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)| [C++](./cpp/Search-A-2D-Matrix-II/README.md), [Python](./python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)|Medium|
