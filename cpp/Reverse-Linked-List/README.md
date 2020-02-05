@@ -30,75 +30,64 @@
 
 ## [C++](./Reverse-Linked-List.cpp):
 
-###  自定义Sort比较法
+###  方法一：非递归法
 ```c++
-class Solution{
-    public:
-        string largestNumber(vector<int>& nums)
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (head == NULL || head->next==NULL)
+            return head;
+        ListNode* p = NULL;
+        ListNode* cur = head;
+        ListNode* temp = head->next;
+        while (cur)
         {
-            string res;
-            int n = nums.size();
-            sort(nums.begin(),nums.end(),compare);  // compare 自定义比较规则，不设置默认是从小到大
-            for (int i=0;i<n;i++)
-            {
-                res += to_string(nums[i]);
-            }
-            if (res[0] == '0') 
-                return "0";
-            else
-                return res;          
+            temp = cur->next; // temp作为中间节点，记录当前节点的下一节点位置
+            cur->next = p; // 当前节点指向前一个节点
+            p = cur;  // 指针后移
+            cur = temp; // 指针后移，处理下一节点
         }
-        // 需要加static
-        // 原因：
-        // 简单来讲，就是函数参数不匹配的问题。因为我们普通的成员函数都有一个隐含的this指针。
-        // bool cmp( Solution* this, const Interval &a,const Interval &b );
-        // 实际上cmp函数有三个参数，而我们调用sort()排序函数的时候只需要用到两个参数进行比较，所以就出现了形参与实参不匹配的情况
-        //（函数有三个形参，但是只输入了两个实参）。
-        static bool compare(int a, int b)
-        {
-            string sa = to_string(a);
-            string sb = to_string(b);
-            return (sa + sb) > (sb + sa);
-            // 两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇’\0’为止。
-            // 当两个数的位数一样，则直接可以应用字符串的比较。如 "1346" > "1111" == true
-        }
+        return p;
+    }
 };
 ```
+### 方法二：递归法
+```c++
 
+```
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Reverse-Linked-List/Reverse-Linked-List.py)
-###  方法一：
+###  方法一：非递归法
 ```python
-class Solution(object):
-    def largestNumber(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: str
-        """
-        res = ""
-        n = len(nums)
-        nums = sorted(nums, cmp=self.compare,reverse=True)
-        # sorted 语法：
-        # sorted(iterable, cmp=None, key=None, reverse=False)
-        # 参数说明：
-        # iterable -- 可迭代对象。
-        # cmp -- 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出，此函数必须遵守的规则为，大于则返回1，小于则返回-1，        等于则返回0。
-        # key -- 主要是用来进行比较的元素，只有一个参数，具体的函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行         排序。
-        # reverse -- 排序规则，reverse = True 降序 ， reverse = False 升序（默认）。
-        for i in range(n):
-            res+=str(nums[i])
-        if res[0]=='0':
-            return "0"
-        else:
-            return res
-    def compare(self,a,b):
-        sa = str(a)
-        sb = str(b)
-        if sa + sb > sb + sa:
-            return 1
-        return -1
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if head==None or head.next==None:
+            return head
+        p = None
+        cur = head
+        temp = head.next
+        while cur:
+            temp = cur.next
+            cur.next = p
+            p = cur
+            cur = temp
+        return p
 ```
 
-### 方法二：
+### 方法二：非递归法
 ```python
 class Solution(object):
     def largestNumber(self, nums):
