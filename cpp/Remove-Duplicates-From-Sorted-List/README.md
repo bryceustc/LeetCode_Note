@@ -48,7 +48,7 @@ class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
         ListNode* p = head;
-        while (p)
+        while (p && p->next)
         {
             ListNode* temp = p->next;
             if (temp && p->val == temp->val)
@@ -102,7 +102,7 @@ class Solution:
         if head==None or head.next == None:
             return head
         p = head
-        while p:
+        while p and p.next:
             temp = p.next
             if temp and p.val==temp.val:
                 p.next = temp.next
