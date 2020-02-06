@@ -129,6 +129,6 @@ class Solution:
 ```
 # 参考
   - [剑指offer第18题-删除链表中的节点](https://github.com/bryceustc/CodingInterviews/blob/master/PrintListInReversedOrder/README.md)
-  - [LeetCode-82题-删除排序链表中的重复元素II](https://github.com/bryceustc/CodingInterviews/blob/master/PrintListInReversedOrder/README.md)
+  - [LeetCode-82题-删除排序链表中的重复元素II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Remove-Duplicates-From-Sorted-List-II/README.md)
 
 
