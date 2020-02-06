@@ -14,31 +14,17 @@
 ```
   
 # 解题思路:
-此题与剑指offer第18题删除链表中的节点
+此题与剑指offer第18题删除链表中的重复节点类似，
 
-思路：使用哨兵节点，也就是虚拟头节点。
+思路一：非递归法，由于输入的列表已排序，因此我们可以通过将结点的值与它之后的结点进行比较来确定它是否为重复结点。如果它是重复的，我们更改当前结点的 next 指针，以便它跳过下一个结点并直接指向下一个结点之后的结点。
 
-如果删除的节点是中间的节点，则问题似乎非常简单：
-  - 选择要删除节点的前一个结点 prev。
-  - 将 prev 的 next 设置为要删除结点的 next。
-  
-  ![1](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Remove-Linked-List-Elements/Images/1.png)
-当要删除的一个或多个节点位于链表的头部时，事情会变得复杂。
-  ![2](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Remove-Linked-List-Elements/Images/2.jpg)
-可以通过哨兵节点去解决它，哨兵节点广泛应用于树和链表中，如伪头、伪尾、标记等，它们是纯功能的，通常不保存任何数据，其主要目的是使链表标准化，如使链表永不为空、永不无头、简化插入和删除。
-  ![3](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Remove-Linked-List-Elements/Images/3.jpg)
-在这里哨兵节点将被用于伪头。
+思路二：递归法。
 
-**算法：**
+  递归套路解决链表问题：
 
-  - 初始化哨兵节点为 ListNode(-1) 且设置 p.next = head。
-  - 初始化两个指针 cur 和 prev 指向当前节点和前继节点。
-  - 当 cur != NULL：
-  - 比较当前节点和要删除的节点：
-  - 若当前节点就是要删除的节点：则 prev.next = cur.next。
-  - 否则设 prve = cur。
-  - 遍历下一个元素：cur = curr.next。
-  - 返回 p.next。
+   - 找终止条件：当head指向链表只剩一个元素的时候，自然是不可能重复的，因此return
+   - 想想应该返回什么值：应该返回的自然是已经去重的链表的头节点
+   - 每一步要做什么：宏观上考虑，此时head.next已经指向一个去重的链表了，而根据第二步，我应该返回一个去重的链表的头节点。因此这一步应该做的是判断当前的head和head.next是否相等，如果相等则说明重了，返回head.next，否则返回head
  
 # 时间复杂度：
    O(n)。
@@ -48,7 +34,7 @@
 
 ## [C++](./Remove-Duplicates-From-Sorted-List.cpp):
 
-###  方法一：
+###  方法一：非递归法
 ```c++
 /**
  * Definition for singly-linked list.
@@ -61,28 +47,49 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if (head==NULL || head->next==NULL) return head;
         ListNode* p = head;
-        while(p)
+        while (p)
         {
             ListNode* temp = p->next;
-            if  (temp && p->val==temp->val)
+            if (temp && p->val == temp->val)
             {
-                ListNode *del = p->next;
+                ListNode* del = p->next;
                 p->next = temp->next;
-                delete del;
+                delete del;//C++这类没有垃圾回收的语言别忘了释放删除节点的内存
             }
             else
             {
-                p=p->next;
+                p = p->next;
             }
         }
         return head;
     }
 };
 ```
+### 方法二：递归方法：
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == NULL || head->next==NULL)
+            return head;
+        head->next = deleteDuplicates(head->next);
+        if (head->val == head->next->val) 
+            head = head->next;
+        return head;        
+    }
+};
+```
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Remove-Duplicates-From-Sorted-List/Remove-Duplicates-From-Sorted-List.py)
-###  方法一：
+###  方法一：非递归法
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -103,7 +110,25 @@ class Solution:
                 p = p.next
         return head
 ```
+### 方法二：递归法
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        if head==None or head.next==None:
+            return head
+        head.next = self.deleteDuplicates(head.next)
+        if head.val==head.next.val:
+            head = head.next
+        return head
+```
 # 参考
   - [剑指offer第18题-删除链表中的节点](https://github.com/bryceustc/CodingInterviews/blob/master/PrintListInReversedOrder/README.md)
+  - [LeetCode-82题-删除排序链表中的重复元素II](https://github.com/bryceustc/CodingInterviews/blob/master/PrintListInReversedOrder/README.md)
 
 
