@@ -110,7 +110,7 @@ public:
 };
 ```
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Remove-Nth-Node-From-End-Of-List/Remove-Nth-Node-From-End-Of-List.py)
-###  
+###  方法一：直接法（一次遍历）
 ```python
 # Definition for singly-linked list.
 # class ListNode:
