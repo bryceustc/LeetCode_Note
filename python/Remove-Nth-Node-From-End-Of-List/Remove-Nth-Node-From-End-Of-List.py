@@ -21,13 +21,15 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
+        if head == None:
+            return None
         dummyHead = ListNode(0)
         dummyHead.next = head
         p = dummyHead
         q = dummyHead
-        for i in range (n+1):
+        for i in range (n):
             q = q.next
-        while q:
+        while q.next:
             p = p.next
             q = q.next
         p.next = p.next.next
@@ -43,6 +45,8 @@ class Solution(object):
         :type n: int
         :rtype: ListNode
         """
+        if head == None:
+            return None
         temp1 = head
         temp2 = head
         length = 0
