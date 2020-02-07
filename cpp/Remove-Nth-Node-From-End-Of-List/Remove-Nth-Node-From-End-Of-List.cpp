@@ -60,11 +60,11 @@ public:
         dummyHead -> next = head;
         ListNode* p = dummyHead;
         ListNode* q = dummyHead;
-        for (int i = 0; i<=n;i++)
+        for (int i = 0; i<n;i++)
         {
             q = q -> next;
         }
-        while (q != NULL)
+        while (q->next != NULL)
         {
             p = p -> next;
             q = q -> next;
