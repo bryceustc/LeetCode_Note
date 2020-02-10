@@ -29,6 +29,8 @@
 思路二：不需要定义向右移动一位的函数，说是循环旋转，但其实本质上是将尾部向前数第K个元素作为头，原来的头接到原来的尾上。理解这句话：
   - 先将链表闭合成环
   - 找到相应的位置断开这个环，确定新的链表头和链表尾
+  
+  ![](https://pic.leetcode-cn.com/e3371c6b03e3c8d3758dcf0b35a45d0a6b39c111373cf7b5bde53e14b6271a04-61.png)
  
 # 时间复杂度：
   O(n)
@@ -165,48 +167,35 @@ class Solution:
         return cur
 ```
  
-### 方法一：res=''初始化的问题,res得声明为全局变量  
+### 方法一改进版  
 ```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution:
-    def getPermutation(self, n: int, k: int) -> str:
-        res = ''
-
-        def factorial(num):
-            res = 1
-            while num > 0:
-                res *= num
-                num -= 1
-            return res
-
-        def DFS(visited, level, n, k, res):
-            if level == n:
-                return res
-            ps = factorial(n - 1 - level)
-            for i in range(1, n + 1):
-                if visited[i] == 1:
-                    continue
-                if 0 < ps < k:
-                    k -= ps
-                    continue
-                res += str(i)  ## 递归到底时已经是第 k 个排列，res 也是字符串的形式
-                visited[i] = 1
-                return DFS(visited, level + 1, n, k, res)
-
-        if n == 0:
-            return ""
-        visited = [0 for _ in range(n + 1)]
-        res = DFS(visited, 0, n, k, res)
-        return res
+    def rotateRight(self, head: ListNode, k: int) -> ListNode:
+        if head==None or k<=0:
+            return head
+        cur = head
+        tail = None
+        n = 0
+        while cur:
+            n+=1
+            tail = cur
+            cur = cur.next
+        k = k%n
+        tail.next = head
+        cur = head
+        for i in range(n-k-1):
+            cur = cur.next
+        head = cur.next
+        cur.next = None
+        return head
 ```
 # 参考
 
-  -  [46题全排列](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations/README.md)
-  -  [47题全排列II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Permutations-II/README.md)
-  -  [回溯+剪枝](https://leetcode-cn.com/problems/permutation-sequence/solution/hui-su-jian-zhi-python-dai-ma-java-dai-ma-by-liwei/)
-  -  [Python合并list为字符串的方法](https://blog.csdn.net/Zx_whu/article/details/61926655)
-  -  [Python字符串拼接总结](https://segmentfault.com/a/1190000015475309)
-  -  [Python中的NULL和None](https://blog.csdn.net/songyunli1111/article/details/75145533)但python是把0，空字符串‘ ’，空列表[]和None都看作False，把其他数值和非空字符串都看作True
-  -  [康托展开](https://baike.baidu.com/item/%E5%BA%B7%E6%89%98%E5%B1%95%E5%BC%80) 
-  -  [Python3：可变对象和不可变对象](https://blog.csdn.net/Artprog/article/details/88732987) 
-  -  [Python map() 函数](https://www.runoob.com/python/python-func-map.html) 
+  -  [剑指offer-46题-左旋转字符串](https://github.com/bryceustc/CodingInterviews/blob/master/LeftRotateString/README.md)
 
