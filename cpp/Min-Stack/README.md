@@ -1,40 +1,24 @@
-# 题目描述:  相交链表
+# 题目描述:  最小栈
 
-编写一个程序，找到两个单链表相交的起始节点。
+设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。
 
-如下面的两个链表：
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png)
-在节点 c1 开始相交。
-    
-![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_example_1.png)
+   - push(x) -- 将元素 x 推入栈中。
+   - pop() -- 删除栈顶的元素。
+   - top() -- 获取栈顶元素。
+   - getMin() -- 检索栈中的最小元素。
 
-**示例 1:**
+**示例 :**
 ```
-输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
-输出：Reference of the node with value = 8
-输入解释：相交节点的值为 8 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,0,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin();   --> 返回 -3.
+minStack.pop();
+minStack.top();      --> 返回 0.
+minStack.getMin();   --> 返回 -2.
 ```
   
-  ![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_example_2.png)
-
-**示例 2:**
-```
-输入：intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
-输出：Reference of the node with value = 2
-输入解释：相交节点的值为 2 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [0,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。
-```
-
-  ![](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_example_3.png)
-
-**示例 3:**
-```
-输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
-输出：null
-输入解释：从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
-解释：这两个链表不相交，因此返回 null。
-```
-
-
 # 解题思路:
 此题与剑指offer第30题题目一样
   
@@ -143,5 +127,3 @@ class MinStack:
 
 # 参考
   - [剑指offer第30题-包含min函数的栈](https://github.com/bryceustc/CodingInterviews/blob/master/MinInStack/README.md)
-
-
