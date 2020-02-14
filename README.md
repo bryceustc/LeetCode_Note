@@ -91,3 +91,4 @@ LeetCode
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
+|946|[Validate-Stack-Sequences](https://leetcode-cn.com/problems/validate-stack-sequences/)| [C++](./cpp/Validate-Stack-Sequences/README.md), [Python](./python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)|Medium|
