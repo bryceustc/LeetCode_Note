@@ -38,8 +38,6 @@ push(5), pop() -> 5, pop() -> 3, pop() -> 2, pop() -> 1
 # 代码
 
 ## [C++](./Validate-Stack-Sequences.cpp):
-## [Python](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)
-
 ###  模拟法
 ```c++
 class Solution {
@@ -64,7 +62,7 @@ public:
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Hand-Of-Straights/Hand-Of-Straights.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)
 ###  模拟法
 ```python
 class Solution:
