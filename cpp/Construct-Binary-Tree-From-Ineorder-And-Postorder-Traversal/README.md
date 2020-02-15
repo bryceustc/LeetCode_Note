@@ -1,6 +1,6 @@
-# 题目描述:  从前序与中序遍历序列构造二叉树
+# 题目描述:  从中序与后序遍历序列构造二叉树
 
-根据一棵树的前序遍历与中序遍历构造二叉树。
+根据一棵树的中序遍历与后序遍历构造二叉树。
 
 **注意:**
 
@@ -8,8 +8,8 @@
 
 例如，给出
 ```
-前序遍历 preorder = [3,9,20,15,7]
 中序遍历 inorder = [9,3,15,20,7]
+后序遍历 postorder = [9,15,7,20,3]
 ```
 
 返回如下的二叉树：
@@ -39,7 +39,7 @@
   O(n)
 # 代码
 
-## [C++](./Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal.cpp):
+## [C++](./Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal.cpp):
 
 ###  
 ```c++
@@ -54,49 +54,44 @@
  */
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        if (preorder.empty() || inorder.empty())
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        if (inorder.empty() || postorder.empty())
             return NULL;
-        int n = preorder.size();
-        vector<int> left_pre,right_pre,left_in,right_in;
-        // 前序遍历的第一个数字是根节点的值
-        int root = preorder[0];
+        int n = inorder.size();
+        int root = postorder[n-1];
         TreeNode* t = new TreeNode(root);
-        // 长度为1 直接返回
         if (n==1) return t;
-
-        //我们先找到root所在的位置，确定好前序和中序中左子树和右子树序列的范围
+        vector<int> left_in, left_post, right_in, right_post;
         int root_index = 0;
         for (int i=0;i<n;i++)
         {
             if (inorder[i] == root)
             {
-                root_index = i;
+                root_index=i;
                 break;
             }
         }
-        // 左子树
         for (int i=0;i<root_index;i++)
         {
             left_in.push_back(inorder[i]);
-            left_pre.push_back(preorder[i+1]); // +1 是因为前序第一个为根节点
-        } 
-        // 右子树
-        for (int i=root_index+1;i<n;i++)
+            left_post.push_back(postorder[i]);
+        }
+        for (int i=root_index+1;i<n;i++)  // +1是跳过根节点
         {
-            right_pre.push_back(preorder[i]);
             right_in.push_back(inorder[i]);
         }
-        //和shell排序的思想类似，取出前序和中序遍历根节点左边和右边的子树
-        //递归，再对其进行上述所有步骤，即再区分子树的左、右子子数，直到叶节点
-        t->left = buildTree(left_pre, left_in);
-        t->right = buildTree(right_pre,right_in);
+        for (int i =root_index;i<n-1;i++)  // -1是跳过根节点
+        {
+            right_post.push_back(postorder[i]);
+        }
+        t->left = buildTree(left_in, left_post);
+        t->right = buildTree(right_in, right_post);
         return t;
     }
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal.py)
 ###  
 ```python
 # Definition for a binary tree node.
@@ -107,29 +102,29 @@ public:
 #         self.right = None
 
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if not preorder or not inorder:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+        if not inorder or not postorder:
             return None
-        n = len(preorder)
-        root = preorder[0]
+        n = len(inorder)
+        root = postorder[-1]
         t = TreeNode(root)
-        root_index = 0
         for i in range(n):
             if inorder[i]==root:
                 root_index = i
                 break
-        left_pre = []
         left_in = []
-        right_pre = []
+        left_post = []
         right_in = []
-        for i in range (root_index):
-            left_pre.append(preorder[i+1])
+        right_post = []
+        for i in range(root_index):
             left_in.append(inorder[i])
+            left_post.append(postorder[i])
         for i in range(root_index+1,n):
-            right_pre.append(preorder[i])
             right_in.append(inorder[i])
-        t.left = self.buildTree(left_pre,left_in)
-        t.right = self.buildTree(right_pre, right_in)
+        for i in range(root_index,n-1):
+            right_post.append(postorder[i])
+        t.left = self.buildTree(left_in, left_post)
+        t.right = self.buildTree(right_in, right_post)
         return t
 ```
 ### 简洁版
@@ -142,16 +137,16 @@ class Solution:
 #         self.right = None
 
 class Solution:
-    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
-        if not preorder or not inorder:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+        if not inorder or not postorder:
             return None
-        root = TreeNode(preorder.pop(0))
+        root = TreeNode(postorder[-1])
         index = inorder.index(root.val)
-        root.left = self.buildTree(preorder, inorder[:index])
-        root.right = self.buildTree(preorder, inorder[index+1:])
+        root.left = self.buildTree(inorder[:index],postorder[:index])
+        root.right = self.buildTree(inorder[index+1:], postorder[index:-1])
         return root
 ```
 # 参考
   - [剑指offer第7题-重建二叉树](https://github.com/bryceustc/CodingInterviews/blob/master/ConstructBinaryTree/README.md)
-  - [LeetCode-106题-从中序与后序遍历序列构造二叉树](  - [LeetCode-106题-从中序与后序遍历序列构造二叉树](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal/README.md)
+  - [LeetCode-105题-从前序与中序遍历序列构造二叉树](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal/README.md)
 
