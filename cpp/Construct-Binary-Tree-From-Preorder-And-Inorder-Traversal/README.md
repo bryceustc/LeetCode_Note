@@ -41,98 +41,115 @@
 
 ## [C++](./Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal.cpp):
 
-###  方法一：非递归法
+###  
 ```c++
 /**
- * Definition for singly-linked list.
- * struct ListNode {
+ * Definition for a binary tree node.
+ * struct TreeNode {
  *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* p = head;
-        while (p && p->next)
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        if (preorder.empty() || inorder.empty())
+            return NULL;
+        int n = preorder.size();
+        vector<int> left_pre,right_pre,left_in,right_in;
+        // 前序遍历的第一个数字是根节点的值
+        int root = preorder[0];
+        TreeNode* t = new TreeNode(root);
+        // 长度为1 直接返回
+        if (n==1) return t;
+
+        //我们先找到root所在的位置，确定好前序和中序中左子树和右子树序列的范围
+        int root_index = 0;
+        for (int i=0;i<n;i++)
         {
-            ListNode* temp = p->next;
-            if (temp && p->val == temp->val)
+            if (inorder[i] == root)
             {
-                ListNode* del = p->next;
-                p->next = temp->next;
-                delete del;//C++这类没有垃圾回收的语言别忘了释放删除节点的内存
-            }
-            else
-            {
-                p = p->next;
+                root_index = i;
+                break;
             }
         }
-        return head;
+        // 左子树
+        for (int i=0;i<root_index;i++)
+        {
+            left_in.push_back(inorder[i]);
+            left_pre.push_back(preorder[i+1]); // +1 是因为前序第一个为根节点
+        } 
+        // 右子树
+        for (int i=root_index+1;i<n;i++)
+        {
+            right_pre.push_back(preorder[i]);
+            right_in.push_back(inorder[i]);
+        }
+        //和shell排序的思想类似，取出前序和中序遍历根节点左边和右边的子树
+        //递归，再对其进行上述所有步骤，即再区分子树的左、右子子数，直到叶节点
+        t->left = buildTree(left_pre, left_in);
+        t->right = buildTree(right_pre,right_in);
+        return t;
     }
 };
 ```
-### 方法二：递归方法：
-```c++
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-class Solution {
-public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        if (head == NULL || head->next==NULL)
-            return head;
-        head->next = deleteDuplicates(head->next);
-        if (head->val == head->next->val) 
-            head = head->next;
-        return head;        
-    }
-};
-```
+
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal.py)
-###  方法一：非递归法
+###  
 ```python
-# Definition for singly-linked list.
-# class ListNode:
+# Definition for a binary tree node.
+# class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
-#         self.next = None
+#         self.left = None
+#         self.right = None
 
 class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
-        if head==None or head.next == None:
-            return head
-        p = head
-        while p and p.next:
-            temp = p.next
-            if temp and p.val==temp.val:
-                p.next = temp.next
-            else:
-                p = p.next
-        return head
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        if not preorder or not inorder:
+            return None
+        n = len(preorder)
+        root = preorder[0]
+        t = TreeNode(root)
+        root_index = 0
+        for i in range(n):
+            if inorder[i]==root:
+                root_index = i
+                break
+        left_pre = []
+        left_in = []
+        right_pre = []
+        right_in = []
+        for i in range (root_index):
+            left_pre.append(preorder[i+1])
+            left_in.append(inorder[i])
+        for i in range(root_index+1,n):
+            right_pre.append(preorder[i])
+            right_in.append(inorder[i])
+        t.left = self.buildTree(left_pre,left_in)
+        t.right = self.buildTree(right_pre, right_in)
+        return t
 ```
-### 方法二：递归法
+### 简洁版
 ```python
-# Definition for singly-linked list.
-# class ListNode:
+# Definition for a binary tree node.
+# class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
-#         self.next = None
+#         self.left = None
+#         self.right = None
 
 class Solution:
-    def deleteDuplicates(self, head: ListNode) -> ListNode:
-        if head==None or head.next==None:
-            return head
-        head.next = self.deleteDuplicates(head.next)
-        if head.val==head.next.val:
-            head = head.next
-        return head
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        if not preorder or not inorder:
+            return None
+        root = TreeNode(preorder.pop(0))
+        index = inorder.index(root.val)
+        root.left = self.buildTree(preorder, inorder[:index])
+        root.right = self.buildTree(preorder, inorder[index+1:])
+        return root
 ```
 # 参考
   - [剑指offer第7题-重建二叉树](https://github.com/bryceustc/CodingInterviews/blob/master/ConstructBinaryTree/README.md)
