@@ -153,4 +153,4 @@ class Solution:
 ```
 # 参考
   - [剑指offer第7题-重建二叉树](https://github.com/bryceustc/CodingInterviews/blob/master/ConstructBinaryTree/README.md)
-  - [LeetCode-106题-从中序与后序遍历序列构造二叉树](  - [LeetCode-106题-从中序与后序遍历序列构造二叉树](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal/README.md)
+  - [LeetCode-106题-从中序与后序遍历序列构造二叉树](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal/README.md)
