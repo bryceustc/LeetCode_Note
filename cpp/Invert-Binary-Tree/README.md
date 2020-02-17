@@ -166,5 +166,5 @@ class Solution:
 ```
 
 # 参考
-  - [剑指offer第26题-二叉树的镜像](https://github.com/bryceustc/CodingInterviews/blob/master/SymmetricalBinaryTree/README.md)
+  - [剑指offer第27题-二叉树的镜像](https://github.com/bryceustc/CodingInterviews/blob/master/SymmetricalBinaryTree/README.md)
   - [利用STL中的队列queue对二叉树进行层遍历](https://blog.csdn.net/iamxiaoguizi/article/details/51220678) 
