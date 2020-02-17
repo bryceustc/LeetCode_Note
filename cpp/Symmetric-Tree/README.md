@@ -55,7 +55,7 @@
   方法二：O(n)
 # 代码
 
-## [C++](./Invert-Binary-Tree.cpp):
+## [C++](./Symmetric-Tree.cpp):
 
 ###  方法一： 递归
 ```c++
@@ -143,7 +143,7 @@ public:
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Invert-Binary-Tree/Invert-Binary-Tree.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Symmetric-Tree/Symmetric-Tree.py)
 ###  方法一：递归
 ```python
 # Definition for a binary tree node.
