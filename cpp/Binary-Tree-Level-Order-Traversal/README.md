@@ -24,29 +24,29 @@
 
   
 # 解题思路:
-此题与剑指offer第32题分行从上到下打印二叉树
+此题与剑指offer第32题分行从上到下打印二叉树一样
 
-  方法一：递归
+方法一：迭代
   
-   - 找出终止条件
-
-   - 找出返回值
-
-   -明确这一步递归干了什么
-   
-  方法二：迭代
+  同样借助队列实现，不过注意，与之前不同，此题要注意计算出当前层有多少个元素：等于队列的长度，按照顺序遍历完队列加入out中。
   
-  利用STL中的容器队列来实现，注意计算出当前层有多少个元素：等于队列的长度，按照顺序遍历完队列加入out中。
+  第 0 层只包含根节点 root，算法实现如下：
 
-第 0 层只包含根节点 root，算法实现如下：
-
-  -  初始化队列只包含一个节点 root。
+  - 初始化队列只包含一个节点 root。
   - 当队列非空的时候：
       - 计算当前层有多少个元素：等于队列的长度。
       - 初始化一个空列表out
       - 利用循环将这些元素从队列中弹出，并加入out空列表中。
       - 将他们的孩子节点作为下一层压入队列中。
       - 将out列表加入res中，进入下一层。
+      
+  方法二：递归
+  
+  递归，首先确认树非空，然后调用递归函数 ``helper(node, level)``，参数是当前节点和节点的层次。程序过程如下：
+
+  - 输出为 ``res``，**当前最高层数就是``res``的长度 ``res.size()``**。比较访问节点所在的层次 ``level`` 和当前最高层次 ``res.size()`` 的大小(当前所在层次level始终是不大于当前最高层次res.size()的)，如果``level == res.size()``了，就向``res``添加一个空``res.push_back(vector<int>())``。
+ -  将当前节点插入到对应层的列表 ``res[level]`` 中。
+ -  递归非空的孩子节点：``helper(node->left / node->right, level + 1)``。
  
 # 时间复杂度：
   方法一：O(n) 
@@ -61,31 +61,7 @@
 
 ## [C++](./Binary-Tree-Level-Order-Traversal.cpp):
 
-###  方法一： 递归
-```c++
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* invertTree(TreeNode* root) {
-        if (root==NULL)
-            return root;
-        TreeNode* temp = root->left;
-        root->left = invertTree(root->right);
-        root->right = invertTree(temp);
-        return root;
-    }
-};
-```
-
-###  方法二： 迭代 
+###  方法一： 迭代
 ```c++
 /**
  * Definition for a binary tree node.
@@ -108,7 +84,7 @@ public:
         {
             int count = q.size();
             vector<int> out;
-            while (count >0)
+            while(count>0)
             {
                 TreeNode* node = q.front();
                 q.pop();
@@ -126,6 +102,33 @@ public:
 };
 ```
 
+###  方法二： 递归
+```c++
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> res;
+        if (root==NULL)
+            return res;
+        helper(root, res,0);
+        return res;
+    }
+
+    void helper(TreeNode* root, vector<vector<int>> &res, int level)
+    {
+        if (root==NULL)
+            return;
+        if (res.size()==level)
+            res.push_back(vector<int>());
+        res[level].push_back(root->val);
+        if (root->left)
+            helper(root->left,res,level+1);
+        if (root->right)
+            helper(root->right,res,level+1);
+    }
+};
+```
+
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Binary-Tree-Level-Order-Traversal/Binary-Tree-Level-Order-Traversal.py)
 ###  方法一：递归
 ```python
@@ -137,13 +140,22 @@ public:
 #         self.right = None
 
 class Solution:
-    def invertTree(self, root: TreeNode) -> TreeNode:
-        if root == None:
-            return root
-        temp = root.left
-        root.left = self.invertTree(root.right)
-        root.right = self.invertTree(temp)
-        return root
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        res = []
+        if root is None:
+            return res
+        self.helper(root,res,0)
+        return res
+    def helper(self, root, res, level):
+        if root is None:
+            return
+        if len(res) == level:
+            res.append([])
+        res[level].append(root.val)
+        if root.left:
+            self.helper(root.left, res, level+1)
+        if root.right:
+            self.helper(root.right, res, level+1)
 ```
 ### 方法二 ： 迭代
 ```python
