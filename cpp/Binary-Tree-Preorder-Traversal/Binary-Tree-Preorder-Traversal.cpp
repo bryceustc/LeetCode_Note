@@ -44,3 +44,28 @@ public:
         return res;
     }
 };
+
+
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if (root == NULL)
+            return res;
+        stack<TreeNode*> s;
+        TreeNode* p = root;
+        while (!s.empty() || p!=NULL)
+        {
+            while(p!=NULL)
+            {
+                s.push(p);
+                res.push_back(p->val);
+                p = p->left;
+            }
+            p = s.top();
+            s.pop();
+            p = p->right;
+        }
+        return res;
+    }
+};
