@@ -31,7 +31,7 @@
   O(n)
 # 代码
 
-## [C++](./Binary-Tree-Preorder-Traversal.cpp):
+## [C++](./Binary-Tree-Postorder-Traversal.cpp):
 
 ###  递归
 ```c++
@@ -90,7 +90,7 @@ public:
 };
 ```
 
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Binary-Tree-Preorder-Traversal/Binary-Tree-Preorder-Traversal.py)
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Binary-Tree-Postorder-Traversal/Binary-Tree-Postorder-Traversal.py)
 ###  递归
 ```python
 # Definition for a binary tree node.
