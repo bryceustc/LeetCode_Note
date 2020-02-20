@@ -93,6 +93,33 @@ public:
     }
 };
 ```
+### 迭代
+```c++
+class Solution {
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if (root == NULL)
+            return res;
+        stack<TreeNode*> s;
+        TreeNode* p = root;
+        while (!s.empty() || p!=NULL)
+        {
+            while(p!=NULL)
+            {
+                s.push(p);
+                res.push_back(p->val);
+                p = p->left;
+            }
+            p = s.top();
+            s.pop();
+            p = p->right;
+        }
+        return res;
+    }
+};
+```
+
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Binary-Tree-Preorder-Traversal/Binary-Tree-Preorder-Traversal.py)
 ###  递归
@@ -146,5 +173,23 @@ class Solution:
                 s.append(node.right)
             if node.left:
                 s.append(node.left)
+        return res
+```
+### 迭代
+```python
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        if root == None:
+            return res
+        s = []
+        p = root
+        while s or p:
+            while p:
+                s.append(p)
+                res.append(p.val)
+                p=p.left
+            p = s.pop()
+            p = p.right
         return res
 ```
