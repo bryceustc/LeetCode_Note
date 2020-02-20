@@ -32,3 +32,19 @@ class Solution:
             if node.left:
                 s.append(node.left)
         return res
+
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        res = []
+        if root == None:
+            return res
+        s = []
+        p = root
+        while s or p:
+            while p:
+                s.append(p)
+                res.append(p.val)
+                p=p.left
+            p = s.pop()
+            p = p.right
+        return res
