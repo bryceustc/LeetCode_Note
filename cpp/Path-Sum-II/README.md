@@ -44,41 +44,69 @@ dfs递归
 
 ###  
 ```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int res =0;
-        unordered_map<int,int> map;
-        int n=nums.size();
-        for (int i=0;i<n;i++)
-        {
-            map[nums[i]]++;
-        }
-        for (int i=0;i<n;i++)
-        {
-            if (map[nums[i]]==1)
-            {
-                res = nums[i];
-                break;
-            }
-        }
+    vector<vector<int>> pathSum(TreeNode* root, int sum) {
+        vector<vector<int>> res;
+        if (root == NULL)
+            return res;
+        vector<int> path;
+        dfs(root, res, path, sum);
         return res;
+    }
+    void dfs(TreeNode* root, vector<vector<int>> &res, vector<int> &path, int sum)
+    {
+        if (root == NULL)
+            return;
+        path.push_back(root->val);
+        bool isLeaf = (root->left == NULL) && (root->right == NULL);
+        if (sum == root->val && isLeaf)
+        {
+            res.push_back(path);
+        }
+        dfs(root->left, res, path, sum - root->val);
+        dfs(root->right, res, path,sum - root->val);
+        path.pop_back();
     }
 };
 ```
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Path-Sum-II/Path-Sum-II.py)
 ###  
 ```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution:
-    def singleNumber(self, nums: List[int]) -> int:
-        hash_table = {}
-        for num in nums:
-            try:
-                hash_table.pop(num)
-            except:
-                hash_table[num] = 1
-        res = hash_table.popitem()[0]  ## Python 字典 popitem() 方法随机返回并删除字典中的最后一对键和值。如果字典已经为空，却调用了此方法，就报出KeyError异常。
-        return res
+    def __init__(self):
+        self.res = []
+        self.path = []
+    def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
+        if root is None:
+            return self.res
+        self.dfs(root, self.path, sum)
+        return self.res
+    def dfs(self, root, path, sum):
+        if root is None:
+            return
+        self.path.append(root.val)
+        if sum == root.val and (root.left is None and root.right is None):
+            self.res.append(self.path[:])
+        self.dfs(root.left, self.path, sum - root.val)
+        self.dfs(root.right, self.path, sum - root.val)
+        self.path.pop()
 ```
 # 参考
   -  [剑指offer_34题——二叉树中和为某一值的路径](https://github.com/bryceustc/CodingInterviews/blob/master/PathInTree/README.md)
