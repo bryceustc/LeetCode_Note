@@ -1,1 +1,232 @@
+# 题目描述:  数据流的中位数
 
+中位数是有序列表中间的数。如果列表长度是偶数，中位数则是中间两个数的平均值。
+
+例如，
+
+[2,3,4] 的中位数是 3
+
+[2,3] 的中位数是 (2 + 3) / 2 = 2.5
+
+设计一个支持以下两种操作的数据结构：
+  - void addNum(int num) - 从数据流中添加一个整数到数据结构中。
+  - double findMedian() - 返回目前所有元素的中位数。
+
+**示例 :**
+```
+addNum(1)
+addNum(2)
+findMedian() -> 1.5
+addNum(3) 
+findMedian() -> 2
+```
+**进阶 :**
+
+1. 如果数据流中所有整数都在 0 到 100 范围内，你将如何优化你的算法？
+
+2. 如果数据流中 99% 的整数都在 0 到 100 范围内，你将如何优化你的算法？
+
+  
+# 解题思路:
+此题与剑指Offer第41题相同
+
+方法一：每插入一次就直接排序，然后根据存储数据的长度为奇数还偶数返回中位数，时间复杂度为O(nlogn)+O(1)
+
+方法二：利用插入排序的思想，
+方法三：利用大顶堆和小顶堆
+ 
+# 时间复杂度：
+  时间复杂度：在序列化和反序列化函数中，我们只访问每个节点一次，因此时间复杂度为 O(n)，其中 n 是节点数，即树的大小。
+# 空间复杂度
+  空间复杂度：在序列化和反序列化函数中，我们将整棵树保留在开头或结尾，因此，空间复杂性为 O(n)
+  
+# 代码
+
+## [C++](./Serialize-And-Deserialize-Binary-Tree.cpp):
+
+###  递归
+```c++
+/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    char* Serialize(TreeNode *root) {    
+        if(!root){
+            return NULL;
+        }
+        string str;
+        SerializeCore(root, str);
+        // 把str流中转换为字符串返回
+        int length = str.length();
+        char* res = new char[length+1];
+        // 把str流中转换为字符串返回
+        for(int i = 0; i < length; i++){
+            res[i] = str[i];
+        }
+        res[length] = '\0';
+        return res;
+    }
+    TreeNode* Deserialize(char *str) {
+        if(!str){
+            return NULL;
+        }
+        TreeNode* res = DeserializeCore(&str);
+        return res;
+    }
+    void SerializeCore(TreeNode* root, string& str){
+        // 如果指针为空，表示左子节点或右子节点为空，则在序列中用#表示
+        if(!root){
+            str += '#';
+            return;
+        }
+        string tmp = to_string(root->val);
+        str += tmp;
+        // 加逗号，用于区分每个结点
+        str += ',';
+        SerializeCore(root->left, str);
+        SerializeCore(root->right, str);
+    }
+    // 递归时改变了str值使其指向后面的序列，因此要声明为char**
+    TreeNode* DeserializeCore(char** str){
+        // 到达叶节点时，调用两次，都返回null，所以构建完毕，返回父节点的构建
+        if(**str == '#'){
+            (*str)++;
+            return NULL;
+        }
+        // 因为整数是用字符串表示，一个字符表示一位，先进行转换
+        int num = 0;
+        while(**str != ',' && **str != '\0'){
+            num = num * 10 + ((**str) - '0');
+            (*str)++;
+        }
+        TreeNode* root = new TreeNode(num);
+        if(**str == '\0'){
+            return root;
+        }
+        else{
+            (*str)++;
+        }
+        root->left = DeserializeCore(str);
+        root->right = DeserializeCore(str);
+        return root;
+    }
+};
+```
+
+###  队列
+```c++
+class Codec {
+public:
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+        if (root == NULL)
+            return "#_";
+        string res = to_string(root->val) + "_";
+        res += serialize(root->left);
+        res += serialize(root->right);
+        return res;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+        std::stringstream ss(data);
+        std::string item;
+        queue<string> q;
+        while (std::getline(ss, item, '_')) 
+            q.push(item);
+        return helper(q);
+    }
+    TreeNode* helper(queue<string>& q)
+    {
+        string val = q.front();
+        q.pop();
+        if (val == "#")
+            return NULL;
+        TreeNode* head = new TreeNode(stoi(val));
+        head->left = helper(q);
+        head->right = helper(q);
+        return head;
+    }
+};
+```
+## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Serialize-And-Deserialize-Binary-Tree/Serialize-And-Deserialize-Binary-Tree.py)
+###  递归
+```python
+class Solution:
+    flag=-1
+    def Serialize(self, root):
+        # write code here
+        if not root:
+            return 'n'
+        return str(root.val)+','+self.Serialize(root.left)+','+self.Serialize(root.right)
+        
+    def Deserialize(self, s):
+        # write code here
+        self.flag+=1
+        lis = s.split(",")
+        
+        if self.flag > len(lis):
+            return
+        root = None
+        if lis[self.flag] != "n":
+            root = TreeNode(int(lis[self.flag]))
+            root.left = self.Deserialize(s)
+            root.right = self.Deserialize(s)
+        return root
+```
+### 队列
+```python
+class Solution:
+    def Serialize(self, root):
+        # write code here
+        s = ""
+        q = []
+        q.append(root)
+        while q:
+            node = q.pop(0)
+            if node:
+                s += str(node.val) + ","
+                q.append(node.left)
+                q.append(node.right)
+            else:
+                s += "n,"
+        return s
+    def Deserialize(self, s):
+        # write code here
+        s = s.split(",")
+        if s[0] == 'n':
+            return None
+        q = []
+        i = 1
+        res = TreeNode(int(s[0]))
+        q.append(res)
+        while q:
+            node = q.pop(0)
+            if node == None:
+                continue
+            if s[i] != 'n':
+                node.left = TreeNode(int(s[i]))
+            else:
+                node.left = None
+            if s[i+1] != 'n':
+                node.right = TreeNode(int(s[i+1]))
+            else:
+                node.right = None
+            i+=2
+            q.append(node.left)
+            q.append(node.right)
+        return res
+```
+
+# 参考
+
+  -  [剑指Offer_37题_序列化二叉树](https://github.com/bryceustc/CodingInterviews/blob/master/SerializeBinaryTrees/README.md)
