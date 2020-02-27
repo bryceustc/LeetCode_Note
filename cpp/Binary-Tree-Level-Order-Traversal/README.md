@@ -189,5 +189,5 @@ class Solution:
 ```
 
 # 参考
-  - [剑指offer第32题-分行从上到下打印二叉树(https://github.com/bryceustc/CodingInterviews/blob/master/PrintTreeFromTopToBottom/README.md)
+  - [剑指offer第32题-分行从上到下打印二叉树](https://github.com/bryceustc/CodingInterviews/blob/master/PrintTreeFromTopToBottom/README.md)
   - [利用STL中的队列queue对二叉树进行层遍历](https://blog.csdn.net/iamxiaoguizi/article/details/51220678) 
