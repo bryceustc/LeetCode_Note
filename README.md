@@ -1,6 +1,8 @@
 LeetCode
 ========
 自己刷LeetCode整理的一些题解笔记，每道题都基本用了两种语言实现，C++和Python，有什么错误欢迎指出，目标所有Easy和Medium题以及部分Hard题。
+
+带&hearts;为竞赛题，用c++实现
 ### LeetCode 题解（C++，Python实现）（持续更新中...）
 
 | # | Title | Solution | Difficulty 
@@ -35,13 +37,13 @@ LeetCode
 |28|[Implement-Strstr](https://leetcode-cn.com/problems/implement-strstr/)| [C++](./cpp/Implement-Strstr/Implement-Strstr.cpp), [Python](./python/Implement-Strstr/Implement-Strstr.py)|Easy|
 |29|[Divide-Two-Integers](https://leetcode-cn.com/problems/divide-two-integers/)| [C++](./cpp/Divide-Two-Integers/Divide-Two-Integers.cpp), [Python](./python/Divide-Two-Integers/Divide-Two-Integers.py)|Medium|
 |30|[Substring-With-Concatenation-Of-All-Words](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)| [C++](./cpp/Substring-With-Concatenation-Of-All-Words/Substring-With-Concatenation-Of-All-Words.cpp), [Python](./python/Substring-With-Concatenation-Of-All-Words/Substring-With-Concatenation-Of-All-Words.py)|Hard|
-|31&hearts;|[Next-Permutation](https://leetcode-cn.com/problems/next-permutation/)| [C++](./cpp/Next-Permutation/Next-Permutation.cpp), [Python](./python/Next-Permutation/Next-Permutation.py)|Medium|
+|31|[Next-Permutation](https://leetcode-cn.com/problems/next-permutation/)| [C++](./cpp/Next-Permutation/Next-Permutation.cpp), [Python](./python/Next-Permutation/Next-Permutation.py)|Medium|
 |32|[Longest-Valid-Parentheses](https://leetcode-cn.com/problems/longest-valid-parentheses/)| [C++](./cpp/Longest-Valid-Parentheses/Longest-Valid-Parentheses.cpp), [Python](./python/Longest-Valid-Parentheses/Longest-Valid-Parentheses.py)|Hard|
 |33|[Search-In-Rotated-Sorted-Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array/)| [C++](./cpp/Search-In-Rotated-Sorted-Array/Search-In-Rotated-Sorted-Array.cpp), [Python](./python/Search-In-Rotated-Sorted-Array/Search-In-Rotated-Sorted-Array.py)|Medium|
 |34|[Find-First-And-Last-Position-Of-Element-In-Sorted-Array](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)| [C++](./cpp/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/README.md), [Python](./python/Find-First-And-Last-Position-Of-Element-In-Sorted-Array/Find-First-And-Last-Position-Of-Element-In-Sorted-Array.py)|Medium|
 |35|[Search-Insert-Position](https://leetcode-cn.com/problems/search-insert-position/)| [C++](./cpp/Search-Insert-Position/README.md), [Python](./python/Search-Insert-Position/Search-Insert-Position.py)|Easy|
 |36|[Valid-Sudoku](https://leetcode-cn.com/problems/valid-sudoku/)| [C++](./cpp/Valid-Sudoku/README.md), [Python](./python/Valid-Sudoku/Valid-Sudoku.py)|Medium|
-|37&hearts;|[Sudoku-Solver](https://leetcode-cn.com/problems/sudoku-solver/)| [C++](./cpp/Sudoku-Solver/README.md), [Python](./python/Sudoku-Solver/Sudoku-Solver.py)|Hard|
+|37|[Sudoku-Solver](https://leetcode-cn.com/problems/sudoku-solver/)| [C++](./cpp/Sudoku-Solver/README.md), [Python](./python/Sudoku-Solver/Sudoku-Solver.py)|Hard|
 |38|[Count-And-Say](https://leetcode-cn.com/problems/count-and-say/)| [C++](./cpp/Count-And-Say/README.md), [Python](./python/Count-And-Say/Count-And-Say.py)|Easy|
 |39|[Combination-Sum](https://leetcode-cn.com/problems/combination-sum/)| [C++](./cpp/Combination-Sum/README.md), [Python](./python/Combination-Sum/Combination-Sum.py)|Medium|
 |40|[Combination-Sum-II](https://leetcode-cn.com/problems/combination-sum-ii/)| [C++](./cpp/Combination-Sum-II/README.md), [Python](./python/Combination-Sum-II/Combination-Sum-II.py)|Medium|
