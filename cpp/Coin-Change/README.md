@@ -18,143 +18,31 @@ PS：为啥 dp 数组初始化为 amount + 1 呢，因为凑成 amount 金额的
 
 
 # 时间复杂度：
-  O(n)
+  O(kn) 子问题总数不会超过金额数 n，即子问题数目为 O(n)。处理一个子问题的时间不变，仍是 O(k)，所以总的时间复杂度是 O(kn)。k 为coins种类数
 # 空间复杂度
-  O(1)
+  O(kn)
   
 # 代码
 
 ## [C++](./Coin-Change.cpp):
 ###  两个队列
 ```c++
-class MyStack {
-public:
-    /** Initialize your data structure here. */
-    MyStack() {
-
-    }
-    
-    /** Push element x onto stack. */
-    void push(int x) {
-        while(!q2.empty())
-        {
-            q1.push(q2.front());
-            q2.pop();
-        }
-        q2.push(x);
-        while(!q1.empty())
-        {
-            q2.push(q1.front());
-            q1.pop();
-        }
-    }
-    
-    /** Removes the element on top of the stack and returns that element. */
-    int pop() {
-        int a = q2.front();
-        q2.pop();
-        return a;
-    }
-    
-    /** Get the top element. */
-    int top() {
-        return q2.front();
-    }
-    
-    /** Returns whether the stack is empty. */
-    bool empty() {
-        return q2.empty();
-    }
-private:
-    queue<int> q1,q2;
-};
-
-/**
- * Your MyStack object will be instantiated and called as such:
- * MyStack* obj = new MyStack();
- * obj->push(x);
- * int param_2 = obj->pop();
- * int param_3 = obj->top();
- * bool param_4 = obj->empty();
- */
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+        res = -1
+        dp = [amount+1 for _ in range(amount+1)]
+        dp[0] = 0
+        n = len(dp)
+        for i in range(n):
+            for coin in coins:
+                if i < coin:
+                    continue
+                dp[i] = min(dp[i], dp[i-coin]+1)
+        if dp[amount]==amount+1:
+            res = -1
+        else:
+            res = dp[amount]
+        return res
 ```
-### 一个队列
-```c++
-class MyStack {
-public:
-    /** Initialize your data structure here. */
-    MyStack() {
-
-    }
-    
-    /** Push element x onto stack. */
-    void push(int x) {
-        q.push(x);
-        // 把前边n-1个元素放到后边
-        for (int i=0;i<q.size()-1;i++)
-        {
-            q.push(q.front());
-            q.pop();
-        }
-    }
-    
-    /** Removes the element on top of the stack and returns that element. */
-    int pop() {
-        int res = q.front();
-        q.pop();
-        return res;
-    }
-    
-    /** Get the top element. */
-    int top() {
-        return q.front();
-    }
-    
-    /** Returns whether the stack is empty. */
-    bool empty() {
-        return q.empty();
-    }
-private :
-    queue<int> q;
-};
-```
-
-## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Coin-Change/Coin-Change.py)
-###  一个队列
-```python
-class MyStack:
-
-    def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        self.q = []
-
-    def push(self, x: int) -> None:
-        """
-        Push element x onto stack.
-        """
-        self.q.append(x)
-        for i in range(len(self.q)-1):
-            self.q.append(self.q.pop(0))
-
-    def pop(self) -> int:
-        """
-        Removes the element on top of the stack and returns that element.
-        """
-        return self.q.pop(0)
-
-    def top(self) -> int:
-        """
-        Get the top element.
-        """
-        return self.q[0]
-
-
-    def empty(self) -> bool:
-        """
-        Returns whether the stack is empty.
-        """
-        n = len(self.q)
-        return n==0
-```
+## 参考
+  - [题解讨论](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-suan-fa-si-xiang-by-hikes/)
