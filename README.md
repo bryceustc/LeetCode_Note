@@ -118,5 +118,6 @@ LeetCode
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
 |946|[Validate-Stack-Sequences](https://leetcode-cn.com/problems/validate-stack-sequences/)| [C++](./cpp/Validate-Stack-Sequences/README.md), [Python](./python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)|Medium|
 |994&clubs;|[Rotting-Oranges](https://leetcode-cn.com/problems/rotting-oranges/)| [C++](./cpp/Rotting-Oranges/README.md), [Python](./python/Rotting-Oranges/Rotting-Oranges.py)|Medium|
+|1103&clubs;|[Distribute-Candies-To-People](https://leetcode-cn.com/problems/distribute-candies-to-people/)| [C++](./cpp/Distribute-Candies-To-People/README.md), [Python](./python/Distribute-Candies-To-People/Distribute-Candies-To-People.py)|Easy|
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
 |面试题10&clubs;|[合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci/)| [C++](./cpp/Sorted-Merge-Lcci/README.md),[Python](./python/Sorted-Merge-Lcci/Sorted-Merge-Lcci.py)|Easy|
