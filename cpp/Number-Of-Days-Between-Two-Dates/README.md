@@ -30,7 +30,6 @@
 # 代码
 
 ## [C++](./Number-Of-Days-Between-Two-Dates.cpp):
-###  自定义
 ```c++
 class Solution {
 public:
