@@ -112,6 +112,7 @@ LeetCode
 |322|[Coin-Change](https://leetcode-cn.com/problems/coin-change/)| [C++](./cpp/Coin-Change/README.md), [Python](./python/Coin-Change/Coin-Change.py)|Medium|
 |343|[Integer-Break](https://leetcode-cn.com/problems/integer-break/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/CuttingRope.py)|Medium|
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
+|400|[Nth-Digit](https://leetcode-cn.com/problems/nth-digit/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/FindNthDigit/README.md), [Python](./python/Nth-Digit/Nth-Digit.py)|Meidum|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
 |426|[Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List](convert-binary-search-tree-to-sorted-doubly-linked-list/)| [C++](./cpp/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/README.md), [Python](./python/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List.py)|Medium|
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
