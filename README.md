@@ -68,6 +68,7 @@ LeetCode
 |60|[Permutation-Sequence](https://leetcode-cn.com/problems/permutation-sequence/)| [C++](./cpp/Permutation-Sequence/README.md), [Python](./python/Permutation-Sequence/Permutation-Sequence.py)|Medium|
 |61|[Rotate-List](https://leetcode-cn.com/problems/rotate-list/)| [C++](./cpp/Rotate-List/README.md), [Python](./python/Rotate-List/Rotate-List.py)|Medium|
 |65|[Valid-Number](https://leetcode-cn.com/problems/valid-number/)| [C++](./cpp/Valid-Number/README.md), [Python](./python/Valid-Number/Valid-Number.py)|Hard|
+|70|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
 |79|[Word-Search](https://leetcode-cn.com/problems/word-search/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/StringPathInMatrix.py)|Medium|
 |82|[Remove-Duplicates-From-Sorted-List-II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List-II/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List-II/Remove-Duplicates-From-Sorted-List-II.py)|Medium|
