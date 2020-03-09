@@ -59,90 +59,27 @@ public:
     int maxProfit(vector<int>& prices) {
         int n = prices.size();
         if (n<=1) return 0;
-        vector<vector<int>> dp (n, vector<int> (3,0));
+        vector<vector<int>> dp (n, vector<int> (2,0));
         int res = 0;
+        
         // 状态 dp[i][j] 表示：在索引为 i 的这一天，用户手上状态为 j 所获得的最大利润。
 
-        // 0：未持有
-        // 1：持有
-        // 2：卖出未持有
+        // 0：用户手上不持股所能获得的最大利润，特指卖出股票以后的不持股，非指没有进行过任何交易的不持股
+        // 1：用户手上持股所能获得的最大利润
+
+        // 注意：因为题目限制只能交易一次，因此状态只可能从 1 到 0，不可能从 0 到 1
 
         dp[0][0] = 0;  
         dp[0][1] = -prices[0]; 
-        dp[0][2] = 0;  
 
         // 状态转移方程：
-        // dp[i][0] 永远等于 dp[i-1][0]
-        // dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]) 今天持有股票，可以昨天持有rest下来，也可以是昨天没有，今天买了股票
-        // dp[i][2] = max(dp[i - 1][2], dp[i - 1][1] + prices[i]) 今天因为未持有股票，可以是昨天早就卖出了，也可以是昨天持有今天卖出
-
+        // dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i]) 今天不持有股票，可以昨天不持有rest下来，也可以是昨天持有，今天卖了股票
+        // dp[i][1] = max(dp[i - 1][1], - prices[i]) 今天因为持有股票，可以是昨天就持有，今天刚买的，因为只进行交易一次，所以只会减一个
+        
         for (int i=1;i<n;i++)
         {
-            dp[i][0] = dp[i-1][0];
-            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]); 
-            dp[i][2] = max(dp[i - 1][2], dp[i - 1][1] + prices[i]);
-        }
-        res = max(dp[n-1][0], dp[n-1][2]);
-        return res;
-    }
-};
-```
-
-##  122. 买卖股票的最佳时机 II
-
-给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
-
-如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。
-
-注意你不能在买入股票前卖出股票。
-
-**示例1：**
- ```
- 输入: [7,1,5,3,6,4]
-输出: 5
-解释: 在第 2 天（股票价格 = 1）的时候买入，在第 5 天（股票价格 = 6）的时候卖出，最大利润 = 6-1 = 5 。
-     注意利润不能是 7-1 = 6, 因为卖出价格需要大于买入价格。
- ```
-
-**示例2：**
- ```
-输入: [7,6,4,3,1]
-输出: 0
-解释: 在这种情况下, 没有交易完成, 所以最大利润为 0。
- ```
-## 解：
-### 第一种方法：贪心算法，一次遍历，只要今天价格小于明天价格就在今天买入然后明天卖出，时间复杂度O(n)
-```c++
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int n = prices.size();
-        if (n<=1) return 0;
-        int res = 0;
-        int min_price = prices[0];
-        for (int i=0;i<n;i++)
-        {
-            res = max(res, prices[i] - min_price);
-            min_price = min(min_price, prices[i]);
-        }
-        return res;
-    }
-};
-```
-### 第二种方法：标准二维DP动态规划，第i天只有两种状态，不持有或持有股票，当天不持有股票的状态可能来自昨天卖出或者昨天也不持有，同理，当天持有股票的状态可能来自昨天买入或者昨天也持有中，取最后一天的不持有股票状态就是问题的解
-```c++
-class Solution {
-public:
-    int maxProfit(vector<int>& prices) {
-        int n = prices.size();
-        if (n<=1) return 0;
-        vector<vector<int>> dp (n, vector<int> (2,0));
-        dp[0][0] = 0; // 不持有股票，持有现金
-        dp[0][1] = -prices[0]; // 持有股票
-        for (int i=1;i<n;i++)
-        {
-            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i]);
-            dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i]);
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = max(dp[i - 1][1], - prices[i]); 
         }
         return dp[n-1][0];
     }
@@ -190,7 +127,7 @@ public:
     }
 };
 ```
-### 第二种方法：标准二维DP动态规划，第i天只有两种状态，不持有或持有股票，当天不持有股票的状态可能来自昨天卖出或者昨天也不持有，同理，当天持有股票的状态可能来自昨天买入或者昨天也持有中，取最后一天的不持有股票状态就是问题的解
+### 第二种方法：标准二维DP动态规划，第i天只有两种状态，不持有或持有股票，当天不持有股票的状态可能来自昨天卖出或者昨天也不持有，同理，当天持有股票的状态可能来自昨天买入或者昨天也持有中，取最后一天的不持有股票状态就是问题的解。（没有交易次数限制）
 ```c++
 class Solution {
 public:
@@ -206,6 +143,66 @@ public:
             dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i]);
         }
         return dp[n-1][0];
+    }
+};
+```
+
+##  122. 买卖股票的最佳时机 III
+
+给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+
+注意: 你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+**示例1：**
+ ```
+输入: [3,3,5,0,0,3,1,4]
+输出: 6
+解释: 在第 4 天（股票价格 = 0）的时候买入，在第 6 天（股票价格 = 3）的时候卖出，这笔交易所能获得利润 = 3-0 = 3 。
+     随后，在第 7 天（股票价格 = 1）的时候买入，在第 8 天 （股票价格 = 4）的时候卖出，这笔交易所能获得利润 = 4-1 = 3 。
+ ```
+
+**示例2：**
+ ```
+输入: [1,2,3,4,5]
+输出: 4
+解释: 在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。   
+     注意你不能在第 1 天和第 2 天接连购买股票，之后再将它们卖出。   
+     因为这样属于同时参与了多笔交易，你必须在再次购买前出售掉之前的股票。
+ ```
+ 
+ **示例3：**
+ ```
+ 输入: [7,6,4,3,1] 
+输出: 0 
+解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
+ ```
+## 解：
+### 标准的三维DP动态规划，三个维度，第一维表示天，第二维表示交易了几次，第三维表示是否持有股票。与下面188题买卖股票4一样的代码，把交易k次定义为2次。当然也可以把内层的for循环拆出来，分别列出交易0次、1次、2次的状态转移方程即可
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n =prices.size();
+        if (n<=1) return 0;
+        int k = 2;
+        vector<vector<vector<int>>> dp (n, vector<vector<int>> (k+1, vector<int>(2, 0)));
+        // 初始状态
+        for (int j =0; j<k+1;j++)
+        {
+            dp[0][j][0] = 0; // sell 不持有股票
+            dp[0][j][1] = -prices[0]; // buy 持有股票
+        }
+        for (int i=1;i<n;i++)
+        {
+            for (int j=k;j>=1;j--)
+            {
+                dp[i][j][0] = max(dp[i-1][j][0], dp[i-1][j][1]+ prices[i]);
+                dp[i][j][1] = max(dp[i-1][j][1], dp[i-1][j-1][0] - prices[i]);
+            }
+        }
+        return dp[n-1][k][0];
     }
 };
 ```
@@ -215,6 +212,6 @@ public:
 ## 参考
   - [121-买卖股票的最佳时机](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
   - [122-买卖股票的最佳时机 II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock-II/README.md)
-  - [121-买卖股票的最佳时机](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
+  - [123-买卖股票的最佳时机 III](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock-III/README.md)
   - [121-买卖股票的最佳时机](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
   - [121-买卖股票的最佳时机](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
