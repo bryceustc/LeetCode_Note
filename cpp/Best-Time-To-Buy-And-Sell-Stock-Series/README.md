@@ -342,14 +342,42 @@ public:
 解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
  ```
 ## 解：
-每次 sell 之后要等一天才能继续交易。只要利用这个特点修改状态转移方程即可：
-```
-dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
-dp[i][1] = max(dp[i-1][1], dp[i-2][0] - prices[i])
-解释：第 i 天选择 buy 的时候，要从 i-2 的状态转移，而不是 i-1 。
-```
 
-### 1. 标准的三维DP动态规划，三个维度，第一维表示天，第二维表示交易了几次，第三维表示是否持有股票。但是注意内存超限的问题，最大交易次数大于n/2时，等价于交易次数无限制
+   - 不持股可以由这两个状态转换而来：（1）昨天不持股，今天什么都不操作，仍然不持股。（2）昨天持股，今天卖了一股。
+   - 持股可以由这两个状态转换而来：（1）昨天持股，今天什么都不操作，仍然持股；（2）昨天处在冷冻期，今天买了一股；
+   - 处在冷冻期只可以由不持股转换而来，因为题目中说，刚刚把股票卖了，需要冷冻 1 天。
+   
+![](https://pic.leetcode-cn.com/6dba5214e21684d0383521aaf820b66191106473b9e8a07faaa394e5136b5f47-image.png)
+### 1. DP动态规划，两个维度，第一维表示天，第二维表示状态。0：不持有股票，1：持有股票，2：处于冷冻期
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        if(n<=1) return 0;
+        vector<vector<int>> dp (n, vector<int>(3,0));
+        dp[0][0] = 0; // 不持有股票
+        dp[0][1] = -prices[0]; // 持有股票
+        dp[0][2] = 0; // 处于冷冻期
+        for (int i=1;i<n;i++)
+        {
+            //第i天不持有股票的情况有两种
+            //a.第i-1天也不持有股票
+            //b.第i-1天持股给卖了
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i]);
+            //第i天持有股票有两种情况
+            //a.第i-1天也持有股票，第i天不操作，
+            //b.第i-1天处于冷冻期，在第i天买入
+            dp[i][1] = max(dp[i-1][1], dp[i-1][2]-prices[i]);
+            //第i天是冷冻期只有一种情况:处在冷冻期只可以由不持股转换而来
+            dp[i][2] = dp[i-1][0];
+        }
+        //最后最大利润为最后一天，不持有股票或者进入冷冻期的情况
+        return max(dp[n-1][0], dp[n-1][2]);
+    }
+};
+```
+### 2. 优化，减少空间复杂度
 ```c++
 class Solution {
 public:
@@ -357,62 +385,84 @@ public:
         int n = prices.size();
         if(n<=1) return 0;
         int dp_i_0 = 0;
-        int dp_i_1 = -prices[0]; 
-        int dp_i_2 = 0;  
+        int dp_i_1 = -prices[0];
+        int dp_i_2 = 0;
         for (int i=1;i<n;i++)
         {
-            int temp = dp_i_0;
+            int temp =dp_i_0;
             dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);
-            dp_i_1 = max(dp_i_1, dp_i_2  - prices[i]);
+            dp_i_1 = max(dp_i_1, dp_i_2 - prices[i]);
             dp_i_2 = temp;
+        }
+        return max(dp_i_0,dp_i_2);
+    }
+};
+```
+
+##  714. 买卖股票的最佳时机含手续费
+
+给定一个整数数组 prices，其中第 i 个元素代表了第 i 天的股票价格 ；非负整数 fee 代表了交易股票的手续费用。
+
+你可以无限次地完成交易，但是你每次交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。
+
+返回获得利润的最大值。
+
+**示例：**
+ ```
+输入: prices = [1, 3, 2, 8, 4, 9], fee = 2
+输出: 8
+解释: 能够达到的最大利润:  
+在此处买入 prices[0] = 1
+在此处卖出 prices[3] = 8
+在此处买入 prices[4] = 4
+在此处卖出 prices[5] = 9
+总利润: ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
+ ```
+## 解：
+
+### 1. DP动态规划，两个维度，第一维表示天，第二维表示状态。0：不持有股票，1：持有股票
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int n = prices.size();
+        if (n<=1) return 0;
+        vector<vector<int>> dp(n,vector<int>(2,0));
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0]-fee;
+        for (int i=1;i<n;i++)
+        {
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i]);
+            dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i] - fee);
+        }
+        return dp[n-1][0];
+    }
+};
+```
+### 2. 优化，减少空间复杂度
+```c++
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int n = prices.size();
+        if (n<=1) return 0;
+        int dp_i_0 = 0;
+        int dp_i_1 = -prices[0]-fee;
+        for (int i=1;i<n;i++)
+        {
+            dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);
+            dp_i_1 = max(dp_i_1, dp_i_0 - prices[i] -fee);
         }
         return dp_i_0;
     }
 };
 ```
-### 2. 标准的三维DP动态规划，三个维度，第一维表示天，第二维表示交易了几次，第三维表示是否持有股票。
-```c++
-class Solution {
-public:
-    int maxProfit(int k, vector<int>& prices) {
-        int n = prices.size();
-        if (n<=1) return 0;
-        if (k>n/2)
-        {
-              int dp_i_0= 0; 
-              int dp_i_1 = -prices[0]; 
-              for (int i=1;i<n;i++)
-              {
-                  dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);
-                  dp_i_1 = max(dp_i_1, dp_i_0 - prices[i]);
-              }
-              return dp_i_0;
-        }
-        vector<vector<vector<int>>> dp(n, vector<vector<int>> (k+1, vector<int>(2,0)));
-        for (int j=0;j<k+1;j++)
-        {
-            dp[0][j][0] = 0;
-            dp[0][j][1] = -prices[0];
-        }
-        for (int i=1;i<n;i++)
-        {
-            for (int j=k;j>=1;j--)
-            {
-                dp[i][j][0] = max(dp[i-1][j][0], dp[i-1][j][1] + prices[i]);
-                dp[i][j][1] = max(dp[i-1][j][1], dp[i-1][j-1][0] - prices[i]);
-            }
-        }
-        return dp[n-1][k][0];
-    }
-};
-```
-
 
 ## 参考
   - [121-买卖股票的最佳时机](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
   - [122-买卖股票的最佳时机 II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock-II/README.md)
-  - [123-买卖股票的最佳时机 III](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock-III/README.md)
-  - [188-买卖股票的最佳时机 IV](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock-IV/README.md)
-  - [309-最佳买卖股票时机含冷冻期](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
-  - [714-买卖股票的最佳时机](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)
+  - [123-买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii)
+  - [188-买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv)
+  - [309-最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown)
+  - [714-买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee)
   - [一个通用方法团灭 6 道股票问题](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/solution/yi-ge-tong-yong-fang-fa-tuan-mie-6-dao-gu-piao-wen/)
