@@ -24,6 +24,8 @@
 方法二：迭代
    
    使用栈（先进后出）来完成,我们先将根节点放入栈中,从根节点开始，每次迭代弹出当前栈顶元素，并将其孩子节点压入栈中，先压左子树再压右子树，然后在调用reverse函数。
+   
+   使用一个指针lastVisited记录最后访问的节点，一个根节点被访问的前提是：无右子树或右子树已被访问过。
 
 # 时间复杂度：
   O(n) 
@@ -89,7 +91,49 @@ public:
     }
 };
 ```
-
+### 迭代
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if (root==NULL) return res;
+        stack<TreeNode*> s;
+        TreeNode* p = root;
+        TreeNode* lastVisited = NULL;
+        while(!s.empty() || p)
+        {
+            while(p)
+            {
+                s.push(p);
+                p = p->left;
+            }
+            p = s.top();
+            if (p->right == NULL || p->right == lastVisited)
+            {
+                res.push_back(p->val);
+                s.pop();
+                lastVisited = p;
+                p = NULL; // p 已经访问过了，没用了设置为NULL
+            }
+            else
+            {
+                p = p->right;
+            }
+        }
+        return res;
+    }
+};
+```
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Binary-Tree-Postorder-Traversal/Binary-Tree-Postorder-Traversal.py)
 ###  递归
 ```python
