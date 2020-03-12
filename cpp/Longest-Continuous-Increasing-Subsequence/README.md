@@ -90,4 +90,31 @@ public:
     }
 };
 ```
-
+### dp 精简版
+```c++
+class Solution {
+public:
+    int findLengthOfLCIS(vector<int>& nums) {
+        int n = nums.size();
+        if (n==0) return 0;
+        // 定义状态 dp[i] 表示区间 [0,i][0,i] 位置的最长连续上升子序列的长度。
+        vector<int> dp(n,0);
+        // 初始化状态
+        dp[0]=1;
+        int res = 0;
+        for (int i=1;i<n;i++)
+        {
+            // 状态转移方程：1. dp[i] = dp[i-1] + 1   2. dp[i] = 1;
+            if (nums[i] >nums[i-1])
+            {
+                dp[i] = dp[i-1] + 1;
+            }
+            else
+            {
+                res = max(res,dp[i]);
+            }
+        }
+        return res;
+    }
+};
+```
