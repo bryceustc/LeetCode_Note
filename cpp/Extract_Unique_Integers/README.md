@@ -75,7 +75,7 @@ int main()
   int n = str.size();
   for (int i=n-1;i>=0;i--)
   {
-    if (s.count(str[i])==0)
+    if (s.count(str[i])==0)  // count表示这个元素有还是没有，只会返回1或者0
     {
       res+=str[i];
       s.insert(str[i]);
