@@ -90,31 +90,45 @@ public:
     }
 };
 ```
+#### dp 优化版 其实我们dp时候每次只用到上一层数据,如果我们倒着,从底向上可以优化成O(n)空间的
+```c++
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        if (triangle.empty()) return 0;
+        vector<int> dp(n,0);
+        for (int i=0;i<n;i++)
+        {
+            dp[i] = triangle[n-1][i];
+        }
+        for (int i=n-2;i>=0;i--)
+        {
+            for (int j=0;j<i+1;j++)
+            {
+                dp[j] = min(dp[j], dp[j+1]) + triangle[i][j];
+            }
+        }
+        return dp[0];
+    }
+};
+```
 #### dp 精简版 O(1) 空间复杂度
 ```c++
 class Solution {
 public:
-    int minPathSum(vector<vector<int>>& grid) {
-        if (grid.empty()) return 0;
-        int m = grid.size();
-        int n = grid[0].size();
-        // 直接原数组上修改
-        for (int i=1;i<m;i++)
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        if (triangle.empty()) return 0;
+        // 自底向上 原数组上修改
+        for (int i=n-2;i>=0;--i)
         {
-            grid[i][0] += grid[i-1][0];
-        }
-        for (int j=1;j<n;j++)
-        {
-            grid[0][j] += grid[0][j-1];
-        }
-        for (int i=1;i<m;i++)
-        {
-            for (int j=1;j<n;j++)
+            for (int j=0;j<triangle[i].size();j++)
             {
-                grid[i][j] += min(grid[i-1][j],grid[i][j-1]);
+                triangle[i][j] += min(triangle[i+1][j], triangle[i+1][j+1]);
             }
         }
-        return grid[m-1][n-1];
+        return triangle[0][0];
     }
 };
 ```
