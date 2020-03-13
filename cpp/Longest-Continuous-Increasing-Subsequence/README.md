@@ -97,6 +97,7 @@ public:
     int findLengthOfLCIS(vector<int>& nums) {
         int n = nums.size();
         if (n==0) return 0;
+        if (n==1) return 1;
         // 定义状态 dp[i] 表示区间 [0,i]位置的最长连续上升子序列的长度。
         vector<int> dp(n,0);
         // 初始化状态
