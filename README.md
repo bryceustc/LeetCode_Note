@@ -68,6 +68,7 @@ LeetCode
 |60|[Permutation-Sequence](https://leetcode-cn.com/problems/permutation-sequence/)| [C++](./cpp/Permutation-Sequence/README.md), [Python](./python/Permutation-Sequence/Permutation-Sequence.py)|Medium|
 |61|[Rotate-List](https://leetcode-cn.com/problems/rotate-list/)| [C++](./cpp/Rotate-List/README.md), [Python](./python/Rotate-List/Rotate-List.py)|Medium|
 |62|[Unique-Paths](https://leetcode-cn.com/problems/unique-paths/)| [C++](./cpp/Unique-Paths/README.md), [Python](./cpp/Unique-Paths/README.md)|Medium|
+|64|[Minimum-Path-Sum](https://leetcode-cn.com/problems/minimum-path-sum/)| [C++](./cpp/Minimum-Path-Sum/README.md), [Python](./cpp/Minimum-Path-Sum/README.md)|Medium|
 |65|[Valid-Number](https://leetcode-cn.com/problems/valid-number/)| [C++](./cpp/Valid-Number/README.md), [Python](./python/Valid-Number/Valid-Number.py)|Hard|
 |70|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
