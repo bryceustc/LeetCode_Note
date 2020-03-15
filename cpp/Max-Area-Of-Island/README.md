@@ -21,12 +21,9 @@
   dfs
 
 # 时间复杂度：
-  O(n)
+  O(mn)
 # 空间复杂度
-  
-  1: O(1)
-  
-  2:O(n)
+O(mn) 递归的深度最大可能是整个网格的大小
   
 # 代码
 
@@ -34,57 +31,33 @@
 ```c++
 class Solution {
 public:
-    int uniquePathsWithObstacles(vector<vector<int>>& obstacleGrid) {
-        if (obstacleGrid.empty()) return 0;
-        int m = obstacleGrid.size();
-        int n = obstacleGrid[0].size();
-        if (obstacleGrid[0][0]==1) return 0;
-        // 定义状态
-        vector<vector<long>> dp(m,vector<long>(n,0));  // 要用long  不然会产生数据溢出
-        // 第一列
-        for (int i=0;i<m;i++)
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        if (grid.empty()) return 0;
+        int m = grid.size();
+        int n = grid[0].size();
+        int res = 0;
+        for (int i =0;i<m;i++)
         {
-            if (obstacleGrid[i][0]==1)
+            for (int j=0;j<n;j++)
             {
-                dp[i][0] = 0;
-                break;
-            }
-            else
-            {
-                dp[i][0] = 1;
-            }
-        }
-        // 第一行
-        for (int j=0;j<n;j++)
-        {
-            if (obstacleGrid[0][j]==1)
-            {
-                dp[0][j] = 0;
-                break;
-            }
-            else
-            {
-                dp[0][j] = 1;
-            }
-        }
-        // 状态方程
-        for (int i=1;i<m;i++)
-        {
-            for (int j=1;j<n;j++)
-            {
-                if (obstacleGrid[i][j]==0)
+                if (grid[i][j] == 1)
                 {
-                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
-                }
-                else
-                {
-                    dp[i][j] = 0;
+                    res = max(res, dfs(grid, i, j));
                 }
             }
         }
-        return dp[m-1][n-1];
+        return res;
+    }
+    int dfs (vector<vector<int>> &grid, int i, int j)
+    {
+        if (i<0 || i>=grid.size() || j<0 || j>=grid[0].size() || grid[i][j]==0)
+        {
+            return 0;
+        }
+        grid[i][j] = 0 ;  // 用过的土地置为0，不允许再用
+        int count = 1;
+        count += dfs(grid, i-1, j) + dfs(grid, i+1, j) + dfs(grid,i, j-1) + dfs(grid, i, j+1);
+        return count;
     }
 };
 ```
-
-
