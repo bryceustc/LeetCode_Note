@@ -141,7 +141,7 @@ LeetCode
 |1103&clubs;|[Distribute-Candies-To-People](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/)| [C++](./cpp/Distribute-Candies-To-People/README.md), [Python](./python/Distribute-Candies-To-People/Distribute-Candies-To-People.py)|Easy|
 |1360&hearts;|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
-|面试题01.06&clubs;|[字符串压缩]https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
+|面试题01.06&clubs;|[字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
 |面试题10&clubs;|[合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci/)| [C++](./cpp/Sorted-Merge-Lcci/README.md),[Python](./python/Sorted-Merge-Lcci/Sorted-Merge-Lcci.py)|Easy|
 |面试题57&clubs;|[和为s的连续正数序列   ](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/ContinuousSquenceWithSum/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/ContinuousSquenceWithSum/README.md)|Easy|
 |面试题59&clubs;|[队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/MaxQueue/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/MaxQueue/README.md)|Medium|
