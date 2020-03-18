@@ -30,7 +30,7 @@ ends:     <font color=Blue>3</font>    6    10    18
 
  
 # 时间复杂度：
-  O(n) 
+  O(nlogn) 
 # 空间复杂度
   O(n)
   
