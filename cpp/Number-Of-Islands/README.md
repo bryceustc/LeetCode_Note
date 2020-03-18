@@ -25,18 +25,42 @@
 ```
 
 # 解题思路:
-  直接模拟法
+  典型的dfs模板题，掌握
   
 # 代码
 
-###  模拟法
+###  dfs
 ```c++
 class Solution {
 public:
-    bool isRectangleOverlap(vector<int>& rec1, vector<int>& rec2) {
-        if (rec2[0]>=rec1[2] || rec2[1]>=rec1[3] || rec2[2]<=rec1[0] || rec2[3]<=rec1[1]) 
-            return false;
-        return true;
+    int numIslands(vector<vector<char>>& grid) {
+        if (grid.empty()) return 0;
+        int m = grid.size();
+        int n = grid[0].size();
+        int res = 0;
+        for (int i=0;i<m;i++)
+        {
+            for (int j=0;j<n;j++)
+            {
+                if (grid[i][j]=='1')
+                {
+                    dfs(grid,i,j);//(遍历所有相邻为1的网格，设为0) 整体为一个岛屿
+                    res++;
+                }
+            }
+        }
+        return res;
+    }
+
+    void dfs(vector<vector<char>> &grid, int i, int j)
+    {
+        if (i<0 || i>=grid.size() || j<0 || j>=grid[0].size() || grid[i][j] == '0')
+            return;
+        grid[i][j] = '0';
+        dfs(grid,i-1,j);
+        dfs(grid,i+1,j);
+        dfs(grid,i,j-1);
+        dfs(grid,i,j+1);
     }
 };
 ```
