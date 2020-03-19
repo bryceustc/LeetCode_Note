@@ -30,27 +30,26 @@ public:
     int longestPalindrome(string s) {
         if (s.empty()) return 0;
         int res = 0;
-        int mid = 0;  // 中心点
+        int mid = 0; 
         unordered_map<char,int> m;
-        set<char> st;
         for (char c: s)
         {
             m[c]++;
-            st.insert(c);
         }
-        for (char c :st)
+        for (auto p :m)
         {
+            char c = p.first;  // 选出元素
             if ((m[c]&1)==0)
             {
                 res+=m[c];
             }
             else
             {
-                res += m[c]-1; //如果某字符为奇数个，则丢弃1个，其余的使用在回文串里
-                mid = 1; //此时，标记回文串可以有中心点
+                res += m[c]-1;
+                mid = 1;
             }
         }
-        res += mid;
+        res += mid; // 结果为偶数部分的最大长度+中心字符
         return res;
     }
 };
