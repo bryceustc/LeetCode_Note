@@ -25,87 +25,36 @@
   
 # 代码
 
-###  
+###  dp
 ```c++
 class Solution {
 public:
-    string longestPalindrome(string s) {
-        int n = s.size();
-        if (n<2) return s;
-        int start =0;
-        int maxlen =1;
-        // 定义状态：dp[i][j]表示s[i,j]是否为回文子串
-        vector<vector<int>> dp(n,vector<int>(n,0));
-        // 初始状态 dp[i][i]=1
-        for (int i=0;i<n;i++)
+    int longestCommonSubsequence(string text1, string text2) {
+        if(text1.empty()||text2.empty()) return 0;
+        int m = text1.size();
+        int n = text2.size();
+        // 定义状态：dp[i][j]表示text1[0~i-1]和text2[0~j-1]的最长公共子序列长度
+        vector<vector<int>> dp(m+1,vector<int>(n+1,0));
+        // 任何一个字符串为0时都是零，建立dp数组的时候就完成了初始化
+        for (int i=1;i<=m;i++)
         {
-            dp[i][i] = 1;
-        }
-        for(int j=1;j<n;j++)
-        {
-            for (int i=0;i<j;i++)
+            for (int j=1;j<=n;j++)
             {
-                // 状态转移方程
-                if (s[i]==s[j])
+                // 状态转移方程：text1 的前 i-1 个字符与 text2 的前 j-1 个字符最长公共子序列加 1
+                if (text1[i-1]==text2[j-1])
                 {
-                    if ((j - 1) - (i + 1) + 1 < 2)
-                    {
-                        dp[i][j] = 1;
-                    }
-                    else
-                    {
-                        dp[i][j] = dp[i+1][j-1];
-                    }
+                    dp[i][j] = dp[i-1][j-1]+1;
                 }
                 else
                 {
-                    dp[i][j] = 0;
-                }
-
-                if (dp[i][j]==1) // 只要 dp[i][j] == 1 成立，就表示子串 s[i, j] 是回文，此时记录回文长度和起始位置
-                {
-                    if (maxlen<j-i+1)
-                    {
-                        maxlen = j-i+1;
-                        start=i;
-                    }
+                    // 不相等的时候，例如abc'e,abe'd,取abce和abe以及abc和abed的最大值
+                    dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
                 }
             }
         }
-        return s.substr(start, maxlen);
+        return dp[m][n];
     }
 };
 ```
-### 中心扩展(推荐)
-```c++
-class Solution {
-public:
-    string longestPalindrome(string s) {
-        int n = s.size();
-        if(n<2) return s;
-        string res;
-        int start = 0;
-        int maxlen = 0;
-        for (int i=0;i<n-1;i++)
-        {
-            findPalindrome(s,start,i,i,maxlen); // 奇数情况，i为中心
-            findPalindrome(s,start,i,i+1,maxlen); // 偶数情况，中间两个为中心
-        }
-        res = s.substr(start,maxlen);
-        return res;
-    }
-    void findPalindrome(string s, int &start, int left, int right, int &maxlen)
-    {
-        while(left>=0 && s[left] == s[right])
-        {
-            left--;
-            right++;
-        }
-        if (maxlen < (right-1)-(left+1)+1)
-        {
-            start = left+1;
-            maxlen = (right-1)-(left+1)+1;
-        }
-    }
-};
-```
+## 参考
+    - [题解讨论](https://leetcode-cn.com/problems/longest-common-subsequence/solution/jian-dan-yi-dong-zui-chang-gong-gong-zi-xu-lie-by-/)
