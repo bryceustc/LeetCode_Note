@@ -31,7 +31,7 @@
 ```
   
 # 解题思路:
-
+转换成01背包问题，求两堆石头的最小差值。由于石头总和为sum.则问题转换成了背包最多装sum / 2的石头,stones数组里有一大堆石头。求如何装能装下最多重量石头。
 
 # 时间复杂度：
 O(mn)
@@ -43,45 +43,44 @@ O(mn)
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <string>
 using namespace std;
 
-class Solution
-{
+class Solution{
     public:
-        long long test(int n, int m, vector<string> s, vector<int> scores)
+        int test(int n, vector<int> stones)
         {
-            long long res = 0;
-            for (int i=0;i<m;i++)
+            int sum = 0;
+            for (int stone:stones)
             {
-                vector<int> temp(5);  // 固定选项ABCDE，所以需要大小为5就可以。
-                for (int j=0;j<n;j++)
-                {
-                    temp[s[j][i]-'A']++;
-                }
-                int most_ans = *max_element(temp.begin(),temp.end());
-                res += most_ans*scores[i];
+                sum+=stone;
             }
-            return res;
+            int maxCapcity = sum/2;
+            vector<int> dp (maxCapcity+1,0);
+            for (int i=0;i<n;i++)
+            {
+                for (int j=maxCapcity;j>=stones[i];j--)
+                {
+                    dp[j] = max(dp[j], dp[j-stones[i]]+stones[i]);
+                }
+            }
+            return sum - 2*dp[maxCapcity];
         }
 };
 
 int main()
 {
-    int n,m;
-    cin >> n >> m;
-    vector<string> s(n);
-    vector<int> scores(m);
-    for (int i=0;i<n;i++)
+    int n;
+    cin >> n;
+    vector<int> stones(n);
+    for(int i=0;i<n;i++)
     {
-        cin >> s[i];
+        cin >> stones[i];
     }
-    for (int j=0;j<m;j++)
-    {
-        cin >> scores[j];
-    }
-    long long res = Solution().test(n,m,s,scores);
+    int res = Solution().test(n, stones);
     cout << res << endl;
     return 0;
 }
 ```
+## 参考
+  - [最后一块石头的重量 II](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Last-Stone-Weight-II/README.md)
+  - [题解](https://leetcode-cn.com/problems/last-stone-weight-ii/solution/dong-tai-gui-hua-bei-bao-wen-ti-xiang-jie-by-jiach/)
