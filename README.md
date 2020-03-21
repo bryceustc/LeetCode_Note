@@ -125,6 +125,7 @@ LeetCode
 |322&clubs;|[Coin-Change](https://leetcode-cn.com/problems/coin-change/)| [C++](./cpp/Coin-Change/README.md), [Python](./python/Coin-Change/Coin-Change.py)|Medium|
 |343|[Integer-Break](https://leetcode-cn.com/problems/integer-break/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/CuttingRope.py)|Medium|
 |354|[Russian-Doll-Envelopes](https://leetcode-cn.com/problems/russian-doll-envelopes/)| [C++](./cpp/Russian-Doll-Envelopes/README.md), [Python](./cpp/Russian-Doll-Envelopes/README.md)|Hard|
+|365&clubs;|[Water-And-Jug-Problem](https://leetcode-cn.com/problems/water-and-jug-problem/)| [C++](./cpp/Water-And-Jug-Problem/README.md), [Python](./cpp/Water-And-Jug-Problem/README.md)|Medium|
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
 |400|[Nth-Digit](https://leetcode-cn.com/problems/nth-digit/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/FindNthDigit/README.md), [Python](./python/Nth-Digit/Nth-Digit.py)|Meidum|
 |409&clubs;|[Longest-Palindrome](https://leetcode-cn.com/problems/longest-palindrome/)| [C++](./cpp/Longest-Palindrome/README.md), [Python](./cpp/Longest-Palindrome/README.md)|Easy|
