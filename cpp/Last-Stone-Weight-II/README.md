@@ -63,28 +63,23 @@ public:
 ```c++
 class Solution {
 public:
-    int lastStoneWeight(vector<int>& stones) {
-        int res = 0;
-        // 大顶堆
-        priority_queue<int, vector<int>> q;
-        for (int stone : stones)
+    int lastStoneWeightII(vector<int>& stones) {
+        int n = stones.size();
+        int sum = 0;
+        for (int stone: stones)
         {
-            q.push(stone);
+            sum+=stone;
         }
-        while(q.size()>1)
+        int maxCapcity = sum/2;
+        vector<int> dp(maxCapcity+1, 0);
+        for (int i=0;i<n;i++)
         {
-            int y = q.top();
-            q.pop();
-            int x = q.top();
-            q.pop();
-            if (x!=y)
+            for (int j = maxCapcity;j>=stones[i];j--)
             {
-                int z = y-x;
-                q.push(z);
+                dp[j] = max(dp[j], dp[j-stones[i]]+stones[i]);
             }
         }
-        if (!q.empty()) res = q.top();
-        return res;
+        return sum - 2*dp[maxCapcity];
     }
 };
 ```
