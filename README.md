@@ -156,4 +156,4 @@ LeetCode
 |笔试题1&clubs;|[提取不重复的整数](https://www.nowcoder.com/questionTerminal/253986e66d114d378ae8de2e6c4577c1?toCommentId=83316)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Extract_Unique_Integers)|Easy|
 |笔试题2&clubs;|[病毒检测](https://www.nowcoder.com/questionTerminal/6f0d16fc06274f44af8913d182668037)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Extract_Unique_Integers)|Medium|
 |笔试题3&clubs;|[考试成绩](https://www.nowcoder.com/questionTerminal/65429b39865a4d4a8fd11ea1c7bcb7ce)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Test_Calc_Score)|Medium|
-|笔试题4&clubs;|[病毒检测](https://www.nowcoder.com/questionTerminal/6f0d16fc06274f44af8913d182668037)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Extract_Unique_Integers)|Medium|
+|笔试题4&clubs;|[石头碰撞](https://www.nowcoder.com/questionTerminal/9dd19c9305704138bdf83e2dffdcb4f4)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Crash_Stones)|Medium|
