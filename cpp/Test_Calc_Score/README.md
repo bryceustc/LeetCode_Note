@@ -44,45 +44,46 @@ O(mn)
 ###  
 ```c++
 #include <iostream>
-#include <string>
 #include <vector>
-#include<algorithm>
+#include <algorithm>
+#include <string>
 using namespace std;
-class Solution{
+
+class Solution
+{
     public:
-        long long test(int n, int m, vector<string> s, vector<int> score)
+        long long test(int n, int m, vector<string> s, vector<int> scores)
         {
             long long res = 0;
             for (int i=0;i<m;i++)
             {
-                vector<int> temp(5);// ABCDE五个字母
+                vector<int> temp(5);  // 固定选项ABCDE，所以需要大小为5就可以。
                 for (int j=0;j<n;j++)
                 {
                     temp[s[j][i]-'A']++;
                 }
                 int most_ans = *max_element(temp.begin(),temp.end());
-                // sort(temp.begin(),temp.end());
-                // int most_ans = temp.back();
-                res+=most_ans*score[i];
+                res += most_ans*scores[i];
             }
             return res;
         }
 };
- 
+
 int main()
 {
-    int n;
-    int m;
+    int n,m;
     cin >> n >> m;
     vector<string> s(n);
-    for (int i = 0; i < n; i++)
+    vector<int> scores(m);
+    for (int i=0;i<n;i++)
     {
         cin >> s[i];
     }
-    vector<int>score(m);
-    for (int j = 0; j < m; j++)
-        cin >> score[j];
-    long long res = Solution().test(n,m,s,score);
+    for (int j=0;j<m;j++)
+    {
+        cin >> scores[j];
+    }
+    long long res = Solution().test(n,m,s,scores);
     cout << res << endl;
     return 0;
 }
