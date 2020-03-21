@@ -155,3 +155,5 @@ LeetCode
 |面试题59&clubs;|[队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/MaxQueue/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/MaxQueue/README.md)|Medium|
 |笔试题1&clubs;|[提取不重复的整数](https://www.nowcoder.com/questionTerminal/253986e66d114d378ae8de2e6c4577c1?toCommentId=83316)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Extract_Unique_Integers)|Easy|
 |笔试题2&clubs;|[病毒检测](https://www.nowcoder.com/questionTerminal/6f0d16fc06274f44af8913d182668037)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Extract_Unique_Integers)|Medium|
+|笔试题3&clubs;|[考试成绩](https://www.nowcoder.com/questionTerminal/65429b39865a4d4a8fd11ea1c7bcb7ce)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Test_Calc_Score)|Medium|
+|笔试题4&clubs;|[病毒检测](https://www.nowcoder.com/questionTerminal/6f0d16fc06274f44af8913d182668037)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/Extract_Unique_Integers)|Medium|
