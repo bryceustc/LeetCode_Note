@@ -64,7 +64,7 @@ public:
         if (A.empty()) return 0;
         int res = 0;
         // -1表示空位
-        vector<int> pos(80000, -1); 
+        vector<int> pos(80000, -1);   // 80000 是因为最坏情况是40000个40000
         // 遍历每个数字a对其寻地址得到位置b, b比a的增量就是操作数。
         for (int a: A)
         {
