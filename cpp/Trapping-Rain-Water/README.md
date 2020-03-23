@@ -14,7 +14,7 @@
   
 # 解题思路:
 
-  
+  着重理解单调栈的代码，此题就用单调栈来解决。
   
 
 # 时间复杂度：
@@ -227,28 +227,30 @@ public:
 class Solution {
 public:
     int trap(vector<int>& height) {
+        int n =height.size();
+        if (n<2) return 0;
+        stack<int> s;
         int res = 0;
-        int n = height.size();
-        int left = 1,right=n-2;
-        int max_left=0,max_right=0;
-        while (left <= right)
+        s.push(0);
+        int i=1;
+        while(i<n)
         {
-          if (height[left-1] < height[right+1])
-          {
-              max_left = max(max_left,height[left-1]);
-              int min_height = max_left;
-              if (min_height > height[left])
-                  res += min_height - height[left];
-              left++;
-          }
-          else
-          {
-              max_right = max(max_right,height[right+1]);
-              int min_height = max_right;
-              if (min_height > height[right])
-                  res += min_height - height[right];
-              right--;
-          }
+            if (s.empty() || height[i] < height[s.top()] )
+            {
+                s.push(i++);
+            }
+            else
+            {
+                    int t = s.top(); // t为最低点
+                    s.pop();
+                    if (s.empty())
+                    {
+                        continue;
+                    }
+                    int h = min(height[i], height[s.top()]) - height[t];
+                    int w = i-s.top()-1;
+                    res += h*w;
+                }
         }
         return res;
     }
