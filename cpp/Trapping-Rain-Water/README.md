@@ -227,30 +227,33 @@ public:
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int n =height.size();
+        int n = height.size();
         if (n<2) return 0;
-        stack<int> s;
         int res = 0;
-        s.push(0);
-        int i=1;
+        stack<int> s;
+        int i = 0;
         while(i<n)
         {
-            if (s.empty() || height[i] < height[s.top()] )
+            // 维护一个单调递减栈
+            if (s.empty() || height[i] < height[s.top()])
             {
                 s.push(i++);
             }
+            // else 说明s为空 或者 当前高度不满足单调递减了，可以存雨水了
             else
             {
-                    int t = s.top(); // t为最低点
-                    s.pop();
-                    if (s.empty())
-                    {
-                        continue;
-                    }
-                    int h = min(height[i], height[s.top()]) - height[t];
-                    int w = i-s.top()-1;
-                    res += h*w;
+                // 选出最低的一个
+                int t = s.top();
+                s.pop();
+                if (s.empty()) 
+                {
+                    continue;
                 }
+                // s.top()为次低的是左边界，height[i]为右边界，存水高度为高度差
+                int h = min(height[i], height[s.top()]) - height[t];
+                int w = i - s.top() - 1;
+                res += h*w;
+            }
         }
         return res;
     }
