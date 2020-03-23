@@ -139,6 +139,7 @@ LeetCode
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |836&clubs;|[Rectangle-Overlap](https://leetcode-cn.com/problems/rectangle-overlap/)| [C++](./cpp/Rectangle-Overlap/README.md), [Python](./cpp/Rectangle-Overlap/README.md)|Easy|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
+|876&clubs;|[Middle-Of-The-Linked-List](https://leetcode-cn.com/problems/middle-of-the-linked-list/)| [C++](./cpp/Middle-Of-The-Linked-List/README.md), [Python](./cpp/Middle-Of-The-Linked-List/README.md)|Easy|
 |945&clubs;|[Minimum-Increment-To-Make-Array-Unique](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/)| [C++](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md), [Python](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md)|Medium|
 |946|[Validate-Stack-Sequences](https://leetcode-cn.com/problems/validate-stack-sequences/)| [C++](./cpp/Validate-Stack-Sequences/README.md), [Python](./python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)|Medium|
 |994&clubs;|[Rotting-Oranges](https://leetcode-cn.com/problems/rotting-oranges/)| [C++](./cpp/Rotting-Oranges/README.md), [Python](./python/Rotting-Oranges/Rotting-Oranges.py)|Medium|
