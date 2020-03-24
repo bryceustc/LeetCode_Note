@@ -26,20 +26,20 @@
   $$
   
   3. 初始状态：
-  
+  ```
   dp[0][0] = 0;  dp[0][1] = nums[0];
-  
+  ```
   4. 返回结果：
-   
+   ```
    res = max(dp[n-1][0], dp[n-1][1]);
-   
+   ```
    5. 考虑状态压缩：
    ```
    int tdp_0 = max(dp_0, dp_1);
    tdp_1 = dp_0 + nums[i];
    dp_0 = tdp_0;
    dp_1 = tdp_1;
-    ```
+   ```
 # 时间复杂度：
   O(n)
 # 空间复杂度
@@ -76,26 +76,24 @@ public:
     }
 };
 ```
-###  双指针
+###  dp考虑状态压缩
 ```c++
 class Solution {
 public:
-    string compressString(string S) {
-        if (S.empty()) return "";
-        int n = S.size();
-        string res;
-        int i = 0, j = 0;
-        while(i<n)
+    int massage(vector<int>& nums) {
+        if (nums.empty()) return 0;
+        int n = nums.size();
+        if (n==1) return nums[0];
+        int dp_0 = 0;
+        int dp_1 = nums[0];
+        for (int i=1;i<n;i++)
         {
-            while (j<n && S[j]==S[i])
-            {
-                j++;
-            }
-            res += S[i];
-            res += to_string(j-i);
-            i = j;
+            int tdp_0 = max(dp_0, dp_1);
+            int tdp_1 = dp_0 + nums[i];
+            dp_0 = tdp_0;
+            dp_1 = tdp_1;
         }
-        return res.size()>=n?S:res;
+        return max(dp_0, dp_1);
     }
 };
 ```
