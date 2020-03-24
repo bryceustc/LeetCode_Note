@@ -102,5 +102,5 @@ public:
 ```
 ### 参考
   - [按摩师](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/The-Masseuse-Lcci/README.md)
-  - [打家劫舍II]()
-  - [打家劫舍III]()
+  - [打家劫舍II](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/House-Robber-II)
+  - [打家劫舍III](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/House-Robber-III)
