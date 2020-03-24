@@ -31,98 +31,126 @@
 ```
 
 # 解题思路:
-  动态规划：
+   递归
+
+  树形动态规划：
   
-  此题与198题打家劫舍类似，不过房间构成了一个环，我们需要把环拆成两个队列，一个是从0到n-1，另一个是从1到n，然后返回两个结果最大的。用两遍198题的方法就可以。
-  
-  1. 定义状态：dp[i][j]，表示前i间房子中，状态为j(0/1)的最大金钱数。0为不偷当前房屋，1为偷当前房屋
-  
-  2. 状态转移方程：
-  $$
-   dp[i][0] = max(dp[i-1][0], dp[i-1][1]);   
-   dp[i][1] = dp[i-1][0] + nums[i];
-  $$
-  
-  3. 初始状态：
-  ```
-  dp[0][0] = 0;  dp[0][1] = nums[0];
-  ```
-  4. 返回结果：
-   ```
-   res = max(dp[n-1][0], dp[n-1][1]);
-   ```
-   5. 考虑状态压缩：
-   ```
-   int tdp_0 = max(dp_0, dp_1);
-   tdp_1 = dp_0 + nums[i];
-   dp_0 = tdp_0;
-   dp_1 = tdp_1;
-   ```
+  每个节点可选择偷或者不偷两种状态，根据题目意思，相连节点不能一起偷
+
+   - 当前节点选择偷时，那么两个孩子节点就不能选择偷了
+   - 当前节点选择不偷时，两个孩子节点只需要拿最多的钱出来就行(两个孩子节点偷不偷没关系)
+   
+我们使用一个大小为2的数组来表示vector<int> res(2)  0代表不偷，1代表偷
+
+任何一个节点能偷到的最大钱的状态可以定义为
+
+   - 当前节点选择不偷: 当前节点能偷到的最大钱数 = 左孩子能偷到的钱 + 右孩子能偷到的钱
+   - 当前节点选择偷: 当前节点能偷到的最大钱数 = 左孩子选择自己不偷时能得到的钱 + 右孩子选择不偷时能得到的钱 + 当前节点的钱数
+公式如下
+```
+        res[0] = max(left[0], left[1]) + max(right[0], right[1]);
+        res[1] = left[0] + right[0] + root->val;
+```
 # 时间复杂度：
   O(n)
 # 空间复杂度
-  1: O(n)
-  
-  2: O(1)
+  O(n)
   
 # 代码
-### dp
+### 递归超时
 ```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+ 
 class Solution {
 public:
-    int rob(vector<int>& nums) {
-        if(nums.empty()) return 0;
-        int n = nums.size();
-        if (n==1) return nums[0];
-        vector<vector<int>> dp1(n-1, vector<int>(2,0));
-        vector<vector<int>> dp2(n, vector<int>(2,0));
-        dp1[0][0] = 0; dp1[0][1] = nums[0];
-        dp2[1][0] = 0; dp2[1][1] = nums[1];
-        for (int i=1;i<n-1;i++)
+    int rob(TreeNode* root) {
+        if(root==NULL) return 0;
+        int res1 = root->val;
+        if (root->left)
         {
-            dp1[i][0] = max(dp1[i-1][0], dp1[i-1][1]);
-            dp1[i][1] = dp1[i-1][0] + nums[i];
+            res1+= (rob(root->left->left) + rob(root->left->right));
         }
-        int res1 = max(dp1[n-2][0], dp1[n-2][1]);
-        for (int i=2;i<n;i++)
+        if (root->right)
         {
-            dp2[i][0] = max(dp2[i-1][0], dp2[i-1][1]);
-            dp2[i][1] = dp2[i-1][0] + nums[i];
+            res1+=(rob(root->right->left) + rob(root->right->right));
         }
-        int res2 = max(dp2[n-1][0], dp2[n-1][1]);
+        int res2  = 0;
+        res2 = rob(root->left) + rob(root->right);
+        //  4个孙子偷的钱 + 爷爷的钱 VS 两个儿子偷的钱 哪个组合钱多，就当做当前节点能偷的最大钱数
         return max(res1, res2);
     }
 };
 ```
-###  dp简化版
+###  递归优化 
 ```c++
+/**
+爷爷在计算自己能偷多少钱的时候，同时计算了4个孙子能偷多少钱，
+也计算了2个儿子能偷多少钱。这样在儿子当爷爷时，就会产生重复计算一遍孙子节点。所以上述情况会超时
+ */
 class Solution {
 public:
-    int rob(vector<int>& nums) {
-        if (nums.empty()) return 0;
-        int n = nums.size();
-        if (n==1) return nums[0];
-        int dp1_0 = 0;
-        int dp1_1 = nums[0];
-        int dp2_0 = 0;
-        int dp2_1 = nums[1];
-        for (int i=1;i<n-1;i++)
+    int rob(TreeNode* root) {
+        // 使用哈希表进行缓存数据
+        unordered_map<TreeNode*, int> m;
+        return helper(root, m);
+    }
+    int helper(TreeNode* root, unordered_map<TreeNode*, int> &m) // 注意加&
+    {
+        if (root==NULL) return 0;
+        cout << m.count(root) << endl;
+        if (m.count(root)) 
+            return m[root];
+        int res1 = root->val;
+        if (root->left)
         {
-            int tdp1_0 = max(dp1_0, dp1_1);
-            int tdp1_1 = dp1_0 + nums[i];
-            dp1_0 = tdp1_0;
-            dp1_1 = tdp1_1;
+            res1+= (helper(root->left->left, m) + helper(root->left->right, m));
         }
-        int res1 = max(dp1_0, dp1_1);
-        for (int i=1;i<n-1;i++)
+        if (root->right)
         {
-            int tdp2_0 = max(dp2_0, dp2_1);
-            int tdp2_1 = dp2_0 + nums[i+1];
-            dp2_0 = tdp2_0;
-            dp2_1 = tdp2_1;
+            res1+= (helper(root->right->left, m) + helper(root->right->right, m));
         }
-        int res2 = max(dp2_0, dp2_1);
-        return max(res1, res2);
+        int res2 = helper(root->left, m) + helper(root->right, m);
+        int res = max(res1, res2);
+        m[root] = res;
+        return res;
+    }
+};
+```
+### 树形dp法
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    int rob(TreeNode* root) {
+        vector<int> res = helper(root);
+        // res
+        return max(res[0], res[1]);
+    }
+    vector<int> helper (TreeNode* root)
+    {
+        vector<int> res (2,0);
+        if (root==NULL) return res;
+        vector<int> left = helper(root->left);
+        vector<int> right = helper(root->right);
+        res[0] = max(left[0], left[1]) + max(right[0], right[1]);
+        res[1] = left[0] + right[0] + root->val;
+        return res;
     }
 };
 ```
