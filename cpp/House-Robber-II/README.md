@@ -56,52 +56,59 @@
 ```c++
 class Solution {
 public:
-    int massage(vector<int>& nums) {
-        if (nums.empty()) return 0;
+    int rob(vector<int>& nums) {
+        if(nums.empty()) return 0;
         int n = nums.size();
         if (n==1) return nums[0];
-        int res = 0;
-        // 定义状态: dp[i][j]，dp[i][j]，表示前i间房子中，状态为j(0/1)的最大金钱数。0为不偷当前房屋，1为偷当前房屋
-        vector<vector<int>> dp(n, vector<int> (2,0));
-        // 初始状态
-        dp[0][0] = 0;
-        dp[0][1] = nums[0];
-        for (int i=1;i<n;i++)
+        vector<vector<int>> dp1(n-1, vector<int>(2,0));
+        vector<vector<int>> dp2(n, vector<int>(2,0));
+        dp1[0][0] = 0; dp1[0][1] = nums[0];
+        dp2[1][0] = 0; dp2[1][1] = nums[1];
+        for (int i=1;i<n-1;i++)
         {
-            // 状态转移方程
-            // 当前房间不偷，可以是上一间房没有偷，也可以是上一间房偷了今天不能偷
-            dp[i][0] = max(dp[i-1][0], dp[i-1][1]);
-            // 当前房间要偷，那就是上一间房没有偷
-            dp[i][1] = dp[i-1][0] + nums[i];
+            dp1[i][0] = max(dp1[i-1][0], dp1[i-1][1]);
+            dp1[i][1] = dp1[i-1][0] + nums[i];
         }
-        // 返回结果
-        res = max(dp[n-1][0], dp[n-1][1]);
-        return res;
+        int res1 = max(dp1[n-2][0], dp1[n-2][1]);
+        for (int i=2;i<n;i++)
+        {
+            dp2[i][0] = max(dp2[i-1][0], dp2[i-1][1]);
+            dp2[i][1] = dp2[i-1][0] + nums[i];
+        }
+        int res2 = max(dp2[n-1][0], dp2[n-1][1]);
+        return max(res1, res2);
     }
 };
 ```
-###  dp考虑状态压缩
+###  dp简化版
 ```c++
 class Solution {
 public:
-    int massage(vector<int>& nums) {
+    int rob(vector<int>& nums) {
         if (nums.empty()) return 0;
         int n = nums.size();
         if (n==1) return nums[0];
-        int dp_0 = 0;
-        int dp_1 = nums[0];
-        for (int i=1;i<n;i++)
+        int dp1_0 = 0;
+        int dp1_1 = nums[0];
+        int dp2_0 = 0;
+        int dp2_1 = nums[1];
+        for (int i=1;i<n-1;i++)
         {
-            int tdp_0 = max(dp_0, dp_1);
-            int tdp_1 = dp_0 + nums[i];
-            dp_0 = tdp_0;
-            dp_1 = tdp_1;
+            int tdp1_0 = max(dp1_0, dp1_1);
+            int tdp1_1 = dp1_0 + nums[i];
+            dp1_0 = tdp1_0;
+            dp1_1 = tdp1_1;
         }
-        return max(dp_0, dp_1);
+        int res1 = max(dp1_0, dp1_1);
+        for (int i=1;i<n-1;i++)
+        {
+            int tdp2_0 = max(dp2_0, dp2_1);
+            int tdp2_1 = dp2_0 + nums[i+1];
+            dp2_0 = tdp2_0;
+            dp2_1 = tdp2_1;
+        }
+        int res2 = max(dp2_0, dp2_1);
+        return max(res1, res2);
     }
 };
 ```
-### 参考
-  - [按摩师](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/The-Masseuse-Lcci/README.md)
-  - [打家劫舍II]()
-  - [打家劫舍III]()
