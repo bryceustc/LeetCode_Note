@@ -63,7 +63,82 @@ LeetCode
 |55|[Jump-Game](https://leetcode-cn.com/problems/jump-game/)| [C++](./cpp/Jump-Game/README.md), [Python](./python/Jump-Game/Jump-Game.py)|Medium|
 |56|[Merge-Intervals](https://leetcode-cn.com/problems/merge-intervals/)| [C++](./cpp/Merge-Intervals/README.md), [Python](./python/Merge-Intervals/Merge-Intervals.py)|Medium|
 |57|[Insert-Intervals](https://leetcode-cn.com/problems/insert-interval/)| [C++](./cpp/Insert-Intervals/README.md), [Python](./python/Insert-Intervals/Insert-Intervals.py)|Hard|
+|58|[Length-Of-Last-Word](https://leetcode-cn.com/problems/length-of-last-word/)| [C++](./cpp/Length-Of-Last-Word/README.md), [Python](./python/
+53
+|42|[Trapping-Rain-Water](https://leetcode-cn.com/problems/trapping-rain-water/)| [C++](./cpp/Trapping-Rain-Water/README.md), [Python](./python/Trapping-Rain-Water/Trapping-Rain-Water.py)|Hard|
+54
+|43|[Multiply-Strings](https://leetcode-cn.com/problems/multiply-strings/)| [C++](./cpp/Multiply-Strings/README.md), [Python](./python/Multiply-Strings/Multiply-Strings.py)|Medium|
+55
+|44|[Wildcard-Matching](https://leetcode-cn.com/problems/wildcard-matching/)| [C++](./cpp/Wildcard-Matching/README.md), [Python](./python/Wildcard-Matching/Wildcard-Matching.py)|Hard|
+56
+|46|[Permutations](https://leetcode-cn.com/problems/permutations/)| [C++](./cpp/Permutations/README.md), [Python](./python/Permutations/Permutations.py)|Medium|
+57
+|47|[Permutations-II](https://leetcode-cn.com/problems/permutations-ii/)| [C++](./cpp/Permutations-II/README.md), [Python](./python/Permutations-II/Permutations-II.py)|Medium|
+58
+|48|[Rotate-Image](https://leetcode-cn.com/problems/rotate-image/)| [C++](./cpp/Rotate-Image/README.md), [Python](./python/Rotate-Image/Rotate-Image.py)|Medium|
+59
+|49|[Group-Anagrams](https://leetcode-cn.com/problems/group-anagrams/)| [C++](./cpp/Group-Anagrams/README.md), [Python](./python/Group-Anagrams/Group-Anagrams.py)|Medium|
+60
+|50|[PowX-N](https://leetcode-cn.com/problems/powx-n/)| [C++](./cpp/PowX-N/README.md), [Python](./python/PowX-N/PowX-N.py)|Medium|
+61
+|53|[Maximum-Subarray](https://leetcode-cn.com/problems/maximum-subarray/)| [C++](./cpp/Maximum-Subarray/README.md), [Python](./python/Maximum-Subarray/Maximum-Subarray.py)|Easy|
+62
+|54|[Spiral-Matrix](https://leetcode-cn.com/problems/spiral-matrix/)| [C++](./cpp/Spiral-Matrix/README.md), [Python](./python/Spiral-Matrix/Spiral-Matrix.py)|Medium|
+63
+|55|[Jump-Game](https://leetcode-cn.com/problems/jump-game/)| [C++](./cpp/Jump-Game/README.md), [Python](./python/Jump-Game/Jump-Game.py)|Medium|
+64
+|56|[Merge-Intervals](https://leetcode-cn.com/problems/merge-intervals/)| [C++](./cpp/Merge-Intervals/README.md), [Python](./python/Merge-Intervals/Merge-Intervals.py)|Medium|
+65
+|57|[Insert-Intervals](https://leetcode-cn.com/problems/insert-interval/)| [C++](./cpp/Insert-Intervals/README.md), [Python](./python/Insert-Intervals/Insert-Intervals.py)|Hard|
+66
 |58|[Length-Of-Last-Word](https://leetcode-cn.com/problems/length-of-last-word/)| [C++](./cpp/Length-Of-Last-Word/README.md), [Python](./python/Length-Of-Last-Word/Length-Of-Last-Word.py)|Easy|
+67
+|59|[Spiral-Matrix-II](https://leetcode-cn.com/problems/spiral-matrix-ii/)| [C++](./cpp/Spiral-Matrix-II/README.md), [Python](./python/Spiral-Matrix-II/Spiral-Matrix-II.py)|Medium|
+68
+|60|[Permutation-Sequence](https://leetcode-cn.com/problems/permutation-sequence/)| [C++](./cpp/Permutation-Sequence/README.md), [Python](./python/Permutation-Sequence/Permutation-Sequence.py)|Medium|
+69
+|61|[Rotate-List](https://leetcode-cn.com/problems/rotate-list/)| [C++](./cpp/Rotate-List/README.md), [Python](./python/Rotate-List/Rotate-List.py)|Medium|
+70
+|62|[Unique-Paths](https://leetcode-cn.com/problems/unique-paths/)| [C++](./cpp/Unique-Paths/README.md), [Python](./cpp/Unique-Paths/README.md)|Medium|
+71
+|63|[Unique-Paths-II](https://leetcode-cn.com/problems/unique-paths-ii/)| [C++](./cpp/Unique-Paths-II/README.md), [Python](./cpp/Unique-Paths-II/README.md)|Medium|
+72
+|64|[Minimum-Path-Sum](https://leetcode-cn.com/problems/minimum-path-sum/)| [C++](./cpp/Minimum-Path-Sum/README.md), [Python](./cpp/Minimum-Path-Sum/README.md)|Medium|
+73
+|65|[Valid-Number](https://leetcode-cn.com/problems/valid-number/)| [C++](./cpp/Valid-Number/README.md), [Python](./python/Valid-Number/Valid-Number.py)|Hard|
+74
+|70|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
+75
+|74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
+76
+|79|[Word-Search](https://leetcode-cn.com/problems/word-search/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/StringPathInMatrix.py)|Medium|
+77
+|82|[Remove-Duplicates-From-Sorted-List-II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List-II/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List-II/Remove-Duplicates-From-Sorted-List-II.py)|Medium|
+78
+|83|[Remove-Duplicates-From-Sorted-List](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List/Remove-Duplicates-From-Sorted-List.py)|Easy|
+79
+|94|[Binary-Tree-Inorder-Traversal](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)| [C++](./cpp/Binary-Tree-Inorder-Traversal/README.md), [Python](./python/Binary-Tree-Inorder-Traversal/Binary-Tree-Inorder-Traversal.py)|Medium|
+80
+|101|[Symmetric-Tree](https://leetcode-cn.com/problems/symmetric-tree/)| [C++](./cpp/Symmetric-Tree/README.md), [Python](./python/Symmetric-Tree/Symmetric-Tree.py)|Easy|
+81
+|102|[Binary-Tree-Level-Order-Traversal](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)| [C++](./cpp/Binary-Tree-Level-Order-Traversal/README.md), [Python](./python/Binary-Tree-Level-Order-Traversal/Binary-Tree-Level-Order-Traversal.py)|Medium|
+82
+|103|[Binary-Tree-Zigzag-Level-Order-Traversal](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)| [C++](./cpp/Binary-Tree-Zigzag-Level-Order-Traversal/README.md), [Python](./python/Binary-Tree-Zigzag-Level-Order-Traversal/Binary-Tree-Zigzag-Level-Order-Traversal.py)|Medium|
+83
+|104|[Maximum-Depth-Of-Binary-Tree](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)| [C++](./cpp/Maximum-Depth-Of-Binary-Tree/README.md), [Python](./python/Maximum-Depth-Of-Binary-Tree/Maximum-Depth-Of-Binary-Tree.py)|Easy|
+84
+|105|[Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)| [C++](./cpp/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal/README.md), [Python](./python/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal/Construct-Binary-Tree-From-Preorder-And-Inorder-Traversal.py)|Medium|
+85
+|106|[Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)| [C++](./cpp/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal/README.md), [Python](./python/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal/Construct-Binary-Tree-From-Ineorder-And-Postorder-Traversal.py)|Medium|
+86
+|110|[Balanced-Binary-Tree](https://leetcode-cn.com/problems/balanced-binary-tree/)| [C++](./cpp/Balanced-Binary-Tree/README.md), [Python](./python/Balanced-Binary-Tree/Balanced-Binary-Tree.py)|Easy|
+87
+|112|[Path-Sum](https://leetcode-cn.com/problems/path-sum/)| [C++](./cpp/Path-Sum/README.md), [Python](./python/Path-Sum/Path-Sum.py)|Easy|
+88
+|113|[Path-Sum-II](https://leetcode-cn.com/problems/path-sum-ii/)| [C++](./cpp/Path-Sum-II/README.md), [Python](./python/Path-Sum-II/Path-Sum-II.py)|Medium|
+89
+|120|[Triangle](https://leetcode-cn.com/problems/triangle/)| [C++](./cpp/Triangle/README.md), [Python](./cpp/Triangle/README.md)|Meidum|
+Length-Of-Last-Word/Length-Of-Last-Word.py)|Easy|
 |59|[Spiral-Matrix-II](https://leetcode-cn.com/problems/spiral-matrix-ii/)| [C++](./cpp/Spiral-Matrix-II/README.md), [Python](./python/Spiral-Matrix-II/Spiral-Matrix-II.py)|Medium|
 |60|[Permutation-Sequence](https://leetcode-cn.com/problems/permutation-sequence/)| [C++](./cpp/Permutation-Sequence/README.md), [Python](./python/Permutation-Sequence/Permutation-Sequence.py)|Medium|
 |61|[Rotate-List](https://leetcode-cn.com/problems/rotate-list/)| [C++](./cpp/Rotate-List/README.md), [Python](./python/Rotate-List/Rotate-List.py)|Medium|
@@ -156,6 +231,7 @@ LeetCode
 |5178&hearts;|[Four-Divisors](https://leetcode-cn.com/problems/four-divisors/)| [C++](./cpp/Four-Divisors/README.md)|Medium|
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
 |面试题01.06&clubs;|[字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
+|面试题17.06&clubs;|[按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci/)| [C++](./cpp/The-Masseuse-Lcci/README.md),[Python](./cpp/The-Masseuse-Lcci)|Easy|
 |面试题40&clubs;|[最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/KLeastNumbers/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/KLeastNumbers/README.md)|Easy|
 |面试题10&clubs;|[合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci/)| [C++](./cpp/Sorted-Merge-Lcci/README.md),[Python](./python/Sorted-Merge-Lcci/Sorted-Merge-Lcci.py)|Easy|
 |面试题57&clubs;|[和为s的连续正数序列   ](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/ContinuousSquenceWithSum/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/ContinuousSquenceWithSum/README.md)|Easy|
