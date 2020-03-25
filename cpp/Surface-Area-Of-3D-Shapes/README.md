@@ -60,3 +60,45 @@ public:
 };
 ```
 
+表面积 = 立方体个数×6 − 三种重叠部分的数量×2
+### 方法二：
+```c++
+class Solution {
+public:
+    int surfaceArea(vector<vector<int>>& grid) {
+        int n = grid.size();
+        // 总的单位立方体的个数
+        int sum = 0;
+        // 垂直重叠
+        int verticalOverlap = 0;
+        // 行重叠
+        int rowOverlap = 0;
+        // 列重叠
+        int colOverlap = 0;
+        for (int i=0;i<n;i++)
+        {
+            for (int j=0;j<n;j++)
+            {
+                
+                sum += grid[i][j];
+                if (grid[i][j]>0)
+                {
+                    verticalOverlap += grid[i][j] - 1;
+                }
+                if (i>0)
+                {
+                    rowOverlap += min(grid[i][j], grid[i-1][j]);
+                }
+                if (j>0)
+                {
+                    colOverlap += min(grid[i][j], grid[i][j-1]);
+                }
+            }
+        }
+        int res = sum*6 - (verticalOverlap + rowOverlap + colOverlap)*2;
+        return res;
+    }
+};
+```
+### 参考：
+   - [方法二详细题解](https://leetcode-cn.com/problems/surface-area-of-3d-shapes/solution/hua-tu-ji-suan-san-ge-zhong-die-bu-fen-by-liweiwei/)
