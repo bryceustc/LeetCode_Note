@@ -161,6 +161,7 @@ LeetCode
 |1103&clubs;|[Distribute-Candies-To-People](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/)| [C++](./cpp/Distribute-Candies-To-People/README.md), [Python](./python/Distribute-Candies-To-People/Distribute-Candies-To-People.py)|Easy|
 |1143|[Longest-Common-Subsequence](https://leetcode-cn.com/problems/longest-common-subsequence/)| [C++](./cpp/Longest-Common-Subsequence/README.md), [Python](./cpp/Longest-Common-Subsequence/README.md)|Medium|
 |1160&clubs;|[Find-Words-That-Can-Be-Formed-By-Characters](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/)| [C++](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md), [Python](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md)|Easy|
+|1162&clubs;|[As-Far-From-Land-As-Possible](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)| [C++](./cpp/As-Far-From-Land-As-Possible/README.md), [Python](./cpp/As-Far-From-Land-As-Possible/README.md)|Medium|
 |1360&hearts;|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
 |5178&hearts;|[Four-Divisors](https://leetcode-cn.com/problems/four-divisors/)| [C++](./cpp/Four-Divisors/README.md)|Medium|
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
