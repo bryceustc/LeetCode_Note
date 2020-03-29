@@ -1,6 +1,6 @@
 LeetCode
 ========
-自己刷LeetCode整理的一些题解笔记，每道题都基本用了两种语言实现，C++和Python，有什么错误欢迎指出，目标所有Easy和Medium题以及部分Hard题。
+自己刷LeetCode整理的一些题解笔记，有什么错误欢迎指出。
 
 带&hearts;为竞赛题，用c++实现
 
