@@ -2,9 +2,9 @@ LeetCode
 ========
 自己刷LeetCode整理的一些题解笔记，有什么错误欢迎指出。
 
-带&hearts;为竞赛题，用c++实现
+带&hearts;为一些周赛题
 
-带&clubs;为力扣2020.3.1开始的每日一题打卡，高频试题
+带&clubs;为力扣2020.3.1开始的每日一题打卡
 ### LeetCode 题解（C++，Python实现）（持续更新中...）
 
 | # | Title | Solution | Difficulty 
