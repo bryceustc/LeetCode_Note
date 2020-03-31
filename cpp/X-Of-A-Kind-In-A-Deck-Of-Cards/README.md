@@ -36,13 +36,13 @@
   O(n)
 # 代码
 
-### 排序
+### 哈希
 ```c++
 class Solution {
 public:
     bool hasGroupsSizeX(vector<int>& deck) {
         if (deck.size() < 2) return false;
-        // 可以用数组
+        // 可以用数组，因为都为小写字母
         unordered_map<int, int> m;
         for (int a : deck)
         {
