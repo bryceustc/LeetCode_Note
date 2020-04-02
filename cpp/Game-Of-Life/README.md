@@ -12,23 +12,16 @@
 根据当前状态，写一个函数来计算面板上所有细胞的下一个（一次更新后的）状态。下一个状态是通过将上述规则同时应用于当前状态下的每个细胞所形成的，其中细胞的出生和死亡是同时发生的。
 
 # 解题思路:
-用dp[i] 来表示组成i块钱，需要最少的硬币数，那么
 
-1. 第j个硬币我可以选择不拿 这个时候， 硬币数 = dp[i]
+直接根据规则更新原始数组，那么就做不到题目中说的 同步 更新。假设你直接将更新后的细胞状态填入原始数组，那么当前轮次其他细胞状态的更新就会引用到当前轮已更新细胞的状态，但实际上每一轮更新需要依赖上一轮细胞的状态，是不能用这一轮的细胞状态来更新的。
 
-2. 第j个硬币我可以选择拿 这个时候， 硬币数 = dp[i - coins[j]] + 1
-
-  - 和背包问题不同， 硬币是可以拿任意个
-
-  - 对于每一个 dp[i] 我们都选择遍历一遍 coin， 不断更新 dp[i]
-
-PS：为啥 dp 数组初始化为 amount + 1 呢，因为凑成 amount 金额的硬币数最多只可能等于 amount（全用 1 元面值的硬币），所以初始化为 amount + 1 就相当于初始化为正无穷，便于后续取最小值。
+![](https://pic.leetcode-cn.com/Figures/289/Game_of_life_3.png)
 
 
 # 时间复杂度：
-  O(kn) 子问题总数不会超过金额数 n，即子问题数目为 O(n)。处理一个子问题的时间不变，仍是 O(k)，所以总的时间复杂度是 O(kn)。k 为coins种类数
+  O(mn) 
 # 空间复杂度
-  O(kn)
+  O(1) 原地修改空间复杂度为O(1)
   
 # 代码
 
@@ -37,30 +30,72 @@ PS：为啥 dp 数组初始化为 amount + 1 呢，因为凑成 amount 金额的
 ```c++
 class Solution {
 public:
-    int coinChange(vector<int>& coins, int amount) {
-        int res = -1;
-        vector<int> dp(amount+1, amount+1);
-        dp[0] = 0;
-        int n = dp.size();
-        for (int i = 0;i<n;i++)
+    void gameOfLife(vector<vector<int>>& board) {
+        /*
+        利用一个 two bits 的状态机来记录细胞状态, 第一位表示
+        下一状态, 第二位表示当前状态:
+        00: dead (next state) <- dead (current state)
+        01: dead (next state) <- live (current state) 
+        10: live (next state) <- dead (current state)
+        11: live (next state) <- live (current state) 
+        初始情况对应就是 00 和 01 (默认下一状态是 dead state)
+        统计每个位置周围的 live 细胞数决定高位置 1 (live)还是 
+        0 (dead), 最后右移一位即为最终状态, 注意不需要考虑 01
+        以及 00 的情况, 因为已经默认下一状态为 dead.
+        */
+        int m = board.size();
+        int n = board[0].size();
+        if (m<1) return;
+        for (int i=0;i<m;i++)
         {
-            for (int coin : coins)
+            for (int j=0;j<n;j++)
             {
-                // 只有i>coin(面值)的时候才有解
-                if (i - coin < 0)
+                int lives = helper(board,i,j);
+                // live -> live 规则2
+                if ((board[i][j]&1)==1)
                 {
-                    continue;
+                    if (lives>=2 && lives <=3)
+                    {
+                        board[i][j]=3;
+                    }
+                    // 周围活细胞过多或过少都会死，因为原数据是01，所以这里不用额外赋值。
                 }
-                dp[i] = min(dp[i], 1+dp[i-coin]);
+                //  dead -> live 规则4
+                else
+                {
+                    if (lives == 3)
+                    {
+                        board[i][j]=2;
+                    }
+                }
             }
         }
-        if (dp[amount] == amount+1)
-            return -1;
-        else
-            res = dp[amount];
-        return res;
+        // 重置矩阵
+        for (int i=0; i<m;i++)
+        {
+            for (int j=0; j<n;j++)
+            {
+                // 右移一位
+                board[i][j]>>=1;
+            }
+        }
     }
+    int helper(vector<vector<int>> &board, int i, int j)
+    {
+        int count = 0;
+        for (int k=0;k<8;k++)
+        {
+            int x = i + dx[k];
+            int y = j + dy[k];
+            if (x<0 || x>=board.size() || y<0 || y>=board[0].size()) continue;
+            count += (board[x][y] & 1);
+        }
+        return count;
+    }
+private:
+    vector<int> dx {1, -1, 0, 0, 1, -1, 1, -1};
+    vector<int> dy {0, 0, 1, -1, 1, -1, -1, 1};
 };
 ```
 ## 参考
-  - [题解讨论](https://leetcode-cn.com/problems/coin-change/solution/dong-tai-gui-hua-suan-fa-si-xiang-by-hikes/)
+  - [题解讨论](https://leetcode-cn.com/problems/game-of-life/solution/sheng-ming-you-xi-by-leetcode-solution/)
