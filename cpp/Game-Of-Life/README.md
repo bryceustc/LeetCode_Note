@@ -97,5 +97,54 @@ private:
     vector<int> dy {0, 0, 1, -1, 1, -1, -1, 1};
 };
 ```
+
+### 合并一起
+```c++
+class Solution {
+public:
+    void gameOfLife(vector<vector<int>>& board) {
+        int m = board.size();
+        if (m<1) return;
+        int n = board[0].size();
+        vector<int> dx {1,-1,0,0,1,1,-1,-1};
+        vector<int> dy {0,0,1,-1,1,-1,-1,1};
+        for (int i=0;i<m;i++)
+        {
+            for (int j=0;j<n;j++)
+            {
+                int cnt = 0;
+                for (int k=0;k<8;k++)
+                {
+                    int x = i + dx[k];
+                    int y = j + dy[k];
+                    if (x<0 || x>=m || y<0 || y>=n) continue;
+                    cnt += board[x][y]&1;
+                }
+                if (board[i][j]==1)
+                {
+                    if (cnt>=2&&cnt<=3)
+                    {
+                        board[i][j] = 3; // 11
+                    }
+                }
+                else
+                {
+                    if (cnt ==3)
+                    {
+                        board[i][j]=2;// 10
+                    }
+                }
+            }
+        }
+        for (int i=0;i<m;i++)
+        {
+            for (int j=0;j<n;j++)
+            {
+                board[i][j]>>=1;
+            }
+        }
+    }
+};
+```
 ## 参考
   - [题解讨论](https://leetcode-cn.com/problems/game-of-life/solution/sheng-ming-you-xi-by-leetcode-solution/)
