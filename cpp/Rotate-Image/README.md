@@ -47,6 +47,9 @@
 # 解题思路:
   方法一：观察矩阵，先转置后，再按中心竖线旋转，也就是翻转每一行，即可
   
+  ![](https://pic.leetcode-cn.com/56d26d3c23ef47a0c137fef94f35c8d039777f38ff1494afd00d9ab865f897ae.png)
+  
+  
   方法二：观察矩阵变换坐标，如下图所示：
   
   ![guilv](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Rotate-Image/Images/guilv.JPG)
@@ -91,6 +94,11 @@ public:
                 matrix[i][j] = matrix[i][k];
                 matrix[i][k] = temp;
             }
+        }
+        //  观察或者按行反转即可
+        for (int i=0;i<n;i++)
+        {
+            reverse(matrix[i].begin(),matrix[i].end());
         }
     }
 };
