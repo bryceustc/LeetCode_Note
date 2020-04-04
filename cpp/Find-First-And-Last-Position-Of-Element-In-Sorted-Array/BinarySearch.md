@@ -121,7 +121,8 @@ int binarySearch(vector<int>& nums, int target) {
         end = mid;
       }
     }
-    if (nums[start]!=target || start == n) return -1;
+    // start == n target 比所有数都大
+    // if (nums[start]!=target || start == n) return -1;
     return start;
 }
 ```
@@ -202,7 +203,7 @@ int binarySearch(vector<int>& nums, int target) {
 ```
 当 `nums[mid] == target` 时，不要立即返回，而是增大「搜索区间」的下界 `start`，使得区间不断向右收缩，达到锁定右侧边界的目的。
 
-2.为什么最后返回 `start - 1` 而不像左侧边界的函数，返回 `start`？而且我觉得这里既然是搜索右侧边界，应该返回 `end` 才对。
+2.为什么最后返回 `end - 1` 而不像左侧边界的函数，返回 `start`？而且我觉得这里既然是搜索右侧边界，应该返回 `end` 才对。
 
 答：首先，`while` 循环的终止条件是 `start == end`，所以 `start` 和 `end` 是一样的，要体现右侧的特点，返回 `end - 1` 好了。
 
@@ -219,7 +220,7 @@ int binarySearch(vector<int>& nums, int target) {
 来梳理一下这些细节差异的因果逻辑：
 
 第一个，最基本的二分查找算法：
-```python
+```
 因为我们初始化 end = nums.size() - 1
 所以决定了我们的「搜索区间」是 [start, end]
 所以决定了 while (start <= end)
@@ -230,7 +231,7 @@ int binarySearch(vector<int>& nums, int target) {
 ```
 
 第二个，寻找左侧边界的二分查找：
-```python
+```
 因为我们初始化 end = nums.size()
 所以决定了我们的「搜索区间」是 [start, end)
 所以决定了 while (start < end)
@@ -242,7 +243,7 @@ int binarySearch(vector<int>& nums, int target) {
 ```
 
 第三个，寻找右侧边界的二分查找：
-```python
+```
 因为我们初始化 end = nums.size()
 所以决定了我们的「搜索区间」是 (start, end]
 所以决定了 while (start < end)
