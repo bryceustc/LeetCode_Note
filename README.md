@@ -16,7 +16,7 @@ LeetCode
 |5|[Longest-Palindromic-Substring](https://leetcode-cn.com/problems/longest-palindromic-substring/)| [C++](./cpp/Longest-Palindromic-Substring/README.md), [Python](./python/Longest-Palindromic-Substring/Longest-Palindromic-Substring.py)|Medium|
 |6|[Zigzag-Conversion](https://leetcode-cn.com/problems/zigzag-conversion/)| [C++](./cpp/Zigzag-Conversion/Zigzag-Conversion.cpp), [Python](./python/Zigzag-Conversion/Zigzag-Conversion.py)|Medium|
 |7|[Reverse-Integer](https://leetcode-cn.com/problems/reverse-integer/)| [C++](./cpp/Reverse-Integer/Reverse-Integer.cpp), [Python](./python/Reverse-Integer/Reverse-Integer.py)|Easy|
-|8|[String-To-Integer-Atoi](https://leetcode-cn.com/problems/string-to-integer-atoi/)| [C++](./cpp/String-To-Integer-Atoi/README.md), [Python](./python/String-To-Integer-Atoi/String-To-Integer-Atoi.py)|Medium|
+|8&clubs;|[String-To-Integer-Atoi](https://leetcode-cn.com/problems/string-to-integer-atoi/)| [C++](./cpp/String-To-Integer-Atoi/README.md), [Python](./python/String-To-Integer-Atoi/String-To-Integer-Atoi.py)|Medium|
 |9|[Palindrome-Number](https://leetcode-cn.com/problems/palindrome-number/)| [C++](./cpp/Palindrome-Number/Palindrome-Number.cpp), [Python](./python/Palindrome-Number/Palindrome-Number.py)|Easy|
 |10|[Regular-Expression-Matching](https://leetcode-cn.com/problems/regular-expression-matching/)| [C++](./cpp/Regular-Expression-Matching/README.md), [Python](./python/Regular-Expression-Matching/Regular-Expression-Matching.py)|Hard|
 |11|[Container-With-Most-Water](https://leetcode-cn.com/problems/container-with-most-water/)| [C++](./cpp/Container-With-Most-Water/Container-With-Most-Water.cpp), [Python](./python/Container-With-Most-Water/Container-With-Most-Water.py)|Medium|
@@ -50,7 +50,7 @@ LeetCode
 |39|[Combination-Sum](https://leetcode-cn.com/problems/combination-sum/)| [C++](./cpp/Combination-Sum/README.md), [Python](./python/Combination-Sum/Combination-Sum.py)|Medium|
 |40|[Combination-Sum-II](https://leetcode-cn.com/problems/combination-sum-ii/)| [C++](./cpp/Combination-Sum-II/README.md), [Python](./python/Combination-Sum-II/Combination-Sum-II.py)|Medium|
 |41|[First-Missing-Positive](https://leetcode-cn.com/problems/first-missing-positive/)| [C++](./cpp/First-Missing-Positive/README.md), [Python](./python/First-Missing-Positive/First-Missing-Positive.py)|Hard|
-|42|[Trapping-Rain-Water](https://leetcode-cn.com/problems/trapping-rain-water/)| [C++](./cpp/Trapping-Rain-Water/README.md), [Python](./python/Trapping-Rain-Water/Trapping-Rain-Water.py)|Hard|
+|42&clubs;|[Trapping-Rain-Water](https://leetcode-cn.com/problems/trapping-rain-water/)| [C++](./cpp/Trapping-Rain-Water/README.md), [Python](./python/Trapping-Rain-Water/Trapping-Rain-Water.py)|Hard|
 |43|[Multiply-Strings](https://leetcode-cn.com/problems/multiply-strings/)| [C++](./cpp/Multiply-Strings/README.md), [Python](./python/Multiply-Strings/Multiply-Strings.py)|Medium|
 |44|[Wildcard-Matching](https://leetcode-cn.com/problems/wildcard-matching/)| [C++](./cpp/Wildcard-Matching/README.md), [Python](./python/Wildcard-Matching/Wildcard-Matching.py)|Hard|
 |46|[Permutations](https://leetcode-cn.com/problems/permutations/)| [C++](./cpp/Permutations/README.md), [Python](./python/Permutations/Permutations.py)|Medium|
