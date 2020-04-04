@@ -13,7 +13,7 @@
 
    同样的道理，**单调递减栈可以找到左起第一个比当前数字大的元素**。
    
- ### LeetCode 42：接雨水
+ ### LeetCode 42：接雨水（单调递减栈）
  给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
 
 ![](https://github.com/bryceustc/LeetCode_Note/blob/master/cpp/Trapping-Rain-Water/Image/rainwatertrap.png)
@@ -56,7 +56,7 @@ public:
 };
 ```
 
-### LeetCode 84：柱状图中最大的矩形
+### LeetCode 84：柱状图中最大的矩形（单调递增栈）
 给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
 
 求在该柱状图中，能够勾勒出来的矩形的最大面积。
@@ -103,6 +103,58 @@ public:
                 }
                 res = max(res, heights[t] * w);
             }
+        }
+        return res;
+    }
+};
+```
+### LeetCode 496：下一个更大元素 I（单调递减栈+哈希表）
+给定两个没有重复元素的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。找到 nums1 中每个元素在 nums2 中的下一个比其大的值。
+
+nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出-1。
+
+示例：
+```
+输入: nums1 = [2,4], nums2 = [1,2,3,4].
+输出: [3,-1]
+解释:
+    对于num1中的数字2，第二个数组中的下一个较大数字是3。
+    对于num1中的数字4，第二个数组中没有下一个更大的数字，因此输出 -1。
+```
+```c++
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        int n1 = nums1.size();
+        int n2 = nums2.size();
+        unordered_map<int,int> m;
+        stack<int> s;
+        vector<int> res;
+        int i = 0;
+        // 单调递减栈 寻找nums2数组对应元素右起的比它大的数
+        while(i<n2)
+        {
+            if (s.empty()|| nums2[i]<s.top())
+            {
+                s.push(nums2[i]);
+                i++;
+            }
+            else
+            {
+                int t = s.top();
+                s.pop();
+                m[t] = nums2[i]; // 哈希表存储对应的数字的下一个更大值
+            }
+        }
+         // 没有更大的数
+        while(!s.empty())
+        {
+            m[s.top()] = -1;
+            s.pop();
+        }
+        for (int num : nums1)
+        {
+            res.push_back(m[num]);
         }
         return res;
     }
