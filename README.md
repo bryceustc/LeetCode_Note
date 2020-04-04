@@ -146,6 +146,7 @@ LeetCode
 |674|[Longest-Continuous-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/)| [C++](./cpp/Longest-Continuous-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Continuous-Increasing-Subsequence/README.md)|Easy|
 |695&clubs;|[Max-Area-Of-Island](https://leetcode-cn.com/problems/max-area-of-island/)| [C++](./cpp/Max-Area-Of-Island/README.md), [Python](./cpp/Max-Area-Of-Island/README.md)|Easy|
 |714|[Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
+|739|[Daily-Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)| [C++](./cpp/Daily-Temperatures/README.md), [Python](./cpp/Daily-Temperatures/README.md)|Meidum|
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |820&clubs;|[Short-Encoding-Of-Words](https://leetcode-cn.com/problems/short-encoding-of-words/)| [C++](./cpp/Short-Encoding-Of-Words/README.md), [Python](./cpp/Short-Encoding-Of-Words/README.md)|Easy|
 |836&clubs;|[Rectangle-Overlap](https://leetcode-cn.com/problems/rectangle-overlap/)| [C++](./cpp/Rectangle-Overlap/README.md), [Python](./cpp/Rectangle-Overlap/README.md)|Easy|
