@@ -139,6 +139,7 @@ LeetCode
 |409&clubs;|[Longest-Palindrome](https://leetcode-cn.com/problems/longest-palindrome/)| [C++](./cpp/Longest-Palindrome/README.md), [Python](./cpp/Longest-Palindrome/README.md)|Easy|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
 |426|[Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List](convert-binary-search-tree-to-sorted-doubly-linked-list/)| [C++](./cpp/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/README.md), [Python](./python/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List.py)|Medium|
+|460|[LFU-Cache](https://leetcode-cn.com/problems/lfu-cache/)| [C++](./cpp/LFU-Cache/README.md), [Python](./cpp/LFU-Cache/README.md)|Hard|
 |496|[Next-Greater-Element-I](https://leetcode-cn.com/problems/next-greater-element-i/)| [C++](./cpp/Next-Greater-Element-I/README.md), [Python](./cpp/Next-Greater-Element-I/README.md)|Easy|
 |503|[Next-Greater-Element-II](https://leetcode-cn.com/problems/next-greater-element-ii/)| [C++](./cpp/Next-Greater-Element-II/README.md), [Python](./cpp/Next-Greater-Element-II/README.md)|Meidum|
 |516|[Longest-Palindromic-Subsequence](https://leetcode-cn.com/problems/longest-palindromic-subsequence/)| [C++](./cpp/Longest-Palindromic-Subsequence/README.md), [Python](./cpp/Longest-Palindromic-Subsequence/README.md)|Medium|
