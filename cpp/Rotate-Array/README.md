@@ -36,7 +36,7 @@ public:
     void rotate(vector<int>& nums, int k) {
         int n = nums.size();
         int m = n-k%n;
-        reverse(nums.begin(),nums.begin()+m);
+        reverse(nums.begin(),nums.begin()+m);//reverse函数反转的范围是[first,last)
         reverse(nums.begin()+m,nums.end());
         reverse(nums.begin(),nums.end());
     }
