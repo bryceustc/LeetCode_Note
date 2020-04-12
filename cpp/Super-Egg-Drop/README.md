@@ -41,21 +41,34 @@
    ```
    dp[N][K];
    ```
-   5. 考虑状态压缩：
-   ```
-   int tdp_0 = max(dp_0, dp_1);
-   tdp_1 = dp_0 + nums[i];
-   dp_0 = tdp_0;
-   dp_1 = tdp_1;
-   ```
+  
+  5. 考虑优化
+  
+  观察状态方程：
+  
+  $$
+   dp[i][k]=\min _{1 \leq j \leq i}(\max (d p[j-1][k-1], dp[i-j][k])+1)
+  $$
+  
+「状态转移方程」里最外层的变量是j，它枚举了扔下鸡蛋的楼层的高度，这里它是自变量，将其余的 i 和 k 视为常数：
+
+ - dp[j - 1][k - 1]：根据语义，j 增大的时候，楼层越高，它的值就越大；
+ - dp[i - j][k]：根据语义，j 增大的时候，楼层越低，它的值就越小。
+ 
+把这两个函数看做关于 j 的函数,可以得出dp[j - 1][k - 1]是单调增的，dp[i - j][k]是单调减的。
+
+![1](1.jpg)
+
+这时候求二者的较大值，再求这些最大值之中的最小值，其实就是求这两条直线交点，也就是红色折线的最低点
+  
 # 时间复杂度：
   1. $O(N^2K)$
   
-  2. $O(N^2K)$
+  2. $O(NlogNK)$
 # 空间复杂度
   1. $O(NK)$
   
-  2: O(1)
+  2: $O(NK)$
   
 # 代码
 ### dp（超时）
@@ -88,24 +101,49 @@ public:
     }
 };
 ```
-###  dp考虑状态压缩
+###  dp二分优化
 ```c++
 class Solution {
 public:
-    int massage(vector<int>& nums) {
-        if (nums.empty()) return 0;
-        int n = nums.size();
-        if (n==1) return nums[0];
-        int dp_0 = 0;
-        int dp_1 = nums[0];
-        for (int i=1;i<n;i++)
+    int superEggDrop(int K, int N) {
+        vector<vector<int>> dp(N+1, vector<int>(K+1,0));
+        for (int i=0;i<=N;i++) dp[i][1]=i;
+        
+        for (int i=1;i<=N;i++)
         {
-            int tdp_0 = max(dp_0, dp_1);
-            int tdp_1 = dp_0 + nums[i];
-            dp_0 = tdp_0;
-            dp_1 = tdp_1;
+            for (int k=2;k<=K;k++)
+            {
+                int res = i;
+                int start=1, end = i;
+                // 二分法优化
+                while(start<=end)
+                {
+                    int mid = start + (end-start)/2;
+                    // 取两者的最大值，然后再取最大值中的最小值，就是求山谷的问题
+                    if (dp[mid-1][k-1]==dp[i-mid][k])
+                    {
+                        res = min(res,dp[mid-1][k-1]+1);
+                        break;
+                    }
+                    else if (dp[mid-1][k-1]>dp[i-mid][k])
+                    {
+                        end = mid-1;
+                        res = min(res, dp[mid-1][k-1]+1);
+                    }
+                    else if (dp[mid-1][k-1]<dp[i-mid][k])
+                    {
+                        start = mid+1;
+                        res = min(res,dp[i-mid][k]+1);
+                    }
+                }
+                // for (int j=1;j<=i;j++)
+                // {
+                //     res = min(res, max(dp[j-1][k-1],dp[i-j][k])+1);
+                // }
+                dp[i][k] = res;
+            }
         }
-        return max(dp_0, dp_1);
+        return dp[N][K];
     }
 };
 ```
