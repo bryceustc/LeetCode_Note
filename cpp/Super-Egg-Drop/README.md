@@ -181,3 +181,5 @@ int superEggDrop(int K, int N) {
     return m;
 }
 ```
+# 参考
+  - [题解讨论](https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-by-leetcode-solution/)
