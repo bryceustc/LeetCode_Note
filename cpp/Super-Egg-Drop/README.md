@@ -26,21 +26,20 @@
 # 解题思路:
   动态规划：
   
-  1. 定义状态：dp[i][j]，表示前i个预约，状态为j(0/1)的最大预约时间数。0为不接受当前预约，1为接受当前预约
+  1. 定义状态：dp[i][k]，表示一共有 i 层楼的情况下，使用 k 个鸡蛋的最少实验的次数
   
   2. 状态转移方程：
   $$
-   dp[i][0] = max(dp[i-1][0], dp[i-1][1]);   
-   dp[i][1] = dp[i-1][0] + nums[i];
+   dp[i][k]=\min _{1 \leq j \leq i}(\max (d p[j-1][k-1], dp[i-j][k])+1)
   $$
   
   3. 初始状态：
   ```
-  dp[0][0] = 0;  dp[0][1] = nums[0];
+  dp[i][1] = i; // 只有一个鸡蛋的时候，只能一层一层的扔
   ```
   4. 返回结果：
    ```
-   res = max(dp[n-1][0], dp[n-1][1]);
+   dp[N][K];
    ```
    5. 考虑状态压缩：
    ```
@@ -50,38 +49,42 @@
    dp_1 = tdp_1;
    ```
 # 时间复杂度：
-  O(n)
+  1. $O(N^2K)$
+  
+  2. $O(N^2K)$
 # 空间复杂度
-  1: O(n)
+  1. $O(NK)$
   
   2: O(1)
   
 # 代码
-### dp
+### dp（超时）
 ```c++
 class Solution {
 public:
-    int massage(vector<int>& nums) {
-        if (nums.empty()) return 0;
-        int n = nums.size();
-        if (n==1) return nums[0];
-        int res = 0;
-        // 定义状态: dp[i][j]，表示前i个预约，状态为j(0/1)的最大预约时间数。0为不接受当前预约，1为接受当前预约
-        vector<vector<int>> dp(n, vector<int> (2,0));
-        // 初始状态
-        dp[0][0] = 0;
-        dp[0][1] = nums[0];
-        for (int i=1;i<n;i++)
+    int superEggDrop(int K, int N) {
+        // 定义状态：dp[i][k]表示一共有 i 层楼的情况下，使用 k 个鸡蛋的最少实验的次数
+        vector<vector<int>> dp(N + 1, vector<int>(K + 1, 0));
+        // 初始化dp数组
+        for (int i = 0; i <= N; i++) dp[i][1] = i; // 只有一个鸡蛋的时候，只能一层一层的扔
+
+        for (int i = 1; i <= N; i++) 
         {
-            // 状态转移方程
-            // 今天不接受，可以是昨天也不接受，也可以是昨天接受了今天不接受
-            dp[i][0] = max(dp[i-1][0], dp[i-1][1]);
-            // 今天接受，那就是昨天不接受
-            dp[i][1] = dp[i-1][0] + nums[i];
+            for (int k = 2; k <= K; k++) 
+            {
+                // 状态转移方程
+                int res = i; 
+                for (int j = 1; j <= i; j++) 
+                {
+                    // 碎了，就需要往低层继续扔：层数少 1 ，鸡蛋也少 1
+                    // 不碎，就需要往高层继续扔：层数是当前层到最高层的距离差，鸡蛋数量不少
+                    // 两种情况都做了一次尝试，所以加 1
+                    res = min(res , max(dp[j-1][k-1], dp[i-j][k]) + 1);
+                }
+                dp[i][k] = res;
+            }
         }
-        // 返回结果
-        res = max(dp[n-1][0], dp[n-1][1]);
-        return res;
+        return dp[N][K];
     }
 };
 ```
