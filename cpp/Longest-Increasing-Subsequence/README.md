@@ -75,7 +75,7 @@ public:
     }
 };
 ```
-### dp 二分优化
+### dp 二分法优化
 ``c++
 class Solution {
 public:
@@ -104,6 +104,7 @@ public:
                 while (left <= right) 
                 {
                     int mid = (left + right) >> 1;
+                    cout << mid << endl;
                     if (tail[mid] < nums[i]) 
                     {
                         left = mid + 1;
