@@ -156,7 +156,8 @@ LeetCode
 |836&clubs;|[Rectangle-Overlap](https://leetcode-cn.com/problems/rectangle-overlap/)| [C++](./cpp/Rectangle-Overlap/README.md), [Python](./cpp/Rectangle-Overlap/README.md)|Easy|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
 |876&clubs;|[Middle-Of-The-Linked-List](https://leetcode-cn.com/problems/middle-of-the-linked-list/)| [C++](./cpp/Middle-Of-The-Linked-List/README.md), [Python](./cpp/Middle-Of-The-Linked-List/README.md)|Easy|
-|892&clubs;|[Surface-Area-Of-3D-Shapes](https://leetcode-cn.com/problems/surface-area-of-3d-shapes/)| [C++](./cpp/Surface-Area-Of-3D-Shapes/README.md), [Python](./cpp/Surface-Area-Of-3D-Shapes/README.md)|Easy|
+|887&clubs;|[Super-Egg-Drop](https://leetcode-cn.com/problems/super-egg-drop/)| [C++](./cpp/Super-Egg-Drop/README.md)|Hard|
+|892&clubs;|[Surface-Area-Of-3D-Shapes](https://leetcode-cn.com/problems/surface-area-of-3d-shapes/)| [C++](./cpp/Surface-Area-Of-3D-Shapes/README.md)|Easy|
 |912&clubs;|[Sort-An-Array](https://leetcode-cn.com/problems/sort-an-array/)| [C++](./cpp/Sort-An-Array/README.md)|Medium|
 |914&clubs;|[X-Of-A-Kind-In-A-Deck-Of-Cards](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/)| [C++](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md), [Python](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md)|Easy|
 |945&clubs;|[Minimum-Increment-To-Make-Array-Unique](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/)| [C++](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md), [Python](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md)|Medium|
