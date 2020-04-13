@@ -135,6 +135,7 @@ LeetCode
 |337|[House-Robber-III](https://leetcode-cn.com/problems/house-robber-iii/)| [C++](./cpp/House-Robber-III/README.md), [Python](./cpp/House-Robber-III/README.md)|Medium|
 |343|[Integer-Break](https://leetcode-cn.com/problems/integer-break/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/CuttingRope.py)|Medium|
 |354|[Russian-Doll-Envelopes](https://leetcode-cn.com/problems/russian-doll-envelopes/)| [C++](./cpp/Russian-Doll-Envelopes/README.md), [Python](./cpp/Russian-Doll-Envelopes/README.md)|Hard|
+|355&clubs;|[Design-Twitter](https://leetcode-cn.com/problems/design-twitter/)| [C++](./cpp/Design-Twitter/README.md)|Medium|
 |365&clubs;|[Water-And-Jug-Problem](https://leetcode-cn.com/problems/water-and-jug-problem/)| [C++](./cpp/Water-And-Jug-Problem/README.md), [Python](./cpp/Water-And-Jug-Problem/README.md)|Medium|
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
 |400|[Nth-Digit](https://leetcode-cn.com/problems/nth-digit/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/FindNthDigit/README.md), [Python](./python/Nth-Digit/Nth-Digit.py)|Meidum|
