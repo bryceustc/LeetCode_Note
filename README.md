@@ -142,16 +142,17 @@ LeetCode
 |409&clubs;|[Longest-Palindrome](https://leetcode-cn.com/problems/longest-palindrome/)| [C++](./cpp/Longest-Palindrome/README.md), [Python](./cpp/Longest-Palindrome/README.md)|Easy|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
 |426|[Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List](convert-binary-search-tree-to-sorted-doubly-linked-list/)| [C++](./cpp/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/README.md), [Python](./python/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List.py)|Medium|
+|445&clubs;|[Add-Two-Numbers-II](https://leetcode-cn.com/problems/add-two-numbers-ii/)| [C++](./cpp/Add-Two-Numbers-II/README.md)|Medium|
 |460&clubs;|[LFU-Cache](https://leetcode-cn.com/problems/lfu-cache/)| [C++](./cpp/LFU-Cache/README.md), [Python](./cpp/LFU-Cache/README.md)|Hard|
 |496|[Next-Greater-Element-I](https://leetcode-cn.com/problems/next-greater-element-i/)| [C++](./cpp/Next-Greater-Element-I/README.md), [Python](./cpp/Next-Greater-Element-I/README.md)|Easy|
 |503|[Next-Greater-Element-II](https://leetcode-cn.com/problems/next-greater-element-ii/)| [C++](./cpp/Next-Greater-Element-II/README.md), [Python](./cpp/Next-Greater-Element-II/README.md)|Meidum|
 |516|[Longest-Palindromic-Subsequence](https://leetcode-cn.com/problems/longest-palindromic-subsequence/)| [C++](./cpp/Longest-Palindromic-Subsequence/README.md), [Python](./cpp/Longest-Palindromic-Subsequence/README.md)|Medium|
 |543&clubs;|[Diameter-Of-Binary-Tree](https://leetcode-cn.com/problems/diameter-of-binary-tree/)| [C++](./cpp/Diameter-Of-Binary-Tree/README.md), [Python](./python/Diameter-Of-Binary-Tree/Diameter-Of-Binary-Tree.py)|Easy|
-|556|[Next-Greater-Element-III](https://leetcode-cn.com/problems/next-greater-element-iii/)| [C++](./cpp/Next-Greater-Element-III/README.md), [Python](./cpp/Next-Greater-Element-III/README.md)|Meidum|
+|556|[Next-Greater-Element-III](https://leetcode-cn.com/problems/next-greater-element-iii/)| [C++](./cpp/Next-Greater-Element-III/README.md), [Python](./cpp/Next-Greater-Element-III/README.md)|Medium|
 |674|[Longest-Continuous-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/)| [C++](./cpp/Longest-Continuous-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Continuous-Increasing-Subsequence/README.md)|Easy|
 |695&clubs;|[Max-Area-Of-Island](https://leetcode-cn.com/problems/max-area-of-island/)| [C++](./cpp/Max-Area-Of-Island/README.md), [Python](./cpp/Max-Area-Of-Island/README.md)|Easy|
 |714|[Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
-|739|[Daily-Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)| [C++](./cpp/Daily-Temperatures/README.md), [Python](./cpp/Daily-Temperatures/README.md)|Meidum|
+|739|[Daily-Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)| [C++](./cpp/Daily-Temperatures/README.md), [Python](./cpp/Daily-Temperatures/README.md)|Medium|
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |820&clubs;|[Short-Encoding-Of-Words](https://leetcode-cn.com/problems/short-encoding-of-words/)| [C++](./cpp/Short-Encoding-Of-Words/README.md), [Python](./cpp/Short-Encoding-Of-Words/README.md)|Easy|
 |836&clubs;|[Rectangle-Overlap](https://leetcode-cn.com/problems/rectangle-overlap/)| [C++](./cpp/Rectangle-Overlap/README.md), [Python](./cpp/Rectangle-Overlap/README.md)|Easy|
