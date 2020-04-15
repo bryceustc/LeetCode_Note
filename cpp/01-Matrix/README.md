@@ -53,7 +53,7 @@ Tree 是有向的因此不需要标识是否访问过，而对于无向图来说
   
 # 代码
 
-### bfs
+### 广源bfs
 ```c++
 class Solution {
 public:
@@ -104,4 +104,63 @@ public:
     }
 };
 ```
+### dp
+```c++
+class Solution {
+public:
+    vector<vector<int>> updateMatrix(vector<vector<int>>& matrix) {
+        int m = matrix.size(), n = matrix[0].size();
+        // 定义状态：dp[i][j]表示该位置距离最近的0的距离
+        vector<vector<int>> dp (m, vector<int>(n));
+        // 初始化dp数组，所有的距离值都设置为一个很大的数
+        for (int i=0;i<m;i++)
+        {
+            for (int j=0;j<n;j++)
+            {
+                if (matrix[i][j]==0)
+                {
+                    dp[i][j]=0;
+                }
+                else
+                {
+                    dp[i][j]=10000;
+                }
+            }
+        }
+        // 只有水平向左移动和竖直向上移动，注意动态规划的计算顺序(从左上角开始)
+        for (int i=0;i<m;i++)
+        {
+            for (int j=0;j<n;j++)
+            {
+                if (i-1>=0)
+                {
+                    dp[i][j] = min(dp[i][j],dp[i-1][j]+1);
+                }
+                if (j-1>=0)
+                {
+                    dp[i][j] = min(dp[i][j],dp[i][j-1]+1);
+                }
+            }
+        }
+        // 从右下角开始
+        for (int i=m-1;i>=0;i--)
+        {
+            for (int j=n-1;j>=0;j--)
+            {
+                if (i+1<m)
+                {
+                    dp[i][j] = min(dp[i][j],dp[i+1][j]+1);
+                }
+                if (j+1<n)
+                {
+                    dp[i][j] = min(dp[i][j],dp[i][j+1]+1);
+                }
+            }
+        }
 
+        return dp;
+    }
+};
+```
+# 参考
+- [题解讨论](https://leetcode-cn.com/problems/01-matrix/solution/2chong-bfs-xiang-jie-dp-bi-xu-miao-dong-by-sweetie/)
