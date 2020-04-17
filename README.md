@@ -53,6 +53,7 @@ LeetCode
 |42&clubs;|[Trapping-Rain-Water](https://leetcode-cn.com/problems/trapping-rain-water/)| [C++](./cpp/Trapping-Rain-Water/README.md), [Python](./python/Trapping-Rain-Water/Trapping-Rain-Water.py)|Hard|
 |43|[Multiply-Strings](https://leetcode-cn.com/problems/multiply-strings/)| [C++](./cpp/Multiply-Strings/README.md), [Python](./python/Multiply-Strings/Multiply-Strings.py)|Medium|
 |44|[Wildcard-Matching](https://leetcode-cn.com/problems/wildcard-matching/)| [C++](./cpp/Wildcard-Matching/README.md), [Python](./python/Wildcard-Matching/Wildcard-Matching.py)|Hard|
+|45&clubs;|[Jump-Game-II](https://leetcode-cn.com/problems/jump-game-ii/)| [C++](./cpp/Jump-Game-II/README.md), [Python](./python/Jump-Game-II/Jump-Game-II.py)|Hard|
 |46|[Permutations](https://leetcode-cn.com/problems/permutations/)| [C++](./cpp/Permutations/README.md), [Python](./python/Permutations/Permutations.py)|Medium|
 |47|[Permutations-II](https://leetcode-cn.com/problems/permutations-ii/)| [C++](./cpp/Permutations-II/README.md), [Python](./python/Permutations-II/Permutations-II.py)|Medium|
 |48|[Rotate-Image](https://leetcode-cn.com/problems/rotate-image/)| [C++](./cpp/Rotate-Image/README.md), [Python](./python/Rotate-Image/Rotate-Image.py)|Medium|
