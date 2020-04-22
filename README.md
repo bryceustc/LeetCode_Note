@@ -75,6 +75,7 @@ LeetCode
 |70|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
 |72&clubs;|[Edit-Distance](https://leetcode-cn.com/problems/edit-distance/)| [C++](./cpp/Edit-Distance/README.md)|Hard|
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
+|76|[Minimum-Window-Substring](https://leetcode-cn.com/problems/minimum-window-substring/)| [C++](./cpp/Minimum-Window-Substring/README.md)|Hard|
 |79|[Word-Search](https://leetcode-cn.com/problems/word-search/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/StringPathInMatrix.py)|Medium|
 |82|[Remove-Duplicates-From-Sorted-List-II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List-II/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List-II/Remove-Duplicates-From-Sorted-List-II.py)|Medium|
 |83|[Remove-Duplicates-From-Sorted-List](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List/Remove-Duplicates-From-Sorted-List.py)|Easy|
