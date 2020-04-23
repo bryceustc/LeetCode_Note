@@ -4,17 +4,31 @@
 
 
 # 解题思路:
-用dp[i] 来表示组成i块钱，需要最少的硬币数，那么
 
-1. 第j个硬币我可以选择不拿 这个时候， 硬币数 = dp[i]
-
-2. 第j个硬币我可以选择拿 这个时候， 硬币数 = dp[i - coins[j]] + 1
-
-  - 和背包问题不同， 硬币是可以拿任意个
-
-  - 对于每一个 dp[i] 我们都选择遍历一遍 coin， 不断更新 dp[i]
-
-PS：为啥 dp 数组初始化为 amount + 1 呢，因为凑成 amount 金额的硬币数最多只可能等于 amount（全用 1 元面值的硬币），所以初始化为 amount + 1 就相当于初始化为正无穷，便于后续取最小值。
+  1、**定义状态**：
+  
+  dp[i] 表示组成金额i时，需要的最少硬币数
+  
+  2、**状态转移方程**：
+  
+  针对第j个硬币，可以选择拿或者不拿，要求最少的硬币数，选择最小的一个
+  
+  当i>=coins[j]的时:
+  $$
+  dp[i] = min(dp[i],1+dp[i-coins[j]]);
+  $$
+  
+  3、**初始状态：**
+  
+  dp 数组初始化为 amount + 1, 因为凑成 amount 金额的硬币数最多只可能等于 amount（全用 1 元面值的硬币），所以初始化为 amount + 1 就相当于初始化为正无穷，便于后续取最小值。
+  
+  dp[0] = 0;
+  
+  4、**返回结果：**
+  
+  如果dp[amount]==amount+1的话，返回-1，说明硬币不能组成amount金额
+  
+  否则 返回 dp[amount]
 
 
 # 时间复杂度：
@@ -31,19 +45,19 @@ class Solution {
 public:
     int coinChange(vector<int>& coins, int amount) {
         int res = -1;
+        // 定义状态 然后初始化
         vector<int> dp(amount+1, amount+1);
+        // 初始化
         dp[0] = 0;
-        int n = dp.size();
         for (int i = 0;i<n;i++)
         {
             for (int coin : coins)
             {
-                // 只有i>coin(面值)的时候才有解
-                if (i - coin < 0)
+                // 只有i>=coin(面值)的时候才有解
+                if (i >= coin)
                 {
-                    continue;
+                    dp[i] = min(dp[i], 1+dp[i-coin]);
                 }
-                dp[i] = min(dp[i], 1+dp[i-coin]);
             }
         }
         if (dp[amount] == amount+1)
