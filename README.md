@@ -188,6 +188,7 @@ LeetCode
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
 |面试题01.06&clubs;|[字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
 |面试题01.07&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)| [C++](./cpp/Rotate-Image/README.md)|Meidum|
+|面试题08.11&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/coin-lcci/)| [C++](./cpp/Coin-Change-II/README.md)|Meidum|
 |面试题16.03&clubs;|[交点](https://leetcode-cn.com/problems/intersection-lcci/)| [C++](./cpp/Intersection/README.md)|Hard|
 |面试题17.06&clubs;|[按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci/)| [C++](./cpp/The-Masseuse-Lcci/README.md),[Python](./cpp/The-Masseuse-Lcci)|Easy|
 |面试题40&clubs;|[最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/KLeastNumbers/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/KLeastNumbers/README.md)|Easy|
