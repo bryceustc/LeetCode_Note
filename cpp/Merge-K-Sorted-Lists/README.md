@@ -50,37 +50,42 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         int k = lists.size();
-        if(k==0) return NULL;
+        if (k==0) return NULL;
         if (k==1) return lists[0];
-        ListNode* dummyHead = new ListNode(-1);
-        ListNode* temp = dummyHead;
-        ListNode* res;
-        ListNode* l1 = lists[0];
-        ListNode* l2 = lists[1];
-        for (int i=1;i<k;i++)
+        ListNode* res = lists[0];
+        for (int i=1;i<k;++i)
         {
-            l2 = lists[i];
-            while(l1!=NULL&&l2!=NULL)
-            {
-                if (l1->val<l2->val)
-                {
-                    temp->next = l1;
-                    l1 = l1->next;
-                }
-                else
-                {
-                    temp->next = l2;
-                    l2 = l2->next;
-                }
-                temp = temp->next;
-            }
-            if (l1==NULL) temp->next = l2;
-            if (l2==NULL) temp->next = l1;
-            l1 = dummyHead->next;
-            temp = dummyHead;
+            ListNode* l1 = res;
+            ListNode* l2 = lists[i];
+            res = merge2Lists(l1,l2);
         }
-        res = dummyHead->next;
-        delete dummyHead;
+        return res;
+    }
+
+    ListNode* merge2Lists(ListNode* l1, ListNode* l2)
+    {
+        ListNode* dummyhead = new ListNode(-1);
+        ListNode* l3 = dummyhead;
+        if (l1==NULL) return l2;
+        if (l2==NULL) return l1;
+        while(l1!=NULL&&l2!=NULL)
+        {
+            if (l1->val <= l2->val)
+            {
+                l3->next = l1;
+                l1 = l1->next;
+            }
+            else
+            {
+                l3->next = l2;
+                l2 = l2->next;
+            }
+            l3 = l3->next;
+        }
+        if (l2==NULL) l3->next = l1;
+        if (l1==NULL) l3->next = l2;
+        ListNode* res = dummyhead->next;
+        delete dummyhead;
         return res;
     }
 };
