@@ -66,7 +66,7 @@ public:
                     start = mid+1;
                 }
             }
-            else if (nums[mid]==nums[end])   // 
+            else if (nums[mid]==nums[end])   // 分不清到底是前面有序还是后面有序，此时end-- 即可。相当于去掉一个重复的干扰项
             {
                 end--;
             }
