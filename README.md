@@ -197,6 +197,7 @@ LeetCode
 |面试题10&clubs;|[合并排序的数组](https://leetcode-cn.com/problems/sorted-merge-lcci/)| [C++](./cpp/Sorted-Merge-Lcci/README.md),[Python](./python/Sorted-Merge-Lcci/Sorted-Merge-Lcci.py)|Easy|
 |面试题13&clubs;|[机器人的运动范围](https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/RobotMove/README.md)|Medium|
 |面试题51&clubs;|[数组中的逆序对](https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/InversePairs/README.md)|Hard|
+|面试题56&clubs;|[数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/NumberAppearingOnce/README.md)|Medium|
 |面试题57&clubs;|[和为s的连续正数序列](https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/ContinuousSquenceWithSum/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/ContinuousSquenceWithSum/README.md)|Easy|
 |面试题59&clubs;|[队列的最大值](https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/MaxQueue/README.md),[Python](https://github.com/bryceustc/CodingInterviews/blob/master/MaxQueue/README.md)|Medium|
 |面试题62&clubs;|[圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/LastNumberInCircle/README.md)|Medium|
