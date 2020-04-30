@@ -67,8 +67,6 @@
 # 代码
 
 ## [C++](./String-To-Integer-Atoi.cpp):
-
-###  方法一： 回溯全排列法（未通过OJ）
 ```c++
 class Solution {
 public:
