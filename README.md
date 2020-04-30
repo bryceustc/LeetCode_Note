@@ -113,6 +113,7 @@ LeetCode
 |198|[House-Robber](https://leetcode-cn.com/problems/house-robber/)| [C++](./cpp/House-Robber/README.md), [Python](./cpp/House-Robber)|Easy|
 |199&clubs;|[Binary-Tree-Right-Side-View](https://leetcode-cn.com/problems/binary-tree-right-side-view/)| [C++](./cpp/Binary-Tree-Right-Side-View/README.md)|Medium|
 |200&clubs;|[Number-Of-Islands](https://leetcode-cn.com/problems/number-of-islands/)| [C++](./cpp/Number-Of-Islands/README.md), [Python](./cpp/Number-Of-Islands/README.md)|Medium|
+|202&clubs;|[Happy-Number](https://leetcode-cn.com/problems/happy-number/)| [C++](./cpp/Happy-Number/README.md)|Easy|
 |203|[Remove-Linked-List-Elements](https://leetcode-cn.com/problems/remove-linked-list-elements/)| [C++](./cpp/Remove-Linked-List-Elements/README.md), [Python](./python/Remove-Linked-List-Elements/Remove-Linked-List-Elements.py)|Easy|
 |206&clubs;|[Reverse-Linked-List](https://leetcode-cn.com/problems/reverse-linked-list/)| [C++](./cpp/Reverse-Linked-List/README.md), [Python](./python/Reverse-Linked-List/Reverse-Linked-List.py)|Easy|
 |213|[House-Robber-II](https://leetcode-cn.com/problems/house-robber-ii/)| [C++](./cpp/House-Robber-II/README.md), [Python](./cpp/House-Robber-II)|Easy|
