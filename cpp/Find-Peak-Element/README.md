@@ -46,7 +46,6 @@ public:
         int n = nums.size();
         int start = 0;
         int end = n-1;
-        int res = 0;
         while(start<end) // [start,end] 型二分法
         {
         // 虽然是闭区间上查,但用<号,所以最后退出循环时[start,start]或者[end,end]是不会查的
