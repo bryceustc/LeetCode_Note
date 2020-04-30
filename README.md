@@ -182,6 +182,7 @@ LeetCode
 |1046|[Last-Stone-Weight](https://leetcode-cn.com/problems/last-stone-weight/)| [C++](./cpp/Last-Stone-Weight/README.md), [Python](./cpp/Last-Stone-Weight/README.md)|Easy|
 |1049|[Last-Stone-Weight-II](https://leetcode-cn.com/problems/last-stone-weight-ii/)| [C++](./cpp/Last-Stone-Weight-II/README.md), [Python](./cpp/Last-Stone-Weight-II/README.md)|Medium|
 |1071&clubs;|[Greatest-Common-Divisor-Of-Strings](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/)| [C++](./cpp/Greatest-Common-Divisor-Of-Strings/README.md), [Python](./cpp/Greatest-Common-Divisor-Of-Strings/README.md)|Easy|
+|1095&clubs;|[Find-In-Mountain-Array](https://leetcode-cn.com/problems/find-in-mountain-array/)| [C++](./cpp/Find-In-Mountain-Array/README.md)|Hard|
 |1103&clubs;|[Distribute-Candies-To-People](https://leetcode-cn.com/problems/partition-array-into-three-parts-with-equal-sum/)| [C++](./cpp/Distribute-Candies-To-People/README.md), [Python](./python/Distribute-Candies-To-People/Distribute-Candies-To-People.py)|Easy|
 |1143|[Longest-Common-Subsequence](https://leetcode-cn.com/problems/longest-common-subsequence/)| [C++](./cpp/Longest-Common-Subsequence/README.md), [Python](./cpp/Longest-Common-Subsequence/README.md)|Medium|
 |1160&clubs;|[Find-Words-That-Can-Be-Formed-By-Characters](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/)| [C++](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md), [Python](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md)|Easy|
