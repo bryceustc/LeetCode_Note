@@ -177,6 +177,7 @@ LeetCode
 |914&clubs;|[X-Of-A-Kind-In-A-Deck-Of-Cards](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/)| [C++](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md), [Python](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md)|Easy|
 |945&clubs;|[Minimum-Increment-To-Make-Array-Unique](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/)| [C++](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md), [Python](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md)|Medium|
 |946|[Validate-Stack-Sequences](https://leetcode-cn.com/problems/validate-stack-sequences/)| [C++](./cpp/Validate-Stack-Sequences/README.md), [Python](./python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)|Medium|
+|977|[Squares-Of-A-Sorted-Array](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)| [C++](./cpp/Squares-Of-A-Sorted-Array/README.md)|Easy|
 |994&clubs;|[Rotting-Oranges](https://leetcode-cn.com/problems/rotting-oranges/)| [C++](./cpp/Rotting-Oranges/README.md), [Python](./python/Rotting-Oranges/Rotting-Oranges.py)|Medium|
 |999&clubs;|[Available-Captures-For-Rook](https://leetcode-cn.com/problems/available-captures-for-rook/)| [C++](./cpp/Available-Captures-For-Rook/README.md), [Python](./cpp/Available-Captures-For-Rook/README.md)|Easy|
 |1013&clubs;|[Partition-Array-Into-Three-Parts-With-Equal-Sum](https://leetcode-cn.com/problems/distribute-candies-to-people/)| [C++](./cpp/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md), [Python](./python/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md)|Easy|
