@@ -1,4 +1,4 @@
-# 题目描述:  有效的数独
+# 题目描述:  解数独
 
 判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
 
@@ -48,9 +48,9 @@ class Solution {
 public:
 void solveSudoku(vector<vector<char>>& board) 
     {
-        rows = vector<bitset<9>>(9, bitset<9>());
-        cols = vector<bitset<9>>(9, bitset<9>());
-        cells = vector<vector<bitset<9>>>(3, vector<bitset<9>>(3, bitset<9>()));
+        rows = vector<bitset<9>>(9, 0);
+        cols = vector<bitset<9>>(9, 0);
+        cells = vector<vector<bitset<9>>>(3, vector<bitset<9>>(3, 0));
 
         int cnt = 0;
         for (int i = 0; i < board.size(); i++)
