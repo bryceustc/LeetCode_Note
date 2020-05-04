@@ -24,12 +24,17 @@
 - 给定数独永远是 9x9 形式的。
 
 # 解题思路:
-  利用哈希表，三次p判断结果可以在一次迭代中实现。
-  一次迭代主要是如何枚举子数独？
-  可以使用 box_index = (row / 3) * 3 + cols / 3，其中 / 是整数除法。
+
+在solveSudoku函数中，首先对rows[i],cols[j],cells[i/3][j/3] 初始化存储状态，并且记录有待填入数字的数目，然后开始dfs深搜
+
+dfs采用bool 形式，只要满足一种情况就可以结束递归，提高了程序的效率，GetNext函数是要选择可能性最少的数字开始填，（所谓的可能性最小其实要找出包含已知信息最多的坐标(i,j)这种位置，找出这个坐标位置后，GetPossibleStatus函数就是找出在这个坐标（i,j）这个位置的合适的数字来进行填写，然后就是回溯了。
+
+fillnum函数就是更新rows[i],cols[j],cells[i/3][j/3]的状态信息，使之与board[i][j]的状态相对应。
   
-  ![](https://pic.leetcode-cn.com/2b141392e2a1811d0e8dfdf6279b1352e59fad0b3961908c6ff9412b6a7e7ccf-image.png)
-  
+图解：
+
+![](https://pic.leetcode-cn.com/1fb1c64cfddb5c66b61bd769224724a05027172d6486feb19b3a16d9473372ee-%E5%9B%BE%E7%89%87.png)
+
 
 # 时间复杂度：
 O(n*n)
@@ -41,55 +46,7 @@ O(n*n)
 ```c++
 class Solution {
 public:
-    bitset<9> getPossibleStatus(int x, int y)
-    {
-        return ~(rows[x] | cols[y] | cells[x / 3][y / 3]);
-    }
-
-    vector<int> getNext(vector<vector<char>>& board)
-    {
-        vector<int> ret;
-        int minCnt = 10;
-        for (int i = 0; i < board.size(); i++)
-        {
-            for (int j = 0; j < board[i].size(); j++)
-            {
-                if (board[i][j] != '.') continue;
-                auto cur = getPossibleStatus(i, j);
-                if (cur.count() >= minCnt) continue;
-                ret = { i, j };
-                minCnt = cur.count();
-            }
-        }
-        return ret;
-    }
-
-    void fillNum(int x, int y, int n, bool fillFlag)
-    {
-        rows[x][n] = (fillFlag) ? 1 : 0;
-        cols[y][n] = (fillFlag) ? 1 : 0;
-        cells[x/3][y/3][n] = (fillFlag) ? 1: 0;
-    }
-    
-    bool dfs(vector<vector<char>>& board, int cnt)
-    {
-        if (cnt == 0) return true;
-
-        auto next = getNext(board);
-        auto bits = getPossibleStatus(next[0], next[1]);
-        for (int n = 0; n < bits.size(); n++)
-        {
-            if (!bits.test(n)) continue;
-            fillNum(next[0], next[1], n, true);
-            board[next[0]][next[1]] = n + '1';
-            if (dfs(board, cnt - 1)) return true;
-            board[next[0]][next[1]] = '.';
-            fillNum(next[0], next[1], n, false);
-        }
-        return false;
-    }
-
-    void solveSudoku(vector<vector<char>>& board) 
+void solveSudoku(vector<vector<char>>& board) 
     {
         rows = vector<bitset<9>>(9, bitset<9>());
         cols = vector<bitset<9>>(9, bitset<9>());
@@ -111,6 +68,57 @@ public:
         dfs(board, cnt);
     }
 
+    bool dfs(vector<vector<char>>& board, int cnt)
+    {
+        if (cnt == 0) return true;//递归结束条件
+
+        auto next = getNext(board);//找出可能性最小的位置（其实就是包含已知信息最多的位置，这样选择的次数是最少的，有点类似贪心的思想）
+
+        auto bits = getPossibleStatus(next[0], next[1]);//找出这个坐标(i,j)可以填入的数字
+        if(bits.count()==0) return false;
+
+        for (int n = 0; n < bits.size(); n++)
+        {
+            if (!bits.test(n)) continue;    //第n位是否为1
+            fillNum(next[0], next[1], n, true);//更新存储状态
+            board[next[0]][next[1]] = n + '1';
+
+            if (dfs(board, cnt - 1)) return true;
+            fillNum(next[0], next[1], n, false);//撤销上一步的存储状态
+            board[next[0]][next[1]] = '.';
+        }
+        return false;
+    }
+
+    vector<int> getNext(vector<vector<char>>& board)
+    {
+        vector<int> ret;
+        int minCnt = 10;
+        for (int i = 0; i < board.size(); i++)
+        {
+            for (int j = 0; j < board[i].size(); j++)
+            {
+                if (board[i][j] != '.') continue;
+                auto cur = getPossibleStatus(i, j);
+                if (cur.count() >= minCnt) continue;
+                ret = { i, j };
+                minCnt = cur.count();
+            }
+        }
+        return ret;
+    }
+
+    bitset<9> getPossibleStatus(int x, int y)
+    {
+        return ~(rows[x] | cols[y] | cells[x / 3][y / 3]);
+    }
+
+    void fillNum(int x, int y, int n, bool fillFlag)
+    {
+        rows[x][n] = (fillFlag) ? (1) : (0);
+        cols[y][n] = (fillFlag) ? (1) : (0);
+        cells[x/3][y/3][n] = (fillFlag) ? (1): (0);
+    }
 private:
     vector<bitset<9>> rows;
     vector<bitset<9>> cols;
@@ -120,3 +128,4 @@ private:
 ### 参考
 
 - [题解](https://leetcode-cn.com/problems/sudoku-solver/solution/37-by-ikaruga/)
+- [题解](https://leetcode-cn.com/problems/sudoku-solver/solution/zi-cong-wo-xue-hui-liao-hui-su-suan-fa-zhong-yu-hu/)
