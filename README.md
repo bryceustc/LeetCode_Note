@@ -162,6 +162,7 @@ LeetCode
 |556|[Next-Greater-Element-III](https://leetcode-cn.com/problems/next-greater-element-iii/)| [C++](./cpp/Next-Greater-Element-III/README.md), [Python](./cpp/Next-Greater-Element-III/README.md)|Medium|
 |560|[Subarray-Sum-Equals-K](https://leetcode-cn.com/problems/subarray-sum-equals-k/)| [C++](./cpp/Subarray-Sum-Equals-K/README.md)|Medium|
 |567|[Permutation-In-String](https://leetcode-cn.com/problems/permutation-in-string/)| [C++](./cpp/Permutation-In-String/README.md)|Medium|
+|572&clubs;|[Subtree-Of-Another-Tree](https://leetcode-cn.com/problems/subtree-of-another-tree/)| [C++](./cpp/Subtree-Of-Another-Tree/README.md)|Easy|
 |674|[Longest-Continuous-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/)| [C++](./cpp/Longest-Continuous-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Continuous-Increasing-Subsequence/README.md)|Easy|
 |695&clubs;|[Max-Area-Of-Island](https://leetcode-cn.com/problems/max-area-of-island/)| [C++](./cpp/Max-Area-Of-Island/README.md), [Python](./cpp/Max-Area-Of-Island/README.md)|Easy|
 |714|[Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
