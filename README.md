@@ -71,6 +71,7 @@ LeetCode
 |63|[Unique-Paths-II](https://leetcode-cn.com/problems/unique-paths-ii/)| [C++](./cpp/Unique-Paths-II/README.md), [Python](./cpp/Unique-Paths-II/README.md)|Medium|
 |64|[Minimum-Path-Sum](https://leetcode-cn.com/problems/minimum-path-sum/)| [C++](./cpp/Minimum-Path-Sum/README.md), [Python](./cpp/Minimum-Path-Sum/README.md)|Medium|
 |65|[Valid-Number](https://leetcode-cn.com/problems/valid-number/)| [C++](./cpp/Valid-Number/README.md), [Python](./python/Valid-Number/Valid-Number.py)|Hard|
+|69&clubs;|[Valid-Number](https://leetcode-cn.com/problems/sqrtx/)| [C++](./cpp/Sqrtx/README.md)|Easy|
 |70|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
 |72&clubs;|[Edit-Distance](https://leetcode-cn.com/problems/edit-distance/)| [C++](./cpp/Edit-Distance/README.md)|Hard|
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
