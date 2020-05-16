@@ -56,7 +56,8 @@ public:
         vector<int> dp(amount+1, amount+1);
         // 初始化
         dp[0] = 0;
-        for (int i = 0;i<n;i++)
+        int n = dp.size();
+        for (int i = 1;i<n;i++)
         {
             for (int coin : coins)
             {
