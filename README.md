@@ -32,7 +32,7 @@ LeetCode
 |22&clubs;|[Generate-Parentheses](https://leetcode-cn.com/problems/generate-parentheses/)| [C++](./cpp/Generate-Parentheses/Generate-Parentheses.cpp), [Python](./python/Generate-Parentheses/Generate-Parentheses.py)|Medium|
 |23&clubs;|[Merge-K-Sorted-Lists](https://leetcode-cn.com/problems/merge-k-sorted-lists/)| [C++](./cpp/Merge-K-Sorted-Lists/), [Python](./python/Merge-K-Sorted-Lists/Merge-K-Sorted-Lists.py)|Hard|
 |24|[Swap-Nodes-In-Pairs](https://leetcode-cn.com/problems/swap-nodes-in-pairs/)| [C++](./cpp/Swap-Nodes-In-Pairs/Swap-Nodes-In-Pairs.cpp), [Python](./python/Swap-Nodes-In-Pairs/Swap-Nodes-In-Pairs.py)|Medium|
-|25|[Reverse-Nodes-In-K-Group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)| [C++](./cpp/Reverse-Nodes-In-K-Group/README.md), [Python](./python/Reverse-Nodes-In-K-Group/Reverse-Nodes-In-K-Group.py)|Hard|
+|25&clubs;|[Reverse-Nodes-In-K-Group](https://leetcode-cn.com/problems/reverse-nodes-in-k-group/)| [C++](./cpp/Reverse-Nodes-In-K-Group/README.md), [Python](./python/Reverse-Nodes-In-K-Group/Reverse-Nodes-In-K-Group.py)|Hard|
 |26|[Remove-Duplicates-From-Sorted-Array](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)| [C++](./cpp/Remove-Duplicates-From-Sorted-Array/Remove-Duplicates-From-Sorted-Array.cpp), [Python](./python/Remove-Duplicates-From-Sorted-Array/Remove-Duplicates-From-Sorted-Array.py)|Easy|
 |27|[Remove-Element](https://leetcode-cn.com/problems/remove-element/)| [C++](./cpp/Remove-Element/Remove-Element.cpp), [Python](./python/Remove-Element/Remove-Element.py)|Easy|
 |28|[Implement-Strstr](https://leetcode-cn.com/problems/implement-strstr/)| [C++](./cpp/Implement-Strstr/Implement-Strstr.cpp), [Python](./python/Implement-Strstr/Implement-Strstr.py)|Easy|
