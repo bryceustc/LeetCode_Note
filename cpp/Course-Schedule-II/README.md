@@ -25,68 +25,55 @@
 
   
 # 解题思路:
-  此题与剑指Offer第六十七题类似。
-  就是要考虑到很多边界情况进行分析 
-  - 忽略所有行首空格，找到第一个非空格字符，可以是 ‘+/−+/−’ 表示是正数或者负数，紧随其后找到最长的一串连续数字，将其解析成一个整数；
-  - 整数后可能有任意非数字字符，请将其忽略；
-  - 从前往后遍历时，如果第一段连续数字为空，则返回0；
-  - 如果整数大于INT_MAX，请返回int_MAX；如果整数小于INT_MIN，请返回INT_MIN；
+ 拓扑排序，此题与华为初赛的题类似需要计算入度，构建图。利用BFS来解决，不过有点不同。
+ 
+- 传统BFS：把出列节点的下一层子节点推入 queue，不加甄别
+- 拓扑排序：实施甄别和监控，新入度为 0 的先推入 queue
  
 # 时间复杂度：
-  O(n)
+  O(n+m) 其中 n 为课程数，m 为先修课程的要求数
 # 空间复杂度
-  O(n)
+  O(n+m)
   
 # 代码
 
 ```c++
 class Solution {
 public:
-    int myAtoi(string str) {
-        int res = 0;
-        int i = 0;
-        int flag = 1;
-        // 1. 检查空格和回车
-        while (i < str.size() && (str[i] == ' ' || str[i] == '\t')) 
-        { 
-            i++; 
-        }
-        if (i >str.size()) 
-            return 0;
-        // 2. 检查符号
-        if (str[i] == '-') 
-        { 
-            flag = -1;
-            i++;
-        }
-        if (str[i] == '+') 
-        { 
-            if (flag == -1)
-                return 0;
-            else 
-                i++;
-        }
-        // 3. 计算数字
-        while (str[i]>='0' && str[i] <='9')
+    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        vector<int> res;
+        unordered_map<int,vector<int>> graph;  // 构建哈希表
+        vector<int> indegree(numCourses,0); // 初始化入度数组
+        for (auto &p : prerequisites)
         {
-            int r = str[i] - '0';
-            if ((res > INT_MAX /10 || (res == INT_MAX /10 && r > 7)))//比较最后一位 /是去掉最后一位，&是取最后一位
-            {
-                if (flag > 0)
-                    return INT_MAX;
-                else
-                    return INT_MIN;
-            }
-            res = res*10 + r;
-            i++;
+            graph[p[1]].push_back(p[0]);
+            indegree[p[0]]++;  // 计算入度
         }
-        
-        res *= flag;
-            
+        queue<int> q;
+        for (int i=0;i<indegree.size();++i) // 起初推入所有入度为0的课
+        {
+            if (indegree[i]==0)  
+                q.push(i);
+        }
+        while(!q.empty())
+        {
+            int u = q.front(); // 出栈，代表选这门课
+            res.push_back(u);  // 压入结果
+            q.pop();
+            for (int v : graph[u])
+            {
+                indegree[v]--;  // 将后续课程的入度 -1
+                if (indegree[v]==0)  // 一旦减到0，让该课入列
+                {
+                    q.push(v);
+                }
+            }
+        }
+        if (res.size()<numCourses) return {}; // 选齐了就返回res，否则返回{}
         return res;
     }
 };
 ```
 # 参考
 
-  -  [剑指Offer-67题-把字符串转换成整数](https://github.com/bryceustc/CodingInterviews/blob/master/StringToInt/README.md)
+  -  [题解讨论](https://leetcode-cn.com/problems/course-schedule-ii/solution/bao-mu-shi-ti-jie-tuo-bu-pai-xu-si-lu-zen-yao-yi-2/)
