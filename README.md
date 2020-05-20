@@ -199,6 +199,7 @@ LeetCode
 |1162&clubs;|[As-Far-From-Land-As-Possible](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)| [C++](./cpp/As-Far-From-Land-As-Possible/README.md), [Python](./cpp/As-Far-From-Land-As-Possible/README.md)|Medium|
 |1248&clubs;|[Count-Number-Of-Nice-Subarrays](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)| [C++](./cpp/Count-Number-Of-Nice-Subarrays/README.md)|Medium|
 |1360&hearts;|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
+|1371&hearts;|[Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts](https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/)| [C++](./cpp/Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts/README.md)|Medium|
 |5178&hearts;|[Four-Divisors](https://leetcode-cn.com/problems/four-divisors/)| [C++](./cpp/Four-Divisors/README.md)|Medium|
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
 |面试题01.06&clubs;|[字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
