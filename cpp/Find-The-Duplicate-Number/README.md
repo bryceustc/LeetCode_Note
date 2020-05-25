@@ -31,6 +31,8 @@
 
   4). 使用二分的思想来做，二分基数组，但这种方法不能找出所有重复的数字，时间复杂度为O(nlogn)，空间复杂度为O(1)，相当于用时间换取空间
   
+  5). 快慢指针算法，重要，时间复杂度O(n), 空间复杂度O(1)
+  
   此题与剑指Offer中的第三题**数组中重复的数字**方法类似
   
 
@@ -114,7 +116,36 @@ public:
     }
 };
 ```
-
+### 方法四，快慢指针
+```c++
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+                /**
+        快慢指针思想, fast 和 slow 是指针, nums[slow] 表示取指针对应的元素
+        注意 nums 数组中的数字都是在 1 到 n 之间的(在数组中进行游走不会越界),
+        因为有重复数字的出现, 所以这个游走必然是成环的, 环的入口就是重复的元素, 
+        即按照寻找链表环入口的思路来做
+        **/
+        int fast =0 , slow = 0;
+        while(true)
+        {
+            fast = nums[nums[fast]];
+            slow = nums[slow];
+            if (slow==fast)
+            {
+                fast = 0;
+                while(nums[slow]!=nums[fast])
+                {
+                    slow  = nums[slow];
+                    fast = nums[fast];
+                }
+                return nums[slow];
+            }
+        }
+    }
+};
+```
 
 ## [Python:](https://github.com/bryceustc/LeetCode_Note/blob/master/python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)
 ### 方法一： 排序之后直接查找法
