@@ -99,11 +99,12 @@ LeetCode
 |121&clubs;|[Best-Time-To-Buy-And-Sell-Stock](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)|Easy|
 |122|[Best-Time-To-Buy-And-Sell-Stock-II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-II/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-II/README.md)|Easy|
 |123|[Best-Time-To-Buy-And-Sell-Stock-III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Hard|
-|136&club;|[Single-Number](https://leetcode-cn.com/problems/single-number/)| [C++](./cpp/Single-Number/README.md), [Python](./python/Single-Number/Single-Number.py)|Easy|
+|136&clubs;|[Single-Number](https://leetcode-cn.com/problems/single-number/)| [C++](./cpp/Single-Number/README.md), [Python](./python/Single-Number/Single-Number.py)|Easy|
 |141|[Linked-List-Cycle](https://leetcode-cn.com/problems/linked-list-cycle/)| [C++](./cpp/Linked-List-Cycle/README.md), [Python](./cpp/Linked-List-Cycle/README.md)|Easy|
 |142|[Linked-List-Cycle-II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/EntryNodeInListLoop/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/EntryNodeInListLoop/README.md)|Medium|
 |144|[Binary-Tree-Preorder-Traversal](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)| [C++](./cpp/Binary-Tree-Preorder-Traversal/README.md), [Python](./python/Binary-Tree-Preorder-Traversal/Binary-Tree-Preorder-Traversal.py)|Medium|
 |145|[Binary-Tree-Postorder-Traversal](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)| [C++](./cpp/Binary-Tree-Postorder-Traversal/README.md), [Python](./python/Binary-Tree-Postorder-Traversal/Binary-Tree-Postorder-Traversal.py)|Medium|
+|146&clubs;|[LRU-Cache](https://leetcode-cn.com/problems/lru-cache/)| [C++](./cpp/LRU-Cache/README.md)|Medium|
 |151&clubs;|[Reverse-Words-In-A-String](https://leetcode-cn.com/problems/reverse-words-in-a-string/)| [C++](./cpp/Reverse-Words-In-A-String/README.md), [Python](./python/Reverse-Words-In-A-String/Reverse-Words-In-A-String.py)|Medium|
 |153|[Find-Minimum-In-Rotated-Sorted-Array](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)| [C++](./cpp/Find-Minimum-In-Rotated-Sorted-Array/README.md), [Python](./python/Find-Minimum-In-Rotated-Sorted-Array/Find-Minimum-In-Rotated-Sorted-Array.py)|Medium|
 |155&clubs;|[Min-Stack](https://leetcode-cn.com/problems/min-stack/)| [C++](./cpp/Min-Stack/README.md), [Python](./python/Min-Stack/Min-Stack.py)|Easy|
@@ -137,7 +138,7 @@ LeetCode
 |268|[Missing-Number](https://leetcode-cn.com/problems/missing-number/)| [C++](./cpp/Missing-Number/README.md), [Python](./python/Missing-Number/Missing-Number.py)|Easy|
 |279|[Perfect-Squares](https://leetcode-cn.com/problems/perfect-squares/)| [C++](./cpp/Perfect-Squares/README.md), [Python](./cpp/Perfect-Squares/README.md)|Medium|
 |283|[Move-Zeroes](https://leetcode-cn.com/problems/move-zeroes/)| [C++](./cpp/Move-Zeroes/README.md), [Python](./python/Move-Zeroes/Move-Zeroes.py)|Easy|
-|287|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
+|287&clubs;|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
 |289&clubs;|[Game-Of-Life](https://leetcode-cn.com/problems/game-of-life/)| [C++](./cpp/Game-Of-Life/README.md)|Medium|
 |295|[Find-Median-From-Data-Stream](https://leetcode-cn.com/problems/find-median-from-data-stream/)| [C++](./cpp/Find-Median-From-Data-Stream/README.md), [Python](./python/Find-Median-From-Data-Stream/Find-Median-From-Data-Stream.py)|Hard|
 |297|[Serialize-And-Deserialize-Binary-Tree](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)| [C++](./cpp/Serialize-And-Deserialize-Binary-Tree/README.md), [Python](./python/Serialize-And-Deserialize-Binary-Tree/Serialize-And-Deserialize-Binary-Tree.py)|Hard|
