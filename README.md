@@ -185,6 +185,7 @@ LeetCode
 |914&clubs;|[X-Of-A-Kind-In-A-Deck-Of-Cards](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/)| [C++](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md), [Python](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md)|Easy|
 |945&clubs;|[Minimum-Increment-To-Make-Array-Unique](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/)| [C++](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md), [Python](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md)|Medium|
 |946|[Validate-Stack-Sequences](https://leetcode-cn.com/problems/validate-stack-sequences/)| [C++](./cpp/Validate-Stack-Sequences/README.md), [Python](./python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)|Medium|
+|974&clubs;|[Subarray-Sums-Divisible-By-K](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/)| [C++](./cpp/Subarray-Sums-Divisible-By-K/README.md)|Medium|
 |977|[Squares-Of-A-Sorted-Array](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)| [C++](./cpp/Squares-Of-A-Sorted-Array/README.md)|Easy|
 |983&clubs;|[Minimum-Cost-For-Tickets](https://leetcode-cn.com/problems/minimum-cost-for-tickets/)| [C++](./cpp/Minimum-Cost-For-Tickets/README.md)|Medium|
 |994&clubs;|[Rotting-Oranges](https://leetcode-cn.com/problems/rotting-oranges/)| [C++](./cpp/Rotting-Oranges/README.md), [Python](./python/Rotting-Oranges/Rotting-Oranges.py)|Medium|
