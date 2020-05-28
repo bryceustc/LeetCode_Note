@@ -151,6 +151,7 @@ LeetCode
 |355&clubs;|[Design-Twitter](https://leetcode-cn.com/problems/design-twitter/)| [C++](./cpp/Design-Twitter/README.md)|Medium|
 |365&clubs;|[Water-And-Jug-Problem](https://leetcode-cn.com/problems/water-and-jug-problem/)| [C++](./cpp/Water-And-Jug-Problem/README.md), [Python](./cpp/Water-And-Jug-Problem/README.md)|Medium|
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
+|394&clubs;|[Decode-String](https://leetcode-cn.com/problems/decode-string/)| [C++](./cpp/Decode-String/README.md)|Medium|
 |400|[Nth-Digit](https://leetcode-cn.com/problems/nth-digit/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/FindNthDigit/README.md), [Python](./python/Nth-Digit/Nth-Digit.py)|Meidum|
 |409&clubs;|[Longest-Palindrome](https://leetcode-cn.com/problems/longest-palindrome/)| [C++](./cpp/Longest-Palindrome/README.md), [Python](./cpp/Longest-Palindrome/README.md)|Easy|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
