@@ -166,4 +166,4 @@ public:
 
 # 参考
 
-  -  [C++ 学习笔记之——字符串和字符串流](https://segmentfault.com/a/1190000017271382)
+  -  [栈和队列整理](https://bryceustc.github.io/2020/05/30/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E7%9A%84%E5%8C%BA%E5%88%AB%E5%8F%8A%E5%BA%94%E7%94%A8/#more)
