@@ -51,62 +51,74 @@
 ```c++
 class Solution {
 public:
-    void  Reverse(string &s,int start,int end)
-    {
-        while(start < end)
-        {
-            swap(s[start],s[end]);
-            start++;
-            end--;
+    int evalRPN(vector<string>& tokens) {
+        int res = 0;
+        int n = tokens.size();
+        stack<string> s;
+        for (int i = 0; i < n; i++) {
+            if (tokens[i]!="+" && tokens[i]!="-" && tokens[i]!="-" && tokens[i]!="*" && tokens[i]!="/") {
+                s.push(tokens[i]);
+            }
+            else
+            {
+                string sa = s.top();
+                s.pop();
+                string sb = s.top();
+                s.pop();
+                int a = atoi(sa);
+                int b = atoi(sb);
+                if (tokens[i]=="+")
+                {
+                    int c = b+a;
+                    string sc = to_string(c);
+                    s.push(sc);
+                }
+                else if (tokens[i]=="-"){
+                    int c = b-a;
+                    string sc = to_string(c);
+                    s.push(sc);
+                }
+                else if (tokens[i]=="*"){
+                    int c = b*a;
+                    string sc = to_string(c);
+                    s.push(sc);
+                }
+                else if (tokens[i]=="/"){
+                    int c = b/a;
+                    string sc = to_string(c);
+                    s.push(sc);
+                }
+            }
         }
+        // while(!s.empty()){
+        //     string tmp = s.top();
+
+        // }
+        string s1 = s.top();
+        s.pop();
+        res = atoi(s1);
+        return res;
     }
-    string reverseWords(string s) 
-    {
-        string res;
+
+    int atoi(const string& s){
         int n = s.size();
-        int start=0,end=0;
-        int x=0,y=0;
-        while(x<n)
+        int flag = 1;
+        int i = 0;
+        if (s[0]== '-')
         {
-            if (s[x]!=' ')
-            {
-                break;
-            }
-            x++;
+            flag = -1;
+            i++;
         }
-        s = s.substr(x);
-        end = s.size()-1;
-        // 整个句子翻转
-        Reverse(s,0,end);
-        while(y<s.size())
-        {
-            if (s[y]!=' ')
-            {
-                break;
-            }
-            y++;
+        else if (s[0]=='+'){
+            i++;
         }
-        s=s.substr(y);
-        int m = s.size();
-        int i=0;
-        while (i<m)
-        {
-            while(i<m && s[i]== ' ')
-            {
-                i++;
-            }
-            start = end = i;
-            while(i<m && s[i]!=' ')
-            {
-                i++;
-                end++;
-            }
-            Reverse(s,start,end-1);
-            for (int j=start;j<=end;j++)
-            {
-                res+=s[j];
-            }
+        int res = 0;
+        for (;i<n; i++){
+            char c = s[i];
+            int tmp = c - '0';
+            res = res * 10 + tmp;
         }
+        res *= flag;
         return res;
     }
 };
