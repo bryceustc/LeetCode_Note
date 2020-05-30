@@ -123,6 +123,47 @@ public:
     }
 };
 ```
+
+### 比较简单方便的一种写法
+```c++
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> s;
+        int i=0,res;
+        int n = tokens.size();
+        while(i<n){
+            if(tokens[i]=="+"||tokens[i]=="-"||tokens[i]=="*"||tokens[i]=="/"){
+                int a=s.top();
+                s.pop();
+                int b=s.top();
+                s.pop();
+                if(tokens[i]=="+"){
+                    res=a+b;
+                }
+                else if(tokens[i]=="-"){
+                    res=b-a;
+                }
+                else if(tokens[i]=="*"){
+                    res=a*b;
+                }
+                else{
+                    res=b/a;
+                }
+                s.push(res);
+            }
+            else{
+                int tmp = stoi(tokens[i]);
+                s.push(tmp);
+            }
+            i++;
+        }
+        res=s.top();
+        return res;
+    }
+};
+```
+
 # 参考
 
   -  [C++ 学习笔记之——字符串和字符串流](https://segmentfault.com/a/1190000017271382)
