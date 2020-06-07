@@ -1,3 +1,4 @@
+```c++
 #include<queue>
 class Solution {
 public:
@@ -83,3 +84,4 @@ public:
         return res;
     }
 };
+```
