@@ -73,7 +73,7 @@ LeetCode
 |65|[Valid-Number](https://leetcode-cn.com/problems/valid-number/)| [C++](./cpp/Valid-Number/README.md), [Python](./python/Valid-Number/Valid-Number.py)|Hard|
 |66&clubs;|[Plus-One](https://leetcode-cn.com/problems/plus-one/)| [C++](./cpp/Plus-One/README.md)|Easy|
 |69&clubs;|[Sqrtx](https://leetcode-cn.com/problems/sqrtx/)| [C++](./cpp/Sqrtx/README.md)|Easy|
-|70|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
+|70&clubs;|[Climbing-Stairs](https://leetcode-cn.com/problems/climbing-stairs/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/JumpFloor/README.md)|Easy|
 |72&clubs;|[Edit-Distance](https://leetcode-cn.com/problems/edit-distance/)| [C++](./cpp/Edit-Distance/README.md)|Hard|
 |74|[Search-A-2D-Matrix](https://leetcode-cn.com/problems/search-a-2d-matrix/)| [C++](./cpp/Search-A-2D-Matrix/README.md), [Python](./python/Search-A-2D-Matrix/Search-A-2D-Matrix.py)|Medium|
 |76&clubs;|[Minimum-Window-Substring](https://leetcode-cn.com/problems/minimum-window-substring/)| [C++](./cpp/Minimum-Window-Substring/README.md)|Hard|
