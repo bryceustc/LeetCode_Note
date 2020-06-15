@@ -21,7 +21,7 @@ LeetCode
 |11&clubs;|[Container-With-Most-Water](https://leetcode-cn.com/problems/container-with-most-water/)| [C++](./cpp/Container-With-Most-Water/Container-With-Most-Water.cpp), [Python](./python/Container-With-Most-Water/Container-With-Most-Water.py)|Medium|
 |12|[Integer-To-Roman](https://leetcode-cn.com/problems/integer-to-roman/)| [C++](./cpp/Integer-To-Roman/Integer-To-Roman.cpp), [Python](./python/Integer-To-Roman/Integer-To-Roman.py)|Medium|
 |13|[Roman-To-Integer](https://leetcode-cn.com/problems/roman-to-integer/)| [C++](./cpp/Roman-To-Integer/Roman-To-Integer.cpp), [Python](./python/Roman-To-Integer/Roman-To-Integer.py)|Easy|
-|14|[Longest-Common-Prefix](https://leetcode-cn.com/problems/longest-common-prefix/)| [C++](./cpp/Longest-Common-Prefix/Longest-Common-Prefix.cpp), [Python](./python/Longest-Common-Prefix/Longest-Common-Prefix.py)|Easy|
+|14&clubs;|[Longest-Common-Prefix](https://leetcode-cn.com/problems/longest-common-prefix/)| [C++](./cpp/Longest-Common-Prefix/Longest-Common-Prefix.cpp), [Python](./python/Longest-Common-Prefix/Longest-Common-Prefix.py)|Easy|
 |15&clubs;|[3Sum](https://leetcode-cn.com/problems/3sum/)| [C++](./cpp/3Sum/3Sum.cpp), [Python](./python/3Sum/3Sum.py)|Medium|
 |16|[3Sum-Closest](https://leetcode-cn.com/problems/3sum-closest/)| [C++](./cpp/3Sum-Closest/3Sum-Closest.cpp), [Python](./python/3Sum-Closest/3Sum-Closest.py)|Medium|
 |17|[Letter-Combinations-Of-A-Phone-Number](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)| [C++](./cpp/Letter-Combinations-Of-A-Phone-Number/Letter-Combinations-Of-A-Phone-Number.cpp), [Python](./python/Letter-Combinations-Of-A-Phone-Number/Letter-Combinations-Of-A-Phone-Number.py)|Medium|
