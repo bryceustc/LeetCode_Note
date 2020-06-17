@@ -196,6 +196,7 @@ LeetCode
 |994&clubs;|[Rotting-Oranges](https://leetcode-cn.com/problems/rotting-oranges/)| [C++](./cpp/Rotting-Oranges/README.md), [Python](./python/Rotting-Oranges/Rotting-Oranges.py)|Medium|
 |999&clubs;|[Available-Captures-For-Rook](https://leetcode-cn.com/problems/available-captures-for-rook/)| [C++](./cpp/Available-Captures-For-Rook/README.md), [Python](./cpp/Available-Captures-For-Rook/README.md)|Easy|
 |1013&clubs;|[Partition-Array-Into-Three-Parts-With-Equal-Sum](https://leetcode-cn.com/problems/distribute-candies-to-people/)| [C++](./cpp/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md), [Python](./python/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md)|Easy|
+|1014&clubs;|[Best-Sightseeing-Pair](https://leetcode-cn.com/problems/best-sightseeing-pair/)| [C++](./cpp/Best-Sightseeing-Pair/README.md)|Medium|
 |1046|[Last-Stone-Weight](https://leetcode-cn.com/problems/last-stone-weight/)| [C++](./cpp/Last-Stone-Weight/README.md), [Python](./cpp/Last-Stone-Weight/README.md)|Easy|
 |1049|[Last-Stone-Weight-II](https://leetcode-cn.com/problems/last-stone-weight-ii/)| [C++](./cpp/Last-Stone-Weight-II/README.md), [Python](./cpp/Last-Stone-Weight-II/README.md)|Medium|
 |1071&clubs;|[Greatest-Common-Divisor-Of-Strings](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/)| [C++](./cpp/Greatest-Common-Divisor-Of-Strings/README.md), [Python](./cpp/Greatest-Common-Divisor-Of-Strings/README.md)|Easy|
