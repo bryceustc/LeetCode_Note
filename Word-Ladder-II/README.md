@@ -1,3 +1,4 @@
+```c++
 class Solution {
 public:
     bool isPalindrome(string s) {
@@ -31,3 +32,4 @@ public:
         return true;
     }
 };
+```
