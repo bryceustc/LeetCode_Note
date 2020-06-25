@@ -1,77 +1,73 @@
-# 题目描述:  单词拆分
+# 题目描述:  验证回文串
 
-给定一个非空字符串 s 和一个包含非空单词列表的字典 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
 
-**说明** 
-
-  - 拆分时可以重复使用字典中的单词。
-  - 你可以假设字典中没有重复的单词
+说明：本题中，我们将空字符串定义为有效的回文串。
 
 **示例 1:**
 ```
-输入: s = "leetcode", wordDict = ["leet", "code"]
+输入: "A man, a plan, a canal: Panama"
 输出: true
-解释: 返回 true 因为 "leetcode" 可以被拆分成 "leet code"。
 ```
 **示例 2:**
 ```
-输入: s = "applepenapple", wordDict = ["apple", "pen"]
-输出: true
-解释: 返回 true 因为 "applepenapple" 可以被拆分成 "apple pen apple"。
-     注意你可以重复使用字典中的单词。
+输入: "race a car"
+输出: false
 ```
   
 # 解题思路:
 
-动态规划：
+记一下 c++的几个内置函数
 
-- 定义状态：dp[i]表示字符串s的前i个字符能否拆分成wordDict。也就是长度为i的s（0，i-1）是否由字符表组成
-![](https://pic.leetcode-cn.com/70b0957d0086f43cd56b9e311e03deed4e9a77be0ae40ccbaa2f2b006d7caeb5-image.png)
+islower(char c) 是否为小写字母
 
-- 状态转移方程：
+isupper(char c) 是否为大写字母
 
-    用指针 j 去划分两部分
+isdigit(char c) 是否为数字
 
-    [0, i] 区间子串 的 dp[i+1] 为真，取决于两部分：
+isalpha(char c) 是否为字母
 
-    它的前缀子串 [0, j-1[0,j−1] 的 dp[j]为真
+isalnum(char c) 是否为字母或者数字
 
-    剩余子串 [j,i]是一个合格的单词
+toupper(char c) 字母小转大
 
-![](https://pic.leetcode-cn.com/bcef185f09c72fb525855bd56155f4658793d86b0dc4f3de31cace6bd9398c5b-image.png)
-
-- 初始化状态：dp[0] = 1, 表示空串且合法
-
-- 返回结果：dp[n]
+tolower(char c) 字母大转小
  
 # 时间复杂度：
-  O(n^2)
-# 空间复杂度
   O(n)
+# 空间复杂度
+  O(1)
   
 # 代码
 
-###  动态规划
+###  双指针
 ```c++
 class Solution {
 public:
-    bool wordBreak(string s, vector<string>& wordDict) {
-        int n = s.size();
-        unordered_set<string> st(wordDict.begin(), wordDict.end());
-        // 定义状态：dp[i]表示字符串s的前i个字符能否拆分成wordDict
-        vector<int> dp(n+1,0);
-        // 初始化：dp[0] = 1
-        dp[0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                if (dp[j]==1 && (st.count(s.substr(j,i-j)))) {
-                    dp[i] = 1;
-                    break;  // i长度的子串已经满足要求，不需要j继续划分子串
-                }
+    bool isPalindrome(string s) {
+        string tmp;
+        for (const char& c : s) {
+        for (const char& c : s) {
+            if (islower(c) || isdigit(c)) {
+                tmp += c;
+            }
+            else if (isupper(c)) {
+                tmp += (c+32);  // tmp += tolower(c);
             }
         }
-        // 返回结果
-        return dp[n];
+        int n = tmp.size();
+        int i = 0;
+        int j = n - 1;
+        while (i < j) {
+            if (tmp[i]!=tmp[j]) {
+                return false;
+            }
+            else {
+                i++;
+                j--;
+            }
+        }
+        return true;
     }
 };
 ```
