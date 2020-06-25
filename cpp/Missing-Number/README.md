@@ -93,7 +93,11 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n = nums.size();
-        int res = n;
+        int res = n;  
+        // res 设为n的原因，
+        // 1）所有数字出现两次，XOR将使它归零。
+        // 2）下标i是从0～nums.size()-1的，而数字是从0~nums.size()的（缺了一个）。
+        // 3）你需要将初始值，设置为下标不能达到的那个值。
         for (int i = 0; i < n; i++)
         {
             res ^= nums[i];
