@@ -217,6 +217,7 @@ LeetCode
 |5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
 |面试题01.06&clubs;|[字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
 |面试题01.07&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)| [C++](./cpp/Rotate-Image/README.md)|Meidum|
+|面试题02.01&clubs;|[移除重复节点](https://leetcode-cn.com/problems/remove-duplicate-node-lcci/)| [C++](./cpp/Remove-Duplicate-Node/README.md)|Easy|
 |面试题08.11&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/coin-lcci/)| [C++](./cpp/Coin-Change-II/README.md)|Meidum|
 |面试题16.03&clubs;|[交点](https://leetcode-cn.com/problems/intersection-lcci/)| [C++](./cpp/Intersection/README.md)|Hard|
 |面试题17.06&clubs;|[按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci/)| [C++](./cpp/The-Masseuse-Lcci/README.md),[Python](./cpp/The-Masseuse-Lcci)|Easy|
