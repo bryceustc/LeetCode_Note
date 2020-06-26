@@ -210,11 +210,11 @@ LeetCode
 |1160&clubs;|[Find-Words-That-Can-Be-Formed-By-Characters](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/)| [C++](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md), [Python](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md)|Easy|
 |1162&clubs;|[As-Far-From-Land-As-Possible](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)| [C++](./cpp/As-Far-From-Land-As-Possible/README.md), [Python](./cpp/As-Far-From-Land-As-Possible/README.md)|Medium|
 |1248&clubs;|[Count-Number-Of-Nice-Subarrays](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)| [C++](./cpp/Count-Number-Of-Nice-Subarrays/README.md)|Medium|
-|1360&hearts;|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
-|1371&hearts;|[Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts](https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/)| [C++](./cpp/Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts/README.md)|Medium|
-|1431&hearts;|[Kids-With-The-Greatest-Number-Of-Candies](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/)| [C++](./cpp/Kids-With-The-Greatest-Number-Of-Candies/README.md)|Easy|
-|5178&hearts;|[Four-Divisors](https://leetcode-cn.com/problems/four-divisors/)| [C++](./cpp/Four-Divisors/README.md)|Medium|
-|5345&hearts;|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
+|1360|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
+|1371|[Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts](https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/)| [C++](./cpp/Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts/README.md)|Medium|
+|1431|[Kids-With-The-Greatest-Number-Of-Candies](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/)| [C++](./cpp/Kids-With-The-Greatest-Number-Of-Candies/README.md)|Easy|
+|5178|[Four-Divisors](https://leetcode-cn.com/problems/four-divisors/)| [C++](./cpp/Four-Divisors/README.md)|Medium|
+|5345|[Rank-Teams-By-Votes](https://leetcode-cn.com/problems/rank-teams-by-votes/)| [C++](./cpp/Rank-Teams-By-Votes/README.md)|Medium|
 |面试题01.06&clubs;|[字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci/)| [C++](./cpp/Compress-String-Lcci/README.md),[Python](./cpp/Compress-String-Lcci)|Easy|
 |面试题01.07&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)| [C++](./cpp/Rotate-Image/README.md)|Meidum|
 |面试题02.01&clubs;|[移除重复节点](https://leetcode-cn.com/problems/remove-duplicate-node-lcci/)| [C++](./cpp/Remove-Duplicate-Node/README.md)|Easy|
