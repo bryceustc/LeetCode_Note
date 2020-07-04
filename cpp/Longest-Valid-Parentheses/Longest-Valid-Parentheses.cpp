@@ -38,6 +38,41 @@
 时间复杂度：每个位置遍历一次，所以是O(n)的时间复杂度
 空间复杂度：栈需要O(n)的空间
 */
+// 暴力遍历所有子串，判断所有子串是否合法，并且从合法子串中寻找最长子串
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        int n = s.size();
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            for (int j = 1; j < n+1-i; ++j) {
+                string tmp = s.substr(i,j);
+                if (check(tmp)) {
+                    int m = tmp.size();
+                    res = max(res, m);
+                }
+            }
+        }
+        return res;
+    }
+
+    bool check (string tmp) {
+        stack<char> s;
+        int n = tmp.size();
+        for (int i = 0; i < n; ++i) {
+            if (tmp[i] == '(') {
+                s.push(tmp[i]);
+            } else {
+                if (s.empty()) return false;
+                s.pop();
+            }
+        }
+        return s.empty();
+    }
+};
+
+
+
 // C++ Solution 1:
 class Solution {
 public:
