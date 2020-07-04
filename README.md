@@ -27,7 +27,7 @@ LeetCode
 |17|[Letter-Combinations-Of-A-Phone-Number](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)| [C++](./cpp/Letter-Combinations-Of-A-Phone-Number/Letter-Combinations-Of-A-Phone-Number.cpp), [Python](./python/Letter-Combinations-Of-A-Phone-Number/Letter-Combinations-Of-A-Phone-Number.py)|Medium|
 |18|[4Sum](https://leetcode-cn.com/problems/4sum/)| [C++](./cpp/4Sum/4Sum.cpp), [Python](./python/4Sum/4Sum.py)|Medium|
 |19|[Remove-Nth-Node-From-End-Of-List](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)| [C++](./cpp/Remove-Nth-Node-From-End-Of-List/README.md), [Python](./python/Remove-Nth-Node-From-End-Of-List/Remove-Nth-Node-From-End-Of-List.py)|Medium|
-|20|[Valid-Parentheses](https://leetcode-cn.com/problems/valid-parentheses/)| [C++](./cpp/Valid-Parentheses/Valid-Parentheses.cpp), [Python](./python/Valid-Parentheses/Valid-Parentheses.py)|Easy|
+|20&clubs;|[Valid-Parentheses](https://leetcode-cn.com/problems/valid-parentheses/)| [C++](./cpp/Valid-Parentheses/Valid-Parentheses.cpp), [Python](./python/Valid-Parentheses/Valid-Parentheses.py)|Easy|
 |21&clubs;|[Merge-Two-Sorted-Lists](https://leetcode-cn.com/problems/Merge-Two-Sorted-Lists/)| [C++](./cpp/Merge-Two-Sorted-Lists/README.md), [Python](./python/Merge-Two-Sorted-Lists/Merge-Two-Sorted-Lists.py)|Easy|
 |22&clubs;|[Generate-Parentheses](https://leetcode-cn.com/problems/generate-parentheses/)| [C++](./cpp/Generate-Parentheses/Generate-Parentheses.cpp), [Python](./python/Generate-Parentheses/Generate-Parentheses.py)|Medium|
 |23&clubs;|[Merge-K-Sorted-Lists](https://leetcode-cn.com/problems/merge-k-sorted-lists/)| [C++](./cpp/Merge-K-Sorted-Lists/), [Python](./python/Merge-K-Sorted-Lists/Merge-K-Sorted-Lists.py)|Hard|
