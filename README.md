@@ -224,6 +224,7 @@ LeetCode
 |面试题01.07&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/rotate-matrix-lcci/)| [C++](./cpp/Rotate-Image/README.md)|Meidum|
 |面试题02.01&clubs;|[移除重复节点](https://leetcode-cn.com/problems/remove-duplicate-node-lcci/)| [C++](./cpp/Remove-Duplicate-Node/README.md)|Easy|
 |面试题08.11&clubs;|[旋转矩阵](https://leetcode-cn.com/problems/coin-lcci/)| [C++](./cpp/Coin-Change-II/README.md)|Meidum|
+|面试题16.11&clubs;|[跳水板](https://leetcode-cn.com/problems/diving-board-lcci/)| [C++](./cpp/Diving-Board/README.md)|Easy|
 |面试题16.03&clubs;|[交点](https://leetcode-cn.com/problems/intersection-lcci/)| [C++](./cpp/Intersection/README.md)|Hard|
 |面试题17.06&clubs;|[按摩师](https://leetcode-cn.com/problems/the-masseuse-lcci/)| [C++](./cpp/The-Masseuse-Lcci/README.md),[Python](./cpp/The-Masseuse-Lcci)|Easy|
 |面试题09&clubs;|[用两个栈实现队列](https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/QueueWithTwoStacks/README.md)|Easy|
