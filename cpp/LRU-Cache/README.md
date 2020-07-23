@@ -1,3 +1,4 @@
+```c++
 class LRUCache{
 private:
 	//LRU数据结构
@@ -42,3 +43,4 @@ private:
 	list<Node> cacheList;
 	unordered_map<int, list<Node>::iterator> cacheMap;
 };
+```
