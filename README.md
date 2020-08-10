@@ -211,6 +211,7 @@ LeetCode
 |999&clubs;|[Available-Captures-For-Rook](https://leetcode-cn.com/problems/available-captures-for-rook/)| [C++](./cpp/Available-Captures-For-Rook/README.md), [Python](./cpp/Available-Captures-For-Rook/README.md)|Easy|
 |1013&clubs;|[Partition-Array-Into-Three-Parts-With-Equal-Sum](https://leetcode-cn.com/problems/distribute-candies-to-people/)| [C++](./cpp/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md), [Python](./python/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md)|Easy|
 |1014&clubs;|[Best-Sightseeing-Pair](https://leetcode-cn.com/problems/best-sightseeing-pair/)| [C++](./cpp/Best-Sightseeing-Pair/README.md)|Medium|
+|1025&clubs;|[Divisor-Game](https://leetcode-cn.com/problems/divisor-game/)| [C++](./cpp/Divisor-Game/README.md)|Easy|
 |1028&clubs;|[Recover-A-Tree-From-Preorder-Traversal](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/)| [C++](./cpp/Recover-A-Tree-From-Preorder-Traversal/README.md)|Hard|
 |1046|[Last-Stone-Weight](https://leetcode-cn.com/problems/last-stone-weight/)| [C++](./cpp/Last-Stone-Weight/README.md), [Python](./cpp/Last-Stone-Weight/README.md)|Easy|
 |1049|[Last-Stone-Weight-II](https://leetcode-cn.com/problems/last-stone-weight-ii/)| [C++](./cpp/Last-Stone-Weight-II/README.md), [Python](./cpp/Last-Stone-Weight-II/README.md)|Medium|
