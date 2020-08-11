@@ -51,3 +51,24 @@ public:
 };
 ```
 
+### 最优解法 考虑溢出
+```c++
+class Solution {
+public:
+    int mySqrt(int x) {
+        if (x==0) return 0;
+        long l = 0;
+        long r = x;
+        while (l < r) {
+            long mid = l  + r  + 1>> 1;
+            if (x / mid  >= mid) {
+                l = mid;
+            }  else {
+                r = mid - 1;
+            }
+        }
+        return l;
+    }
+};
+```
+
