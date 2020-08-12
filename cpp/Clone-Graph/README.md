@@ -3,8 +3,7 @@
 给你无向 连通 图中一个节点的引用，请你返回该图的 深拷贝（克隆）。
 
 图中的每个节点都包含它的值 val（int） 和其邻居的列表（list[Node]）。
-
-` ``
+```
 class Node {
     public int val;
     public List<Node> neighbors;
@@ -88,17 +87,17 @@ public:
 class Solution {
 public:
     Node* cloneGraph(Node* node) {
-        vector<Node*> visited(101, NULL);
+        vector<Node*> visited(101, NULL);  //创建一个节点（指针）数组记录每个拷贝过的节点
         Node* res = dfs(node, visited);
         return res;
     }
 
     Node* dfs(Node* node, vector<Node*> &visited) {
-        if (node==NULL) return node;
-        if (visited[node->val])  return visited[node->val];
-        Node* cloneNode = new Node(node->val);
-        visited[node->val] = cloneNode;
-        for (Node* n : node->neighbors) {
+        if (node==NULL) return node;   //如果是空指针，则返回空
+        if (visited[node->val])  return visited[node->val];  //如果已经被拷贝过，则可以直接返回数组记录的那个指针
+        Node* cloneNode = new Node(node->val);  //创建拷贝节点
+        visited[node->val] = cloneNode;//更新已拷贝指针记录数组
+        for (Node* n : node->neighbors) {  //对邻接表每一个元素进行拷贝
             cloneNode->neighbors.push_back(dfs(n, visited));
         }
         return cloneNode;
