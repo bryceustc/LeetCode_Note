@@ -136,21 +136,29 @@ public:
         if  (node==NULL) return node;
         vector<Node*> visited(101, NULL);
         Node* cloneNode = new Node(node->val);
+        // 克隆第一个节点并存储到visited中
         visited[node->val] = cloneNode;
         queue<Node*> q;
+        // 将题目给定的节点添加到队列
         q.push(node);
         while (!q.empty()) {
+        // 取出队列的头节点
             Node* t = q.front();
             q.pop();
+            // 遍历该节点的邻居
             for (Node* n : t->neighbors) {
                 if (!visited[n->val]) {
-                    q.push(n);
+                    // 如果没有被访问过，就克隆并存储在哈希表中
                     visited[n->val] = new Node(n->val);
+                    // 将邻居节点加入队列中
+                    q.push(n);
                 };
+                // 更新当前节点的邻居列表
                 visited[t->val]->neighbors.push_back(visited[n->val]);
             }
         }
-        return cloneNode;
+        // return cloneNode;
+        return visited[node->val];
     }
 };
 ```
