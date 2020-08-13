@@ -60,36 +60,55 @@ public:
 };
 ```
 
-### 以下是当时错误解法： 普通竖式法，未通过OJ，本质还是int乘法，
+### 普通竖式法相加
 ```c++
 class Solution {
 public:
     string multiply(string num1, string num2) {
+        if (num1 == "0" || num2 == "0") return "0";
+        int n = num1.size();
+        int m = num2.size();
         string res;
-        if (num1 == "0"||num2 =="0") return "0";
-        int n1 = num1.size();
-        int n2 = num2.size();
-        int carry = 0;
-        int sum = 0;
-        int sum_value = 0;
-        for (int j = n2-1;j>=0;j--)
-        {
-            int temp = 0;
-            for (int i = n1-1;i>=0;i--)
-            {
-                temp = (num2[j]-'0')*(num1[i]-'0')+carry;
-                carry = temp / 10;
-                sum += temp%10*(pow(10,n1-1-i));
-                if (i==0 && carry!=0)
-                {
-                    sum += carry*(pow(10,n1));
-                    carry = 0;
-                }
+         // num2 逐位与 num1 相乘
+        for (int i = m - 1; i >=0; i--) {
+            int t = 0;
+            int b = num2[i] - '0';
+             // 保存 num2 第i位数字与 num1 相乘的结果
+            string temp;
+            for (int j = n- 1; j >=0; j--) {
+                t += (num1[j] - '0') * b;
+                temp += t %10 + '0';
+                t /= 10;
             }
-            sum_value += sum*(pow(10,n2-1-j));
-            sum = 0;
+            if (t>0) temp += t + '0';
+            // 注意翻转
+            reverse(temp.begin(), temp.end());
+            // 补0
+            for (int k = m - 1 - i; k>0; k-- ) {
+                temp += "0";
+            }
+            // 将当前结果与新计算的结果求和作为新的结果
+            res = add(res, temp);
         }
-        res = to_string(sum_value);
+        return res;
+    }
+
+    /**
+     * 对两个字符串数字进行相加，返回字符串形式的和
+     */
+    string add (string num1, string num2) {
+        string res;
+        int n = num1.size();
+        int m = num2.size();
+        int t = 0;
+        for (int i = n-1, j = m-1; i >= 0 || j >= 0; i--, j--) {
+            if ( i>=0 ) t += num1[i] - '0';
+            if (j >= 0) t += num2[j] - '0';
+            res += t % 10 + '0';
+            t /= 10;
+        }
+        if (t) res += t + '0';
+        reverse(res.begin(), res.end());
         return res;
     }
 };
