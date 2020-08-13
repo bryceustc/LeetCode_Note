@@ -22,6 +22,30 @@
 
 ## [C++](./Add-Strings.cpp):
 
+
+### 模板题
+```c++
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        string res = "";
+        int n = num1.size();
+        int m = num2.size();
+        int t = 0;
+        for (int i = n - 1,j = m -1;i>=0||j>=0; i--,j--) {
+            if (i >= 0) t += num1[i] - '0';
+            if (j >= 0) t += num2[j] - '0';
+            res += t % 10 + '0';
+            t /= 10;
+        }
+        if (t) res += "1";
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
+```
+
+
 ### 双指针
 ```c++
 class Solution {
