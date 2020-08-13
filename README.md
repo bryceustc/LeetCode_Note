@@ -50,7 +50,7 @@ LeetCode
 |40|[Combination-Sum-II](https://leetcode-cn.com/problems/combination-sum-ii/)| [C++](./cpp/Combination-Sum-II/README.md), [Python](./python/Combination-Sum-II/Combination-Sum-II.py)|Medium|
 |41&clubs;|[First-Missing-Positive](https://leetcode-cn.com/problems/first-missing-positive/)| [C++](./cpp/First-Missing-Positive/README.md), [Python](./python/First-Missing-Positive/First-Missing-Positive.py)|Hard|
 |42&clubs;|[Trapping-Rain-Water](https://leetcode-cn.com/problems/trapping-rain-water/)| [C++](./cpp/Trapping-Rain-Water/README.md), [Python](./python/Trapping-Rain-Water/Trapping-Rain-Water.py)|Hard|
-|43|[Multiply-Strings](https://leetcode-cn.com/problems/multiply-strings/)| [C++](./cpp/Multiply-Strings/README.md), [Python](./python/Multiply-Strings/Multiply-Strings.py)|Medium|
+|43&clubs;|[Multiply-Strings](https://leetcode-cn.com/problems/multiply-strings/)| [C++](./cpp/Multiply-Strings/README.md), [Python](./python/Multiply-Strings/Multiply-Strings.py)|Medium|
 |44|[Wildcard-Matching](https://leetcode-cn.com/problems/wildcard-matching/)| [C++](./cpp/Wildcard-Matching/README.md), [Python](./python/Wildcard-Matching/Wildcard-Matching.py)|Hard|
 |45&clubs;|[Jump-Game-II](https://leetcode-cn.com/problems/jump-game-ii/)| [C++](./cpp/Jump-Game-II/README.md), [Python](./python/Jump-Game-II/Jump-Game-II.py)|Hard|
 |46&clubs;|[Permutations](https://leetcode-cn.com/problems/permutations/)| [C++](./cpp/Permutations/README.md), [Python](./python/Permutations/Permutations.py)|Medium|
