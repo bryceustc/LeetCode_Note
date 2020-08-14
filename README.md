@@ -228,6 +228,7 @@ LeetCode
 |1160&clubs;|[Find-Words-That-Can-Be-Formed-By-Characters](https://leetcode-cn.com/problems/find-words-that-can-be-formed-by-characters/)| [C++](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md), [Python](./cpp/Find-Words-That-Can-Be-Formed-By-Characters/README.md)|Easy|
 |1162&clubs;|[As-Far-From-Land-As-Possible](https://leetcode-cn.com/problems/as-far-from-land-as-possible/)| [C++](./cpp/As-Far-From-Land-As-Possible/README.md), [Python](./cpp/As-Far-From-Land-As-Possible/README.md)|Medium|
 |1248&clubs;|[Count-Number-Of-Nice-Subarrays](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)| [C++](./cpp/Count-Number-Of-Nice-Subarrays/README.md)|Medium|
+|1300&clubs;|[Sum-Of-Mutated-Array-Closest-To-Target](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/)| [C++](./cpp/Sum-Of-Mutated-Array-Closest-To-Target/README.md)|Medium|
 |1360|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
 |1371|[Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts](https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/)| [C++](./cpp/Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts/README.md)|Medium|
 |1431|[Kids-With-The-Greatest-Number-Of-Candies](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/)| [C++](./cpp/Kids-With-The-Greatest-Number-Of-Candies/README.md)|Easy|
