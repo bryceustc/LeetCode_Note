@@ -200,6 +200,7 @@ LeetCode
 |820&clubs;|[Short-Encoding-Of-Words](https://leetcode-cn.com/problems/short-encoding-of-words/)| [C++](./cpp/Short-Encoding-Of-Words/README.md), [Python](./cpp/Short-Encoding-Of-Words/README.md)|Easy|
 |836&clubs;|[Rectangle-Overlap](https://leetcode-cn.com/problems/rectangle-overlap/)| [C++](./cpp/Rectangle-Overlap/README.md), [Python](./cpp/Rectangle-Overlap/README.md)|Easy|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
+|852&clubs;|[Peak-Index-In-A-Mountain-Array](https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/)| [C++](./cpp/Peak-Index-In-A-Mountain-Array/README.md)|Easy|
 |876&clubs;|[Middle-Of-The-Linked-List](https://leetcode-cn.com/problems/middle-of-the-linked-list/)| [C++](./cpp/Middle-Of-The-Linked-List/README.md), [Python](./cpp/Middle-Of-The-Linked-List/README.md)|Easy|
 |887&clubs;|[Super-Egg-Drop](https://leetcode-cn.com/problems/super-egg-drop/)| [C++](./cpp/Super-Egg-Drop/README.md)|Hard|
 |892&clubs;|[Surface-Area-Of-3D-Shapes](https://leetcode-cn.com/problems/surface-area-of-3d-shapes/)| [C++](./cpp/Surface-Area-Of-3D-Shapes/README.md)|Easy|
