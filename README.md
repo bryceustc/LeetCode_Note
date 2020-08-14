@@ -150,6 +150,7 @@ LeetCode
 |263|[Ugly-Number](https://leetcode-cn.com/problems/ugly-number/)| [C++](./cpp/Ugly-Number/README.md), [Python](./python/Ugly-Number/Ugly-Number.py)|Easy|
 |264|[Ugly-Number-II](https://leetcode-cn.com/problems/ugly-number/)| [C++](./cpp/Ugly-Number-II/README.md), [Python](./python/Ugly-Number-II/Ugly-Number-II.py)|Medium|
 |268|[Missing-Number](https://leetcode-cn.com/problems/missing-number/)| [C++](./cpp/Missing-Number/README.md), [Python](./python/Missing-Number/Missing-Number.py)|Easy|
+|275|[H-Index-II](https://leetcode-cn.com/problems/h-index-ii/)| [C++](./cpp/H-Index-II/README.md)|Medium|
 |279|[Perfect-Squares](https://leetcode-cn.com/problems/perfect-squares/)| [C++](./cpp/Perfect-Squares/README.md), [Python](./cpp/Perfect-Squares/README.md)|Medium|
 |283|[Move-Zeroes](https://leetcode-cn.com/problems/move-zeroes/)| [C++](./cpp/Move-Zeroes/README.md), [Python](./python/Move-Zeroes/Move-Zeroes.py)|Easy|
 |287&clubs;|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
