@@ -119,6 +119,7 @@ LeetCode
 |150|[Evaluate-Reverse-Polish-Notation](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)| [C++](./cpp/Evaluate-Reverse-Polish-Notation/README.md)|Medium|
 |151&clubs;|[Reverse-Words-In-A-String](https://leetcode-cn.com/problems/reverse-words-in-a-string/)| [C++](./cpp/Reverse-Words-In-A-String/README.md), [Python](./python/Reverse-Words-In-A-String/Reverse-Words-In-A-String.py)|Medium|
 |153|[Find-Minimum-In-Rotated-Sorted-Array](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)| [C++](./cpp/Find-Minimum-In-Rotated-Sorted-Array/README.md), [Python](./python/Find-Minimum-In-Rotated-Sorted-Array/Find-Minimum-In-Rotated-Sorted-Array.py)|Medium|
+|154|[Find-Minimum-In-Rotated-Sorted-Array-II](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/)| [C++](./cpp/Find-Minimum-In-Rotated-Sorted-Array-II/README.md)|Medium|
 |155&clubs;|[Min-Stack](https://leetcode-cn.com/problems/min-stack/)| [C++](./cpp/Min-Stack/README.md), [Python](./python/Min-Stack/Min-Stack.py)|Easy|
 |160|[Intersection-Of-Two-Linked-Lists](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)| [C++](./cpp/Intersection-Of-Two-Linked-Lists/README.md), [Python](./python/Intersection-Of-Two-Linked-Lists/Intersection-Of-Two-Linked-Lists.py)|Easy|
 |162|[Find-Peak-Element](https://leetcode-cn.com/problems/find-peak-element/)| [C++](./cpp/Find-Peak-Element/README.md)|Medium|
