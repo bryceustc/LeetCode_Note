@@ -176,6 +176,7 @@ LeetCode
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
 |394&clubs;|[Decode-String](https://leetcode-cn.com/problems/decode-string/)| [C++](./cpp/Decode-String/README.md)|Medium|
 |400|[Nth-Digit](https://leetcode-cn.com/problems/nth-digit/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/FindNthDigit/README.md), [Python](./python/Nth-Digit/Nth-Digit.py)|Meidum|
+|402&clubs;|[Remove-K-Digits](https://leetcode-cn.com/problems/remove-k-digits/)| [C++](./cpp/Remove-K-Digits/README.md)|Medium|
 |409&clubs;|[Longest-Palindrome](https://leetcode-cn.com/problems/longest-palindrome/)| [C++](./cpp/Longest-Palindrome/README.md), [Python](./cpp/Longest-Palindrome/README.md)|Easy|
 |410|[Split-Array-Largest-Sum](https://leetcode-cn.com/problems/split-array-largest-sum/)| [C++](./cpp/Split-Array-Largest-Sum/README.md)|Hard|
 |415|[Add-Strings](https://leetcode-cn.com/problems/add-strings/)| [C++](./cpp/Add-Strings/README.md), [Python](./python/Add-Strings/Add-Strings.py)|Easy|
