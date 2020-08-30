@@ -184,6 +184,7 @@ LeetCode
 |426|[Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List](convert-binary-search-tree-to-sorted-doubly-linked-list/)| [C++](./cpp/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/README.md), [Python](./python/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List/Convert-Binary-Search-Tree-To-Sorted-Doubly-Lnked-List.py)|Medium|
 |438|[Find-All-Anagrams-In-A-String](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)| [C++](./cpp/Find-All-Anagrams-In-A-String/README.md)|Medium|
 |445&clubs;|[Add-Two-Numbers-II](https://leetcode-cn.com/problems/add-two-numbers-ii/)| [C++](./cpp/Add-Two-Numbers-II/README.md)|Medium|
+|459&clubs;|[Repeated-Substring-Pattern](https://leetcode-cn.com/problems/repeated-substring-pattern/)| [C++](./cpp/Repeated-Substring-Pattern/README.md)|Easy|
 |460&clubs;|[LFU-Cache](https://leetcode-cn.com/problems/lfu-cache/)| [C++](./cpp/LFU-Cache/README.md)|Hard|
 |466&clubs;|[Count-The-Repetitions](https://leetcode-cn.com/problems/count-the-repetitions/)| [C++](./cpp/Count-The-Repetitions/README.md)|Hard|
 |470&clubs;|[Implement-Rand10-Using-Rand7](https://leetcode-cn.com/problems/implement-rand10-using-rand7/)| [C++](./cpp/Implement-Rand10-Using-Rand7/README.md)|Medium|
