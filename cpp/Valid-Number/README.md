@@ -75,7 +75,7 @@ public:
             // 符号：'+'和'-'要么出现在开头，要么出现在e之后，所以，'+'和'-'之前一位必须为'e'或者' ' 例：" +12"或"2e+2"
             else if (s[i] == '+' || s[i] == '-') 
             {
-                if (i > 0 && s[i - 1] != 'e' && s[i - 1] != ' ') return false;
+                if (i > 0 && s[i - 1] != 'e' && s[i - 1] != ' ' && s[i - 1] != 'E') return false;
                 sign = true;
             } 
             // 数字：数字范围要在0~9之间
@@ -91,7 +91,7 @@ public:
                 decimal = true;
             } 
             // 自然底数：e需在数字之后且只能出现一次，否则无效，例 "e3"，无效
-            else if (s[i] == 'e') 
+            else if (s[i] == 'e' || s[i] == 'E') 
             {
                 if (hasE || !num) return false;
                 hasE = true;
