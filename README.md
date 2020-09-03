@@ -58,7 +58,7 @@ LeetCode
 |48|[Rotate-Image](https://leetcode-cn.com/problems/rotate-image/)| [C++](./cpp/Rotate-Image/README.md), [Python](./python/Rotate-Image/Rotate-Image.py)|Medium|
 |49|[Group-Anagrams](https://leetcode-cn.com/problems/group-anagrams/)| [C++](./cpp/Group-Anagrams/README.md), [Python](./python/Group-Anagrams/Group-Anagrams.py)|Medium|
 |50&clubs;|[PowX-N](https://leetcode-cn.com/problems/powx-n/)| [C++](./cpp/PowX-N/README.md), [Python](./python/PowX-N/PowX-N.py)|Medium|
-|51|[N-Queens](https://leetcode-cn.com/problems/n-queens/)| [C++](./cpp/N-Queens/README.md)|Haard|
+|51&clubs;|[N-Queens](https://leetcode-cn.com/problems/n-queens/)| [C++](./cpp/N-Queens/README.md)|Haard|
 |53&clubs;|[Maximum-Subarray](https://leetcode-cn.com/problems/maximum-subarray/)| [C++](./cpp/Maximum-Subarray/README.md), [Python](./python/Maximum-Subarray/Maximum-Subarray.py)|Easy|
 |54|[Spiral-Matrix](https://leetcode-cn.com/problems/spiral-matrix/)| [C++](./cpp/Spiral-Matrix/README.md), [Python](./python/Spiral-Matrix/Spiral-Matrix.py)|Medium|
 |55&clubs;|[Jump-Game](https://leetcode-cn.com/problems/jump-game/)| [C++](./cpp/Jump-Game/README.md), [Python](./python/Jump-Game/Jump-Game.py)|Medium|
