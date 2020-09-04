@@ -151,6 +151,7 @@ LeetCode
 |237|[Delete-Node-In-A-Linked-List](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/)| [C++](./cpp/Delete-Node-In-A-Linked-List/README.md), [Python](./python/Delete-Node-In-A-Linked-List/Delete-Node-In-A-Linked-List.py)|Easy|
 |238&clubs;|[Product-Of-Array-Except-Self](https://leetcode-cn.com/problems/product-of-array-except-self/)| [C++](./cpp/Product-Of-Array-Except-Self/README.md)|Medium|
 |240|[Search-A-2D-Matrix-II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii/)| [C++](./cpp/Search-A-2D-Matrix-II/README.md), [Python](./python/Search-A-2D-Matrix-II/Search-A-2D-Matrix-II.py)|Medium|
+|257|[Binary-Tree-Paths](https://leetcode-cn.com/problems/binary-tree-paths/)| [C++](./cpp/Binary-Tree-Paths/README.md)|Easy|
 |260|[Single-Number-III](https://leetcode-cn.com/problems/single-number-iii/)| [C++](./cpp/Single-Number-III/README.md), [Python](./python/Single-Number-III/Single-Number-III.py)|Medium|
 |263|[Ugly-Number](https://leetcode-cn.com/problems/ugly-number/)| [C++](./cpp/Ugly-Number/README.md), [Python](./python/Ugly-Number/Ugly-Number.py)|Easy|
 |264|[Ugly-Number-II](https://leetcode-cn.com/problems/ugly-number/)| [C++](./cpp/Ugly-Number-II/README.md), [Python](./python/Ugly-Number-II/Ugly-Number-II.py)|Medium|
