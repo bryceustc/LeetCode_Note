@@ -18,7 +18,7 @@
 class Solution {
 public:
     vector<vector<int>> combine(int n, int k) {
-        if (n < k || n <=0 ) return res; 
+        if (n < k || k <=0 ) return res; 
         dfs(n, k, 1);
         return res;
     }
