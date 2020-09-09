@@ -231,7 +231,8 @@ LeetCode
 |974&clubs;|[Subarray-Sums-Divisible-By-K](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/)| [C++](./cpp/Subarray-Sums-Divisible-By-K/README.md)|Medium|
 |977|[Squares-Of-A-Sorted-Array](https://leetcode-cn.com/problems/squares-of-a-sorted-array/)| [C++](./cpp/Squares-Of-A-Sorted-Array/README.md)|Easy|
 |983&clubs;|[Minimum-Cost-For-Tickets](https://leetcode-cn.com/problems/minimum-cost-for-tickets/)| [C++](./cpp/Minimum-Cost-For-Tickets/README.md)|Medium|
-|994&clubs;|[Rotting-Oranges](https://leetcode-cn.com/problems/rotting-oranges/)| [C++](./cpp/Rotting-Oranges/README.md), [Python](./python/Rotting-Oranges/Rotting-Oranges.py)|Medium|
+|983&clubs;|[Minimum-Cost-For-Tickets](https://leetcode-cn.com/problems/minimum-cost-for-tickets/)| [C++](./cpp/Minimum-Cost-For-Tickets/README.md)|Medium|
+|986|[Interval-List-Intersections](https://leetcode-cn.com/problems/interval-list-intersections/)| [C++](./cpp/Interval-List-Intersections/README.md)|Medium|
 |999&clubs;|[Available-Captures-For-Rook](https://leetcode-cn.com/problems/available-captures-for-rook/)| [C++](./cpp/Available-Captures-For-Rook/README.md), [Python](./cpp/Available-Captures-For-Rook/README.md)|Easy|
 |1013&clubs;|[Partition-Array-Into-Three-Parts-With-Equal-Sum](https://leetcode-cn.com/problems/distribute-candies-to-people/)| [C++](./cpp/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md), [Python](./python/Partition-Array-Into-Three-Parts-With-Equal-Sum/README.md)|Easy|
 |1014&clubs;|[Best-Sightseeing-Pair](https://leetcode-cn.com/problems/best-sightseeing-pair/)| [C++](./cpp/Best-Sightseeing-Pair/README.md)|Medium|
