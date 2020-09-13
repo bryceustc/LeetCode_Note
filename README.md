@@ -80,7 +80,7 @@ LeetCode
 |76&clubs;|[Minimum-Window-Substring](https://leetcode-cn.com/problems/minimum-window-substring/)| [C++](./cpp/Minimum-Window-Substring/README.md)|Hard|
 |77&clubs;|[Combinations](https://leetcode-cn.com/problems/combinations/)| [C++](./cpp/Combinations/README.md)|Medium|
 |78&clubs;|[Subsets](https://leetcode-cn.com/problems/subsets/)| [C++](./cpp/Subsets/README.md)|Medium|
-|79|[Word-Search](https://leetcode-cn.com/problems/word-search/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/StringPathInMatrix.py)|Medium|
+|79&clubs;|[Word-Search](https://leetcode-cn.com/problems/word-search/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/StringPathInMatrix/StringPathInMatrix.py)|Medium|
 |81|[Search-In-Rotated-Sorted-Array](https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/)| [C++](./cpp/Search-In-Rotated-Sorted-Array-II/README.md)|Medium|
 |82|[Remove-Duplicates-From-Sorted-List-II](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List-II/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List-II/Remove-Duplicates-From-Sorted-List-II.py)|Medium|
 |83|[Remove-Duplicates-From-Sorted-List](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)| [C++](./cpp/Remove-Duplicates-From-Sorted-List/README.md), [Python](./python/Remove-Duplicates-From-Sorted-List/Remove-Duplicates-From-Sorted-List.py)|Easy|
