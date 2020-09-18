@@ -54,7 +54,7 @@ LeetCode
 |44|[Wildcard-Matching](https://leetcode-cn.com/problems/wildcard-matching/)| [C++](./cpp/Wildcard-Matching/README.md), [Python](./python/Wildcard-Matching/Wildcard-Matching.py)|Hard|
 |45&clubs;|[Jump-Game-II](https://leetcode-cn.com/problems/jump-game-ii/)| [C++](./cpp/Jump-Game-II/README.md), [Python](./python/Jump-Game-II/Jump-Game-II.py)|Hard|
 |46&clubs;|[Permutations](https://leetcode-cn.com/problems/permutations/)| [C++](./cpp/Permutations/README.md), [Python](./python/Permutations/Permutations.py)|Medium|
-|47|[Permutations-II](https://leetcode-cn.com/problems/permutations-ii/)| [C++](./cpp/Permutations-II/README.md), [Python](./python/Permutations-II/Permutations-II.py)|Medium|
+|47&clubs;|[Permutations-II](https://leetcode-cn.com/problems/permutations-ii/)| [C++](./cpp/Permutations-II/README.md), [Python](./python/Permutations-II/Permutations-II.py)|Medium|
 |48|[Rotate-Image](https://leetcode-cn.com/problems/rotate-image/)| [C++](./cpp/Rotate-Image/README.md), [Python](./python/Rotate-Image/Rotate-Image.py)|Medium|
 |49|[Group-Anagrams](https://leetcode-cn.com/problems/group-anagrams/)| [C++](./cpp/Group-Anagrams/README.md), [Python](./python/Group-Anagrams/Group-Anagrams.py)|Medium|
 |50&clubs;|[PowX-N](https://leetcode-cn.com/problems/powx-n/)| [C++](./cpp/PowX-N/README.md), [Python](./python/PowX-N/PowX-N.py)|Medium|
