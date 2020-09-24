@@ -196,6 +196,7 @@ LeetCode
 |466&clubs;|[Count-The-Repetitions](https://leetcode-cn.com/problems/count-the-repetitions/)| [C++](./cpp/Count-The-Repetitions/README.md)|Hard|
 |470&clubs;|[Implement-Rand10-Using-Rand7](https://leetcode-cn.com/problems/implement-rand10-using-rand7/)| [C++](./cpp/Implement-Rand10-Using-Rand7/README.md)|Medium|
 |496|[Next-Greater-Element-I](https://leetcode-cn.com/problems/next-greater-element-i/)| [C++](./cpp/Next-Greater-Element-I/README.md), [Python](./cpp/Next-Greater-Element-I/README.md)|Easy|
+|501|[Find-Mode-In-Binary-Search-Tree](https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/)| [C++](./cpp/Find-Mode-In-Binary-Search-Tree/README.md)|Easy|
 |503|[Next-Greater-Element-II](https://leetcode-cn.com/problems/next-greater-element-ii/)| [C++](./cpp/Next-Greater-Element-II/README.md), [Python](./cpp/Next-Greater-Element-II/README.md)|Meidum|
 |516|[Longest-Palindromic-Subsequence](https://leetcode-cn.com/problems/longest-palindromic-subsequence/)| [C++](./cpp/Longest-Palindromic-Subsequence/README.md), [Python](./cpp/Longest-Palindromic-Subsequence/README.md)|Medium|
 |518|[Coin-Change-II](https://leetcode-cn.com/problems/coin-change-2/)| [C++](./cpp/Coin-Change-II/README.md)|Medium|
