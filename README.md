@@ -221,6 +221,7 @@ LeetCode
 |718&clubs;|[Maximum-Length-Of-Repeated-Subarray](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)| [C++](./cpp/Maximum-Length-Of-Repeated-Subarray/README.md)|Medium|
 |733&clubs;|[Flood-Fill](https://leetcode-cn.com/problems/flood-fill/)| [C++](./cpp/Flood-Fill/README.md)|Medium|
 |739|[Daily-Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)| [C++](./cpp/Daily-Temperatures/README.md), [Python](./cpp/Daily-Temperatures/README.md)|Medium|
+|771&clubs;|[Jewels-And-Stones](https://leetcode-cn.com/problems/jewels-and-stones/)| [C++](./cpp/Jewels-And-Stones/README.md)|Easy|
 |785&clubs;|[Is-Graph-Bipartite](https://leetcode-cn.com/problems/is-graph-bipartite/)| [C++](./cpp/Is-Graph-Bipartite/README.md)|Medium|
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |820&clubs;|[Short-Encoding-Of-Words](https://leetcode-cn.com/problems/short-encoding-of-words/)| [C++](./cpp/Short-Encoding-Of-Words/README.md), [Python](./cpp/Short-Encoding-Of-Words/README.md)|Easy|
