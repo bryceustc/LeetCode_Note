@@ -4,7 +4,7 @@ LeetCode
 
 带&clubs;为力扣2020.3.1开始的每日一题打卡
 
-### LeetCode 题解（C++，Python实现）（持续更新中...）
+### LeetCode 题解（持续更新中...）
 
 | # | Title | Solution | Difficulty 
 |---| ----- | -------- | ---------- |
