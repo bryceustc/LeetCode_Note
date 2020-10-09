@@ -117,7 +117,7 @@ LeetCode
 |133&clubs;|[Clone-Graph](https://leetcode-cn.com/problems/clone-graph/)| [C++](./cpp/Clone-Graph/README.md)|Medium|
 |136&clubs;|[Single-Number](https://leetcode-cn.com/problems/single-number/)| [C++](./cpp/Single-Number/README.md), [Python](./python/Single-Number/Single-Number.py)|Easy|
 |139&clubs;|[Word-Break](https://leetcode-cn.com/problems/word-break/)| [C++](./cpp/Word-Break/README.md)|Medium|
-|141|[Linked-List-Cycle](https://leetcode-cn.com/problems/linked-list-cycle/)| [C++](./cpp/Linked-List-Cycle/README.md), [Python](./cpp/Linked-List-Cycle/README.md)|Easy|
+|141&clubs;|[Linked-List-Cycle](https://leetcode-cn.com/problems/linked-list-cycle/)| [C++](./cpp/Linked-List-Cycle/README.md), [Python](./cpp/Linked-List-Cycle/README.md)|Easy|
 |142|[Linked-List-Cycle-II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/EntryNodeInListLoop/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/EntryNodeInListLoop/README.md)|Medium|
 |144|[Binary-Tree-Preorder-Traversal](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)| [C++](./cpp/Binary-Tree-Preorder-Traversal/README.md), [Python](./python/Binary-Tree-Preorder-Traversal/Binary-Tree-Preorder-Traversal.py)|Medium|
 |145|[Binary-Tree-Postorder-Traversal](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)| [C++](./cpp/Binary-Tree-Postorder-Traversal/README.md), [Python](./python/Binary-Tree-Postorder-Traversal/Binary-Tree-Postorder-Traversal.py)|Medium|
