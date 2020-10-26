@@ -256,7 +256,7 @@ LeetCode
 |1248&clubs;|[Count-Number-Of-Nice-Subarrays](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)| [C++](./cpp/Count-Number-Of-Nice-Subarrays/README.md)|Medium|
 |1300&clubs;|[Sum-Of-Mutated-Array-Closest-To-Target](https://leetcode-cn.com/problems/sum-of-mutated-array-closest-to-target/)| [C++](./cpp/Sum-Of-Mutated-Array-Closest-To-Target/README.md)|Medium|
 |1360|[Number-Of-Days-Between-Two-Dates](https://leetcode-cn.com/problems/number-of-days-between-two-dates/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
-|1365|[How-Many-Numbers-Are-Smaller-Than-The-Current-Number](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/)| [C++](./cpp/Number-Of-Days-Between-Two-Dates/README.md)|Easy|
+|1365&clubs;|[How-Many-Numbers-Are-Smaller-Than-The-Current-Number](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/)| [C++](https://github.com/bryceustc/LeetCode_Note/tree/master/cpp/How-Many-Numbers-Are-Smaller-Than-The-Current-Number)|Easy|
 |1371|[Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts](https://leetcode-cn.com/problems/find-the-longest-substring-containing-vowels-in-even-counts/)| [C++](./cpp/Find-The-Longest-Substring-Containing-Vowels-In-Even-Counts/README.md)|Medium|
 |1431|[Kids-With-The-Greatest-Number-Of-Candies](https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/)| [C++](./cpp/Kids-With-The-Greatest-Number-Of-Candies/README.md)|Easy|
 |5178|[Four-Divisors](https://leetcode-cn.com/problems/four-divisors/)| [C++](./cpp/Four-Divisors/README.md)|Medium|
