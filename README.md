@@ -176,6 +176,7 @@ LeetCode
 |337|[House-Robber-III](https://leetcode-cn.com/problems/house-robber-iii/)| [C++](./cpp/House-Robber-III/README.md), [Python](./cpp/House-Robber-III/README.md)|Medium|
 |343|[Integer-Break](https://leetcode-cn.com/problems/integer-break/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/CuttingRope.py)|Medium|
 |347&clubs;|[Top-K-Frequent-Elements](https://leetcode-cn.com/problems/top-k-frequent-elements/)| [C++](./cpp/Top-K-Frequent-Elements/README.md)|Medium|
+|349&clubs;|[Intersection-Of-Two-Arrays](https://leetcode-cn.com/problems/intersection-of-two-arrays/)| [C++](./cpp/Intersection-Of-Two-Arrays/README.md)|Easy|
 |350&clubs;|[Intersection-Of-Two-Arrays-II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/)| [C++](./cpp/Intersection-Of-Two-Arrays-II/README.md)|Easy|
 |354|[Russian-Doll-Envelopes](https://leetcode-cn.com/problems/russian-doll-envelopes/)| [C++](./cpp/Russian-Doll-Envelopes/README.md), [Python](./cpp/Russian-Doll-Envelopes/README.md)|Hard|
 |355&clubs;|[Design-Twitter](https://leetcode-cn.com/problems/design-twitter/)| [C++](./cpp/Design-Twitter/README.md)|Medium|
