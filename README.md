@@ -235,6 +235,7 @@ LeetCode
 |892&clubs;|[Surface-Area-Of-3D-Shapes](https://leetcode-cn.com/problems/surface-area-of-3d-shapes/)| [C++](./cpp/Surface-Area-Of-3D-Shapes/README.md)|Easy|
 |912&clubs;|[Sort-An-Array](https://leetcode-cn.com/problems/sort-an-array/)| [C++](./cpp/Sort-An-Array/README.md)|Medium|
 |914&clubs;|[X-Of-A-Kind-In-A-Deck-Of-Cards](https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/)| [C++](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md), [Python](./cpp/X-Of-A-Kind-In-A-Deck-Of-Cards/README.md)|Easy|
+|941&clubs;|[Valid-Mountain-Array](https://leetcode-cn.com/problems/valid-mountain-array/)| [C++](./cpp/Valid-Mountain-Array/README.md)|Easy|
 |945&clubs;|[Minimum-Increment-To-Make-Array-Unique](https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/)| [C++](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md), [Python](./cpp/Minimum-Increment-To-Make-Array-Unique/README.md)|Medium|
 |946|[Validate-Stack-Sequences](https://leetcode-cn.com/problems/validate-stack-sequences/)| [C++](./cpp/Validate-Stack-Sequences/README.md), [Python](./python/Validate-Stack-Sequences/Validate-Stack-Sequences.py)|Medium|
 |974&clubs;|[Subarray-Sums-Divisible-By-K](https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/)| [C++](./cpp/Subarray-Sums-Divisible-By-K/README.md)|Medium|
