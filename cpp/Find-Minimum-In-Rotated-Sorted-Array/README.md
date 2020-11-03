@@ -63,30 +63,29 @@ public:
 
 ###  方法二： 二分查找法
 ```c++
-class Solution{
-    public:
-        int MinNumberInRotatedArray(vector<int>&nums)
+class Solution {
+public:
+    int minArray(vector<int>& numbers) {
+        if (numbers.empty()) return 0;
+        int n = numbers.size();
+        int start = 0;
+        int end = n-1;
+        while(end>start)
         {
-            if (nums.empty()) return 0;
-            int n = nums.size();     
-            int start = 0;
-            int end = n-1;
-            int res = nums[0];
-            while (end>=start)
+            int mid = start + (end-start)/2;
+            if (numbers[mid] > numbers[end])
             {
-                int mid = start + (end-start)/2;
-                if (nums[mid]>=res)
-                {
-                    start = mid+1;
-                }
-                if (nums[mid]<res)
-                {
-                    end = mid-1;
-                }
-                res = min(res,nums[mid]);
-                }
-            return res;          
+                start = mid+1;
+            }
+            else if (numbers[mid]< numbers[end])
+            {
+                end = mid;
+            }
+            else
+                end--;
         }
+        return numbers[start];
+    }
 };
 ```
 ###  方法三： sort排序后 返回
