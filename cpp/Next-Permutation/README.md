@@ -1,4 +1,4 @@
-下一个排列
+### 下一个排列
 
 ![](https://pic.leetcode-cn.com/e56a66ed318d1761cd8c8f9d1521f82a30c71ecc84f551912b90d8fe254c8f3d-image.png)
 
