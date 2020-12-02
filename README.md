@@ -172,6 +172,7 @@ LeetCode
 |300|[Longest-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)| [C++](./cpp/Longest-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Increasing-Subsequence/README.md)|Medium|
 |309&clubs;|[Best-Time-To-Buy-And-Sell-Stock-With-Cooldown](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
 |315&clubs;|[Count-Of-Smaller-Numbers-After-Self](https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/)| [C++](./cpp/Count-Of-Smaller-Numbers-After-Self/README.md)|Hard|
+|321&clubs;|[Create-Maximum-Number](https://leetcode-cn.com/problems/create-maximum-number/)| [C++](./cpp/Create-Maximum-Number/README.md))|Medium|
 |322&clubs;|[Coin-Change](https://leetcode-cn.com/problems/coin-change/)| [C++](./cpp/Coin-Change/README.md), [Python](./python/Coin-Change/Coin-Change.py)|Medium|
 |337|[House-Robber-III](https://leetcode-cn.com/problems/house-robber-iii/)| [C++](./cpp/House-Robber-III/README.md), [Python](./cpp/House-Robber-III/README.md)|Medium|
 |343|[Integer-Break](https://leetcode-cn.com/problems/integer-break/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/README.md), [Python](https://github.com/bryceustc/CodingInterviews/blob/master/CuttingRope/CuttingRope.py)|Medium|
