@@ -105,6 +105,7 @@ LeetCode
 |112|[Path-Sum](https://leetcode-cn.com/problems/path-sum/)| [C++](./cpp/Path-Sum/README.md), [Python](./python/Path-Sum/Path-Sum.py)|Easy|
 |113|[Path-Sum-II](https://leetcode-cn.com/problems/path-sum-ii/)| [C++](./cpp/Path-Sum-II/README.md), [Python](./python/Path-Sum-II/Path-Sum-II.py)|Medium|
 |114|[Flatten-Binary-Tree-To-Linked-List](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)| [C++](./cpp/Flatten-Binary-Tree-To-Linked-List/README.md)|Medium|
+|118&clubs;|[Pascals-Triangle](https://leetcode-cn.com/problems/pascals-triangle/)| [C++](./cpp/Pascals-Triangle/README.md)|Easy|
 |120|[Triangle](https://leetcode-cn.com/problems/triangle/)| [C++](./cpp/Triangle/README.md), [Python](./cpp/Triangle/README.md)|Meidum|
 |121&clubs;|[Best-Time-To-Buy-And-Sell-Stock](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock/README.md)|Easy|
 |122&clubs;|[Best-Time-To-Buy-And-Sell-Stock-II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-II/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-II/README.md)|Easy|
