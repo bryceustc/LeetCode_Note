@@ -233,6 +233,7 @@ LeetCode
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
 |820&clubs;|[Short-Encoding-Of-Words](https://leetcode-cn.com/problems/short-encoding-of-words/)| [C++](./cpp/Short-Encoding-Of-Words/README.md), [Python](./cpp/Short-Encoding-Of-Words/README.md)|Easy|
 |836&clubs;|[Rectangle-Overlap](https://leetcode-cn.com/problems/rectangle-overlap/)| [C++](./cpp/Rectangle-Overlap/README.md), [Python](./cpp/Rectangle-Overlap/README.md)|Easy|
+|842&clubs;|[Split-Array-Into-Fibonacci-Sequence](https://leetcode-cn.com/problems/split-array-into-fibonacci-sequence/)| [C++](./cpp/Split-Array-Into-Fibonacci-Sequence/README.md)|Medium|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
 |852&clubs;|[Peak-Index-In-A-Mountain-Array](https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/)| [C++](./cpp/Peak-Index-In-A-Mountain-Array/README.md)|Easy|
 |861&clubs;|[Score-After-Flipping-Matrix](https://leetcode-cn.com/problems/score-after-flipping-matrix/)| [C++](./cpp/Score-After-Flipping-Matrix/README.md)|Medium|
