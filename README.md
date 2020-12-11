@@ -218,6 +218,7 @@ LeetCode
 |617&clubs;|[Merge-Two-Binary-Trees](https://leetcode-cn.com/problems/merge-two-binary-trees/)| [C++](./cpp/Merge-Two-Binary-Trees/README.md)|Easy|
 |621&clubs;|[Task-Scheduler](https://leetcode-cn.com/problems/task-scheduler/)| [C++](./cpp/Task-Scheduler/README.md)|Medium|
 |647&clubs;|[Palindromic-Substrings](https://leetcode-cn.com/problems/palindromic-substrings/)| [C++](./cpp/Palindromic-Substrings/README.md)|Medium|
+|649&clubs;|[Dota2-Senate](https://leetcode-cn.com/problems/dota2-senate/)| [C++](./cpp/Dota2-Senate/README.md)|Medium|
 |657&clubs;|[Robot-Return-To-Origin](https://leetcode-cn.com/problems/robot-return-to-origin/)| [C++](./cpp/Robot-Return-To-Origin/README.md)|Easy|
 |659&clubs;|[Split-Array-Into-Consecutive-Subsequences](https://leetcode-cn.com/problems/split-array-into-consecutive-subsequences/)| [C++](./cpp/Split-Array-Into-Consecutive-Subsequences/README.md))|Medium|
 |674|[Longest-Continuous-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/)| [C++](./cpp/Longest-Continuous-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Continuous-Increasing-Subsequence/README.md)|Easy|
