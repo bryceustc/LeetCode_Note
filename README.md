@@ -236,6 +236,7 @@ LeetCode
 |842&clubs;|[Split-Array-Into-Fibonacci-Sequence](https://leetcode-cn.com/problems/split-array-into-fibonacci-sequence/)| [C++](./cpp/Split-Array-Into-Fibonacci-Sequence/README.md)|Medium|
 |846|[Hand-Of-Straights](https://leetcode-cn.com/problems/hand-of-straights/)| [C++](./cpp/Hand-Of-Straights/README.md), [Python](./python/Hand-Of-Straights/Hand-Of-Straights.py)|Medium|
 |852&clubs;|[Peak-Index-In-A-Mountain-Array](https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/)| [C++](./cpp/Peak-Index-In-A-Mountain-Array/README.md)|Easy|
+|860&clubs;|[Lemonade-Change](https://leetcode-cn.com/problems/lemonade-change/)| [C++](./cpp/Lemonade-Change/README.md)|Easy|
 |861&clubs;|[Score-After-Flipping-Matrix](https://leetcode-cn.com/problems/score-after-flipping-matrix/)| [C++](./cpp/Score-After-Flipping-Matrix/README.md)|Medium|
 |876&clubs;|[Middle-Of-The-Linked-List](https://leetcode-cn.com/problems/middle-of-the-linked-list/)| [C++](./cpp/Middle-Of-The-Linked-List/README.md), [Python](./cpp/Middle-Of-The-Linked-List/README.md)|Easy|
 |887&clubs;|[Super-Egg-Drop](https://leetcode-cn.com/problems/super-egg-drop/)| [C++](./cpp/Super-Egg-Drop/README.md)|Hard|
