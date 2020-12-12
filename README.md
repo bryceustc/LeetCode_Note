@@ -185,6 +185,7 @@ LeetCode
 |355&clubs;|[Design-Twitter](https://leetcode-cn.com/problems/design-twitter/)| [C++](./cpp/Design-Twitter/README.md)|Medium|
 |365&clubs;|[Water-And-Jug-Problem](https://leetcode-cn.com/problems/water-and-jug-problem/)| [C++](./cpp/Water-And-Jug-Problem/README.md), [Python](./cpp/Water-And-Jug-Problem/README.md)|Medium|
 |374|[Guess-Number-Higher-Or-Lower](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)| [C++](./cpp/Guess-Number-Higher-Or-Lower/README.md)|Easy|
+|376&clubs;|[Wiggle-Subsequence](https://leetcode-cn.com/problems/wiggle-subsequence/)| [C++](./cpp/Wiggle-Subsequence/README.md)|Medium|
 |378&clubs;|[Kth-Smallest-Element-In-A-Sorted-Matrix](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/)| [C++](./cpp/Kth-Smallest-Element-In-A-Sorted-Matrix/README.md)|Medium|
 |387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
 |394&clubs;|[Decode-String](https://leetcode-cn.com/problems/decode-string/)| [C++](./cpp/Decode-String/README.md)|Medium|
