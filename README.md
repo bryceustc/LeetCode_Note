@@ -170,6 +170,7 @@ LeetCode
 |283|[Move-Zeroes](https://leetcode-cn.com/problems/move-zeroes/)| [C++](./cpp/Move-Zeroes/README.md), [Python](./python/Move-Zeroes/Move-Zeroes.py)|Easy|
 |287&clubs;|[Find-The-Duplicate-Number](https://leetcode-cn.com/problems/find-the-duplicate-number/)| [C++](./cpp/Find-The-Duplicate-Number/README.md), [Python](./python/Find-The-Duplicate-Number/Find-The-Duplicate-Number.py)|Medium|
 |289&clubs;|[Game-Of-Life](https://leetcode-cn.com/problems/game-of-life/)| [C++](./cpp/Game-Of-Life/README.md)|Medium|
+|290&clubs;|[Word-Pattern](https://leetcode-cn.com/problems/word-pattern/)| [C++](./cpp/Word-Pattern/README.md)|Easy|
 |295|[Find-Median-From-Data-Stream](https://leetcode-cn.com/problems/find-median-from-data-stream/)| [C++](./cpp/Find-Median-From-Data-Stream/README.md), [Python](./python/Find-Median-From-Data-Stream/Find-Median-From-Data-Stream.py)|Hard|
 |297&clubs;|[Serialize-And-Deserialize-Binary-Tree](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)| [C++](./cpp/Serialize-And-Deserialize-Binary-Tree/README.md), [Python](./python/Serialize-And-Deserialize-Binary-Tree/Serialize-And-Deserialize-Binary-Tree.py)|Hard|
 |300|[Longest-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)| [C++](./cpp/Longest-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Increasing-Subsequence/README.md)|Medium|
