@@ -228,7 +228,7 @@ LeetCode
 |695&clubs;|[Max-Area-Of-Island](https://leetcode-cn.com/problems/max-area-of-island/)| [C++](./cpp/Max-Area-Of-Island/README.md), [Python](./cpp/Max-Area-Of-Island/README.md)|Easy|
 |696&clubs;|[Count-Binary-Substrings](https://leetcode-cn.com/problems/count-binary-substrings/)| [C++](./cpp/Count-Binary-Substrings/README.md)|Easy|
 |704|[Binary-Search](https://leetcode-cn.com/problems/binary-search/)| [C++](https://bryceustc.github.io/2020/04/04/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/)|Easy|
-|714|[Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
+|714&clubs;|[Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
 |718&clubs;|[Maximum-Length-Of-Repeated-Subarray](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)| [C++](./cpp/Maximum-Length-Of-Repeated-Subarray/README.md)|Medium|
 |733&clubs;|[Flood-Fill](https://leetcode-cn.com/problems/flood-fill/)| [C++](./cpp/Flood-Fill/README.md)|Medium|
 |738&clubs;|[Monotone-Increasing-Digits](https://leetcode-cn.com/problems/monotone-increasing-digits/)| [C++](./cpp/MMonotone-Increasing-Digits/README.md)|Medium|
