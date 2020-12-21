@@ -235,6 +235,7 @@ LeetCode
 |733&clubs;|[Flood-Fill](https://leetcode-cn.com/problems/flood-fill/)| [C++](./cpp/Flood-Fill/README.md)|Medium|
 |738&clubs;|[Monotone-Increasing-Digits](https://leetcode-cn.com/problems/monotone-increasing-digits/)| [C++](./cpp/MMonotone-Increasing-Digits/README.md)|Medium|
 |739|[Daily-Temperatures](https://leetcode-cn.com/problems/daily-temperatures/)| [C++](./cpp/Daily-Temperatures/README.md), [Python](./cpp/Daily-Temperatures/README.md)|Medium|
+|746&clubs;|[Min-Cost-Climbing-Stairs](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)| [C++](./cpp/in-Cost-Climbing-Stairs/README.md)|Medium|
 |771&clubs;|[Jewels-And-Stones](https://leetcode-cn.com/problems/jewels-and-stones/)| [C++](./cpp/Jewels-And-Stones/README.md)|Easy|
 |785&clubs;|[Is-Graph-Bipartite](https://leetcode-cn.com/problems/is-graph-bipartite/)| [C++](./cpp/Is-Graph-Bipartite/README.md)|Medium|
 |796|[Rotate-String](https://leetcode-cn.com/problems/rotate-string/)| [C++](./cpp/Rotate-String/README.md), [Python](./python/Rotate-String/Rotate-String.py)|Easy|
