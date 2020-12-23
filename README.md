@@ -190,7 +190,7 @@ LeetCode
 |374|[Guess-Number-Higher-Or-Lower](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)| [C++](./cpp/Guess-Number-Higher-Or-Lower/README.md)|Easy|
 |376&clubs;|[Wiggle-Subsequence](https://leetcode-cn.com/problems/wiggle-subsequence/)| [C++](./cpp/Wiggle-Subsequence/README.md)|Medium|
 |378&clubs;|[Kth-Smallest-Element-In-A-Sorted-Matrix](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/)| [C++](./cpp/Kth-Smallest-Element-In-A-Sorted-Matrix/README.md)|Medium|
-|387|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
+|387&clubs;|[First-Unique-Character-In-A-String](https://leetcode-cn.com/problems/first-unique-character-in-a-string/)| [C++](./cpp/First-Unique-Character-In-A-String/README.md), [Python](./python/First-Unique-Character-In-A-String/First-Unique-Character-In-A-String.py)|Easy|
 |389&clubs;|[Find-The-Difference](https://leetcode-cn.com/problems/find-the-difference/)| [C++](./cpp/Find-The-Difference/README.md)|Easy|
 |394&clubs;|[Decode-String](https://leetcode-cn.com/problems/decode-string/)| [C++](./cpp/Decode-String/README.md)|Medium|
 |400|[Nth-Digit](https://leetcode-cn.com/problems/nth-digit/)| [C++](https://github.com/bryceustc/CodingInterviews/blob/master/FindNthDigit/README.md), [Python](./python/Nth-Digit/Nth-Digit.py)|Meidum|
