@@ -32,11 +32,13 @@ public:
         if (n == 0 || m == 0) return res;
         sort(g.begin(), g.end());
         sort(s.begin(), s.end());
-        int j = 0;
-        for (int i = 0; i < m; i++) {
-            while(j < n && s[j] < g[i]) j++;
-            if (j != n) {j++;res++;}
-            if (j == n) break;
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (s[j] >= g[i]) {
+                res++;
+                i++;
+            }
+            j++;
         }
         return res;
     }
