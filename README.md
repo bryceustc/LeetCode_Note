@@ -266,7 +266,7 @@ LeetCode
 |1014&clubs;|[Best-Sightseeing-Pair](https://leetcode-cn.com/problems/best-sightseeing-pair/)| [C++](./cpp/Best-Sightseeing-Pair/README.md)|Medium|
 |1025&clubs;|[Divisor-Game](https://leetcode-cn.com/problems/divisor-game/)| [C++](./cpp/Divisor-Game/README.md)|Easy|
 |1028&clubs;|[Recover-A-Tree-From-Preorder-Traversal](https://leetcode-cn.com/problems/recover-a-tree-from-preorder-traversal/)| [C++](./cpp/Recover-A-Tree-From-Preorder-Traversal/README.md)|Hard|
-|1046|[Last-Stone-Weight](https://leetcode-cn.com/problems/last-stone-weight/)| [C++](./cpp/Last-Stone-Weight/README.md), [Python](./cpp/Last-Stone-Weight/README.md)|Easy|
+|1046&clubs;|[Last-Stone-Weight](https://leetcode-cn.com/problems/last-stone-weight/)| [C++](./cpp/Last-Stone-Weight/README.md), [Python](./cpp/Last-Stone-Weight/README.md)|Easy|
 |1049|[Last-Stone-Weight-II](https://leetcode-cn.com/problems/last-stone-weight-ii/)| [C++](./cpp/Last-Stone-Weight-II/README.md), [Python](./cpp/Last-Stone-Weight-II/README.md)|Medium|
 |1071&clubs;|[Greatest-Common-Divisor-Of-Strings](https://leetcode-cn.com/problems/greatest-common-divisor-of-strings/)| [C++](./cpp/Greatest-Common-Divisor-Of-Strings/README.md), [Python](./cpp/Greatest-Common-Divisor-Of-Strings/README.md)|Easy|
 |1095&clubs;|[Find-In-Mountain-Array](https://leetcode-cn.com/problems/find-in-mountain-array/)| [C++](./cpp/Find-In-Mountain-Array/README.md)|Hard|
