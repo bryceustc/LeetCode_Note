@@ -223,6 +223,7 @@ LeetCode
 |563|[Binary-Tree-Tilt](https://leetcode-cn.com/problems/binary-tree-tilt/)| [C++](./cpp/Binary-Tree-Tilt/README.md)|Easy|
 |567|[Permutation-In-String](https://leetcode-cn.com/problems/permutation-in-string/)| [C++](./cpp/Permutation-In-String/README.md)|Medium|
 |572&clubs;|[Subtree-Of-Another-Tree](https://leetcode-cn.com/problems/subtree-of-another-tree/)| [C++](./cpp/Subtree-Of-Another-Tree/README.md)|Easy|
+|605&clubs;|[Can-Place-Flowers](https://leetcode-cn.com/problems/can-place-flowers/)| [C++](./cpp/Can-Place-Flowers/README.md)|Easy|
 |617&clubs;|[Merge-Two-Binary-Trees](https://leetcode-cn.com/problems/merge-two-binary-trees/)| [C++](./cpp/Merge-Two-Binary-Trees/README.md)|Easy|
 |621&clubs;|[Task-Scheduler](https://leetcode-cn.com/problems/task-scheduler/)| [C++](./cpp/Task-Scheduler/README.md)|Medium|
 |647&clubs;|[Palindromic-Substrings](https://leetcode-cn.com/problems/palindromic-substrings/)| [C++](./cpp/Palindromic-Substrings/README.md)|Medium|
