@@ -235,6 +235,7 @@ LeetCode
 |674|[Longest-Continuous-Increasing-Subsequence](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/)| [C++](./cpp/Longest-Continuous-Increasing-Subsequence/README.md), [Python](./cpp/Longest-Continuous-Increasing-Subsequence/README.md)|Easy|
 |695&clubs;|[Max-Area-Of-Island](https://leetcode-cn.com/problems/max-area-of-island/)| [C++](./cpp/Max-Area-Of-Island/README.md), [Python](./cpp/Max-Area-Of-Island/README.md)|Easy|
 |696&clubs;|[Count-Binary-Substrings](https://leetcode-cn.com/problems/count-binary-substrings/)| [C++](./cpp/Count-Binary-Substrings/README.md)|Easy|
+|703|[Kth-Largest-Element-In-A-Stream](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)| [C++](./cpp/Kth-Largest-Element-In-A-Stream/README.md)|Easy|
 |704|[Binary-Search](https://leetcode-cn.com/problems/binary-search/)| [C++](https://bryceustc.github.io/2020/04/04/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/)|Easy|
 |714&clubs;|[Best-Time-To-Buy-And-Sell-Stock-With-Transaction-Fee](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)| [C++](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md), [Python](./cpp/Best-Time-To-Buy-And-Sell-Stock-Series/README.md)|Medium|
 |718&clubs;|[Maximum-Length-Of-Repeated-Subarray](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/)| [C++](./cpp/Maximum-Length-Of-Repeated-Subarray/README.md)|Medium|
