@@ -76,7 +76,7 @@ public:
 };
 ```
 ### dp 二分法优化
-``c++
+```c++
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
