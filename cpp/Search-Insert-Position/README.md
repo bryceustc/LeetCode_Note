@@ -45,26 +45,24 @@
 # 代码
 
 ## [C++](./Search-Insert-Position.cpp):
-### 方法一：一次二分查（理解左边界含义）
+### 方法一：二分（二分模板，第一个大于等于target的位置）
 ```c++
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        if (nums.empty()) return 0;
         int n = nums.size();
-        int start = 0;
-        int end = n;
-        while (end>start)
-        {
-           int mid = start + (end-start)/2;
-           if (nums[mid]==target)
-              end = mid;
-           if (nums[mid]<target)
-              start = mid + 1;
-           if (nums[mid]>target)
-              end = mid;
+        int l = 0;
+        int r = n -1;
+        if (target > nums[n-1]) return n;
+        while (l < r) {
+            int mid = l + (r -l) / 2;
+            if (nums[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
         }
-        return start;
+        return l;
     }
 };
 ```
