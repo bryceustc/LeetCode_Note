@@ -94,25 +94,20 @@ class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
         if (intervals.empty()) return {};
-        int n = intervals.size();
-        vector<vector<int>> res;
-        vector<int> starts,ends;
-        for (int i=0;i<n;i++)
-        {
-            starts.push_back(intervals[i][0]);
-            ends.push_back(intervals[i][1]);
-        }
-        sort(starts.begin(),starts.end());
-        sort(ends.begin(),ends.end());
-        for (int i=0,j=0;i<n;i++)
-        {
-            if (i==n-1||starts[i+1]>ends[i])
-            {
-                res.push_back({starts[j],ends[i]});
-                j=i+1;
-            }
-        }
-        return res;
+        nums.push_back({l,r}) ;
+        sort(nums.begin(),nums.end()) ;                 //按左端点排序
+        int st=-2e9,ed=-2e9 ;                           //ed代表区间结尾，st代表区间开头
+        for(auto num:nums) {
+                if(ed<num.first)  {                          //情况1：两个区间无法合并
+                    if(ed!=-2e9) res.push_back({st,ed}) ;   //区间1放进res数组
+                    st=num.first,ed=num.second ;            //维护区间2
+                }
+                //情况2：两个区间可以合并，且区间1不包含区间2，区间2不包含区间1
+                else if(ed < num.second)  
+                    ed = num.second ;                         //区间合并
+            }  //(实际上也有情况3：区间1包含区间2，此时不需要任何操作，可以省略)
+        
+        if (st != -2e9) res.push_back({st, ed});
     }
 };
 ```
