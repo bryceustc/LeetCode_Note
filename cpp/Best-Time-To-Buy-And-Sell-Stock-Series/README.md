@@ -63,7 +63,6 @@ public:
         int n = prices.size();
         if (n<=1) return 0;
         vector<vector<int>> dp (n, vector<int> (2,0));
-        int res = 0;
         
         // 状态 dp[i][j] 表示：在索引为 i 的这一天，用户手上状态为 j 所获得的最大利润。
 
