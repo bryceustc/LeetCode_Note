@@ -1,4 +1,4 @@
-# 题目描述:  最大子序和
+# 题目描述:  最大子数组
 
 给定一个整数数组 ``nums`` ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 
@@ -19,6 +19,8 @@
   方法一：暴力求解，枚举每一个子序列的大小，记录下最大的和返回。
   
   方法二：动态规划，在整个数组或在固定大小的滑动窗口中找到总和或最大值或最小值的问题可以通过动态规划（dp）在线性时间内解决。构建一个动态数组vector<int> dp(n),dp[i]表示nums中以nums[i]结尾的最大子序和，dp[i] = max(dp[i-1]+nums[i],nums[i]),dp[i]要么是当前数字，要么是与前面的最大子序和的和。时间复杂度:O(n),空间复杂度O(n)(空间复杂度可优化为O(1))
+
+  方法二点五：利用前缀和，转换成为买卖股票的最佳时机。
   
   方法三：贪心算法，从左向右迭代，一个个数字加过去，如果sum<0,重新开始寻找子序列。时间复杂度O(n),空间复杂度O(1).
   
@@ -89,28 +91,21 @@ public:
 };
 ```
 
-
+### 方法二点五
 #### 空间复杂度O(1)
 ```c++
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums){
-        int res = nums[0];
-        int n = nums.size();
-        int sum = 0;
-        for (int i=0;i<n;i++)
-        {
-            if (sum>0)
-            {
-                sum+=nums[i];
-            }
-            else
-            {
-                sum = nums[i];
-            }
-            res = max(res,sum);
+    int maxSubArray(vector<int> &nums) {
+        int ans = INT_MIN;
+        int min_pre_sum = 0;
+        int pre_sum = 0;
+        for (int x : nums) {
+            pre_sum += x; // 当前的前缀和
+            ans = max(ans, pre_sum - min_pre_sum); // 减去前缀和的最小值
+            min_pre_sum = min(min_pre_sum, pre_sum); // 维护前缀和的最小值
         }
-        return res;
+        return ans;
     }
 };
 ```
