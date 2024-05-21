@@ -109,16 +109,15 @@ public:
 class Solution {
 public:
     void rotate(vector<vector<int>>& matrix) {
+        if (matrix.empty()) return;
         int n = matrix.size();
-        for (int i=0;i<n/2;i++)
-        {
-            for (int j=i;j<n-1-i;j++)
-            {
+        for (int i = 0; i < n / 2; i++) {
+            for (int j = 0; j < (n + 1) / 2; j++) {
                 int temp = matrix[i][j];
                 matrix[i][j] = matrix[n-1-j][i];
                 matrix[n-1-j][i] = matrix[n-1-i][n-1-j];
                 matrix[n-1-i][n-1-j] = matrix[j][n-1-i];
-                matrix[j][n-1-i] = temp;
+                matrix[j][n-1-i] = temp; 
             }
         }
     }
@@ -161,8 +160,8 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         n = len(matrix)
-        for i in range (n):
-            for j in range(i,n-1-i):
+        for i in range (n/2):
+            for j in range(0,(n+1)/2):
                 temp = matrix[i][j]
                 matrix[i][j] = matrix[n-1-j][i]
                 matrix[n-1-j][i] = matrix[n-1-i][n-1-j]
